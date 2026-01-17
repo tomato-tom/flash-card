@@ -1,0 +1,388 @@
+{
+  "games": [
+    {
+      "timestamp": "2026-01-18 01:34:09",
+      "word": "foo2lava-wrapper",
+      "input": "foo2lava-wrapper",
+      "time_taken": 7.518371847
+    },
+    {
+      "timestamp": "2026-01-18 01:34:12",
+      "word": "tldr",
+      "input": "tldr",
+      "time_taken": 2.322619256
+    },
+    {
+      "timestamp": "2026-01-18 01:34:17",
+      "word": "aplaymidi",
+      "input": "aplaymidi",
+      "time_taken": 4.080785393
+    },
+    {
+      "timestamp": "2026-01-18 01:34:22",
+      "word": "lvextend",
+      "input": "lvextend",
+      "time_taken": 3.871907899
+    },
+    {
+      "timestamp": "2026-01-18 01:34:26",
+      "word": "mpiexec",
+      "input": "mpiexec",
+      "time_taken": 3.627090480
+    },
+    {
+      "timestamp": "2026-01-18 01:34:30",
+      "word": "smproxy",
+      "input": "smproxy",
+      "time_taken": 3.731020987
+    },
+    {
+      "timestamp": "2026-01-18 01:34:34",
+      "word": "cupsd",
+      "input": "cupsd",
+      "time_taken": 2.610040925
+    },
+    {
+      "timestamp": "2026-01-18 01:34:37",
+      "word": "vdpa",
+      "input": "vdpa",
+      "time_taken": 2.345369728
+    },
+    {
+      "timestamp": "2026-01-18 01:34:41",
+      "word": "numfmt",
+      "input": "numfme",
+      "time_taken": 3.616239196
+    },
+    {
+      "timestamp": "2026-01-18 01:34:46",
+      "word": "bluetoothd",
+      "input": "bluetopthd",
+      "time_taken": 4.595951420
+    },
+    {
+      "timestamp": "2026-01-18 01:34:51",
+      "word": "rsync-ssl",
+      "input": "rsync-ssl",
+      "time_taken": 3.942327803
+    },
+    {
+      "timestamp": "2026-01-18 01:35:00",
+      "word": "fftw-wisdom-to-conf",
+      "input": "fftw-wisdom-to-conf",
+      "time_taken": 8.171964578
+    },
+    {
+      "timestamp": "2026-01-18 01:35:03",
+      "word": "diff3",
+      "input": "diff3",
+      "time_taken": 2.805302769
+    },
+    {
+      "timestamp": "2026-01-18 01:35:08",
+      "word": "mstmcra",
+      "input": "mstmcra",
+      "time_taken": 3.626625475
+    },
+    {
+      "timestamp": "2026-01-18 01:35:23",
+      "word": "x86_64-linux-gnu-size",
+      "input": "x86_64-linux-gnu-size",
+      "time_taken": 14.592777061
+    },
+    {
+      "timestamp": "2026-01-18 01:35:28",
+      "word": "mlxconfig",
+      "input": "mlxconfig",
+      "time_taken": 3.862889318
+    },
+    {
+      "timestamp": "2026-01-18 01:35:39",
+      "word": "systemd-tty-ask-password-agent",
+      "input": "systemd-tty-ask-password-agent",
+      "time_taken": 10.433718305
+    },
+    {
+      "timestamp": "2026-01-18 01:35:50",
+      "word": "ebtables-restore",
+      "input": "ebtalles-resotore",
+      "time_taken": 10.681654269
+    },
+    {
+      "timestamp": "2026-01-18 01:39:32",
+      "word": "broadwayd",
+      "input": "broadwayd",
+      "time_taken": 4.696856601
+    },
+    {
+      "timestamp": "2026-01-18 01:39:37",
+      "word": "vkcubepp",
+      "input": "vkcubepp",
+      "time_taken": 4.842624916
+    },
+    {
+      "timestamp": "2026-01-18 01:39:43",
+      "word": "sensible-editor",
+      "input": "sensible-editor",
+      "time_taken": 5.289861246
+    },
+    {
+      "timestamp": "2026-01-18 01:39:49",
+      "word": "e2label",
+      "input": "e2label",
+      "time_taken": 5.247219912
+    },
+    {
+      "timestamp": "2026-01-18 01:39:55",
+      "word": "mousetweaks",
+      "input": "mousetweaks",
+      "time_taken": 4.939929395
+    },
+    {
+      "timestamp": "2026-01-18 01:39:58",
+      "word": "ftp",
+      "input": "ftp",
+      "time_taken": 2.743465993
+    },
+    {
+      "timestamp": "2026-01-18 02:54:10",
+      "word": "mpicc",
+      "input": "mpicc",
+      "time_taken": 2.695108555
+    },
+    {
+      "timestamp": "2026-01-18 02:54:19",
+      "word": "dpkg-scansources",
+      "input": "dpkg-scansources",
+      "time_taken": 7.785675108
+    },
+    {
+      "timestamp": "2026-01-18 02:54:25",
+      "word": "showconsolefont",
+      "input": "showconsolefont",
+      "time_taken": 5.193011298
+    },
+    {
+      "timestamp": "2026-01-18 02:54:28",
+      "word": "evim",
+      "input": "evim",
+      "time_taken": 2.786687943
+    },
+    {
+      "timestamp": "2026-01-18 02:54:32",
+      "word": "gcc-13",
+      "input": "gcc-13",
+      "time_taken": 3.563314455
+    },
+    {
+      "timestamp": "2026-01-18 02:54:37",
+      "word": "ps2txt",
+      "input": "ps2txt",
+      "time_taken": 3.969768978
+    },
+    {
+      "timestamp": "2026-01-18 02:54:41",
+      "word": "iwspy",
+      "input": "iwspy",
+      "time_taken": 3.338018293
+    },
+    {
+      "timestamp": "2026-01-18 02:54:46",
+      "word": "gdbtui",
+      "input": "gdbtui",
+      "time_taken": 4.241523612
+    },
+    {
+      "timestamp": "2026-01-18 02:54:53",
+      "word": "cobjnew-bpfcc",
+      "input": "cobjnew-bpfcc",
+      "time_taken": 6.151557852
+    },
+    {
+      "timestamp": "2026-01-18 02:54:57",
+      "word": "lzegrep",
+      "input": "lzegrep",
+      "time_taken": 3.736126067
+    },
+    {
+      "timestamp": "2026-01-18 02:55:03",
+      "word": "mlxfwstress",
+      "input": "mlxfwstress",
+      "time_taken": 4.842639061
+    },
+    {
+      "timestamp": "2026-01-18 02:55:16",
+      "word": "x86_64-linux-gnu-gcc-ar-13",
+      "input": "x86_64-linux-gnu-gcc-ar-13",
+      "time_taken": 12.320535986
+    },
+    {
+      "timestamp": "2026-01-18 02:55:22",
+      "word": "slxdecode",
+      "input": "slxdecode",
+      "time_taken": 4.896700207
+    },
+    {
+      "timestamp": "2026-01-18 02:55:30",
+      "word": "pw-midirecord",
+      "input": "pw-midirecord",
+      "time_taken": 7.758768258
+    },
+    {
+      "timestamp": "2026-01-18 02:55:35",
+      "word": "switch_root",
+      "input": "switch_root",
+      "time_taken": 4.389118586
+    },
+    {
+      "timestamp": "2026-01-18 02:55:44",
+      "word": "nvjtag_discovery",
+      "input": "nvjtag_discovery",
+      "time_taken": 8.042062217
+    },
+    {
+      "timestamp": "2026-01-18 02:55:49",
+      "word": "ldattach",
+      "input": "ldattach",
+      "time_taken": 4.176918097
+    },
+    {
+      "timestamp": "2026-01-18 02:55:53",
+      "word": "uthreads",
+      "input": "uthreads",
+      "time_taken": 3.535272317
+    },
+    {
+      "timestamp": "2026-01-18 02:55:58",
+      "word": "dimax_init",
+      "input": "dimax_init",
+      "time_taken": 4.249714319
+    },
+    {
+      "timestamp": "2026-01-18 02:56:01",
+      "word": "mandb",
+      "input": "mandb",
+      "time_taken": 2.538743570
+    },
+    {
+      "timestamp": "2026-01-18 02:56:09",
+      "word": "ncurses6-config",
+      "input": "ncurses6-config",
+      "time_taken": 6.737152010
+    },
+    {
+      "timestamp": "2026-01-18 02:56:14",
+      "word": "eps2eps",
+      "input": "eps2eps",
+      "time_taken": 4.010839357
+    },
+    {
+      "timestamp": "2026-01-18 02:56:20",
+      "word": "ntfsresize",
+      "input": "nftsresize",
+      "time_taken": 5.400761093
+    },
+    {
+      "timestamp": "2026-01-18 02:56:24",
+      "word": "localedef",
+      "input": "localedef",
+      "time_taken": 3.714247507
+    },
+    {
+      "timestamp": "2026-01-18 02:56:30",
+      "word": "mstmtserver",
+      "input": "mstmtserver",
+      "time_taken": 4.930899453
+    },
+    {
+      "timestamp": "2026-01-18 02:56:35",
+      "word": "bdftopcf",
+      "input": "bdftopcf",
+      "time_taken": 4.169380053
+    },
+    {
+      "timestamp": "2026-01-18 02:56:40",
+      "word": "fusermount",
+      "input": "fusermount",
+      "time_taken": 4.866092135
+    },
+    {
+      "timestamp": "2026-01-18 02:56:47",
+      "word": "instmodsh",
+      "input": "instmodsh",
+      "time_taken": 6.193761637
+    },
+    {
+      "timestamp": "2026-01-18 02:56:56",
+      "word": "biolatency-bpfcc",
+      "input": "biolatency-bpfcc",
+      "time_taken": 8.585235088
+    },
+    {
+      "timestamp": "2026-01-18 02:57:13",
+      "word": "amd_hdmi_compliance",
+      "input": "amdPhdmi_compliance",
+      "time_taken": 16.343246923
+    },
+    {
+      "timestamp": "2026-01-18 02:57:34",
+      "word": "acpiexec",
+      "input": "acpiexec",
+      "time_taken": 19.936232292
+    },
+    {
+      "timestamp": "2026-01-18 02:57:39",
+      "word": "linux32",
+      "input": "linux32",
+      "time_taken": 3.895932999
+    },
+    {
+      "timestamp": "2026-01-18 02:57:43",
+      "word": "numactl",
+      "input": "numactl",
+      "time_taken": 3.460384107
+    },
+    {
+      "timestamp": "2026-01-18 02:57:49",
+      "word": "arptables-save",
+      "input": "arptables-save",
+      "time_taken": 5.407685888
+    },
+    {
+      "timestamp": "2026-01-18 02:57:54",
+      "word": "vgreduce",
+      "input": "vgreduce",
+      "time_taken": 4.224697510
+    },
+    {
+      "timestamp": "2026-01-18 02:57:57",
+      "word": "eview",
+      "input": "eview",
+      "time_taken": 2.744707838
+    },
+    {
+      "timestamp": "2026-01-18 02:58:01",
+      "word": "seq",
+      "input": "seq",
+      "time_taken": 2.609240133
+    },
+    {
+      "timestamp": "2026-01-18 02:58:09",
+      "word": "ncurses6-config",
+      "input": "ncurses6-config",
+      "time_taken": 7.424430503
+    },
+    {
+      "timestamp": "2026-01-18 02:58:13",
+      "word": "getconf",
+      "input": "getconf",
+      "time_taken": 3.433906173
+    },
+    {
+      "timestamp": "2026-01-18 02:58:20",
+      "word": "pwhistory_helper",
+      "input": "pwhistory_helper",
+      "time_taken": 6.445819319
+    }
+  ]
+}
