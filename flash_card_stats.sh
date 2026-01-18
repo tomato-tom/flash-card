@@ -1,5 +1,6 @@
 #!/bin/bash
-JSON_FILE="data.json"
+# flash card stats
+JSON_FILE="flash_card_data.json"
 #JSON_FILE="test_data.json"
 
 # オプション解析
@@ -47,6 +48,7 @@ jq -r --arg period "$period" '
   end |
   
   # 統計計算
+  # ここをfラッシュカード用に編集
   . as $games |
   ($games | map(select(.input == .word))) as $correct_games |
   
@@ -57,7 +59,7 @@ jq -r --arg period "$period" '
   (if $total_time > 0 then $total_chars / $total_time else 0 end) as $chars_per_sec |
   
   # 出力
-  "=== ゲーム統計 (\(
+  "=== タイピング・ゲーム統計 (\(
     if $period == "today" then "今日"
     elif $period == "weekly" then "今週"
     elif $period == "monthly" then "今月"
