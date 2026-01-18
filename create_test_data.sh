@@ -126,5 +126,4 @@ else
     echo ""
     echo "元の data.json は保持されます"
     echo "テスト用: cp test_data.json data.json"
-    echo "元に戻す: cp backup.json data.json (必要に応じてバックアップを取ってください)"
 fi

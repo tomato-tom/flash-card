@@ -383,6 +383,606 @@
       "word": "pwhistory_helper",
       "input": "pwhistory_helper",
       "time_taken": 6.445819319
+    },
+    {
+      "timestamp": "2026-01-18 21:00:12",
+      "word": "brctl",
+      "input": "brctl",
+      "time_taken": 2.914417385
+    },
+    {
+      "timestamp": "2026-01-18 21:00:25",
+      "word": "software-properties-gtk",
+      "input": "software-properties-gtk",
+      "time_taken": 11.837911794
+    },
+    {
+      "timestamp": "2026-01-18 21:00:28",
+      "word": "rg",
+      "input": "rg",
+      "time_taken": 2.672971906
+    },
+    {
+      "timestamp": "2026-01-18 21:00:34",
+      "word": "e2mmpstatus",
+      "input": "e2mmpstatus",
+      "time_taken": 5.213217691
+    },
+    {
+      "timestamp": "2026-01-18 21:00:37",
+      "word": "tree",
+      "input": "tree",
+      "time_taken": 2.007832329
+    },
+    {
+      "timestamp": "2026-01-18 21:00:47",
+      "word": "update-smart-drivedb",
+      "input": "update-smart-drivedb",
+      "time_taken": 9.740665816
+    },
+    {
+      "timestamp": "2026-01-18 21:00:55",
+      "word": "ip6tables-save",
+      "input": "ip6tables-save",
+      "time_taken": 6.601978399
+    },
+    {
+      "timestamp": "2026-01-18 21:01:00",
+      "word": "uobjnew",
+      "input": "uobjnew",
+      "time_taken": 4.256843021
+    },
+    {
+      "timestamp": "2026-01-18 21:01:04",
+      "word": "pvcreate",
+      "input": "pvcreate",
+      "time_taken": 3.786869017
+    },
+    {
+      "timestamp": "2026-01-18 21:01:09",
+      "word": "taskset",
+      "input": "taskset",
+      "time_taken": 3.769996540
+    },
+    {
+      "timestamp": "2026-01-18 21:01:13",
+      "word": "qmicli",
+      "input": "qmicli",
+      "time_taken": 3.339470866
+    },
+    {
+      "timestamp": "2026-01-18 21:01:15",
+      "word": "red",
+      "input": "red",
+      "time_taken": 1.729898253
+    },
+    {
+      "timestamp": "2026-01-18 21:01:18",
+      "word": "red",
+      "input": "red",
+      "time_taken": 1.820688624
+    },
+    {
+      "timestamp": "2026-01-18 21:01:23",
+      "word": "python3-config",
+      "input": "python3-config",
+      "time_taken": 4.912608456
+    },
+    {
+      "timestamp": "2026-01-18 21:01:26",
+      "word": "lsblk",
+      "input": "lsblk",
+      "time_taken": 2.072496620
+    },
+    {
+      "timestamp": "2026-01-18 21:01:31",
+      "word": "file2brl",
+      "input": "file2brl",
+      "time_taken": 4.532159534
+    },
+    {
+      "timestamp": "2026-01-18 21:01:40",
+      "word": "shmsnoop-bpfcc",
+      "input": "shmsnoop-bpfcc",
+      "time_taken": 7.639401082
+    },
+    {
+      "timestamp": "2026-01-18 21:01:43",
+      "word": "lpinfo",
+      "input": "ipinfo",
+      "time_taken": 2.804482586
+    },
+    {
+      "timestamp": "2026-01-18 21:01:47",
+      "word": "xedit",
+      "input": "xedit",
+      "time_taken": 3.043705677
+    },
+    {
+      "timestamp": "2026-01-18 21:01:50",
+      "word": "ranlib",
+      "input": "ranlib",
+      "time_taken": 2.868993873
+    },
+    {
+      "timestamp": "2026-01-18 21:01:56",
+      "word": "pcre2-config",
+      "input": "pcre2-config",
+      "time_taken": 5.002235302
+    },
+    {
+      "timestamp": "2026-01-18 21:02:05",
+      "word": "intel_panel_fitter",
+      "input": "intel_panel_fitter",
+      "time_taken": 8.322575624
+    },
+    {
+      "timestamp": "2026-01-18 21:02:11",
+      "word": "spd-say",
+      "input": "spd-say",
+      "time_taken": 4.577196697
+    },
+    {
+      "timestamp": "2026-01-18 21:02:15",
+      "word": "funzip",
+      "input": "funzip",
+      "time_taken": 3.253191863
+    },
+    {
+      "timestamp": "2026-01-18 21:02:24",
+      "word": "bdftruncate",
+      "input": "bdftruncate",
+      "time_taken": 8.467057177
+    },
+    {
+      "timestamp": "2026-01-18 21:02:27",
+      "word": "ugc",
+      "input": "ugc",
+      "time_taken": 2.412169890
+    },
+    {
+      "timestamp": "2026-01-18 21:02:30",
+      "word": "rtstat",
+      "input": "rtstat",
+      "time_taken": 2.802184973
+    },
+    {
+      "timestamp": "2026-01-18 21:02:37",
+      "word": "virt-ssh-helper",
+      "input": "virt-ssh-helper",
+      "time_taken": 5.594208932
+    },
+    {
+      "timestamp": "2026-01-18 21:02:40",
+      "word": "gted",
+      "input": "gted",
+      "time_taken": 2.910564179
+    },
+    {
+      "timestamp": "2026-01-18 21:02:46",
+      "word": "opal_wrapper",
+      "input": "opal_wrapper",
+      "time_taken": 4.974852902
+    },
+    {
+      "timestamp": "2026-01-18 21:02:50",
+      "word": "l2ping",
+      "input": "l2ping",
+      "time_taken": 3.501313681
+    },
+    {
+      "timestamp": "2026-01-18 21:02:54",
+      "word": "ranlib",
+      "input": "ranlib",
+      "time_taken": 2.571253099
+    },
+    {
+      "timestamp": "2026-01-18 21:02:59",
+      "word": "ddstdecode",
+      "input": "ddstdecode",
+      "time_taken": 5.041010686
+    },
+    {
+      "timestamp": "2026-01-18 21:03:03",
+      "word": "lastb",
+      "input": "lastb",
+      "time_taken": 3.236710881
+    },
+    {
+      "timestamp": "2026-01-18 21:03:07",
+      "word": "tbl",
+      "input": "tbl",
+      "time_taken": 2.570768082
+    },
+    {
+      "timestamp": "2026-01-18 21:03:10",
+      "word": "deluser",
+      "input": "deluser",
+      "time_taken": 2.807504504
+    },
+    {
+      "timestamp": "2026-01-18 21:03:14",
+      "word": "rctest",
+      "input": "rctest",
+      "time_taken": 2.780943438
+    },
+    {
+      "timestamp": "2026-01-18 21:03:18",
+      "word": "gnome-help",
+      "input": "gnome-help",
+      "time_taken": 4.154362171
+    },
+    {
+      "timestamp": "2026-01-18 21:03:27",
+      "word": "bashreadline-bpfcc",
+      "input": "bashreadline-bpfcc",
+      "time_taken": 8.007665753
+    },
+    {
+      "timestamp": "2026-01-18 21:03:31",
+      "word": "hcitool",
+      "input": "hcitool",
+      "time_taken": 3.121353219
+    },
+    {
+      "timestamp": "2026-01-18 21:03:40",
+      "word": "glib-compile-schemas",
+      "input": "glib-compile-schemas",
+      "time_taken": 8.140004724
+    },
+    {
+      "timestamp": "2026-01-18 21:03:47",
+      "word": "stackcount-bpfcc",
+      "input": "stackcount-bpfcc",
+      "time_taken": 6.728946074
+    },
+    {
+      "timestamp": "2026-01-18 21:03:51",
+      "word": "pvremove",
+      "input": "pvremove",
+      "time_taken": 3.336892444
+    },
+    {
+      "timestamp": "2026-01-18 21:03:57",
+      "word": "dosfslabel",
+      "input": "dosfslabel",
+      "time_taken": 5.452984804
+    },
+    {
+      "timestamp": "2026-01-18 21:04:00",
+      "word": "mkfs",
+      "input": "mkfs",
+      "time_taken": 2.170976342
+    },
+    {
+      "timestamp": "2026-01-18 21:04:05",
+      "word": "setupcon",
+      "input": "setupcon",
+      "time_taken": 3.467703180
+    },
+    {
+      "timestamp": "2026-01-18 21:04:09",
+      "word": "gvimdiff",
+      "input": "gvimdiff",
+      "time_taken": 4.101108733
+    },
+    {
+      "timestamp": "2026-01-18 21:04:17",
+      "word": "intel_gvtg_test",
+      "input": "initel_gvtg_test",
+      "time_taken": 7.292580102
+    },
+    {
+      "timestamp": "2026-01-18 21:04:23",
+      "word": "ghostscript",
+      "input": "ghostscript",
+      "time_taken": 4.948458656
+    },
+    {
+      "timestamp": "2026-01-18 21:04:27",
+      "word": "pdb3",
+      "input": "pdb3",
+      "time_taken": 2.913032249
+    },
+    {
+      "timestamp": "2026-01-18 21:04:31",
+      "word": "lvcreate",
+      "input": "lvcreate",
+      "time_taken": 3.629256888
+    },
+    {
+      "timestamp": "2026-01-18 21:04:39",
+      "word": "ubuntu-security-status",
+      "input": "ubuntu-security-status",
+      "time_taken": 7.732079144
+    },
+    {
+      "timestamp": "2026-01-18 21:04:42",
+      "word": "id",
+      "input": "id",
+      "time_taken": 1.844078155
+    },
+    {
+      "timestamp": "2026-01-18 21:04:47",
+      "word": "getopt",
+      "input": "getopt",
+      "time_taken": 4.193385561
+    },
+    {
+      "timestamp": "2026-01-18 21:04:53",
+      "word": "cupsreject",
+      "input": "cupsreject",
+      "time_taken": 5.698964874
+    },
+    {
+      "timestamp": "2026-01-18 21:04:58",
+      "word": "pldd",
+      "input": "pldd",
+      "time_taken": 3.488834218
+    },
+    {
+      "timestamp": "2026-01-18 21:05:01",
+      "word": "inspect",
+      "input": "inspect",
+      "time_taken": 2.910630024
+    },
+    {
+      "timestamp": "2026-01-18 21:05:07",
+      "word": "ompi_info",
+      "input": "ompi_info",
+      "time_taken": 4.672819479
+    },
+    {
+      "timestamp": "2026-01-18 21:05:09",
+      "word": "ls",
+      "input": "ls",
+      "time_taken": 1.216633315
+    },
+    {
+      "timestamp": "2026-01-18 21:05:13",
+      "word": "intel_gtt",
+      "input": "intel_gtt",
+      "time_taken": 3.905586248
+    },
+    {
+      "timestamp": "2026-01-18 21:05:20",
+      "word": "gnome-session-quit",
+      "input": "gnome-session-quit",
+      "time_taken": 6.308440675
+    },
+    {
+      "timestamp": "2026-01-18 21:05:29",
+      "word": "ip6tables-nft-save",
+      "input": "ip6tables-nft-save",
+      "time_taken": 8.305846833
+    },
+    {
+      "timestamp": "2026-01-18 21:05:32",
+      "word": "vi",
+      "input": "vi",
+      "time_taken": 1.754463012
+    },
+    {
+      "timestamp": "2026-01-18 21:05:36",
+      "word": "vgreduce",
+      "input": "vgreduce",
+      "time_taken": 3.572685430
+    },
+    {
+      "timestamp": "2026-01-18 21:05:41",
+      "word": "resizecons",
+      "input": "resizecons",
+      "time_taken": 4.056020870
+    },
+    {
+      "timestamp": "2026-01-18 21:05:44",
+      "word": "mmcli",
+      "input": "mmcli",
+      "time_taken": 2.642533833
+    },
+    {
+      "timestamp": "2026-01-18 21:05:53",
+      "word": "ebtables-nft-restore",
+      "input": "ebtables-ndt-restore",
+      "time_taken": 8.442360367
+    },
+    {
+      "timestamp": "2026-01-18 21:05:59",
+      "word": "grub-macbless",
+      "input": "grub-macbless",
+      "time_taken": 5.138709021
+    },
+    {
+      "timestamp": "2026-01-18 21:06:08",
+      "word": "funccount-bpfcc",
+      "input": "fuccount-bpfcc",
+      "time_taken": 7.867141126
+    },
+    {
+      "timestamp": "2026-01-18 21:06:11",
+      "word": "vimdiff",
+      "input": "vimdiff",
+      "time_taken": 2.752332333
+    },
+    {
+      "timestamp": "2026-01-18 21:06:15",
+      "word": "wdctl",
+      "input": "wdctl",
+      "time_taken": 2.793535582
+    },
+    {
+      "timestamp": "2026-01-18 21:06:20",
+      "word": "setvtrgb",
+      "input": "setvtrgb",
+      "time_taken": 4.817872674
+    },
+    {
+      "timestamp": "2026-01-18 21:06:25",
+      "word": "unexpand",
+      "input": "unexpand",
+      "time_taken": 3.889257643
+    },
+    {
+      "timestamp": "2026-01-18 21:06:30",
+      "word": "fonttosfnt",
+      "input": "fonttostnt",
+      "time_taken": 4.586693558
+    },
+    {
+      "timestamp": "2026-01-18 21:06:34",
+      "word": "mstvpd",
+      "input": "mstvpd",
+      "time_taken": 3.386852266
+    },
+    {
+      "timestamp": "2026-01-18 21:06:37",
+      "word": "plog",
+      "input": "plog",
+      "time_taken": 2.067837546
+    },
+    {
+      "timestamp": "2026-01-18 21:06:41",
+      "word": "sfdisk",
+      "input": "sfdisk",
+      "time_taken": 2.884494541
+    },
+    {
+      "timestamp": "2026-01-18 21:06:43",
+      "word": "fzf",
+      "input": "fzf",
+      "time_taken": 1.914683649
+    },
+    {
+      "timestamp": "2026-01-18 21:06:48",
+      "word": "objdump",
+      "input": "objdump",
+      "time_taken": 4.257667840
+    },
+    {
+      "timestamp": "2026-01-18 21:06:55",
+      "word": "iptables-translate",
+      "input": "iptables-translate",
+      "time_taken": 5.843058631
+    },
+    {
+      "timestamp": "2026-01-18 21:06:59",
+      "word": "qvlc",
+      "input": "qvlc",
+      "time_taken": 3.380064813
+    },
+    {
+      "timestamp": "2026-01-18 21:07:05",
+      "word": "unlink",
+      "input": "unlink",
+      "time_taken": 5.021084355
+    },
+    {
+      "timestamp": "2026-01-18 21:07:08",
+      "word": "grops",
+      "input": "grops",
+      "time_taken": 2.900836430
+    },
+    {
+      "timestamp": "2026-01-18 21:07:16",
+      "word": "ibus-table-createdb",
+      "input": "ibus-table-createdb",
+      "time_taken": 7.475675857
+    },
+    {
+      "timestamp": "2026-01-18 21:07:24",
+      "word": "stackcount-bpfcc",
+      "input": "stackcount-bpfcc",
+      "time_taken": 6.703927513
+    },
+    {
+      "timestamp": "2026-01-18 21:07:28",
+      "word": "eatmydata",
+      "input": "eatmydate",
+      "time_taken": 3.565442413
+    },
+    {
+      "timestamp": "2026-01-18 21:07:33",
+      "word": "iwpriv",
+      "input": "iwpriv",
+      "time_taken": 3.684110960
+    },
+    {
+      "timestamp": "2026-01-18 21:07:35",
+      "word": "mv",
+      "input": "mv",
+      "time_taken": 1.623793948
+    },
+    {
+      "timestamp": "2026-01-18 21:24:08",
+      "word": "pwconv",
+      "input": "pwconv",
+      "time_taken": 3.956702290
+    },
+    {
+      "timestamp": "2026-01-18 21:24:19",
+      "word": "intel_opregion_decode",
+      "input": "intel_opregion_decode",
+      "time_taken": 9.846539476
+    },
+    {
+      "timestamp": "2026-01-18 21:27:41",
+      "word": "ldapmodify",
+      "input": "ldapmodify",
+      "time_taken": 5.516594129
+    },
+    {
+      "timestamp": "2026-01-18 21:27:45",
+      "word": "lsattr",
+      "input": "lsattr",
+      "time_taken": 3.189348288
+    },
+    {
+      "timestamp": "2026-01-18 21:27:52",
+      "word": "foo2zjs-pstops",
+      "input": "foo2zjs-pstops",
+      "time_taken": 6.882895139
+    },
+    {
+      "timestamp": "2026-01-18 21:27:58",
+      "word": "gnome-keyring",
+      "input": "gnome-keyring",
+      "time_taken": 4.994344482
+    },
+    {
+      "timestamp": "2026-01-18 21:28:06",
+      "word": "btrfsdist-bpfcc",
+      "input": "btrfsdist-bpfcc",
+      "time_taken": 6.979482383
+    },
+    {
+      "timestamp": "2026-01-18 21:28:13",
+      "word": "p11-kit",
+      "input": "pll-kit",
+      "time_taken": 6.202804358
+    },
+    {
+      "timestamp": "2026-01-18 21:28:18",
+      "word": "lto-dump",
+      "input": "lto-dump",
+      "time_taken": 4.632427539
+    },
+    {
+      "timestamp": "2026-01-18 21:28:27",
+      "word": "egltri_wayland",
+      "input": "egltri_wayland",
+      "time_taken": 7.617307300
+    },
+    {
+      "timestamp": "2026-01-18 21:28:33",
+      "word": "glib-mkenums",
+      "input": "glib-mkenums",
+      "time_taken": 5.329206815
+    },
+    {
+      "timestamp": "2026-01-18 21:28:38",
+      "word": "gcov-13",
+      "input": "gcov-13",
+      "time_taken": 4.960775919
     }
   ]
 }

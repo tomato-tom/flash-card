@@ -6,10 +6,9 @@ tput sc
 # JSONファイル
 JSON_FILE="data.json"
 
-if [ ! -f "$JSON_FILE" ] || [ -z $(cat "$JSON_FILE") ]; then
+if [ ! -f "$JSON_FILE" ] || [ ! -s "$JSON_FILE" ]; then
     echo '{"games":[]}' > "$JSON_FILE"
 fi
-
 
 # ゲーム結果を追加
 log_game() {
@@ -24,7 +23,7 @@ log_game() {
        --argjson time_taken "$time_taken" \
        '.games += [{
            timestamp: $timestamp,
-           word: $word,
+           word: $word
            input: $input,
            time_taken: $time_taken
        }]' "$JSON_FILE" > "${JSON_FILE}.tmp" && mv "${JSON_FILE}.tmp" "$JSON_FILE"
@@ -34,7 +33,12 @@ log_game() {
 word_list=($(ls /usr/bin | grep -E '^[a-zA-Z0-9_-]+$'))
 word_list+=($(ls /usr/sbin | grep -E '^[a-zA-Z0-9_-]+$'))
 echo "words: ${#word_list[@]}"
-echo
+echo -e "\n\033[1;35mPress ANY KEY to start...\033[0m"
+read -rsn1
+
+echo "Start typing game..."
+echo "Ctrl-c to stop"
+sleep 0.8
 
 while :; do
     index=$((RANDOM % ${#word_list[@]}))
