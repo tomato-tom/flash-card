@@ -48,15 +48,35 @@ tput civis          # カーソルを非表示
 tput cnorm          # カーソルを表示
 ```
 
-`tput cup ROW COL`で移動する位置を変数に入れとく
+### tputにない機能
+
+おそらくtput標準では無い機能で、tputと合わせて使いそうな
 ```
+# 現在位置取得
 get_pos() {
     IFS=';' read -sdR -p $'\E[6n' row col
     echo "${row#*[} ${col}"
 }
 read row col < <(get_pos)
 echo "Row: $row, Col: $col"
+
+# 相対移動
+cursor_up() { printf '\033[%sA' "${1:-1}"; }
+cursor_down() { printf '\033[%sB' "${1:-1}"; }
+cursor_right() { printf '\033[%sC' "${1:-1"; }
+cursor_left() { printf '\033[%sD' "${1:-1}"; }
+
+# 使用例
+read row col < <(get_pos)
+
+## 可能ならばカーソルを上に移動
+[ row -eq 1 ] || cursor_up
+
+## 可能な範囲でカーソルを上に移動
+rows=3
+[ $row -ge $rows ] && cursor_up $rows || tput cup 1 $col
 ```
+
 
 ### 4. 端末情報の取得
 ```bash
