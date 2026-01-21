@@ -983,6 +983,1218 @@
       "word": "gcov-13",
       "input": "gcov-13",
       "time_taken": 4.960775919
+    },
+    {
+      "timestamp": "2026-01-21 04:51:21",
+      "word": "chroot",
+      "input": "chroot",
+      "time_taken": 2.421085671
+    },
+    {
+      "timestamp": "2026-01-21 04:51:26",
+      "word": "bsmtp",
+      "input": "bsmtp",
+      "time_taken": 3.380131432
+    },
+    {
+      "timestamp": "2026-01-21 04:51:37",
+      "word": "gdk-pixbuf-thumbnailer",
+      "input": "gdk-pixbuf-thumbnailer",
+      "time_taken": 10.219453312
+    },
+    {
+      "timestamp": "2026-01-21 04:51:40",
+      "word": "logger",
+      "input": "logger",
+      "time_taken": 2.245391443
+    },
+    {
+      "timestamp": "2026-01-21 04:51:44",
+      "word": "hostid",
+      "input": "hostid",
+      "time_taken": 2.579501058
+    },
+    {
+      "timestamp": "2026-01-21 04:51:59",
+      "word": "x86_64-linux-gnu-gcov-13",
+      "input": "x86_64-linux-gnu-gcov-13",
+      "time_taken": 13.791554465
+    },
+    {
+      "timestamp": "2026-01-21 04:52:03",
+      "word": "xprop",
+      "input": "xprop",
+      "time_taken": 3.163425202
+    },
+    {
+      "timestamp": "2026-01-21 04:52:21",
+      "word": "python-argcomplete-check-easy-install-script",
+      "input": "python-argcomplete-check-easy-install-script",
+      "time_taken": 17.058896536
+    },
+    {
+      "timestamp": "2026-01-21 04:52:28",
+      "word": "tracker3-help",
+      "input": "tracker3-help",
+      "time_taken": 6.396467402
+    },
+    {
+      "timestamp": "2026-01-21 04:52:33",
+      "word": "cpp-13",
+      "input": "cpp-13",
+      "time_taken": 3.210477750
+    },
+    {
+      "timestamp": "2026-01-21 04:52:41",
+      "word": "dpkg-scansources",
+      "input": "dpkg-scansources",
+      "time_taken": 7.284819970
+    },
+    {
+      "timestamp": "2026-01-21 04:52:47",
+      "word": "mtr-packet",
+      "input": "mtr-packet",
+      "time_taken": 4.830148475
+    },
+    {
+      "timestamp": "2026-01-21 04:52:52",
+      "word": "pppdump",
+      "input": "pppdump",
+      "time_taken": 4.074911275
+    },
+    {
+      "timestamp": "2026-01-21 04:52:59",
+      "word": "showconsolefont",
+      "input": "showconsolefont",
+      "time_taken": 6.026909397
+    },
+    {
+      "timestamp": "2026-01-21 04:53:04",
+      "word": "xdg-email",
+      "input": "xdg-email",
+      "time_taken": 3.763603405
+    },
+    {
+      "timestamp": "2026-01-21 04:53:08",
+      "word": "memtester",
+      "input": "memtester",
+      "time_taken": 3.354102389
+    },
+    {
+      "timestamp": "2026-01-21 04:53:11",
+      "word": "visudo",
+      "input": "visudo",
+      "time_taken": 2.422596307
+    },
+    {
+      "timestamp": "2026-01-21 04:53:21",
+      "word": "cpuunclaimed-bpfcc",
+      "input": "cpuunclaimed-bpfcc",
+      "time_taken": 8.651343026
+    },
+    {
+      "timestamp": "2026-01-21 04:53:26",
+      "word": "apt-mark",
+      "input": "pat-mark",
+      "time_taken": 3.490058470
+    },
+    {
+      "timestamp": "2026-01-21 05:32:15",
+      "word": "netqtop-bpfcc",
+      "input": "\u0003\r\u0003\u0003\u0003\u0003\u0004\u0004\r\r\r\r\r\u0004\u0004\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u001a\u0004\u0004\u0004\r\rlldkfa\r\r\r\r\r\r\rasdflakdjf;alkdf\rad\rfakljeriu3erjfklas/vx\rcv\r\u0016\u0016\u0003\u0007\u0019\t\u0017\u000b\u0015\t\u0010\u0019\u001b\u0019\u001b\t\u000f\u0012\b\u0005;\f\u0006\u000b\u0004\u0006\u000b\u0013\u000e\u0003\u000b\u0013\b\u0006\u0015\t\u0005IFS=';' read -sdR -p $'E[6n' ROW COL",
+      "time_taken": 42.894654789
+    },
+    {
+      "timestamp": "2026-01-21 05:32:17",
+      "word": "gp-display-html",
+      "input": "ROW=${ROW#*[}  # [から始まる部分を取り除く",
+      "time_taken": 0.001568987
+    },
+    {
+      "timestamp": "2026-01-21 05:32:29",
+      "word": "partprobe",
+      "input": "echo \"行: $ROW, 列: $COL\"\r\r\ra\u0003\u007f\u007fq\r\r\r.\u000e\u0003\u0016.\u000b",
+      "time_taken": 10.733185150
+    },
+    {
+      "timestamp": "2026-01-21 05:32:31",
+      "word": "dpkg-split",
+      "input": "\u0004\u000b\u001f\u001f\u0018\u0016,\u000e,\u0003\u000e\u0016\u0004\t\u0006",
+      "time_taken": 0.671841591
+    },
+    {
+      "timestamp": "2026-01-21 05:32:33",
+      "word": "gold",
+      "input": "\u001f\u0016\u000eIFS=';' read -sdR -p $'E[6n' ROW COL",
+      "time_taken": 1.106296496
+    },
+    {
+      "timestamp": "2026-01-21 05:32:35",
+      "word": "brltty-tune",
+      "input": "ROW=${ROW#*[}  # [から始まる部分を取り除く",
+      "time_taken": 0.001389980
+    },
+    {
+      "timestamp": "2026-01-21 05:37:24",
+      "word": "osinfo-query",
+      "input": "osinfo-query",
+      "time_taken": 6.415615479
+    },
+    {
+      "timestamp": "2026-01-21 05:37:28",
+      "word": "chacl",
+      "input": "chacl",
+      "time_taken": 2.221567403
+    },
+    {
+      "timestamp": "2026-01-21 05:37:33",
+      "word": "rsync-ssl",
+      "input": "rsync-ssl",
+      "time_taken": 3.643616460
+    },
+    {
+      "timestamp": "2026-01-21 05:37:38",
+      "word": "faked-tcp",
+      "input": "faked-tcp",
+      "time_taken": 4.008170024
+    },
+    {
+      "timestamp": "2026-01-21 05:37:43",
+      "word": "gamemoded",
+      "input": "gamemoded",
+      "time_taken": 3.974144844
+    },
+    {
+      "timestamp": "2026-01-21 05:37:48",
+      "word": "rdma-ndd",
+      "input": "rdma-ndd",
+      "time_taken": 3.200831606
+    },
+    {
+      "timestamp": "2026-01-21 05:37:54",
+      "word": "resourcedump",
+      "input": "resourcedump",
+      "time_taken": 4.477167298
+    },
+    {
+      "timestamp": "2026-01-21 05:38:05",
+      "word": "glib-compile-resources",
+      "input": "glib-comile-resources",
+      "time_taken": 9.768674893
+    },
+    {
+      "timestamp": "2026-01-21 05:38:09",
+      "word": "xman",
+      "input": "xman",
+      "time_taken": 2.350712024
+    },
+    {
+      "timestamp": "2026-01-21 05:38:16",
+      "word": "evince-previewer",
+      "input": "evince-previewer",
+      "time_taken": 6.566141553
+    },
+    {
+      "timestamp": "2026-01-21 05:38:25",
+      "word": "gtk4-broadwayd",
+      "input": "gtk4-broadwayd",
+      "time_taken": 7.114873814
+    },
+    {
+      "timestamp": "2026-01-21 05:39:37",
+      "word": "nautilus-sendto",
+      "input": "nautilus-sendto",
+      "time_taken": 5.777791438
+    },
+    {
+      "timestamp": "2026-01-21 05:39:41",
+      "word": "ffplay",
+      "input": "ffplay",
+      "time_taken": 2.388565585
+    },
+    {
+      "timestamp": "2026-01-21 05:39:47",
+      "word": "im-launch",
+      "input": "im-launch",
+      "time_taken": 3.776114820
+    },
+    {
+      "timestamp": "2026-01-21 05:39:52",
+      "word": "systemd-nspawn",
+      "input": "systemd-nspawn",
+      "time_taken": 3.567617503
+    },
+    {
+      "timestamp": "2026-01-21 05:39:55",
+      "word": "ucfr",
+      "input": "ucfr",
+      "time_taken": 1.907193760
+    },
+    {
+      "timestamp": "2026-01-21 05:40:05",
+      "word": "intel_framebuffer_dump",
+      "input": "intel_framebuffer_dump",
+      "time_taken": 7.769266698
+    },
+    {
+      "timestamp": "2026-01-21 05:40:22",
+      "word": "fcitx5-qt5-immodule-probing",
+      "input": "fcitx5-qt5-immodule-probing",
+      "time_taken": 15.763933452
+    },
+    {
+      "timestamp": "2026-01-21 05:40:28",
+      "word": "brltty-ttb",
+      "input": "brltty-ttb",
+      "time_taken": 4.262309992
+    },
+    {
+      "timestamp": "2026-01-21 05:40:33",
+      "word": "swapon",
+      "input": "swapon",
+      "time_taken": 2.901143168
+    },
+    {
+      "timestamp": "2026-01-21 05:40:36",
+      "word": "lshw",
+      "input": "lshw",
+      "time_taken": 1.826852353
+    },
+    {
+      "timestamp": "2026-01-21 05:40:40",
+      "word": "axfer",
+      "input": "axfer",
+      "time_taken": 2.113484047
+    },
+    {
+      "timestamp": "2026-01-21 05:40:47",
+      "word": "iptables-apply",
+      "input": "iptables-apply",
+      "time_taken": 6.059202332
+    },
+    {
+      "timestamp": "2026-01-21 05:40:52",
+      "word": "vdpauinfo",
+      "input": "vdpauinfo",
+      "time_taken": 3.366945208
+    },
+    {
+      "timestamp": "2026-01-21 05:40:58",
+      "word": "xlsclients",
+      "input": "xlsclients",
+      "time_taken": 4.004093878
+    },
+    {
+      "timestamp": "2026-01-21 05:41:04",
+      "word": "aspell-import",
+      "input": "aspell-import",
+      "time_taken": 4.778270627
+    },
+    {
+      "timestamp": "2026-01-21 05:41:08",
+      "word": "pphs",
+      "input": "pphs",
+      "time_taken": 1.515724801
+    },
+    {
+      "timestamp": "2026-01-21 06:05:17",
+      "word": "sftp",
+      "input": "sftp",
+      "time_taken": 2.241402358
+    },
+    {
+      "timestamp": "2026-01-21 06:05:22",
+      "word": "brltty",
+      "input": "brltty",
+      "time_taken": 3.291843734
+    },
+    {
+      "timestamp": "2026-01-21 06:05:26",
+      "word": "ipcs",
+      "input": "ipcs",
+      "time_taken": 1.954879809
+    },
+    {
+      "timestamp": "2026-01-21 06:05:29",
+      "word": "wall",
+      "input": "wall",
+      "time_taken": 1.683369928
+    },
+    {
+      "timestamp": "2026-01-21 06:05:32",
+      "word": "python",
+      "input": "python",
+      "time_taken": 2.040660695
+    },
+    {
+      "timestamp": "2026-01-21 06:05:36",
+      "word": "genbrk",
+      "input": "genbrk",
+      "time_taken": 2.617312497
+    },
+    {
+      "timestamp": "2026-01-21 06:05:40",
+      "word": "usbipd",
+      "input": "usbipd",
+      "time_taken": 2.609534376
+    },
+    {
+      "timestamp": "2026-01-21 06:05:45",
+      "word": "bzgrep",
+      "input": "bzgrep",
+      "time_taken": 3.049047469
+    },
+    {
+      "timestamp": "2026-01-21 06:05:48",
+      "word": "head",
+      "input": "head",
+      "time_taken": 1.639759180
+    },
+    {
+      "timestamp": "2026-01-21 06:05:52",
+      "word": "e2undo",
+      "input": "e2undo",
+      "time_taken": 2.992118470
+    },
+    {
+      "timestamp": "2026-01-21 06:05:56",
+      "word": "lsmem",
+      "input": "lsmem",
+      "time_taken": 1.987245020
+    },
+    {
+      "timestamp": "2026-01-21 06:06:00",
+      "word": "grdctl",
+      "input": "grdctl",
+      "time_taken": 2.732029217
+    },
+    {
+      "timestamp": "2026-01-21 06:06:04",
+      "word": "gunzip",
+      "input": "gunzip",
+      "time_taken": 2.728747288
+    },
+    {
+      "timestamp": "2026-01-21 06:06:08",
+      "word": "pdf2ps",
+      "input": "pdf2ps",
+      "time_taken": 2.604606601
+    },
+    {
+      "timestamp": "2026-01-21 06:06:12",
+      "word": "bzgrep",
+      "input": "bzgrep",
+      "time_taken": 2.629714389
+    },
+    {
+      "timestamp": "2026-01-21 06:06:16",
+      "word": "cpp-13",
+      "input": "cpp-13",
+      "time_taken": 2.652721062
+    },
+    {
+      "timestamp": "2026-01-21 06:06:21",
+      "word": "rfcomm",
+      "input": "rfcommm",
+      "time_taken": 3.538348156
+    },
+    {
+      "timestamp": "2026-01-21 06:06:25",
+      "word": "lprm",
+      "input": "lprm",
+      "time_taken": 2.323547614
+    },
+    {
+      "timestamp": "2026-01-21 06:06:29",
+      "word": "pkexec",
+      "input": "pkexec",
+      "time_taken": 2.771220688
+    },
+    {
+      "timestamp": "2026-01-21 06:06:32",
+      "word": "zstd",
+      "input": "zstd",
+      "time_taken": 2.176478448
+    },
+    {
+      "timestamp": "2026-01-21 06:06:36",
+      "word": "fdisk",
+      "input": "fdisk",
+      "time_taken": 1.708708455
+    },
+    {
+      "timestamp": "2026-01-21 06:06:38",
+      "word": "ssh",
+      "input": "ssh",
+      "time_taken": 1.313202151
+    },
+    {
+      "timestamp": "2026-01-21 06:06:41",
+      "word": "make",
+      "input": "make",
+      "time_taken": 1.121265890
+    },
+    {
+      "timestamp": "2026-01-21 06:06:46",
+      "word": "xman",
+      "input": "xman",
+      "time_taken": 3.245054077
+    },
+    {
+      "timestamp": "2026-01-21 06:06:49",
+      "word": "amidi",
+      "input": "amidi",
+      "time_taken": 2.073972820
+    },
+    {
+      "timestamp": "2026-01-21 06:06:52",
+      "word": "sssd",
+      "input": "sssd",
+      "time_taken": 1.723809166
+    },
+    {
+      "timestamp": "2026-01-21 06:06:56",
+      "word": "f95",
+      "input": "f95",
+      "time_taken": 2.658351048
+    },
+    {
+      "timestamp": "2026-01-21 06:07:00",
+      "word": "lpmove",
+      "input": "lpmove",
+      "time_taken": 2.428158610
+    },
+    {
+      "timestamp": "2026-01-21 06:07:02",
+      "word": "w",
+      "input": "w",
+      "time_taken": 0.745883110
+    },
+    {
+      "timestamp": "2026-01-21 06:07:05",
+      "word": "wget",
+      "input": "wget",
+      "time_taken": 1.589771860
+    },
+    {
+      "timestamp": "2026-01-21 06:07:08",
+      "word": "chmod",
+      "input": "chmod",
+      "time_taken": 1.625691412
+    },
+    {
+      "timestamp": "2026-01-21 06:07:11",
+      "word": "dir",
+      "input": "dir",
+      "time_taken": 0.937617806
+    },
+    {
+      "timestamp": "2026-01-21 06:07:13",
+      "word": "pic",
+      "input": "pic",
+      "time_taken": 1.299208758
+    },
+    {
+      "timestamp": "2026-01-21 06:07:17",
+      "word": "amidi",
+      "input": "amidi",
+      "time_taken": 2.026719814
+    },
+    {
+      "timestamp": "2026-01-21 06:07:21",
+      "word": "ps2ps2",
+      "input": "ps2ps2",
+      "time_taken": 2.815996399
+    },
+    {
+      "timestamp": "2026-01-21 06:07:26",
+      "word": "colcrt",
+      "input": "colcrt",
+      "time_taken": 3.169685467
+    },
+    {
+      "timestamp": "2026-01-21 06:07:30",
+      "word": "lscpu",
+      "input": "lscpu",
+      "time_taken": 2.393926965
+    },
+    {
+      "timestamp": "2026-01-21 06:07:33",
+      "word": "gzip",
+      "input": "gzip",
+      "time_taken": 2.242009569
+    },
+    {
+      "timestamp": "2026-01-21 06:44:50",
+      "word": "lpc",
+      "input": "lpc",
+      "time_taken": 1.810662310
+    },
+    {
+      "timestamp": "2026-01-21 06:44:53",
+      "word": "init",
+      "input": "init",
+      "time_taken": 2.067639814
+    },
+    {
+      "timestamp": "2026-01-21 06:44:56",
+      "word": "host",
+      "input": "host",
+      "time_taken": 1.383557925
+    },
+    {
+      "timestamp": "2026-01-21 06:44:58",
+      "word": "su",
+      "input": "su",
+      "time_taken": 1.683114102
+    },
+    {
+      "timestamp": "2026-01-21 06:45:02",
+      "word": "lsattr",
+      "input": "lsattr",
+      "time_taken": 2.616789198
+    },
+    {
+      "timestamp": "2026-01-21 06:45:06",
+      "word": "rbash",
+      "input": "rbash",
+      "time_taken": 2.301408584
+    },
+    {
+      "timestamp": "2026-01-21 06:45:11",
+      "word": "mpic++",
+      "input": "mpic++",
+      "time_taken": 3.836383460
+    },
+    {
+      "timestamp": "2026-01-21 06:45:14",
+      "word": "tty",
+      "input": "tty",
+      "time_taken": 1.938161338
+    },
+    {
+      "timestamp": "2026-01-21 06:45:18",
+      "word": "whoami",
+      "input": "shoami",
+      "time_taken": 3.144256349
+    },
+    {
+      "timestamp": "2026-01-21 06:45:21",
+      "word": "gem",
+      "input": "gem",
+      "time_taken": 1.737179052
+    },
+    {
+      "timestamp": "2026-01-21 06:45:25",
+      "word": "POST",
+      "input": "POST",
+      "time_taken": 2.353453537
+    },
+    {
+      "timestamp": "2026-01-21 06:45:28",
+      "word": "fuser",
+      "input": "fuser",
+      "time_taken": 1.871935240
+    },
+    {
+      "timestamp": "2026-01-21 06:45:33",
+      "word": "e2undo",
+      "input": "e2undo",
+      "time_taken": 4.172936621
+    },
+    {
+      "timestamp": "2026-01-21 06:45:38",
+      "word": "m2300w",
+      "input": "m2300w",
+      "time_taken": 3.675540495
+    },
+    {
+      "timestamp": "2026-01-21 06:45:44",
+      "word": "getty",
+      "input": "getty",
+      "time_taken": 4.058644556
+    },
+    {
+      "timestamp": "2026-01-21 06:45:49",
+      "word": "chattr",
+      "input": "chattr",
+      "time_taken": 3.793300613
+    },
+    {
+      "timestamp": "2026-01-21 06:45:52",
+      "word": "erb",
+      "input": "erb",
+      "time_taken": 2.462667903
+    },
+    {
+      "timestamp": "2026-01-21 06:45:56",
+      "word": "iw",
+      "input": "iw",
+      "time_taken": 2.266399255
+    },
+    {
+      "timestamp": "2026-01-21 06:46:00",
+      "word": "sssd",
+      "input": "sssd",
+      "time_taken": 2.619263457
+    },
+    {
+      "timestamp": "2026-01-21 06:46:05",
+      "word": "sed",
+      "input": "sed",
+      "time_taken": 4.434939063
+    },
+    {
+      "timestamp": "2026-01-21 06:46:10",
+      "word": "expand",
+      "input": "expand",
+      "time_taken": 3.851502364
+    },
+    {
+      "timestamp": "2026-01-21 06:46:15",
+      "word": "neqn",
+      "input": "neqn",
+      "time_taken": 3.065402522
+    },
+    {
+      "timestamp": "2026-01-21 06:46:17",
+      "word": "mst",
+      "input": "mst",
+      "time_taken": 1.462364656
+    },
+    {
+      "timestamp": "2026-01-21 06:46:22",
+      "word": "bzcat",
+      "input": "bzcat",
+      "time_taken": 3.431893223
+    },
+    {
+      "timestamp": "2026-01-21 06:46:25",
+      "word": "mount",
+      "input": "mount",
+      "time_taken": 1.900752010
+    },
+    {
+      "timestamp": "2026-01-21 06:46:28",
+      "word": "mesg",
+      "input": "mesg",
+      "time_taken": 1.906032344
+    },
+    {
+      "timestamp": "2026-01-21 06:46:30",
+      "word": "ss",
+      "input": "ss",
+      "time_taken": 0.951425664
+    },
+    {
+      "timestamp": "2026-01-21 06:46:33",
+      "word": "size",
+      "input": "size",
+      "time_taken": 1.693684580
+    },
+    {
+      "timestamp": "2026-01-21 06:46:37",
+      "word": "lpmove",
+      "input": "lpmove",
+      "time_taken": 2.609335777
+    },
+    {
+      "timestamp": "2026-01-21 06:46:40",
+      "word": "prove",
+      "input": "prove",
+      "time_taken": 2.042282032
+    },
+    {
+      "timestamp": "2026-01-21 06:46:43",
+      "word": "chat",
+      "input": "chat",
+      "time_taken": 1.679954354
+    },
+    {
+      "timestamp": "2026-01-21 06:46:47",
+      "word": "oshcc",
+      "input": "oshcc",
+      "time_taken": 2.290446962
+    },
+    {
+      "timestamp": "2026-01-21 06:46:50",
+      "word": "script",
+      "input": "script",
+      "time_taken": 1.983977620
+    },
+    {
+      "timestamp": "2026-01-21 06:46:53",
+      "word": "gpg",
+      "input": "gpg",
+      "time_taken": 1.553998892
+    },
+    {
+      "timestamp": "2026-01-21 06:46:56",
+      "word": "vdir",
+      "input": "vdir",
+      "time_taken": 1.708333211
+    },
+    {
+      "timestamp": "2026-01-21 06:46:58",
+      "word": "tar",
+      "input": "tart",
+      "time_taken": 1.450597724
+    },
+    {
+      "timestamp": "2026-01-21 06:47:03",
+      "word": "lsattr",
+      "input": "lsattr",
+      "time_taken": 2.931538456
+    },
+    {
+      "timestamp": "2026-01-21 06:47:07",
+      "word": "mt-gnu",
+      "input": "mt-gnu",
+      "time_taken": 3.053663329
+    },
+    {
+      "timestamp": "2026-01-21 06:47:10",
+      "word": "chown",
+      "input": "chown",
+      "time_taken": 2.031794063
+    },
+    {
+      "timestamp": "2026-01-21 06:47:14",
+      "word": "numfmt",
+      "input": "numfmt",
+      "time_taken": 2.663428050
+    },
+    {
+      "timestamp": "2026-01-21 06:47:17",
+      "word": "derb",
+      "input": "derb",
+      "time_taken": 1.851415038
+    },
+    {
+      "timestamp": "2026-01-21 06:47:21",
+      "word": "pslog",
+      "input": "pslg",
+      "time_taken": 2.322743773
+    },
+    {
+      "timestamp": "2026-01-21 06:47:24",
+      "word": "X11",
+      "input": "X11",
+      "time_taken": 2.563888214
+    },
+    {
+      "timestamp": "2026-01-21 06:47:28",
+      "word": "rlwrap",
+      "input": "rlwrap",
+      "time_taken": 2.855645429
+    },
+    {
+      "timestamp": "2026-01-21 06:47:32",
+      "word": "rview",
+      "input": "rview",
+      "time_taken": 2.266841924
+    },
+    {
+      "timestamp": "2026-01-21 06:47:36",
+      "word": "python",
+      "input": "python",
+      "time_taken": 2.666456352
+    },
+    {
+      "timestamp": "2026-01-21 06:47:39",
+      "word": "sfdisk",
+      "input": "sfdisk",
+      "time_taken": 2.300252514
+    },
+    {
+      "timestamp": "2026-01-21 06:47:42",
+      "word": "grep",
+      "input": "grap",
+      "time_taken": 1.786606190
+    },
+    {
+      "timestamp": "2026-01-21 06:47:46",
+      "word": "parted",
+      "input": "parted",
+      "time_taken": 2.378393433
+    },
+    {
+      "timestamp": "2026-01-21 06:47:52",
+      "word": "Xephyr",
+      "input": "Xephyr",
+      "time_taken": 4.579375354
+    },
+    {
+      "timestamp": "2026-01-21 06:47:56",
+      "word": "gdbus",
+      "input": "gdbus",
+      "time_taken": 3.107219230
+    },
+    {
+      "timestamp": "2026-01-21 06:48:00",
+      "word": "pwconv",
+      "input": "pwconv",
+      "time_taken": 3.005561735
+    },
+    {
+      "timestamp": "2026-01-21 06:48:04",
+      "word": "zgrep",
+      "input": "zgrep",
+      "time_taken": 2.463211898
+    },
+    {
+      "timestamp": "2026-01-21 06:48:07",
+      "word": "gold",
+      "input": "goool",
+      "time_taken": 1.998745643
+    },
+    {
+      "timestamp": "2026-01-21 11:30:16",
+      "word": "tldr",
+      "input": "tldr",
+      "time_taken": 2.638896293
+    },
+    {
+      "timestamp": "2026-01-21 11:30:20",
+      "word": "lastb",
+      "input": "lastb",
+      "time_taken": 2.354367203
+    },
+    {
+      "timestamp": "2026-01-21 11:30:22",
+      "word": "vi",
+      "input": "vi",
+      "time_taken": 1.491868774
+    },
+    {
+      "timestamp": "2026-01-21 11:30:26",
+      "word": "mknod",
+      "input": "mknod",
+      "time_taken": 1.936642416
+    },
+    {
+      "timestamp": "2026-01-21 11:30:29",
+      "word": "test",
+      "input": "test",
+      "time_taken": 2.336577382
+    },
+    {
+      "timestamp": "2026-01-21 11:30:34",
+      "word": "expiry",
+      "input": "expiry",
+      "time_taken": 3.264550444
+    },
+    {
+      "timestamp": "2026-01-21 11:30:38",
+      "word": "umount",
+      "input": "umount",
+      "time_taken": 2.666490396
+    },
+    {
+      "timestamp": "2026-01-21 11:30:41",
+      "word": "sync",
+      "input": "sync",
+      "time_taken": 2.505617770
+    },
+    {
+      "timestamp": "2026-01-21 11:30:44",
+      "word": "mesg",
+      "input": "mesg",
+      "time_taken": 1.866596262
+    },
+    {
+      "timestamp": "2026-01-21 11:30:48",
+      "word": "pstree",
+      "input": "pstree",
+      "time_taken": 2.664129586
+    },
+    {
+      "timestamp": "2026-01-21 11:30:52",
+      "word": "depmod",
+      "input": "depmod",
+      "time_taken": 2.488528250
+    },
+    {
+      "timestamp": "2026-01-21 11:30:57",
+      "word": "brltty",
+      "input": "brltty",
+      "time_taken": 3.395715140
+    },
+    {
+      "timestamp": "2026-01-21 11:31:58",
+      "word": "brltty",
+      "input": "brltty",
+      "time_taken": 3.512907391
+    },
+    {
+      "timestamp": "2026-01-21 11:32:02",
+      "word": "ctstat",
+      "input": "ctstat",
+      "time_taken": 2.607460458
+    },
+    {
+      "timestamp": "2026-01-21 11:32:04",
+      "word": "irb",
+      "input": "irb",
+      "time_taken": 1.477178969
+    },
+    {
+      "timestamp": "2026-01-21 11:32:08",
+      "word": "bzcmp",
+      "input": "bzcmp",
+      "time_taken": 2.983836632
+    },
+    {
+      "timestamp": "2026-01-21 11:32:12",
+      "word": "alsa",
+      "input": "alsa",
+      "time_taken": 2.159511795
+    },
+    {
+      "timestamp": "2026-01-21 11:32:15",
+      "word": "telnet",
+      "input": "telnet",
+      "time_taken": 2.661489944
+    },
+    {
+      "timestamp": "2026-01-21 11:32:19",
+      "word": "lsmod",
+      "input": "lsmod",
+      "time_taken": 2.135160438
+    },
+    {
+      "timestamp": "2026-01-21 11:32:22",
+      "word": "bzcat",
+      "input": "bzcat",
+      "time_taken": 2.493830568
+    },
+    {
+      "timestamp": "2026-01-21 11:32:28",
+      "word": "ntfscp",
+      "input": "ntfscp",
+      "time_taken": 4.295073222
+    },
+    {
+      "timestamp": "2026-01-21 11:32:31",
+      "word": "cron",
+      "input": "cron",
+      "time_taken": 2.407048021
+    },
+    {
+      "timestamp": "2026-01-21 11:32:34",
+      "word": "apt",
+      "input": "apt",
+      "time_taken": 1.415052887
+    },
+    {
+      "timestamp": "2026-01-21 11:32:38",
+      "word": "iwpmd",
+      "input": "iwpmd",
+      "time_taken": 2.654769002
+    },
+    {
+      "timestamp": "2026-01-21 11:32:42",
+      "word": "egrep",
+      "input": "egrep",
+      "time_taken": 2.816827186
+    },
+    {
+      "timestamp": "2026-01-21 11:32:46",
+      "word": "amixer",
+      "input": "amixer",
+      "time_taken": 3.010048042
+    },
+    {
+      "timestamp": "2026-01-21 11:32:50",
+      "word": "rtacct",
+      "input": "rtacct",
+      "time_taken": 2.749361836
+    },
+    {
+      "timestamp": "2026-01-21 11:32:52",
+      "word": "lcf",
+      "input": "lcf",
+      "time_taken": 1.513356036
+    },
+    {
+      "timestamp": "2026-01-21 11:32:55",
+      "word": "fuser",
+      "input": "fuser",
+      "time_taken": 2.108377528
+    },
+    {
+      "timestamp": "2026-01-21 11:33:00",
+      "word": "ppdpo",
+      "input": "ppdpo",
+      "time_taken": 3.567657564
+    },
+    {
+      "timestamp": "2026-01-21 11:33:04",
+      "word": "lzless",
+      "input": "lzless",
+      "time_taken": 2.621743638
+    },
+    {
+      "timestamp": "2026-01-21 11:33:07",
+      "word": "rgrep",
+      "input": "rgrep",
+      "time_taken": 2.373717237
+    },
+    {
+      "timestamp": "2026-01-21 11:33:10",
+      "word": "mst",
+      "input": "mst",
+      "time_taken": 1.392380196
+    },
+    {
+      "timestamp": "2026-01-21 11:33:14",
+      "word": "iconv",
+      "input": "iconv",
+      "time_taken": 2.586937537
+    },
+    {
+      "timestamp": "2026-01-21 11:33:17",
+      "word": "rake",
+      "input": "rake",
+      "time_taken": 1.874988531
+    },
+    {
+      "timestamp": "2026-01-21 11:33:20",
+      "word": "gtbl",
+      "input": "gtbl",
+      "time_taken": 2.127994443
+    },
+    {
+      "timestamp": "2026-01-21 11:33:23",
+      "word": "svlc",
+      "input": "svlc",
+      "time_taken": 1.778580230
+    },
+    {
+      "timestamp": "2026-01-21 11:33:25",
+      "word": "ld",
+      "input": "ld",
+      "time_taken": 0.893103908
+    },
+    {
+      "timestamp": "2026-01-21 11:33:28",
+      "word": "slogin",
+      "input": "slogin",
+      "time_taken": 2.600882772
+    },
+    {
+      "timestamp": "2026-01-21 11:33:32",
+      "word": "xvinfo",
+      "input": "xvinfo",
+      "time_taken": 2.775580547
+    },
+    {
+      "timestamp": "2026-01-21 11:33:35",
+      "word": "tc",
+      "input": "tc",
+      "time_taken": 1.217176181
+    },
+    {
+      "timestamp": "2026-01-21 11:33:38",
+      "word": "ucfq",
+      "input": "ucfq",
+      "time_taken": 2.136549505
+    },
+    {
+      "timestamp": "2026-01-21 11:33:41",
+      "word": "fzf",
+      "input": "fzf",
+      "time_taken": 1.862045516
+    },
+    {
+      "timestamp": "2026-01-21 11:33:43",
+      "word": "col",
+      "input": "col",
+      "time_taken": 1.450047803
+    },
+    {
+      "timestamp": "2026-01-21 11:33:46",
+      "word": "file",
+      "input": "file",
+      "time_taken": 1.434605865
+    },
+    {
+      "timestamp": "2026-01-21 11:33:52",
+      "word": "lvmsar",
+      "input": "lvmsar",
+      "time_taken": 4.495911439
+    },
+    {
+      "timestamp": "2026-01-21 11:33:55",
+      "word": "rvim",
+      "input": "rvim",
+      "time_taken": 2.085631498
+    },
+    {
+      "timestamp": "2026-01-21 11:33:58",
+      "word": "xgc",
+      "input": "xgc",
+      "time_taken": 1.646685454
+    },
+    {
+      "timestamp": "2026-01-21 11:34:02",
+      "word": "iecset",
+      "input": "iecset",
+      "time_taken": 2.894163245
+    },
+    {
+      "timestamp": "2026-01-21 11:34:05",
+      "word": "zstd",
+      "input": "zstd",
+      "time_taken": 2.056582972
+    },
+    {
+      "timestamp": "2026-01-21 11:34:07",
+      "word": "gjs",
+      "input": "gjs",
+      "time_taken": 1.551611172
+    },
+    {
+      "timestamp": "2026-01-21 11:34:11",
+      "word": "size",
+      "input": "size",
+      "time_taken": 2.112535480
+    },
+    {
+      "timestamp": "2026-01-21 11:34:14",
+      "word": "eject",
+      "input": "eject",
+      "time_taken": 2.097394028
+    },
+    {
+      "timestamp": "2026-01-21 11:34:18",
+      "word": "genfio",
+      "input": "genfio",
+      "time_taken": 2.487252826
+    },
+    {
+      "timestamp": "2026-01-21 11:34:21",
+      "word": "vdir",
+      "input": "vdir",
+      "time_taken": 1.974912417
+    },
+    {
+      "timestamp": "2026-01-21 11:34:25",
+      "word": "ps2txt",
+      "input": "ps2txt",
+      "time_taken": 3.268811179
+    },
+    {
+      "timestamp": "2026-01-21 11:34:29",
+      "word": "mke2fs",
+      "input": "mke2fs",
+      "time_taken": 2.813490185
+    },
+    {
+      "timestamp": "2026-01-21 11:34:34",
+      "word": "e2fsck",
+      "input": "e2fsck",
+      "time_taken": 3.574282111
     }
   ]
 }
