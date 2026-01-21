@@ -1,7 +1,6 @@
 #!/bin/bash
 # Typing game
 
-
 # JSONファイル
 JSON_FILE="typing_data.json"
 
@@ -28,6 +27,8 @@ log_game() {
        }]' "$JSON_FILE" > "${JSON_FILE}.tmp" && mv "${JSON_FILE}.tmp" "$JSON_FILE"
 }
 
+tput sc
+tput civis
 
 MAX_CHAR=6  # 最大文字数、引数でオプションに?
 pattern="^.{1,$MAX_CHAR}$"
@@ -37,9 +38,6 @@ word_list+=($(ls /usr/sbin | grep -E "$pattern"))
 echo "words: ${#word_list[@]}"
 echo -e "\n\033[1;35mPress ANY KEY to start...\033[0m"
 read -rsn1
-
-tput sc
-tput civis
 
 echo "Start typing game..."
 echo "Ctrl-c to stop"
