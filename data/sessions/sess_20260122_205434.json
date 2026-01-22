@@ -1,0 +1,231 @@
+{
+  "session_id": "sess_20260122_205434",
+  "start_time": "2026-01-22 20:54:34",
+  "end_time": "2026-01-22 20:57:46",
+  "duration_seconds": 192,
+  "cards_reviewed": 27,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "p-016",
+      "time": "2026-01-22 20:54:41",
+      "text": "Just in case.",
+      "self_evaluation": "medium",
+      "current_priority": 3.60,
+      "new_priority": 4.32
+    },
+    {
+      "card_id": "w-022",
+      "time": "2026-01-22 20:54:46",
+      "text": "reliable",
+      "self_evaluation": "hard",
+      "current_priority": 4.50,
+      "new_priority": 6.75
+    },
+    {
+      "card_id": "w-039",
+      "time": "2026-01-22 20:54:51",
+      "text": "prerequisite",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "p-041",
+      "time": "2026-01-22 20:54:58",
+      "text": "I'll handle it.",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "w-024",
+      "time": "2026-01-22 20:55:02",
+      "text": "comprehensive",
+      "self_evaluation": "easy",
+      "current_priority": 0.84,
+      "new_priority": 0.59
+    },
+    {
+      "card_id": "p-026",
+      "time": "2026-01-22 20:55:08",
+      "text": "I have a lot on my plate.",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "w-042",
+      "time": "2026-01-22 20:55:15",
+      "text": "transparency",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "w-044",
+      "time": "2026-01-22 20:55:21",
+      "text": "obvious",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "p-018",
+      "time": "2026-01-22 20:55:26",
+      "text": "Keep me posted.",
+      "self_evaluation": "medium",
+      "current_priority": 4.05,
+      "new_priority": 4.86
+    },
+    {
+      "card_id": "w-051",
+      "time": "2026-01-22 20:55:35",
+      "text": "authenticate",
+      "self_evaluation": "easy",
+      "current_priority": 1.0,
+      "new_priority": 0.70
+    },
+    {
+      "card_id": "p-019",
+      "time": "2026-01-22 20:55:40",
+      "text": "As far as I know.",
+      "self_evaluation": "medium",
+      "current_priority": 3.60,
+      "new_priority": 4.32
+    },
+    {
+      "card_id": "w-029",
+      "time": "2026-01-22 20:55:47",
+      "text": "specification",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    },
+    {
+      "card_id": "w-043",
+      "time": "2026-01-22 20:55:52",
+      "text": "vague",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "w-029",
+      "time": "2026-01-22 20:55:56",
+      "text": "specification",
+      "self_evaluation": "easy",
+      "current_priority": 1.20,
+      "new_priority": 0.84
+    },
+    {
+      "card_id": "w-059",
+      "time": "2026-01-22 20:55:59",
+      "text": "implicit",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "w-038",
+      "time": "2026-01-22 20:56:05",
+      "text": "integrity",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "p-036",
+      "time": "2026-01-22 20:56:15",
+      "text": "Sounds like a plan.",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "p-014",
+      "time": "2026-01-22 20:56:21",
+      "text": "Better safe than sorry.",
+      "self_evaluation": "hard",
+      "current_priority": 2.70,
+      "new_priority": 4.05
+    },
+    {
+      "card_id": "w-040",
+      "time": "2026-01-22 20:56:28",
+      "text": "mitigate",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "w-011",
+      "time": "2026-01-22 20:56:37",
+      "text": "deployment",
+      "self_evaluation": "easy",
+      "current_priority": 0.60,
+      "new_priority": 0.42
+    },
+    {
+      "card_id": "w-028",
+      "time": "2026-01-22 20:56:53",
+      "text": "preliminary",
+      "self_evaluation": "hard",
+      "current_priority": 2.70,
+      "new_priority": 4.05
+    },
+    {
+      "card_id": "w-041",
+      "time": "2026-01-22 20:56:58",
+      "text": "robust",
+      "self_evaluation": "easy",
+      "current_priority": 1.0,
+      "new_priority": 0.70
+    },
+    {
+      "card_id": "w-039",
+      "time": "2026-01-22 20:57:07",
+      "text": "prerequisite",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "p-045",
+      "time": "2026-01-22 20:57:25",
+      "text": "Could you do me a favor?",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "w-018",
+      "time": "2026-01-22 20:57:31",
+      "text": "integrity",
+      "self_evaluation": "medium",
+      "current_priority": 3.24,
+      "new_priority": 3.89
+    },
+    {
+      "card_id": "w-046",
+      "time": "2026-01-22 20:57:39",
+      "text": "redundancy",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "w-047",
+      "time": "2026-01-22 20:57:45",
+      "text": "discrepancy",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    }
+  ],
+  "summary": {
+    "easy": 5,
+    "medium": 11,
+    "hard": 11
+  }
+}
