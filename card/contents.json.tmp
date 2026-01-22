@@ -306,14 +306,14 @@
       "card-id": "p-017",
       "english": "That's a good point.",
       "japanese": "それは良い指摘ですね",
-      "priority": 3.00,
+      "priority": 3.60,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 10
+      "review_count": 11
     },
     {
       "card-id": "w-026",

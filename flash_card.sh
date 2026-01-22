@@ -1,7 +1,7 @@
 #!/bin/bash
 # 英単語フラッシュカード (Session Log & Priority Update 版)
 
-SPEECH=true
+SPEECH=false
 VOCAB_JSON="${1:-card/contents.json}"
 SESSION_DIR="data/sessions"
 mkdir -p "$SESSION_DIR"
