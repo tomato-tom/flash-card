@@ -2,7 +2,7 @@
 # 英単語フラッシュカード
 
 # 単語帳ファイル（CSV形式: 英単語,日本語訳）
-VOCAB_FILE="vocab.txt"
+VOCAB_FILE="card/vocab.txt"
 
 # 単語帳ファイルがなければ作成
 if [ ! -f "$VOCAB_FILE" ] || [ ! -s $VOCAB_FILE ]; then

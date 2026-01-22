@@ -16,10 +16,30 @@ Easy - 頻度下げ
 Medium(m) - 頻度ちょい下げ、忘却曲線による
 Hard(h) - 頻度上げ
 
-game data
+## ディレクトリ構成
+
+- Project-root:
+    - card: flash card sets
+    - data: log, stats
+    - docs: Documents
+    - snippets: various snippets
+    - test: tests
+    - notes.md
+    - readme.md
+    - typing.sh
+    - typing_stats.sh
+    - flash_card.sh
+    - flash_card_stats.sh
+    - frame.sh -> Move to lib directory later
+    - typing_data.json -> Move to data directory later
+
+
+## stats
+
+Play log
 ```
 {
-  "description" : "Flash card game data",
+  "description" : "Flash card play data",
   "games": [
     {
       "timestamp": "2026-01-18 01:34:09",
