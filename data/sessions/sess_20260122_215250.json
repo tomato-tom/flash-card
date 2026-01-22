@@ -1,0 +1,255 @@
+{
+  "session_id": "sess_20260122_215250",
+  "start_time": "2026-01-22 21:52:50",
+  "end_time": "2026-01-22 21:56:33",
+  "duration_seconds": 223,
+  "cards_reviewed": 30,
+  "contents-id": "c02",
+  "cards": [
+    {
+      "card_id": "gen-020",
+      "time": "2026-01-22 21:52:56",
+      "text": "append indicator",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "gen-025",
+      "time": "2026-01-22 21:53:04",
+      "text": "follow symbolic links",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "gen-035",
+      "time": "2026-01-22 21:53:10",
+      "text": "quote-name",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-034",
+      "time": "2026-01-22 21:53:21",
+      "text": "literal",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "gen-016",
+      "time": "2026-01-22 21:53:27",
+      "text": "columns",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-020",
+      "time": "2026-01-22 21:53:38",
+      "text": "append indicator",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-037",
+      "time": "2026-01-22 21:53:46",
+      "text": "TIME_STYLE",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-021",
+      "time": "2026-01-22 21:53:54",
+      "text": "long listing format",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-001",
+      "time": "2026-01-22 21:53:59",
+      "text": "entries",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-022",
+      "time": "2026-01-22 21:54:16",
+      "text": "human-readable",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-016",
+      "time": "2026-01-22 21:54:21",
+      "text": "columns",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-027",
+      "time": "2026-01-22 21:54:28",
+      "text": "shell PATTERN",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-037",
+      "time": "2026-01-22 21:54:36",
+      "text": "TIME_STYLE",
+      "self_evaluation": "easy",
+      "current_priority": 1.0,
+      "new_priority": 0.70
+    },
+    {
+      "card_id": "gen-038",
+      "time": "2026-01-22 21:54:43",
+      "text": "environment variable",
+      "self_evaluation": "easy",
+      "current_priority": 1.0,
+      "new_priority": 0.70
+    },
+    {
+      "card_id": "gen-023",
+      "time": "2026-01-22 21:54:52",
+      "text": "powers of 1024",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-018",
+      "time": "2026-01-22 21:55:00",
+      "text": "generate output",
+      "self_evaluation": "easy",
+      "current_priority": 1.0,
+      "new_priority": 0.70
+    },
+    {
+      "card_id": "gen-021",
+      "time": "2026-01-22 21:55:05",
+      "text": "long listing format",
+      "self_evaluation": "easy",
+      "current_priority": 1.0,
+      "new_priority": 0.70
+    },
+    {
+      "card_id": "gen-029",
+      "time": "2026-01-22 21:55:08",
+      "text": "hyperlink",
+      "self_evaluation": "easy",
+      "current_priority": 1.0,
+      "new_priority": 0.70
+    },
+    {
+      "card_id": "gen-007",
+      "time": "2026-01-22 21:55:12",
+      "text": "ctime",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-011",
+      "time": "2026-01-22 21:55:17",
+      "text": "block-size",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-023",
+      "time": "2026-01-22 21:55:20",
+      "text": "powers of 1024",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-022",
+      "time": "2026-01-22 21:55:25",
+      "text": "human-readable",
+      "self_evaluation": "easy",
+      "current_priority": 1.0,
+      "new_priority": 0.70
+    },
+    {
+      "card_id": "gen-003",
+      "time": "2026-01-22 21:55:33",
+      "text": "mandatory arguments",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "gen-022",
+      "time": "2026-01-22 21:55:39",
+      "text": "human-readable",
+      "self_evaluation": "easy",
+      "current_priority": 1.0,
+      "new_priority": 0.70
+    },
+    {
+      "card_id": "gen-031",
+      "time": "2026-01-22 21:55:46",
+      "text": "ignore",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-024",
+      "time": "2026-01-22 21:55:51",
+      "text": "dereference",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "gen-034",
+      "time": "2026-01-22 21:56:00",
+      "text": "literal",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-004",
+      "time": "2026-01-22 21:56:14",
+      "text": "long options",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "gen-032",
+      "time": "2026-01-22 21:56:21",
+      "text": "kibibytes",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "gen-031",
+      "time": "2026-01-22 21:56:24",
+      "text": "ignore",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    }
+  ],
+  "summary": {
+    "easy": 7,
+    "medium": 17,
+    "hard": 6
+  }
+}

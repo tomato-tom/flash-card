@@ -2,7 +2,7 @@
 # 英単語フラッシュカード (Session Log & Priority Update 版)
 
 SPEECH=true
-VOCAB_JSON="card/contents.json"
+VOCAB_JSON="${1:-card/contents.json}"
 SESSION_DIR="data/sessions"
 mkdir -p "$SESSION_DIR"
 
@@ -12,6 +12,7 @@ for cmd in jq bc gtts-cli ffplay; do
 done
 
 # ログ用変数
+CONTENTS_ID=$(jq -r '."content-id"' "$VOCAB_JSON")
 SESSION_ID="sess_$(date +%Y%m%d_%H%M%S)"
 START_TIME=$(date "+%Y-%m-%d %H:%M:%S")
 START_SEC=$(date +%s)
@@ -93,7 +94,7 @@ if [ -s "$TMP_LOG" ]; then
     
     # 1. セッションJSON生成
     jq -n --arg sid "$SESSION_ID" --arg st "$START_TIME" --arg et "$END_TIME" \
-       --arg dur "$DURATION" --arg cid "c01" \
+       --arg dur "$DURATION" --arg cid "$CONTENTS_ID" \
        --arg ec "$easy_c" --arg mc "$medium_c" --arg hc "$hard_c" \
        '{session_id: $sid, start_time: $st, end_time: $et, duration_seconds: ($dur|tonumber), cards_reviewed: (($ec|tonumber)+($mc|tonumber)+($hc|tonumber)), "contents-id": $cid, cards: [], summary: {easy: ($ec|tonumber), medium: ($mc|tonumber), hard: ($hc|tonumber)}}' > "$SESSION_DIR/$SESSION_ID.json"
 
