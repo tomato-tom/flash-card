@@ -20,14 +20,14 @@
       "card-id": "w-011",
       "english": "deployment",
       "japanese": "配備、展開",
-      "priority": 0.70,
+      "priority": 0.50,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 1
+      "review_count": 2
     },
     {
       "card-id": "p-010",
@@ -85,40 +85,40 @@
       "card-id": "w-014",
       "english": "mandatory",
       "japanese": "必須の、義務的な",
-      "priority": 1.0,
+      "priority": 1.20,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-22",
+      "review_count": 2
     },
     {
       "card-id": "w-015",
       "english": "seamless",
       "japanese": "途切れのない、円滑な",
-      "priority": 1.50,
+      "priority": 1.05,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 1
+      "review_count": 2
     },
     {
       "card-id": "p-012",
       "english": "Let's call it a day.",
       "japanese": "今日はこの辺にしよう",
-      "priority": 1.20,
+      "priority": 1.80,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "review_count": 3
     },
     {
       "card-id": "w-016",
@@ -137,14 +137,14 @@
       "card-id": "w-017",
       "english": "compatible",
       "japanese": "互換性がある",
-      "priority": 1.0,
+      "priority": 1.20,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-22",
+      "review_count": 2
     },
     {
       "card-id": "p-013",
@@ -176,14 +176,14 @@
       "card-id": "w-019",
       "english": "dependency",
       "japanese": "依存関係",
-      "priority": 1.0,
+      "priority": 0.70,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-22",
+      "review_count": 2
     },
     {
       "card-id": "p-014",
@@ -202,27 +202,27 @@
       "card-id": "w-020",
       "english": "flexible",
       "japanese": "柔軟な",
-      "priority": 1.50,
+      "priority": 1.05,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "review_count": 3
     },
     {
       "card-id": "w-021",
       "english": "implementation",
       "japanese": "実装、実施",
-      "priority": 1.20,
+      "priority": 0.84,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 1
+      "review_count": 2
     },
     {
       "card-id": "p-015",
@@ -241,14 +241,14 @@
       "card-id": "w-022",
       "english": "reliable",
       "japanese": "信頼できる",
-      "priority": 1.50,
+      "priority": 2.25,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "review_count": 5
     },
     {
       "card-id": "w-023",
@@ -267,14 +267,14 @@
       "card-id": "p-016",
       "english": "Just in case.",
       "japanese": "念のため",
-      "priority": 1.0,
+      "priority": 1.50,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-22",
+      "review_count": 1
     },
     {
       "card-id": "w-024",
@@ -319,27 +319,27 @@
       "card-id": "w-026",
       "english": "alternative",
       "japanese": "代わりの、選択肢",
-      "priority": 1.20,
+      "priority": 1.44,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 1
+      "review_count": 2
     },
     {
       "card-id": "w-027",
       "english": "configuration",
       "japanese": "設定、構成",
-      "priority": 1.0,
+      "priority": 1.20,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-22",
+      "review_count": 1
     },
     {
       "card-id": "p-018",
@@ -371,27 +371,27 @@
       "card-id": "w-029",
       "english": "specification",
       "japanese": "仕様（書）",
-      "priority": 1.0,
+      "priority": 1.20,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-22",
+      "review_count": 1
     },
     {
       "card-id": "p-019",
       "english": "As far as I know.",
       "japanese": "私の知る限りでは",
-      "priority": 1.20,
+      "priority": 1.80,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "review_count": 3
     }
   ]
 }

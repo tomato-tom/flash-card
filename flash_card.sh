@@ -49,6 +49,7 @@ while true; do
     # 画面描画
     tput cup $frame_row $frame_col; tput ed
     create_frame 1 3 9 45
+    tput sc
     [ "$SPEECH" = true ] && speech "$english" &
     write_at 3 center "$english" "\033[38;5;87m"
     
