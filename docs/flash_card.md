@@ -1,19 +1,65 @@
 # Flash Card
 
 英単語を覚える
-表に英語、裏に日本語の意味を表示
+単語・フレーズのフラッシュカード
+
 
 ## 機能
 
-単語・フレーズリストよりランダムにカードに表示
 ユーザー自己評価
 出題頻度調整
 
 
+## ディレクトリ構成
+
+- Project-root:
+    - card: flash card sets
+    - data: log, stats
+    - docs: Documents
+    - snippets: various snippets
+    - test: tests
+    - notes.md
+    - readme.md
+    - typing.sh
+    - typing_stats.sh
+    - flash_card.sh
+    - flash_card_stats.sh
+    - frame.sh -> Move to lib directory later
+    - typing_data.json -> Move to data directory later
+
 
 ## 設計
 
-基本フロー
+1. 英語表示
+2. 何かキー押すかタイムアウトで日本語表示
+3. 自己評価
+4. 0.7秒後に次のフレーズ
+
+自己評価
+単語・フレーズを自己評価し、e/m/hのキーを押す、結果を保存
+
+自己評価により以降の出題頻度変更
+- Default: 1.00
+- Easy: 0.7 わかる
+- Medium: 1.2 まあまあ
+- Hard: 1.5 わからない
+
+ブラウザで以下のファイル表示、Mermaidコードを貼り付けて見れる
+`file:///path/to/view_mermaid.html`
+
+概念フロー
+```mermaid
+flowchart LR
+    A(Start) --> B[Show card]
+    B --> |auto| C{Show answer}
+    C -->|Easy| D[Next]
+    C -->|Medium| D[Next]
+    C -->|Hard| D[Next]
+    C --> |Quit| F(End)
+    D --> B
+```
+
+詳細フロー図
 ```mermaid
 flowchart TD
     Start([Start Flash Card App]) --> Initialize[Initialize App]
@@ -23,38 +69,25 @@ flowchart TD
     
     CheckEmpty -->|Yes| CreateSample[Create Sample Content]
     CreateSample --> ShowMenu
-    
     CheckEmpty -->|No| ShowMenu[Show Main Menu]
     
     ShowMenu --> MenuChoice{User Choice}
-    
-    MenuChoice -->|Study| PrepareSession[Prepare Study Session]
-    MenuChoice -->|Add Cards| AddCards[Add New Cards]
+    MenuChoice -->|Study| LoadPriority[Load & Sort by Priority]
     MenuChoice -->|View Stats| ShowStats[Show Statistics]
     MenuChoice -->|Exit| ExitApp[Exit Application]
     
-    PrepareSession --> LoadPriority[Load & Sort by Priority]
-    LoadPriority --> SelectCards[Select Top N Cards]
-    SelectCards --> StudyLoop[Begin Study Loop]
-    
-    StudyLoop --> ShowCard[Show Card Front]
-    ShowCard --> WaitInput[Wait for Input]
-    
-    WaitInput --> InputChoice{User Input}
-    
-    InputChoice -->|Space/Enter| RevealAnswer[Reveal Answer]
-    InputChoice -->|Easy| RecordEasy[Record: Easy]
-    InputChoice -->|Medium| RecordMedium[Record: Medium]
-    InputChoice -->|Hard| RecordHard[Record: Hard]
-    InputChoice -->|Quit| EndSession[End Session]
-    InputChoice -->|Next| NextCard[Next Card]
-    
-    RevealAnswer --> WaitEvaluation[Wait for Evaluation]
+    %% Random selection weighted according to priority
+    LoadPriority --> SelectCard[Random selection]
+    SelectCard --> ShowCard[Show Card Front]
+    ShowCard --> |Space/Timeout| RevealAnswer[Reveal Answer]
+
+    RevealAnswer --> WaitEvaluation
     WaitEvaluation --> EvalChoice{e/m/h?}
     
-    EvalChoice --> RecordEasy
-    EvalChoice --> RecordMedium
-    EvalChoice --> RecordHard
+    EvalChoice --> |e| RecordEasy
+    EvalChoice --> |m| RecordMedium
+    EvalChoice --> |h| RecordHard
+    EvalChoice --> |q| EndSession
     
     RecordEasy --> UpdatePriorityEasy[Update Priority: Lower<br>Easy = priority × 0.7]
     RecordMedium --> UpdatePriorityMedium[Update Priority: Slightly Lower<br>Medium = priority × 1.2]
@@ -64,41 +97,185 @@ flowchart TD
     UpdatePriorityMedium --> SaveEvaluation
     UpdatePriorityHard --> SaveEvaluation
     
-    SaveEvaluation --> UpdateNextReview[Update Next Review Date]
-    UpdateNextReview --> MoreCards{More Cards?}
-    
-    MoreCards -->|Yes| NextCard
-    NextCard --> ShowCard
-    
-    MoreCards -->|No| EndSession
-    
+    SaveEvaluation --> |automatic| NextCard
+    NextCard --> SelectCard
+
     EndSession --> UpdateStats[Update Statistics]
     UpdateStats --> ShowSummary[Show Session Summary]
-    ShowSummary --> SaveSession[Save Session Log]
-    SaveSession --> ShowMenu
-    
-    AddCards --> InputText[Input Card Text]
-    InputText --> InputTranslation[Input Translation]
-    InputTranslation --> SetInitialPriority[Set Initial Priority]
-    SetInitialPriority --> SaveCard[Save New Card]
-    SaveCard --> ShowMenu
+    ShowSummary --> ExitApp
+    ExitApp --> Cleanup[Save & Cleanup]
+    Cleanup --> End([End])
     
     ShowStats --> DisplayStats[Display Statistics Dashboard]
     DisplayStats --> ShowMenu
     
-    ExitApp --> Cleanup[Save & Cleanup]
-    Cleanup --> End([End])
-    
     style Start fill:#e1f5fe
     style End fill:#ffebee
-    style StudyLoop fill:#f3e5f5
     style RecordEasy fill:#e8f5e8
     style RecordMedium fill:#fff3e0
     style RecordHard fill:#ffebee
 ```
 
-自己評価により以降の出題頻度変更
-Easy: わかる
-Medium: まあまあ
-Hard: わからない -> 出題頻度上げ
+Data Structure Diagram
+```mermaid
+classDiagram
+    class ContentCard {
+        +String id
+        +String text
+        +String translation
+        +Int priority
+        +String type
+        +String[] tags
+        +DateTime created
+        +DateTime last_reviewed
+        +String[] difficulty_history
+    }
+    
+    class StudySession {
+        +String session_id
+        +DateTime start_time
+        +DateTime end_time
+        +CardReview[] reviews
+        +SessionSummary summary
+    }
+    
+    class CardReview {
+        +String card_id
+        +String evaluation
+        +Float response_time
+        +Int new_priority
+    }
+    
+    ContentCard "1" -- "*" CardReview : reviewed_in
+    StudySession "1" -- "*" CardReview : contains
+```
+
+Priority Calculation Logic
+```
+graph LR
+    A[Current Priority] --> B{User Evaluation}
+    
+    B -->|Easy| C[New Priority = Priority × 0.7]
+    B -->|Medium| D[New Priority = Priority × 1.2]
+    B -->|Hard| E[New Priority = Priority × 1.5]
+    
+    C --> I[Save Updated Card]
+    D --> I
+    E --> I
+```
+
+
+## データ構造
+
+CSV,JsonあるいはSQLiteでも
+とりあえずCSVで作って、それを元にjsonにする
+
+english.csv
+```csv
+"Apple","りんご"
+"Tomato","トマト"
+"Banana","バナナ"
+```
+
+あるいはjsonで作る
+contents.json
+```json
+{
+  "content-id": "c01"
+  "description": "Flash card set",
+  "created": "2026-01-18",
+  "content": [
+    {
+      "card-id": "p-001",
+      "text": "This is an apple",
+      "translation": "これはりんごです",
+      "priority": 1.21,
+      "type": "phrase",
+      "tags": ["basic", "fruit"],
+      "created": "2026-01-18",
+      "last_reviewed": "2026-01-18",
+      "review_count": 3,
+    },
+    {
+      "card-id": "w-001",
+      "text": "tomato",
+      "translation": "トマト",
+      "priority": 0.88,
+      "type": "word",
+      "tags": ["basic"],
+      "created": "2026-01-19",
+      "last_reviewed": "2026-01-20",
+      "review_count": 2,
+    },
+    {
+      "card-id": "p-002",
+      "text": "This is a tomato",
+      "translation": "これはトマトです",
+      "priority": 1.11,
+      "type": "phrase",
+      "tags": ["basic"],
+      "created": "2026-01-18",
+      "last_reviewed": "2026-01-28",
+      "review_count": 12,
+    }
+  ]
+}
+```
+
+毎回記録するログ
+sessions/sessions/2026-01-18.json
+```
+{
+  "session_id": "sess_20260118_013409",
+  "start_time": "2026-01-18 01:34:09",
+  "end_time": "2026-01-18 01:45:23",
+  "duration_seconds": 674,
+  "cards_reviewed": 25,
+  "contents-id": "c-01",
+  "cards": [
+    {
+      "card_id": "p-001",
+      "text": "This is an apple",
+      "self_evaluation": "medium",
+      "response_time": 1.23,
+      "previous_difficulty": "hard",
+      "current_priority": 1.12
+      "new_priority": 1.77
+    }
+  ],
+  "summary": {
+    "easy": 10,
+    "medium": 8,
+    "hard": 7,
+    "avg_response_time": 1.45,
+  }
+}
+```
+
+統計
+stats.json
+```json
+{
+  "description": "Learning statistics",
+  "total_sessions": 100,
+  "total_reviews": 450,
+  "evaluation_distribution": {
+    "easy": 34,
+    "medium": 22,
+    "hard": 45
+  },
+  "today": {
+    "date": "2026-01-18",
+    "reviews": 30,
+    "easy": 4,
+    "medium": 21,
+    "hard": 4
+    "time_spent": "00:15:30"
+  },
+  "weekly_progress": [
+    {"date": "2026-01-11", "reviews": 30},
+    {"date": "2026-01-12", "reviews": 28}
+  ]
+}
+```
 
