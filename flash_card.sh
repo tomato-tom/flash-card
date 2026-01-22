@@ -49,7 +49,7 @@ while true; do
     echo "h - Hard"
     echo "q - Quit"
     
-    read -n 1 input
+    read -n 1 -s input
     if [ "$input" = "q" ]; then
         echo
         break

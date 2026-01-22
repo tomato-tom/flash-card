@@ -82,6 +82,7 @@ write_at() {
     local row=$1
     local col=$2
     local text=$3
+    local color=$4
     local text_size=$(echo -n "$text" | wc -c)
 
     [ -z $frame_rows ] && return 1  # フレーム描画済みチェック
@@ -116,7 +117,11 @@ write_at() {
     ((col += frame_start_col + 1))
 
     tput cup $row $col
-    echo -n "$text"
+    if [ -n "$color" ]; then
+        echo -ne "$color$text\033[0m"
+    else
+        echo -n "$text"
+    fi
 }
 
 # 使用例
