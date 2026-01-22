@@ -217,20 +217,78 @@
             text-align: center;
             padding: 20px;
         }
+
+        /* 新しいスタイルを追加 コード部分開閉*/
+        .toggle-btn {
+            background-color: #95a5a6;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        
+        .toggle-btn:hover {
+            background-color: #7f8c8d;
+        }
+        
+        .code-collapsed {
+            grid-template-columns: 0.2fr 1.8fr !important;
+        }
+        
+        .code-collapsed .code-panel {
+            overflow: hidden;
+            padding: 0;
+            max-width: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .code-collapsed .toggle-btn::before {
+            content: "コードを表示";
+        }
+        
+        .code-expanded .toggle-btn::before {
+            content: "コードを非表示";
+        }
+        
+        .code-panel {
+            transition: all 0.3s ease;
+        }
+        
+        .minimized-code {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+            background-color: rgba(52, 152, 219, 0.9);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .code-collapsed .minimized-code {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Mermaid 図確認ツール</h1>
+            <h1>Mermaid Viewer</h1>
             <p>Mermaidコードを入力すると、右側に図が表示されます</p>
         </div>
         
-        <div class="main">
-            <div class="panel">
+        <div class="main" id="main-container">
+            <!-- コードパネルにcode-panelクラスを追加 -->
+            <div class="panel code-panel">
                 <div class="panel-header">
                     <h2>Mermaid コード</h2>
-                    <button id="render-btn">図を更新</button>
+                    <div>
+                        <button id="render-btn">図を更新</button>
+                        <button id="toggle-code-btn" class="toggle-btn"></button>
+                    </div>
                 </div>
                 <textarea id="mermaid-code" rows="30" placeholder="ここにMermaidコードを入力してください...">
 graph TD
@@ -263,12 +321,15 @@ graph TD
             <div class="panel">
                 <div class="panel-header">
                     <h2>図の表示</h2>
+                    <button id="fullscreen-btn">全画面表示</button>
                     <button id="copy-btn">SVGを保存</button>
                 </div>
                 <div id="mermaid-output">
                     <div class="loading">Mermaidを読み込み中...</div>
                 </div>
             </div>
+            <!-- 最小化時のコード表示ボタン -->
+            <button id="minimized-code-btn" class="minimized-code">コードを表示</button>
         </div>
         
         <div class="instructions">
@@ -276,9 +337,9 @@ graph TD
             <ul>
                 <li>左側のテキストエリアにMermaidコードを入力してください</li>
                 <li>「図を更新」ボタンをクリックすると右側に図が表示されます</li>
+                <li>「コードを非表示」ボタンで図を大きく表示できます</li>
                 <li>サンプルボタンで様々な図の例を試せます</li>
                 <li>図を右クリックで保存できます</li>
-                <li>このHTMLファイルをブラウザで開くだけで使えます</li>
             </ul>
         </div>
     </div>
@@ -290,6 +351,40 @@ graph TD
             const mermaidOutput = document.getElementById('mermaid-output');
             const renderBtn = document.getElementById('render-btn');
             const copyBtn = document.getElementById('copy-btn');
+            const toggleCodeBtn = document.getElementById('toggle-code-btn');
+            const mainContainer = document.getElementById('main-container');
+            const minimizedCodeBtn = document.getElementById('minimized-code-btn');
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            
+            // コード表示/非表示の切り替え
+            toggleCodeBtn.addEventListener('click', () => {
+                if (mainContainer.classList.contains('code-collapsed')) {
+                    // コードを表示
+                    mainContainer.classList.remove('code-collapsed');
+                    mainContainer.classList.add('code-expanded');
+                } else {
+                    // コードを非表示
+                    mainContainer.classList.remove('code-expanded');
+                    mainContainer.classList.add('code-collapsed');
+                }
+            });
+            
+            // 最小化時のコード表示ボタン
+            minimizedCodeBtn.addEventListener('click', () => {
+                mainContainer.classList.remove('code-collapsed');
+                mainContainer.classList.add('code-expanded');
+            });
+            
+            // 全画面表示
+            fullscreenBtn.addEventListener('click', () => {
+                if (mermaidOutput.requestFullscreen) {
+                    mermaidOutput.requestFullscreen();
+                } else if (mermaidOutput.webkitRequestFullscreen) {
+                    mermaidOutput.webkitRequestFullscreen();
+                } else if (mermaidOutput.msRequestFullscreen) {
+                    mermaidOutput.msRequestFullscreen();
+                }
+            });
             
             // 描画ボタンのイベント
             renderBtn.addEventListener('click', () => {
@@ -427,11 +522,17 @@ graph TD
             
             // キーボードショートカット
             mermaidCode.addEventListener('keydown', (e) => {
+                // Ctrl-Enterで更新
                 if (e.ctrlKey && e.key === 'Enter') {
                     e.preventDefault();
                     if (window.renderMermaid) {
                         window.renderMermaid();
                     }
+                }
+                // Ctrl+Hでコード表示切り替え
+                if (e.ctrlKey && e.key === 'h') {
+                    e.preventDefault();
+                    toggleCodeBtn.click();
                 }
             });
             
@@ -443,6 +544,9 @@ graph TD
             
             mermaidCode.addEventListener('input', resizeTextarea);
             setTimeout(resizeTextarea, 100);
+
+            // 初期状態を設定
+            mainContainer.classList.add('code-expanded');
         });
     </script>
 </body>

@@ -43,11 +43,11 @@ flowchart TD
     WaitInput --> InputChoice{User Input}
     
     InputChoice -->|Space/Enter| RevealAnswer[Reveal Answer]
-    InputChoice -->|e (Easy)| RecordEasy[Record: Easy]
-    InputChoice -->|m (Medium)| RecordMedium[Record: Medium]
-    InputChoice -->|h (Hard)| RecordHard[Record: Hard]
-    InputChoice -->|q (Quit)| EndSession[End Session]
-    InputChoice -->|n (Next)| NextCard[Next Card]
+    InputChoice -->|Easy| RecordEasy[Record: Easy]
+    InputChoice -->|Medium| RecordMedium[Record: Medium]
+    InputChoice -->|Hard| RecordHard[Record: Hard]
+    InputChoice -->|Quit| EndSession[End Session]
+    InputChoice -->|Next| NextCard[Next Card]
     
     RevealAnswer --> WaitEvaluation[Wait for Evaluation]
     WaitEvaluation --> EvalChoice{e/m/h?}
