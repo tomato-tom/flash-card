@@ -1,0 +1,31 @@
+{
+  "session_id": "sess_20260122_201948",
+  "start_time": "2026-01-22 20:19:48",
+  "end_time": "2026-01-22 20:20:05",
+  "duration_seconds": 17,
+  "cards_reviewed": 2,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "w-020",
+      "time": "2026-01-22 20:19:51",
+      "text": "flexible",
+      "self_evaluation": "medium",
+      "current_priority": 1.26,
+      "new_priority": 1.51
+    },
+    {
+      "card_id": "p-012",
+      "time": "2026-01-22 20:19:58",
+      "text": "Let's call it a day.",
+      "self_evaluation": "medium",
+      "current_priority": 3.00,
+      "new_priority": 3.60
+    }
+  ],
+  "summary": {
+    "easy": 0,
+    "medium": 2,
+    "hard": 0
+  }
+}

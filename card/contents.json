@@ -111,14 +111,14 @@
       "card-id": "p-012",
       "english": "Let's call it a day.",
       "japanese": "今日はこの辺にしよう",
-      "priority": 3.00,
+      "priority": 3.60,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 6
+      "review_count": 7
     },
     {
       "card-id": "w-016",
@@ -202,14 +202,14 @@
       "card-id": "w-020",
       "english": "flexible",
       "japanese": "柔軟な",
-      "priority": 1.26,
+      "priority": 1.51,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 5
+      "review_count": 6
     },
     {
       "card-id": "w-021",
