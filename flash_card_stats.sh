@@ -1,75 +1,59 @@
 #!/bin/bash
-# flash card stats
-JSON_FILE="flash_card_data.json"
-#JSON_FILE="test_data.json"
+# 学習統計表示スクリプト
 
-# オプション解析
-period="all"  # デフォルト: 全期間
-if [ $# -gt 0 ]; then
-    case "$1" in
-        today|t) period="today" ;;
-        weekly|week|w) period="weekly" ;;
-        monthly|month|m) period="monthly" ;;
-        all|a) period="all" ;;
-        *) 
-            echo "使い方: $0 [today|weekly|monthly|all]"
-            echo "  today    - 今日の統計"
-            echo "  weekly   - 今週の統計"
-            echo "  monthly  - 今月の統計"
-            echo "  all      - 全期間の統計（デフォルト）"
-            exit 1
-            ;;
-    esac
+SESSION_DIR="data/sessions"
+VOCAB_JSON="card/contents.json"
+
+if [ ! -d "$SESSION_DIR" ] || [ -z "$(ls -A "$SESSION_DIR")" ]; then
+    echo "No session logs found."
+    exit 1
 fi
 
-jq -r --arg period "$period" '
-  # 現在日時
-  (now | strflocaltime("%Y-%m-%d")) as $today |
-  (now | strflocaltime("%Y-%m")) as $this_month |
-  (now | strflocaltime("%Y-%W")) as $this_week |
-  
-  .games as $all_games |
-  
-  # 期間でフィルタリング
-  $all_games |
-  if $period == "today" then
-    map(select(.timestamp | startswith($today)))
-  elif $period == "weekly" then
-    map(select(
-      .timestamp | 
-      split(" ")[0] | 
-      strptime("%Y-%m-%d") | 
-      strftime("%Y-%W") == $this_week
-    ))
-  elif $period == "monthly" then
-    map(select(.timestamp | startswith($this_month)))
-  else
-    .
-  end |
-  
-  # 統計計算
-  # ここをfラッシュカード用に編集
-  . as $games |
-  ($games | map(select(.input == .word))) as $correct_games |
-  
-  ($games | length) as $total_games |
-  ($correct_games | length) as $correct_count |
-  ($correct_games | map(.input | length) | add // 0) as $total_chars |
-  ($correct_games | map(.time_taken) | add // 0) as $total_time |
-  (if $total_time > 0 then $total_chars / $total_time else 0 end) as $chars_per_sec |
-  
-  # 出力
-  "=== タイピング・ゲーム統計 (\(
-    if $period == "today" then "今日"
-    elif $period == "weekly" then "今週"
-    elif $period == "monthly" then "今月"
-    else "全期間"
-  end)) ===",
-  "",
-  "ゲーム数: \($total_games)",
-  "正解数: \($correct_count)",
-  "正解率: \(if $total_games > 0 then (($correct_count * 100) / $total_games | floor) else 0 end)%",
-  "総プレイ時間: \($total_time | round)秒",
-  "平均速度: \($chars_per_sec * 100 | round / 100) c/s"
-' "$JSON_FILE" 2>/dev/null
+echo "=== Flash Card Learning Statistics ==="
 
+# 1. 全体の進捗状況
+total_cards=$(jq '.content | length' "$VOCAB_JSON")
+reviewed_once=$(jq '[.content[] | select(.review_count > 0)] | length' "$VOCAB_JSON")
+avg_priority=$(jq '[.content[].priority] | add / length' "$VOCAB_JSON")
+
+echo "--- Overall Progress ---"
+printf "Total Cards    : %d\n" "$total_cards"
+printf "Reached Cards  : %d (%d%%)\n" "$reviewed_once" "$(( total_cards > 0 ? reviewed_once * 100 / total_cards : 0 ))"
+printf "Average Priority: %.2f (Lower is better)\n" "$avg_priority"
+echo
+
+# 2. 直近5セッションのサマリー
+echo "--- Recent 5 Sessions ---"
+echo "DATE             | EASY | MED  | HARD | DUR(m) "
+echo "-----------------+------+------+------+--------"
+
+# ファイル名の sess_YYYYMMDD_HHMMSS を YYYY-MM-DD HH:MM に変換
+ls "$SESSION_DIR"/sess_*.json 2>/dev/null | sort -r | head -n 5 | while read -r log; do
+    filename=$(basename "$log" .json)
+    
+    # 文字列操作で整形 (sess_20260122_190043 -> 2026-01-22 19:00)
+    raw_dt=${filename#sess_}
+    formatted_date="${raw_dt:0:4}-${raw_dt:4:2}-${raw_dt:6:2} ${raw_dt:9:2}:${raw_dt:11:2}"
+    
+    easy=$(jq '.summary.easy' "$log")
+    med=$(jq '.summary.medium' "$log")
+    hard=$(jq '.summary.hard' "$log")
+    dur=$(jq '.duration_seconds' "$log")
+    
+    printf "%-16s | %4d | %4d | %4d | %5.1f\n" \
+           "$formatted_date" "$easy" "$med" "$hard" "$(echo "scale=1; $dur/60" | bc -l)"
+done
+echo
+
+# 3. 苦手な単語トップ5
+echo "--- Top 5 Weak Cards (Need Focus) ---"
+jq -r '.content | sort_by(.priority) | reverse | .[:5] | .[] | "\(.priority)|\(.english)|\(.japanese)"' "$VOCAB_JSON" | \
+while IFS='|' read -r prio eng jap; do
+    # バー表示ロジック
+    bar_len=$(echo "$prio * 10 / 1" | bc)
+    bar=$(printf "%${bar_len}s" | tr ' ' '#')
+    printf "[%-30s] %4.2f | %s (%s)\n" "$bar" "$prio" "$eng" "$jap"
+done
+
+echo
+echo "Keep it up!"
