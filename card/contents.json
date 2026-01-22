@@ -7,14 +7,14 @@
       "card-id": "w-010",
       "english": "efficient",
       "japanese": "効率的な",
-      "priority": 1.80,
+      "priority": 2.16,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "review_count": 5
     },
     {
       "card-id": "w-011",
@@ -46,40 +46,40 @@
       "card-id": "w-012",
       "english": "vulnerability",
       "japanese": "脆弱性",
-      "priority": 0.70,
+      "priority": 0.49,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "review_count": 3
     },
     {
       "card-id": "w-013",
       "english": "obsolete",
       "japanese": "時代遅れの、廃れた",
-      "priority": 1.80,
+      "priority": 2.16,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 4
+      "review_count": 6
     },
     {
       "card-id": "p-011",
       "english": "I'll get right on it.",
       "japanese": "すぐにとりかかります",
-      "priority": 2.70,
+      "priority": 4.05,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 6
+      "review_count": 7
     },
     {
       "card-id": "w-014",
@@ -98,46 +98,7 @@
       "card-id": "w-015",
       "english": "seamless",
       "japanese": "途切れのない、円滑な",
-      "priority": 1.89,
-      "type": "word",
-      "tags": [
-        "tech"
-      ],
-      "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 4
-    },
-    {
-      "card-id": "p-012",
-      "english": "Let's call it a day.",
-      "japanese": "今日はこの辺にしよう",
-      "priority": 3.60,
-      "type": "phrase",
-      "tags": [
-        "daily"
-      ],
-      "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 7
-    },
-    {
-      "card-id": "w-016",
-      "english": "sustainable",
-      "japanese": "持続可能な",
-      "priority": 1.44,
-      "type": "word",
-      "tags": [
-        "general"
-      ],
-      "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 3
-    },
-    {
-      "card-id": "w-017",
-      "english": "compatible",
-      "japanese": "互換性がある",
-      "priority": 1.01,
+      "priority": 2.27,
       "type": "word",
       "tags": [
         "tech"
@@ -147,30 +108,69 @@
       "review_count": 6
     },
     {
-      "card-id": "p-013",
-      "english": "It depends on the context.",
-      "japanese": "文脈（状況）によります",
-      "priority": 1.44,
+      "card-id": "p-012",
+      "english": "Let's call it a day.",
+      "japanese": "今日はこの辺にしよう",
+      "priority": 4.32,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 4
+      "review_count": 9
     },
     {
-      "card-id": "w-018",
-      "english": "integrity",
-      "japanese": "完全性、誠実さ",
-      "priority": 2.70,
+      "card-id": "w-016",
+      "english": "sustainable",
+      "japanese": "持続可能な",
+      "priority": 1.01,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 3
+      "review_count": 4
+    },
+    {
+      "card-id": "w-017",
+      "english": "compatible",
+      "japanese": "互換性がある",
+      "priority": 0.71,
+      "type": "word",
+      "tags": [
+        "tech"
+      ],
+      "created": "2026-01-22",
+      "last_reviewed": "2026-01-22",
+      "review_count": 7
+    },
+    {
+      "card-id": "p-013",
+      "english": "It depends on the context.",
+      "japanese": "文脈（状況）によります",
+      "priority": 1.01,
+      "type": "phrase",
+      "tags": [
+        "daily"
+      ],
+      "created": "2026-01-22",
+      "last_reviewed": "2026-01-22",
+      "review_count": 5
+    },
+    {
+      "card-id": "w-018",
+      "english": "integrity",
+      "japanese": "完全性、誠実さ",
+      "priority": 3.24,
+      "type": "word",
+      "tags": [
+        "general"
+      ],
+      "created": "2026-01-22",
+      "last_reviewed": "2026-01-22",
+      "review_count": 4
     },
     {
       "card-id": "w-019",
@@ -189,40 +189,40 @@
       "card-id": "p-014",
       "english": "Better safe than sorry.",
       "japanese": "備えあれば憂いなし（後悔するより安全策）",
-      "priority": 2.25,
+      "priority": 2.70,
       "type": "phrase",
       "tags": [
         "idiom"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 3
+      "review_count": 5
     },
     {
       "card-id": "w-020",
       "english": "flexible",
       "japanese": "柔軟な",
-      "priority": 1.51,
+      "priority": 1.06,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 6
+      "review_count": 10
     },
     {
       "card-id": "w-021",
       "english": "implementation",
       "japanese": "実装、実施",
-      "priority": 0.88,
+      "priority": 0.62,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 6
+      "review_count": 7
     },
     {
       "card-id": "p-015",
@@ -241,53 +241,53 @@
       "card-id": "w-022",
       "english": "reliable",
       "japanese": "信頼できる",
-      "priority": 3.00,
+      "priority": 4.50,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 21
+      "review_count": 22
     },
     {
       "card-id": "w-023",
       "english": "scalable",
       "japanese": "拡張可能な",
-      "priority": 0.84,
+      "priority": 0.59,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 3
+      "review_count": 4
     },
     {
       "card-id": "p-016",
       "english": "Just in case.",
       "japanese": "念のため",
-      "priority": 3.00,
+      "priority": 3.60,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 8
+      "review_count": 10
     },
     {
       "card-id": "w-024",
       "english": "comprehensive",
       "japanese": "包括的な、網羅的な",
-      "priority": 1.20,
+      "priority": 0.84,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "review_count": 5
     },
     {
       "card-id": "w-025",
@@ -306,66 +306,66 @@
       "card-id": "p-017",
       "english": "That's a good point.",
       "japanese": "それは良い指摘ですね",
-      "priority": 1.73,
+      "priority": 2.08,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 4
+      "review_count": 7
     },
     {
       "card-id": "w-026",
       "english": "alternative",
       "japanese": "代わりの、選択肢",
-      "priority": 1.21,
+      "priority": 0.85,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 5
+      "review_count": 6
     },
     {
       "card-id": "w-027",
       "english": "configuration",
       "japanese": "設定、構成",
-      "priority": 1.01,
+      "priority": 0.71,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 5
+      "review_count": 6
     },
     {
       "card-id": "p-018",
       "english": "Keep me posted.",
       "japanese": "進展があったら教えて（状況を知らせて）",
-      "priority": 2.70,
+      "priority": 4.05,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 5
+      "review_count": 7
     },
     {
       "card-id": "w-028",
       "english": "preliminary",
       "japanese": "予備の、準備段階の",
-      "priority": 1.80,
+      "priority": 2.70,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "review_count": 4
     },
     {
       "card-id": "w-029",
@@ -384,14 +384,14 @@
       "card-id": "p-019",
       "english": "As far as I know.",
       "japanese": "私の知る限りでは",
-      "priority": 3.00,
+      "priority": 3.60,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-22",
-      "review_count": 13
+      "review_count": 15
     }
   ]
 }

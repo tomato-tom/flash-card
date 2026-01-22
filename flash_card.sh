@@ -45,6 +45,7 @@ while true; do
     japanese=$(echo "$RAW_DATA" | jq -r '.japanese')
     card_id=$(echo "$RAW_DATA" | jq -r '."card-id"')
     curr_p=$(echo "$RAW_DATA" | jq -r '.priority')
+    rev_count=$(echo "$RAW_DATA" | jq -r '.review_count')
 
     # 画面描画
     tput cup $frame_row $frame_col; tput ed
@@ -52,6 +53,9 @@ while true; do
     tput sc
     [ "$SPEECH" = true ] && speech "$english" &
     write_at 3 center "$english" "\033[38;5;87m"
+
+    # 追加: 右下に復習回数を表示 (例: Rev: 5)
+    write_at bottom right "Rev: $rev_count" "\033[2m" # \033[2m は薄暗い色(dim)
     
     tput rc; tput ed
     echo "[$card_id] Any key to answer (q:quit)"

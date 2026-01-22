@@ -50,9 +50,9 @@ echo "--- Top 5 Weak Cards (Need Focus) ---"
 jq -r '.content | sort_by(.priority) | reverse | .[:5] | .[] | "\(.priority)|\(.english)|\(.japanese)"' "$VOCAB_JSON" | \
 while IFS='|' read -r prio eng jap; do
     # バー表示ロジック
-    bar_len=$(echo "$prio * 10 / 1" | bc)
+    bar_len=$(echo "$prio / 1" | bc)
     bar=$(printf "%${bar_len}s" | tr ' ' '#')
-    printf "[%-30s] %4.2f | %s (%s)\n" "$bar" "$prio" "$eng" "$jap"
+    printf "[%-12s] %4.2f | %s\n" "$bar" "$prio" "$eng"
 done
 
 echo
