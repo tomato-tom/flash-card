@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid Viewer</title>
+    <!-- ES ModuleとしてMermaidをインポート -->
+    <script type="module">
+        // グローバル変数としてmermaidをエクスポート
+        window.mermaid = await import('https://cdn.jsdelivr.net/npm/mermaid@11.12.2/+esm');
+        
+        // 初期化
+        mermaid.default.initialize({
+            startOnLoad: false,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+        
+        // 描画関数をグローバルに設定
+        window.renderMermaid = async function() {
+            const code = document.getElementById('mermaid-code').value;
+            const mermaidOutput = document.getElementById('mermaid-output');
+            mermaidOutput.innerHTML = '<div>描画中...</div>';
+            
+            try {
+                // Mermaid 11ではdefaultを使用
+                const { svg } = await mermaid.default.render('mermaid-diagram', code);
+                mermaidOutput.innerHTML = svg;
+            } catch (error) {
+                console.error('Mermaid rendering error:', error);
+                mermaidOutput.innerHTML = `
+                    <div class="error-message">
+                        <p>エラー: 図の描画に失敗しました</p>
+                        <p>${error.message || error.toString()}</p>
+                        <p>Mermaidの構文を確認してください</p>
+                    </div>
+                `;
+            }
+        };
+        
+        // DOM読み込み完了後、初期描画を実行
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                if (window.renderMermaid) {
+                    window.renderMermaid();
+                }
+            }, 100);
+        });
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .main {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .panel {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        h2 {
+            color: #2c3e50;
+        }
+        
+        textarea {
+            width: 100%;
+            flex-grow: 1;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: none;
+            background-color: #f9f9f9;
+            line-height: 1.4;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            background-color: white;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        #mermaid-output {
+            width: 100%;
+            min-height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            background-color: white;
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .sample-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .sample-btn {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            font-size: 14px;
+            padding: 8px 12px;
+        }
+        
+        .sample-btn:hover {
+            background-color: #bdc3c7;
+        }
+        
+        .instructions {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background-color: #fdf2f2;
+            border: 1px solid #e74c3c;
+            border-radius: 4px;
+        }
+        
+        .loading {
+            color: #3498db;
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mermaid 図確認ツール</h1>
+            <p>Mermaidコードを入力すると、右側に図が表示されます</p>
+        </div>
+        
+        <div class="main">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Mermaid コード</h2>
+                    <button id="render-btn">図を更新</button>
+                </div>
+                <textarea id="mermaid-code" rows="30" placeholder="ここにMermaidコードを入力してください...">
+graph TD
+    A[開発開始] --> B{要件定義}
+    B --> C[設計]
+    B --> D[仕様書作成]
+    C --> E[実装]
+    D --> E
+    E --> F[テスト]
+    F --> G{合格?}
+    G -->|はい| H[リリース]
+    G -->|いいえ| E
+    H --> I[完了]
+    
+    subgraph サブプロセス
+        C
+        D
+    end</textarea>
+                
+                <div class="sample-buttons">
+                    <button class="sample-btn" data-sample="flowchart">フローチャート</button>
+                    <button class="sample-btn" data-sample="sequence">シーケンス図</button>
+                    <button class="sample-btn" data-sample="class">クラス図</button>
+                    <button class="sample-btn" data-sample="pie">円グラフ</button>
+                    <button class="sample-btn" data-sample="gantt">ガントチャート</button>
+                    <button class="sample-btn" data-sample="er">ER図</button>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>図の表示</h2>
+                    <button id="copy-btn">SVGを保存</button>
+                </div>
+                <div id="mermaid-output">
+                    <div class="loading">Mermaidを読み込み中...</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>使い方</h3>
+            <ul>
+                <li>左側のテキストエリアにMermaidコードを入力してください</li>
+                <li>「図を更新」ボタンをクリックすると右側に図が表示されます</li>
+                <li>サンプルボタンで様々な図の例を試せます</li>
+                <li>図を右クリックで保存できます</li>
+                <li>このHTMLファイルをブラウザで開くだけで使えます</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // ボタンのイベントリスナー設定
+        document.addEventListener('DOMContentLoaded', () => {
+            const mermaidCode = document.getElementById('mermaid-code');
+            const mermaidOutput = document.getElementById('mermaid-output');
+            const renderBtn = document.getElementById('render-btn');
+            const copyBtn = document.getElementById('copy-btn');
+            
+            // 描画ボタンのイベント
+            renderBtn.addEventListener('click', () => {
+                if (window.renderMermaid) {
+                    window.renderMermaid();
+                } else {
+                    mermaidOutput.innerHTML = '<div class="error-message">Mermaidがまだ読み込まれていません。少し待ってから再試行してください。</div>';
+                }
+            });
+            
+            // サンプルボタンの設定
+            const sampleButtons = document.querySelectorAll('.sample-btn');
+            
+            const samples = {
+                flowchart: `graph TD
+    A[クリック] --> B{処理}
+    B --> C[成功]
+    B --> D[失敗]
+    C --> E[完了]
+    D --> F[エラー処理]
+    F --> B`,
+                
+                sequence: `sequenceDiagram
+    participant ユーザー
+    participant フロントエンド
+    participant API
+    participant データベース
+    
+    ユーザー->>フロントエンド: リクエスト送信
+    フロントエンド->>API: API呼び出し
+    API->>データベース: クエリ実行
+    データベース-->>API: データ返却
+    API-->>フロントエンド: レスポンス
+    フロントエンド-->>ユーザー: 結果表示`,
+                
+                class: `classDiagram
+    class Animal {
+        +String name
+        +int age
+        +eat()
+        +sleep()
+    }
+    
+    class Dog {
+        +String breed
+        +bark()
+    }
+    
+    class Cat {
+        +Boolean isIndoor
+        +meow()
+    }
+    
+    Animal <|-- Dog
+    Animal <|-- Cat`,
+                
+                pie: `pie title プロジェクト時間配分
+    "設計" : 25
+    "開発" : 40
+    "テスト" : 20
+    "デプロイ" : 10
+    "ドキュメント" : 5`,
+                
+                gantt: `gantt
+    title プロジェクト計画
+    dateFormat  YYYY-MM-DD
+    section 設計
+    要件定義     :a1, 2024-01-01, 7d
+    詳細設計     :a2, after a1, 10d
+    section 開発
+    フロントエンド :b1, after a2, 14d
+    バックエンド  :b2, after a2, 21d
+    section テスト
+    単体テスト   :c1, after b1, 7d
+    結合テスト   :c2, after b2, 14d`,
+                
+                er: `erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER {
+        string name
+        string email
+        int customerId
+    }
+    ORDER {
+        int orderId
+        date orderDate
+    }
+    LINE-ITEM {
+        int quantity
+        float price
+    }`
+            };
+            
+            sampleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const sampleType = button.getAttribute('data-sample');
+                    if (samples[sampleType]) {
+                        mermaidCode.value = samples[sampleType];
+                        if (window.renderMermaid) {
+                            window.renderMermaid();
+                        }
+                    }
+                });
+            });
+            
+            // SVGを保存する機能
+            copyBtn.addEventListener('click', () => {
+                const svgElement = mermaidOutput.querySelector('svg');
+                if (svgElement) {
+                    const svgData = new XMLSerializer().serializeToString(svgElement);
+                    const blob = new Blob([svgData], {type: 'image/svg+xml'});
+                    const url = URL.createObjectURL(blob);
+                    
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'mermaid-diagram.svg';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    // 一時的なフィードバック
+                    const originalText = copyBtn.textContent;
+                    copyBtn.textContent = '保存完了!';
+                    copyBtn.style.backgroundColor = '#2ecc71';
+                    setTimeout(() => {
+                        copyBtn.textContent = originalText;
+                        copyBtn.style.backgroundColor = '#3498db';
+                    }, 2000);
+                } else {
+                    alert('図が表示されていません。先に図を描画してください。');
+                }
+            });
+            
+            // キーボードショートカット
+            mermaidCode.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.key === 'Enter') {
+                    e.preventDefault();
+                    if (window.renderMermaid) {
+                        window.renderMermaid();
+                    }
+                }
+            });
+            
+            // 自動リサイズ
+            function resizeTextarea() {
+                mermaidCode.style.height = 'auto';
+                mermaidCode.style.height = (mermaidCode.scrollHeight) + 'px';
+            }
+            
+            mermaidCode.addEventListener('input', resizeTextarea);
+            setTimeout(resizeTextarea, 100);
+        });
+    </script>
+</body>
+</html>
