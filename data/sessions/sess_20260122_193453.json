@@ -1,0 +1,199 @@
+{
+  "session_id": "sess_20260122_193453",
+  "start_time": "2026-01-22 19:34:53",
+  "end_time": "2026-01-22 19:37:20",
+  "duration_seconds": 147,
+  "cards_reviewed": 23,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "p-018",
+      "time": "2026-01-22 19:34:56",
+      "text": "Keep me posted.",
+      "self_evaluation": "medium",
+      "current_priority": 1.50,
+      "new_priority": 1.80
+    },
+    {
+      "card_id": "w-022",
+      "time": "2026-01-22 19:35:03",
+      "text": "reliable",
+      "self_evaluation": "medium",
+      "current_priority": 3.00,
+      "new_priority": 3.00
+    },
+    {
+      "card_id": "p-019",
+      "time": "2026-01-22 19:35:10",
+      "text": "As far as I know.",
+      "self_evaluation": "hard",
+      "current_priority": 2.70,
+      "new_priority": 3.00
+    },
+    {
+      "card_id": "p-019",
+      "time": "2026-01-22 19:35:17",
+      "text": "As far as I know.",
+      "self_evaluation": "medium",
+      "current_priority": 2.70,
+      "new_priority": 3.00
+    },
+    {
+      "card_id": "p-019",
+      "time": "2026-01-22 19:35:23",
+      "text": "As far as I know.",
+      "self_evaluation": "medium",
+      "current_priority": 2.70,
+      "new_priority": 3.00
+    },
+    {
+      "card_id": "p-019",
+      "time": "2026-01-22 19:35:26",
+      "text": "As far as I know.",
+      "self_evaluation": "medium",
+      "current_priority": 2.70,
+      "new_priority": 3.00
+    },
+    {
+      "card_id": "w-022",
+      "time": "2026-01-22 19:35:34",
+      "text": "reliable",
+      "self_evaluation": "medium",
+      "current_priority": 3.00,
+      "new_priority": 3.00
+    },
+    {
+      "card_id": "p-010",
+      "time": "2026-01-22 19:35:40",
+      "text": "Does that make sense?",
+      "self_evaluation": "hard",
+      "current_priority": 1.20,
+      "new_priority": 1.80
+    },
+    {
+      "card_id": "p-019",
+      "time": "2026-01-22 19:35:47",
+      "text": "As far as I know.",
+      "self_evaluation": "medium",
+      "current_priority": 2.70,
+      "new_priority": 3.00
+    },
+    {
+      "card_id": "w-027",
+      "time": "2026-01-22 19:35:54",
+      "text": "configuration",
+      "self_evaluation": "easy",
+      "current_priority": 1.20,
+      "new_priority": 0.84
+    },
+    {
+      "card_id": "p-010",
+      "time": "2026-01-22 19:36:01",
+      "text": "Does that make sense?",
+      "self_evaluation": "hard",
+      "current_priority": 1.20,
+      "new_priority": 1.80
+    },
+    {
+      "card_id": "w-026",
+      "time": "2026-01-22 19:36:08",
+      "text": "alternative",
+      "self_evaluation": "easy",
+      "current_priority": 1.73,
+      "new_priority": 1.21
+    },
+    {
+      "card_id": "w-023",
+      "time": "2026-01-22 19:36:14",
+      "text": "scalable",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "w-018",
+      "time": "2026-01-22 19:36:22",
+      "text": "integrity",
+      "self_evaluation": "hard",
+      "current_priority": 1.80,
+      "new_priority": 2.70
+    },
+    {
+      "card_id": "p-015",
+      "time": "2026-01-22 19:36:29",
+      "text": "I'm on the same page.",
+      "self_evaluation": "medium",
+      "current_priority": 0.70,
+      "new_priority": 0.84
+    },
+    {
+      "card_id": "p-017",
+      "time": "2026-01-22 19:36:35",
+      "text": "That's a good point.",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    },
+    {
+      "card_id": "p-016",
+      "time": "2026-01-22 19:36:41",
+      "text": "Just in case.",
+      "self_evaluation": "medium",
+      "current_priority": 1.80,
+      "new_priority": 2.16
+    },
+    {
+      "card_id": "w-022",
+      "time": "2026-01-22 19:36:46",
+      "text": "reliable",
+      "self_evaluation": "medium",
+      "current_priority": 3.00,
+      "new_priority": 3.00
+    },
+    {
+      "card_id": "p-013",
+      "time": "2026-01-22 19:36:54",
+      "text": "It depends on the context.",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    },
+    {
+      "card_id": "w-022",
+      "time": "2026-01-22 19:36:59",
+      "text": "reliable",
+      "self_evaluation": "hard",
+      "current_priority": 3.00,
+      "new_priority": 3.00
+    },
+    {
+      "card_id": "w-011",
+      "time": "2026-01-22 19:37:04",
+      "text": "deployment",
+      "self_evaluation": "easy",
+      "current_priority": 0.50,
+      "new_priority": 0.50
+    },
+    {
+      "card_id": "w-022",
+      "time": "2026-01-22 19:37:11",
+      "text": "reliable",
+      "self_evaluation": "medium",
+      "current_priority": 3.00,
+      "new_priority": 3.00
+    },
+    {
+      "card_id": "w-027",
+      "time": "2026-01-22 19:37:17",
+      "text": "configuration",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    }
+  ],
+  "summary": {
+    "easy": 3,
+    "medium": 15,
+    "hard": 5
+  }
+}

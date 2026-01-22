@@ -70,10 +70,10 @@ while true; do
         *) rate=1.2; eval="medium"; ((medium_c++)) ;;
     esac
 
-    # 新しいPriority計算 (0.5〜3.0の範囲に制限)
+    # 新しいPriority計算 (0.1〜10.0の範囲に制限)
     new_p=$(echo "$curr_p * $rate" | bc -l | xargs printf "%.2f")
-    if (( $(echo "$new_p < 0.5" | bc -l) )); then new_p="0.50"; fi
-    if (( $(echo "$new_p > 3.0" | bc -l) )); then new_p="3.00"; fi
+    if (( $(echo "$new_p < 0.1" | bc -l) )); then new_p="0.10"; fi
+    if (( $(echo "$new_p > 10.0" | bc -l) )); then new_p="10.00"; fi
 
     # 一時ログ保存
     echo "$card_id|$english|$eval|$curr_p|$new_p|$(date '+%Y-%m-%d %H:%M:%S')" >> "$TMP_LOG"
