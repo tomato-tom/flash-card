@@ -227,7 +227,7 @@ contents.json
 }
 ```
 
-毎回記録するログ
+毎回カード読むごとに記録するログ
 sessions/sessions/2026-01-18.json
 ```
 {
@@ -240,12 +240,19 @@ sessions/sessions/2026-01-18.json
   "cards": [
     {
       "card_id": "p-001",
+      "time": "2026-01-18 01:34:13",
       "text": "This is an apple",
       "self_evaluation": "medium",
-      "response_time": 1.23,
-      "previous_difficulty": "hard",
-      "current_priority": 1.12
-      "new_priority": 1.77
+      "current_priority": 1.12,
+      "new_priority": 1.33
+    },
+    {
+      "card_id": "p-002",
+      "time": "2026-01-18 01:34:18",
+      "text": "This is an tomato",
+      "self_evaluation": "hard",
+      "current_priority": 1.02,
+      "new_priority": 1.35
     }
   ],
   "summary": {
