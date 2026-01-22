@@ -1,0 +1,103 @@
+{
+  "session_id": "sess_20260123_083209",
+  "start_time": "2026-01-23 08:32:09",
+  "end_time": "2026-01-23 08:33:22",
+  "duration_seconds": 73,
+  "cards_reviewed": 11,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "w-037",
+      "time": "2026-01-23 08:32:13",
+      "text": "granular",
+      "self_evaluation": "medium",
+      "current_priority": 1.44,
+      "new_priority": 1.73
+    },
+    {
+      "card_id": "w-038",
+      "time": "2026-01-23 08:32:19",
+      "text": "integrity",
+      "self_evaluation": "medium",
+      "current_priority": 2.16,
+      "new_priority": 2.59
+    },
+    {
+      "card_id": "w-022",
+      "time": "2026-01-23 08:32:25",
+      "text": "reliable",
+      "self_evaluation": "medium",
+      "current_priority": 9.72,
+      "new_priority": 10.00
+    },
+    {
+      "card_id": "w-028",
+      "time": "2026-01-23 08:32:31",
+      "text": "preliminary",
+      "self_evaluation": "hard",
+      "current_priority": 4.86,
+      "new_priority": 7.29
+    },
+    {
+      "card_id": "w-036",
+      "time": "2026-01-23 08:32:46",
+      "text": "architecture",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "p-020",
+      "time": "2026-01-23 08:32:55",
+      "text": "I'll look into it.",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "w-011",
+      "time": "2026-01-23 08:33:00",
+      "text": "deployment",
+      "self_evaluation": "medium",
+      "current_priority": 0.50,
+      "new_priority": 0.60
+    },
+    {
+      "card_id": "w-015",
+      "time": "2026-01-23 08:33:06",
+      "text": "seamless",
+      "self_evaluation": "medium",
+      "current_priority": 3.26,
+      "new_priority": 3.91
+    },
+    {
+      "card_id": "p-014",
+      "time": "2026-01-23 08:33:12",
+      "text": "Better safe than sorry.",
+      "self_evaluation": "medium",
+      "current_priority": 5.83,
+      "new_priority": 7.00
+    },
+    {
+      "card_id": "p-047",
+      "time": "2026-01-23 08:33:17",
+      "text": "I'll be right back.",
+      "self_evaluation": "medium",
+      "current_priority": 1.44,
+      "new_priority": 1.73
+    },
+    {
+      "card_id": "p-045",
+      "time": "2026-01-23 08:33:20",
+      "text": "Could you do me a favor?",
+      "self_evaluation": "hard",
+      "current_priority": 1.50,
+      "new_priority": 2.25
+    }
+  ],
+  "summary": {
+    "easy": 0,
+    "medium": 8,
+    "hard": 3
+  }
+}
