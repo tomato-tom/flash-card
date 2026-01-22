@@ -192,36 +192,36 @@ contents.json
   "content": [
     {
       "card-id": "p-001",
-      "text": "This is an apple",
-      "translation": "これはりんごです",
+      "english": "This is an apple",
+      "japanese": "これはりんごです",
       "priority": 1.21,
       "type": "phrase",
       "tags": ["basic", "fruit"],
       "created": "2026-01-18",
       "last_reviewed": "2026-01-18",
-      "review_count": 3,
+      "review_count": 3
     },
     {
       "card-id": "w-001",
-      "text": "tomato",
-      "translation": "トマト",
+      "english": "tomato",
+      "japanese": "トマト",
       "priority": 0.88,
       "type": "word",
       "tags": ["basic"],
       "created": "2026-01-19",
       "last_reviewed": "2026-01-20",
-      "review_count": 2,
+      "review_count": 2
     },
     {
       "card-id": "p-002",
-      "text": "This is a tomato",
-      "translation": "これはトマトです",
+      "english": "This is a tomato",
+      "japanese": "これはトマトです",
       "priority": 1.11,
       "type": "phrase",
       "tags": ["basic"],
       "created": "2026-01-18",
       "last_reviewed": "2026-01-28",
-      "review_count": 12,
+      "review_count": 12
     }
   ]
 }
