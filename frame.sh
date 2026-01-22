@@ -83,7 +83,16 @@ write_at() {
     local col=$2
     local text=$3
     local color=$4
-    local text_size=$(echo -n "$text" | wc -c)
+    local byte_len=$(printf "%s" "$text" | wc -c)
+    local char_len=${#text}   # ${#text} はマルチバイト文字を1文字としてカウント
+    local text_size
+    
+    if [ "$byte_len" -ne "$char_len" ]; then
+        # マルチバイト文字のコマ数計算
+        text_size=$(( char_len * 2 ))
+    else
+        text_size=$char_len
+    fi
 
     [ -z $frame_rows ] && return 1  # フレーム描画済みチェック
     
