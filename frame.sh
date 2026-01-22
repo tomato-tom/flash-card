@@ -82,7 +82,6 @@ write_at() {
     local row=$1
     local col=$2
     local text=$3
-    local color=$4
     local text_size=$(echo -n "$text" | wc -c)
 
     [ -z $frame_rows ] && return 1  # フレーム描画済みチェック
@@ -117,16 +116,11 @@ write_at() {
     ((col += frame_start_col + 1))
 
     tput cup $row $col
-    if [ -n "$color" ]; then
-        echo -ne "$color$text\033[0m"
-    else
-        echo -n "$text"
-    fi
+    echo -n "$text"
 }
 
-# メイン処理
-# clear  # 画面をクリア
-
+# 使用例
+#
 # 枠の開始位置（相対位置）、枠の大きさ指定で描画
 # create_frame Y X H W
 # echo "Create frame"
