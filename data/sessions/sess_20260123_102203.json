@@ -1,0 +1,47 @@
+{
+  "session_id": "sess_20260123_102203",
+  "start_time": "2026-01-23 10:22:03",
+  "end_time": "2026-01-23 10:22:25",
+  "duration_seconds": 22,
+  "cards_reviewed": 4,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "p-038",
+      "time": "2026-01-23 10:22:06",
+      "text": "It's better than nothing.",
+      "self_evaluation": "medium",
+      "current_priority": 1.44,
+      "new_priority": 1.73
+    },
+    {
+      "card_id": "p-025",
+      "time": "2026-01-23 10:22:09",
+      "text": "It's a trade-off.",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    },
+    {
+      "card_id": "p-042",
+      "time": "2026-01-23 10:22:14",
+      "text": "The point is...",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "w-028",
+      "time": "2026-01-23 10:22:17",
+      "text": "preliminary",
+      "self_evaluation": "medium",
+      "current_priority": 8.75,
+      "new_priority": 10.00
+    }
+  ],
+  "summary": {
+    "easy": 0,
+    "medium": 4,
+    "hard": 0
+  }
+}

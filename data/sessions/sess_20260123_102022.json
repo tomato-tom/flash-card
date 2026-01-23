@@ -1,0 +1,79 @@
+{
+  "session_id": "sess_20260123_102022",
+  "start_time": "2026-01-23 10:20:22",
+  "end_time": "2026-01-23 10:21:20",
+  "duration_seconds": 58,
+  "cards_reviewed": 8,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "w-022",
+      "time": "2026-01-23 10:20:27",
+      "text": "reliable",
+      "self_evaluation": "easy",
+      "current_priority": 10.00,
+      "new_priority": 7.00
+    },
+    {
+      "card_id": "p-019",
+      "time": "2026-01-23 10:20:32",
+      "text": "As far as I know.",
+      "self_evaluation": "easy",
+      "current_priority": 6.22,
+      "new_priority": 4.35
+    },
+    {
+      "card_id": "w-022",
+      "time": "2026-01-23 10:20:35",
+      "text": "reliable",
+      "self_evaluation": "hard",
+      "current_priority": 10.00,
+      "new_priority": 10.00
+    },
+    {
+      "card_id": "w-018",
+      "time": "2026-01-23 10:20:38",
+      "text": "integrity",
+      "self_evaluation": "easy",
+      "current_priority": 5.60,
+      "new_priority": 3.92
+    },
+    {
+      "card_id": "w-040",
+      "time": "2026-01-23 10:20:42",
+      "text": "mitigate",
+      "self_evaluation": "hard",
+      "current_priority": 1.73,
+      "new_priority": 2.60
+    },
+    {
+      "card_id": "w-028",
+      "time": "2026-01-23 10:20:46",
+      "text": "preliminary",
+      "self_evaluation": "medium",
+      "current_priority": 7.29,
+      "new_priority": 8.75
+    },
+    {
+      "card_id": "p-024",
+      "time": "2026-01-23 10:20:59",
+      "text": "Let's touch base later.",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    },
+    {
+      "card_id": "w-056",
+      "time": "2026-01-23 10:21:16",
+      "text": "seamlessly",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    }
+  ],
+  "summary": {
+    "easy": 3,
+    "medium": 3,
+    "hard": 2
+  }
+}

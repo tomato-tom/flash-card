@@ -17,6 +17,11 @@ SESSION_ID="sess_$(date +%Y%m%d_%H%M%S)"
 START_TIME=$(date "+%Y-%m-%d %H:%M:%S")
 START_SEC=$(date +%s)
 TMP_LOG=$(mktemp)
+STATE_FILE="/dev/shm/flashcard_state_$$"
+
+update_state() {
+    echo "$1" > "$STATE_FILE"
+}
 
 # 英語読み上げ
 speech() {
@@ -26,6 +31,8 @@ speech() {
     ffplay -autoexit -nodisp -loglevel quiet "$tmp"
     [ -f "$tmp" ] && rm "$tmp"
 }
+
+update_state "STARTING"
 
 source frame.sh
 tput civis
@@ -57,6 +64,7 @@ while true; do
 
     # 追加: 右下に復習回数を表示 (例: Rev: 5)
     write_at bottom right "Rev: $rev_count" "\033[2m" # \033[2m は薄暗い色(dim)
+    update_state "FRONT"
     
     tput rc; tput ed
     echo "[$card_id] Any key to answer (q:quit)"
@@ -66,6 +74,7 @@ while true; do
     write_at 6 center "$japanese" "\033[0;32m"
     tput rc; tput ed
     echo "e:Easy(x0.7) / m:Med(x1.2) / h:Hard(x1.5) / q:Quit"
+    update_state "EVALUATION"
     
     read -n 1 -s input
     case "$input" in
@@ -84,6 +93,8 @@ while true; do
     echo "$card_id|$english|$eval|$curr_p|$new_p|$(date '+%Y-%m-%d %H:%M:%S')" >> "$TMP_LOG"
     sleep 0.3
 done
+
+update_state "LOGGING"
 
 # --- 終了処理: ログ生成 & Master更新 ---
 END_TIME=$(date "+%Y-%m-%d %H:%M:%S")
@@ -111,6 +122,10 @@ if [ -s "$TMP_LOG" ]; then
     done < "$TMP_LOG"
 fi
 
+update_state "END"
+
 rm -f "$TMP_LOG"
+( sleep 3 && rm -f "$STATE_FILE" ) &
 tput cnorm
 echo "Done! Session logged to $SESSION_DIR"
+

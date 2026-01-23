@@ -163,14 +163,14 @@
       "card-id": "w-018",
       "english": "integrity",
       "japanese": "完全性、誠実さ",
-      "priority": 5.60,
+      "priority": 3.92,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 15
+      "last_reviewed": "2026-01-23",
+      "review_count": 16
     },
     {
       "card-id": "w-019",
@@ -248,7 +248,7 @@
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-23",
-      "review_count": 29
+      "review_count": 31
     },
     {
       "card-id": "w-023",
@@ -358,14 +358,14 @@
       "card-id": "w-028",
       "english": "preliminary",
       "japanese": "予備の、準備段階の",
-      "priority": 7.29,
+      "priority": 10.00,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
       "last_reviewed": "2026-01-23",
-      "review_count": 8
+      "review_count": 10
     },
     {
       "card-id": "w-029",
@@ -384,14 +384,14 @@
       "card-id": "p-019",
       "english": "As far as I know.",
       "japanese": "私の知る限りでは",
-      "priority": 6.22,
+      "priority": 4.35,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 22
+      "last_reviewed": "2026-01-23",
+      "review_count": 23
     },
     {
       "card-id": "w-030",
@@ -489,14 +489,14 @@
       "card-id": "p-023",
       "english": "I'm tied up at the moment.",
       "japanese": "今は手が離せません（忙しいです）。",
-      "priority": 1.44,
+      "priority": 1.73,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "last_reviewed": "2026-01-23",
+      "review_count": 3
     },
     {
       "card-id": "w-034",
@@ -515,14 +515,14 @@
       "card-id": "p-024",
       "english": "Let's touch base later.",
       "japanese": "あとで連絡を取り合いましょう。",
-      "priority": 1.20,
+      "priority": 1.44,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 1
+      "last_reviewed": "2026-01-23",
+      "review_count": 2
     },
     {
       "card-id": "w-035",
@@ -554,14 +554,14 @@
       "card-id": "p-025",
       "english": "It's a trade-off.",
       "japanese": "それはトレードオフ（妥協点）だね。",
-      "priority": 1.20,
+      "priority": 1.44,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 1
+      "last_reviewed": "2026-01-23",
+      "review_count": 2
     },
     {
       "card-id": "w-037",
@@ -645,15 +645,15 @@
       "card-id": "w-040",
       "english": "mitigate",
       "japanese": "（リスクなどを）軽減する",
-      "priority": 1.73,
+      "priority": 2.60,
       "type": "word",
       "tags": [
         "tech",
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 3
+      "last_reviewed": "2026-01-23",
+      "review_count": 4
     },
     {
       "card-id": "p-029",
@@ -906,14 +906,14 @@
       "card-id": "p-038",
       "english": "It's better than nothing.",
       "japanese": "ないよりはマシだ。",
-      "priority": 1.44,
+      "priority": 1.73,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 3
+      "last_reviewed": "2026-01-23",
+      "review_count": 4
     },
     {
       "card-id": "w-051",
@@ -1011,14 +1011,14 @@
       "card-id": "p-042",
       "english": "The point is...",
       "japanese": "重要なのは…（要点は…）",
-      "priority": 1.0,
+      "priority": 1.20,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-23",
+      "review_count": 1
     },
     {
       "card-id": "w-055",
@@ -1050,14 +1050,14 @@
       "card-id": "w-056",
       "english": "seamlessly",
       "japanese": "シームレスに、スムーズに",
-      "priority": 1.20,
+      "priority": 1.44,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 1
+      "last_reviewed": "2026-01-23",
+      "review_count": 2
     },
     {
       "card-id": "p-044",

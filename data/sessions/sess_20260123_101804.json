@@ -1,0 +1,23 @@
+{
+  "session_id": "sess_20260123_101804",
+  "start_time": "2026-01-23 10:18:04",
+  "end_time": "2026-01-23 10:18:17",
+  "duration_seconds": 13,
+  "cards_reviewed": 1,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "p-023",
+      "time": "2026-01-23 10:18:11",
+      "text": "I'm tied up at the moment.",
+      "self_evaluation": "medium",
+      "current_priority": 1.44,
+      "new_priority": 1.73
+    }
+  ],
+  "summary": {
+    "easy": 0,
+    "medium": 1,
+    "hard": 0
+  }
+}
