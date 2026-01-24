@@ -4661,6 +4661,1188 @@
       "word": "characters",
       "input": "chracters",
       "time_taken": 4.312485791
+    },
+    {
+      "timestamp": "2026-01-24 15:27:09",
+      "word": "patterns",
+      "input": "patterns",
+      "time_taken": 3.966480147
+    },
+    {
+      "timestamp": "2026-01-24 15:27:14",
+      "word": "pattern",
+      "input": "pattern",
+      "time_taken": 3.539870644
+    },
+    {
+      "timestamp": "2026-01-24 15:27:19",
+      "word": "pattern",
+      "input": "pattern",
+      "time_taken": 4.950894401
+    },
+    {
+      "timestamp": "2026-01-24 15:28:16",
+      "word": "taskset",
+      "input": "taskset",
+      "time_taken": 3.864621432
+    },
+    {
+      "timestamp": "2026-01-24 15:28:22",
+      "word": "obexctl",
+      "input": "obexctl",
+      "time_taken": 4.338066972
+    },
+    {
+      "timestamp": "2026-01-24 15:28:25",
+      "word": "chown",
+      "input": "chown",
+      "time_taken": 2.932823465
+    },
+    {
+      "timestamp": "2026-01-24 15:28:30",
+      "word": "usbipd",
+      "input": "usbipd",
+      "time_taken": 3.420936279
+    },
+    {
+      "timestamp": "2026-01-24 15:28:33",
+      "word": "vipw",
+      "input": "vipw",
+      "time_taken": 2.967670391
+    },
+    {
+      "timestamp": "2026-01-24 15:29:04",
+      "word": "gettext",
+      "input": "gettext",
+      "time_taken": 4.073327793
+    },
+    {
+      "timestamp": "2026-01-24 15:29:07",
+      "word": "keymap",
+      "input": "keymap",
+      "time_taken": 2.764128719
+    },
+    {
+      "timestamp": "2026-01-24 15:29:11",
+      "word": "simply",
+      "input": "simply",
+      "time_taken": 3.089335410
+    },
+    {
+      "timestamp": "2026-01-24 15:29:17",
+      "word": "interprets",
+      "input": "interprets",
+      "time_taken": 4.426878055
+    },
+    {
+      "timestamp": "2026-01-24 15:36:06",
+      "word": "locale",
+      "input": "locale",
+      "time_taken": 4.584330874
+    },
+    {
+      "timestamp": "2026-01-24 15:36:12",
+      "word": "dosfslabel",
+      "input": "dosfslabel",
+      "time_taken": 4.577920744
+    },
+    {
+      "timestamp": "2026-01-24 15:36:17",
+      "word": "aseqdump",
+      "input": "aseqdump",
+      "time_taken": 4.715853124
+    },
+    {
+      "timestamp": "2026-01-24 15:36:21",
+      "word": "touch",
+      "input": "touch",
+      "time_taken": 2.578101907
+    },
+    {
+      "timestamp": "2026-01-24 15:36:26",
+      "word": "mstflint",
+      "input": "mstflint",
+      "time_taken": 4.283485625
+    },
+    {
+      "timestamp": "2026-01-24 15:36:30",
+      "word": "setfont",
+      "input": "setfont",
+      "time_taken": 3.314349172
+    },
+    {
+      "timestamp": "2026-01-24 15:36:36",
+      "word": "udisksctl",
+      "input": "udisksctl",
+      "time_taken": 4.762565028
+    },
+    {
+      "timestamp": "2026-01-24 15:36:41",
+      "word": "cfdisk",
+      "input": "cfdisk",
+      "time_taken": 4.235068466
+    },
+    {
+      "timestamp": "2026-01-24 15:38:04",
+      "word": "require",
+      "input": "require",
+      "time_taken": 3.639821697
+    },
+    {
+      "timestamp": "2026-01-24 15:38:07",
+      "word": "just",
+      "input": "just",
+      "time_taken": 2.196760307
+    },
+    {
+      "timestamp": "2026-01-24 15:38:10",
+      "word": "changed",
+      "input": "changed",
+      "time_taken": 2.890894950
+    },
+    {
+      "timestamp": "2026-01-24 15:38:14",
+      "word": "stderr",
+      "input": "stderr",
+      "time_taken": 3.156291088
+    },
+    {
+      "timestamp": "2026-01-24 15:38:19",
+      "word": "carriage",
+      "input": "carriage",
+      "time_taken": 3.769740897
+    },
+    {
+      "timestamp": "2026-01-24 15:38:23",
+      "word": "pressing",
+      "input": "pressingf",
+      "time_taken": 3.148244520
+    },
+    {
+      "timestamp": "2026-01-24 15:38:26",
+      "word": "puts",
+      "input": "puts",
+      "time_taken": 2.120366498
+    },
+    {
+      "timestamp": "2026-01-24 15:38:29",
+      "word": "address",
+      "input": "address",
+      "time_taken": 2.787321597
+    },
+    {
+      "timestamp": "2026-01-24 15:38:34",
+      "word": "highlights",
+      "input": "highlights",
+      "time_taken": 4.059343193
+    },
+    {
+      "timestamp": "2026-01-24 15:38:37",
+      "word": "care",
+      "input": "care",
+      "time_taken": 2.018794033
+    },
+    {
+      "timestamp": "2026-01-24 15:38:42",
+      "word": "rameters",
+      "input": "reameters",
+      "time_taken": 4.096833271
+    },
+    {
+      "timestamp": "2026-01-24 15:38:47",
+      "word": "insertion",
+      "input": "insertion",
+      "time_taken": 3.713704612
+    },
+    {
+      "timestamp": "2026-01-24 15:38:51",
+      "word": "comparing",
+      "input": "comparing",
+      "time_taken": 3.700462818
+    },
+    {
+      "timestamp": "2026-01-24 15:38:57",
+      "word": "POSIXLY",
+      "input": "POSIXLY",
+      "time_taken": 4.906944076
+    },
+    {
+      "timestamp": "2026-01-24 15:39:00",
+      "word": "amble",
+      "input": "amble",
+      "time_taken": 2.561531703
+    },
+    {
+      "timestamp": "2026-01-24 15:39:03",
+      "word": "safe",
+      "input": "ssafe",
+      "time_taken": 1.996590781
+    },
+    {
+      "timestamp": "2026-01-24 15:39:06",
+      "word": "four",
+      "input": "four",
+      "time_taken": 1.923616935
+    },
+    {
+      "timestamp": "2026-01-24 15:39:11",
+      "word": "generation",
+      "input": "generation",
+      "time_taken": 4.913544348
+    },
+    {
+      "timestamp": "2026-01-24 15:39:17",
+      "word": "Namerefs",
+      "input": "Namerefs",
+      "time_taken": 4.428862804
+    },
+    {
+      "timestamp": "2026-01-24 15:39:35",
+      "word": "deallocvt",
+      "input": "deallocvt",
+      "time_taken": 4.879496406
+    },
+    {
+      "timestamp": "2026-01-24 15:39:39",
+      "word": "netplan",
+      "input": "netplan",
+      "time_taken": 3.402960926
+    },
+    {
+      "timestamp": "2026-01-24 15:39:43",
+      "word": "perldoc",
+      "input": "perldoc",
+      "time_taken": 2.954153206
+    },
+    {
+      "timestamp": "2026-01-24 15:39:46",
+      "word": "svlc",
+      "input": "svlc",
+      "time_taken": 2.095331939
+    },
+    {
+      "timestamp": "2026-01-24 15:39:50",
+      "word": "bzcat",
+      "input": "bzcat",
+      "time_taken": 3.114925953
+    },
+    {
+      "timestamp": "2026-01-24 15:39:53",
+      "word": "diff",
+      "input": "diff",
+      "time_taken": 1.929596611
+    },
+    {
+      "timestamp": "2026-01-24 15:39:56",
+      "word": "cpio",
+      "input": "cpio",
+      "time_taken": 2.266292422
+    },
+    {
+      "timestamp": "2026-01-24 15:40:02",
+      "word": "xeglthreads",
+      "input": "xeglthreads",
+      "time_taken": 5.074646064
+    },
+    {
+      "timestamp": "2026-01-24 15:40:05",
+      "word": "lspci",
+      "input": "lspci",
+      "time_taken": 2.923220432
+    },
+    {
+      "timestamp": "2026-01-24 15:40:08",
+      "word": "chroot",
+      "input": "chroot",
+      "time_taken": 2.198812031
+    },
+    {
+      "timestamp": "2026-01-24 15:40:12",
+      "word": "troff",
+      "input": "troff",
+      "time_taken": 2.432818654
+    },
+    {
+      "timestamp": "2026-01-24 15:40:15",
+      "word": "lzma",
+      "input": "lzma",
+      "time_taken": 2.377643312
+    },
+    {
+      "timestamp": "2026-01-24 15:40:19",
+      "word": "perldoc",
+      "input": "perldoc",
+      "time_taken": 2.793016076
+    },
+    {
+      "timestamp": "2026-01-24 15:40:24",
+      "word": "fwupdmgr",
+      "input": "fwupdmgr",
+      "time_taken": 5.088296087
+    },
+    {
+      "timestamp": "2026-01-24 15:40:29",
+      "word": "infotocap",
+      "input": "infotocap",
+      "time_taken": 4.225450651
+    },
+    {
+      "timestamp": "2026-01-24 15:42:31",
+      "word": "grops",
+      "input": "gops",
+      "time_taken": 5.848541166
+    },
+    {
+      "timestamp": "2026-01-24 15:42:35",
+      "word": "amixer",
+      "input": "amixer",
+      "time_taken": 3.137227474
+    },
+    {
+      "timestamp": "2026-01-24 15:42:40",
+      "word": "cupsenable",
+      "input": "cupsenable",
+      "time_taken": 4.210656254
+    },
+    {
+      "timestamp": "2026-01-24 15:42:44",
+      "word": "losetup",
+      "input": "losetup",
+      "time_taken": 3.361397611
+    },
+    {
+      "timestamp": "2026-01-24 15:42:47",
+      "word": "pphs",
+      "input": "pphs",
+      "time_taken": 2.424332308
+    },
+    {
+      "timestamp": "2026-01-24 15:42:52",
+      "word": "fribidi",
+      "input": "fribidi",
+      "time_taken": 3.513885105
+    },
+    {
+      "timestamp": "2026-01-24 15:42:55",
+      "word": "svlc",
+      "input": "svlc",
+      "time_taken": 2.415947921
+    },
+    {
+      "timestamp": "2026-01-24 15:43:00",
+      "word": "loadkeys",
+      "input": "loadkeys",
+      "time_taken": 3.749517388
+    },
+    {
+      "timestamp": "2026-01-24 15:43:05",
+      "word": "objdump",
+      "input": "objdump",
+      "time_taken": 4.107771726
+    },
+    {
+      "timestamp": "2026-01-24 15:43:09",
+      "word": "tftp",
+      "input": "trtp",
+      "time_taken": 3.335763903
+    },
+    {
+      "timestamp": "2026-01-24 15:43:13",
+      "word": "xzless",
+      "input": "xzless",
+      "time_taken": 3.611125212
+    },
+    {
+      "timestamp": "2026-01-24 15:43:18",
+      "word": "fgconsole",
+      "input": "fgconsole",
+      "time_taken": 4.257892386
+    },
+    {
+      "timestamp": "2026-01-24 15:43:22",
+      "word": "nping",
+      "input": "nping",
+      "time_taken": 2.648948983
+    },
+    {
+      "timestamp": "2026-01-24 15:43:27",
+      "word": "chronyc",
+      "input": "chronyc",
+      "time_taken": 4.647283547
+    },
+    {
+      "timestamp": "2026-01-24 15:47:09",
+      "word": "ucfr",
+      "input": "ucfr",
+      "time_taken": 3.199035205
+    },
+    {
+      "timestamp": "2026-01-24 15:47:13",
+      "word": "addpart",
+      "input": "addpart",
+      "time_taken": 2.844986547
+    },
+    {
+      "timestamp": "2026-01-24 15:47:16",
+      "word": "delv",
+      "input": "delv",
+      "time_taken": 2.082286029
+    },
+    {
+      "timestamp": "2026-01-24 15:47:19",
+      "word": "rapper",
+      "input": "rapper",
+      "time_taken": 2.386289339
+    },
+    {
+      "timestamp": "2026-01-24 15:47:23",
+      "word": "vgimport",
+      "input": "vgimport",
+      "time_taken": 3.633069116
+    },
+    {
+      "timestamp": "2026-01-24 15:47:27",
+      "word": "lzgrep",
+      "input": "lzgrep",
+      "time_taken": 3.086506698
+    },
+    {
+      "timestamp": "2026-01-24 15:47:33",
+      "word": "pdfattach",
+      "input": "pdfattach",
+      "time_taken": 4.612107836
+    },
+    {
+      "timestamp": "2026-01-24 15:47:38",
+      "word": "openvpn",
+      "input": "openvpn",
+      "time_taken": 4.304506712
+    },
+    {
+      "timestamp": "2026-01-24 15:47:41",
+      "word": "bzcat",
+      "input": "bzcat",
+      "time_taken": 2.771439686
+    },
+    {
+      "timestamp": "2026-01-24 15:47:47",
+      "word": "ntfsundelete",
+      "input": "ntfsundelete",
+      "time_taken": 4.954009934
+    },
+    {
+      "timestamp": "2026-01-24 15:47:52",
+      "word": "iwgetid",
+      "input": "iwgetid",
+      "time_taken": 3.782203979
+    },
+    {
+      "timestamp": "2026-01-24 15:47:55",
+      "word": "rdma",
+      "input": "rdma",
+      "time_taken": 2.826021754
+    },
+    {
+      "timestamp": "2026-01-24 15:47:58",
+      "word": "users",
+      "input": "users",
+      "time_taken": 2.145818236
+    },
+    {
+      "timestamp": "2026-01-24 15:48:02",
+      "word": "sgdisk",
+      "input": "sgdisk",
+      "time_taken": 2.937628329
+    },
+    {
+      "timestamp": "2026-01-24 15:48:07",
+      "word": "xkbvleds",
+      "input": "xkbvleds",
+      "time_taken": 4.396391038
+    },
+    {
+      "timestamp": "2026-01-24 15:50:49",
+      "word": "infocmp",
+      "input": "infocmp",
+      "time_taken": 5.027446562
+    },
+    {
+      "timestamp": "2026-01-24 15:57:29",
+      "word": "xkbbell",
+      "input": "xkbbell",
+      "time_taken": 3.695041232
+    },
+    {
+      "timestamp": "2026-01-24 15:57:33",
+      "word": "chmod",
+      "input": "chmod",
+      "time_taken": 2.754578265
+    },
+    {
+      "timestamp": "2026-01-24 15:57:37",
+      "word": "tapestat",
+      "input": "tapestat",
+      "time_taken": 3.304685335
+    },
+    {
+      "timestamp": "2026-01-24 15:57:40",
+      "word": "wrmsr",
+      "input": "wrmsr",
+      "time_taken": 2.639990622
+    },
+    {
+      "timestamp": "2026-01-24 15:57:45",
+      "word": "mdevctl",
+      "input": "mdevctl",
+      "time_taken": 3.811369514
+    },
+    {
+      "timestamp": "2026-01-24 15:57:50",
+      "word": "xmlcatalog",
+      "input": "xmlcatalog",
+      "time_taken": 4.129117602
+    },
+    {
+      "timestamp": "2026-01-24 15:57:55",
+      "word": "pdftoppm",
+      "input": "pdftoppm",
+      "time_taken": 4.271946656
+    },
+    {
+      "timestamp": "2026-01-24 15:57:59",
+      "word": "zstdcat",
+      "input": "zstdcat",
+      "time_taken": 3.615702805
+    },
+    {
+      "timestamp": "2026-01-24 15:58:05",
+      "word": "efibootmgr",
+      "input": "efibootmgr",
+      "time_taken": 4.626866078
+    },
+    {
+      "timestamp": "2026-01-24 15:58:08",
+      "word": "chmem",
+      "input": "chmem",
+      "time_taken": 2.795717074
+    },
+    {
+      "timestamp": "2026-01-24 15:58:13",
+      "word": "validlocale",
+      "input": "validlocale",
+      "time_taken": 4.090561061
+    },
+    {
+      "timestamp": "2026-01-24 15:58:17",
+      "word": "install",
+      "input": "install",
+      "time_taken": 3.178718560
+    },
+    {
+      "timestamp": "2026-01-24 15:58:21",
+      "word": "xgamma",
+      "input": "xgamma",
+      "time_taken": 3.241014536
+    },
+    {
+      "timestamp": "2026-01-24 15:58:28",
+      "word": "swapoff",
+      "input": "swapoff",
+      "time_taken": 6.319519382
+    },
+    {
+      "timestamp": "2026-01-24 15:58:35",
+      "word": "vmwarectrl",
+      "input": "vmwarectrlj",
+      "time_taken": 5.705451987
+    },
+    {
+      "timestamp": "2026-01-24 15:58:40",
+      "word": "vgextend",
+      "input": "vgextend",
+      "time_taken": 3.955529923
+    },
+    {
+      "timestamp": "2026-01-24 16:27:29",
+      "word": "caller",
+      "input": "caller",
+      "time_taken": 3.249130631
+    },
+    {
+      "timestamp": "2026-01-24 16:27:33",
+      "word": "emacs",
+      "input": "emacs",
+      "time_taken": 2.753939796
+    },
+    {
+      "timestamp": "2026-01-24 16:27:36",
+      "word": "handles",
+      "input": "handles",
+      "time_taken": 2.727171993
+    },
+    {
+      "timestamp": "2026-01-24 16:27:40",
+      "word": "perhaps",
+      "input": "perhaps",
+      "time_taken": 2.901948285
+    },
+    {
+      "timestamp": "2026-01-24 16:27:44",
+      "word": "redraw",
+      "input": "redraw",
+      "time_taken": 2.974842674
+    },
+    {
+      "timestamp": "2026-01-24 16:27:47",
+      "word": "ting",
+      "input": "ting",
+      "time_taken": 2.009656077
+    },
+    {
+      "timestamp": "2026-01-24 16:27:55",
+      "word": "aAfFgiIlnrtux",
+      "input": "aAfFgiIlnrtux",
+      "time_taken": 7.305162713
+    },
+    {
+      "timestamp": "2026-01-24 16:27:59",
+      "word": "globpat",
+      "input": "globpat",
+      "time_taken": 3.337866311
+    },
+    {
+      "timestamp": "2026-01-24 16:28:05",
+      "word": "mechanism",
+      "input": "mechanism",
+      "time_taken": 5.108084729
+    },
+    {
+      "timestamp": "2026-01-24 16:28:08",
+      "word": "ting",
+      "input": "ting",
+      "time_taken": 2.064650830
+    },
+    {
+      "timestamp": "2026-01-24 16:28:13",
+      "word": "modify",
+      "input": "modify",
+      "time_taken": 3.999720052
+    },
+    {
+      "timestamp": "2026-01-24 16:30:08",
+      "word": "prohibited",
+      "input": "kkq",
+      "time_taken": 3.015531348
+    },
+    {
+      "timestamp": "2026-01-24 16:35:32",
+      "word": "trust",
+      "input": "trust",
+      "time_taken": 2.695226491
+    },
+    {
+      "timestamp": "2026-01-24 16:35:36",
+      "word": "variant",
+      "input": "variant",
+      "time_taken": 3.293340114
+    },
+    {
+      "timestamp": "2026-01-24 16:35:41",
+      "word": "independent",
+      "input": "independent",
+      "time_taken": 4.336283885
+    },
+    {
+      "timestamp": "2026-01-24 16:35:46",
+      "word": "Linux",
+      "input": "Linux",
+      "time_taken": 3.449938363
+    },
+    {
+      "timestamp": "2026-01-24 16:35:49",
+      "word": "tracks",
+      "input": "tracks",
+      "time_taken": 2.674573283
+    },
+    {
+      "timestamp": "2026-01-24 16:35:53",
+      "word": "trust",
+      "input": "trust",
+      "time_taken": 3.026128836
+    },
+    {
+      "timestamp": "2026-01-24 16:35:57",
+      "word": "synonym",
+      "input": "synonym",
+      "time_taken": 3.712943963
+    },
+    {
+      "timestamp": "2026-01-24 16:36:01",
+      "word": "having",
+      "input": "having",
+      "time_taken": 2.721318504
+    },
+    {
+      "timestamp": "2026-01-24 16:36:08",
+      "word": "IPIPorSIT",
+      "input": "IPIorSIT",
+      "time_taken": 5.953070078
+    },
+    {
+      "timestamp": "2026-01-24 16:36:13",
+      "word": "Detaches",
+      "input": "Detaches",
+      "time_taken": 4.220492074
+    },
+    {
+      "timestamp": "2026-01-24 16:36:17",
+      "word": "matching",
+      "input": "matching",
+      "time_taken": 3.377709588
+    },
+    {
+      "timestamp": "2026-01-24 16:36:20",
+      "word": "react",
+      "input": "react",
+      "time_taken": 2.367329920
+    },
+    {
+      "timestamp": "2026-01-24 16:36:24",
+      "word": "allows",
+      "input": "allows",
+      "time_taken": 3.009376574
+    },
+    {
+      "timestamp": "2026-01-24 16:36:28",
+      "word": "reason",
+      "input": "reason",
+      "time_taken": 3.522519165
+    },
+    {
+      "timestamp": "2026-01-24 16:36:31",
+      "word": "source",
+      "input": "source",
+      "time_taken": 2.192876709
+    },
+    {
+      "timestamp": "2026-01-24 16:36:35",
+      "word": "range",
+      "input": "rtage",
+      "time_taken": 2.842765749
+    },
+    {
+      "timestamp": "2026-01-24 16:36:39",
+      "word": "down",
+      "input": "down",
+      "time_taken": 2.744983437
+    },
+    {
+      "timestamp": "2026-01-24 16:36:42",
+      "word": "source",
+      "input": "source",
+      "time_taken": 2.196310586
+    },
+    {
+      "timestamp": "2026-01-24 16:36:44",
+      "word": "pvid",
+      "input": "pvid",
+      "time_taken": 1.959081137
+    },
+    {
+      "timestamp": "2026-01-24 16:36:48",
+      "word": "exist",
+      "input": "exist",
+      "time_taken": 2.987828815
+    },
+    {
+      "timestamp": "2026-01-24 16:36:51",
+      "word": "inner",
+      "input": "inner",
+      "time_taken": 2.073509250
+    },
+    {
+      "timestamp": "2026-01-24 16:36:56",
+      "word": "hexadecimal",
+      "input": "hexadecimal",
+      "time_taken": 4.464482295
+    },
+    {
+      "timestamp": "2026-01-24 16:37:02",
+      "word": "authenticated",
+      "input": "authenticated",
+      "time_taken": 4.713825635
+    },
+    {
+      "timestamp": "2026-01-24 16:37:05",
+      "word": "guid",
+      "input": "guid",
+      "time_taken": 1.980133271
+    },
+    {
+      "timestamp": "2026-01-24 16:37:09",
+      "word": "assumed",
+      "input": "assumed",
+      "time_taken": 3.071174322
+    },
+    {
+      "timestamp": "2026-01-24 16:37:12",
+      "word": "rameter",
+      "input": "rameter",
+      "time_taken": 2.713898065
+    },
+    {
+      "timestamp": "2026-01-24 16:37:15",
+      "word": "ping",
+      "input": "ping",
+      "time_taken": 2.032449059
+    },
+    {
+      "timestamp": "2026-01-24 16:37:19",
+      "word": "example",
+      "input": "example",
+      "time_taken": 3.384246875
+    },
+    {
+      "timestamp": "2026-01-24 16:37:23",
+      "word": "filtering",
+      "input": "filtering",
+      "time_taken": 3.418239588
+    },
+    {
+      "timestamp": "2026-01-24 16:37:27",
+      "word": "random",
+      "input": "random",
+      "time_taken": 3.000809486
+    },
+    {
+      "timestamp": "2026-01-24 16:37:31",
+      "word": "mappings",
+      "input": "mappings",
+      "time_taken": 2.921642711
+    },
+    {
+      "timestamp": "2026-01-24 16:37:35",
+      "word": "Blue",
+      "input": "Blue",
+      "time_taken": 2.624238796
+    },
+    {
+      "timestamp": "2026-01-24 16:37:38",
+      "word": "input",
+      "input": "input",
+      "time_taken": 2.568896698
+    },
+    {
+      "timestamp": "2026-01-24 16:37:43",
+      "word": "independent",
+      "input": "independent",
+      "time_taken": 3.818269103
+    },
+    {
+      "timestamp": "2026-01-24 16:37:45",
+      "word": "move",
+      "input": "move",
+      "time_taken": 1.907306507
+    },
+    {
+      "timestamp": "2026-01-24 16:37:49",
+      "word": "argu",
+      "input": "argu",
+      "time_taken": 2.435191766
+    },
+    {
+      "timestamp": "2026-01-24 16:37:52",
+      "word": "that",
+      "input": "that",
+      "time_taken": 2.274089215
+    },
+    {
+      "timestamp": "2026-01-24 16:37:57",
+      "word": "generation",
+      "input": "generation",
+      "time_taken": 4.728599044
+    },
+    {
+      "timestamp": "2026-01-24 16:38:01",
+      "word": "forces",
+      "input": "forces",
+      "time_taken": 2.770692162
+    },
+    {
+      "timestamp": "2026-01-24 16:38:05",
+      "word": "vcan",
+      "input": "vcan",
+      "time_taken": 2.945381846
+    },
+    {
+      "timestamp": "2026-01-24 16:38:08",
+      "word": "impact",
+      "input": "impact",
+      "time_taken": 3.101328931
+    },
+    {
+      "timestamp": "2026-01-24 16:38:15",
+      "word": "specifically",
+      "input": "specifically",
+      "time_taken": 5.947776206
+    },
+    {
+      "timestamp": "2026-01-24 16:38:18",
+      "word": "nated",
+      "input": "nated",
+      "time_taken": 2.138928146
+    },
+    {
+      "timestamp": "2026-01-24 16:38:22",
+      "word": "locally",
+      "input": "locally",
+      "time_taken": 2.809106572
+    },
+    {
+      "timestamp": "2026-01-24 16:38:27",
+      "word": "fixed",
+      "input": "ficesd",
+      "time_taken": 4.136431869
+    },
+    {
+      "timestamp": "2026-01-24 16:38:30",
+      "word": "detect",
+      "input": "detect",
+      "time_taken": 2.587674912
+    },
+    {
+      "timestamp": "2026-01-24 16:38:33",
+      "word": "sage",
+      "input": "ssage",
+      "time_taken": 1.784104069
+    },
+    {
+      "timestamp": "2026-01-24 16:38:36",
+      "word": "pinned",
+      "input": "pinned",
+      "time_taken": 2.234760624
+    },
+    {
+      "timestamp": "2026-01-24 16:38:40",
+      "word": "contains",
+      "input": "containds",
+      "time_taken": 3.097666846
+    },
+    {
+      "timestamp": "2026-01-24 16:38:44",
+      "word": "timeout",
+      "input": "timeout",
+      "time_taken": 3.164047863
+    },
+    {
+      "timestamp": "2026-01-24 16:38:47",
+      "word": "change",
+      "input": "chage",
+      "time_taken": 2.329665120
+    },
+    {
+      "timestamp": "2026-01-24 16:38:50",
+      "word": "code",
+      "input": "code",
+      "time_taken": 1.837920288
+    },
+    {
+      "timestamp": "2026-01-24 16:38:53",
+      "word": "addi",
+      "input": "addi",
+      "time_taken": 2.454718010
+    },
+    {
+      "timestamp": "2026-01-24 16:38:56",
+      "word": "nodst",
+      "input": "nodst",
+      "time_taken": 2.250125454
+    },
+    {
+      "timestamp": "2026-01-24 16:38:59",
+      "word": "didn",
+      "input": "didn",
+      "time_taken": 2.521095361
+    },
+    {
+      "timestamp": "2026-01-24 16:39:03",
+      "word": "assign",
+      "input": "assign",
+      "time_taken": 2.971878992
+    },
+    {
+      "timestamp": "2026-01-24 16:39:07",
+      "word": "arptables",
+      "input": "arptables",
+      "time_taken": 3.373049416
+    },
+    {
+      "timestamp": "2026-01-24 16:39:10",
+      "word": "size",
+      "input": "size",
+      "time_taken": 2.378191818
+    },
+    {
+      "timestamp": "2026-01-24 16:39:14",
+      "word": "pinned",
+      "input": "pinned",
+      "time_taken": 2.849544620
+    },
+    {
+      "timestamp": "2026-01-24 16:39:18",
+      "word": "against",
+      "input": "ageinst",
+      "time_taken": 2.727723179
+    },
+    {
+      "timestamp": "2026-01-24 16:39:21",
+      "word": "Blue",
+      "input": "Blue",
+      "time_taken": 2.455653645
+    },
+    {
+      "timestamp": "2026-01-24 16:39:24",
+      "word": "create",
+      "input": "creeate",
+      "time_taken": 2.697786102
+    },
+    {
+      "timestamp": "2026-01-24 16:39:27",
+      "word": "guid",
+      "input": "guid",
+      "time_taken": 1.888568029
+    },
+    {
+      "timestamp": "2026-01-24 16:39:30",
+      "word": "allows",
+      "input": "allows",
+      "time_taken": 2.298789392
+    },
+    {
+      "timestamp": "2026-01-24 16:49:05",
+      "word": "ninja",
+      "input": "ninja",
+      "time_taken": 2.831957549
+    },
+    {
+      "timestamp": "2026-01-24 16:49:10",
+      "word": "xrefresh",
+      "input": "xrefresh",
+      "time_taken": 4.217627324
+    },
+    {
+      "timestamp": "2026-01-24 16:49:16",
+      "word": "blkdeactivate",
+      "input": "blkdeactivate",
+      "time_taken": 5.153615122
+    },
+    {
+      "timestamp": "2026-01-24 16:49:21",
+      "word": "fatlabel",
+      "input": "fatlabel",
+      "time_taken": 3.306941277
+    },
+    {
+      "timestamp": "2026-01-24 16:49:27",
+      "word": "switcherooctl",
+      "input": "switcherooctl",
+      "time_taken": 5.430489296
+    },
+    {
+      "timestamp": "2026-01-24 16:49:31",
+      "word": "mstflint",
+      "input": "mstflint",
+      "time_taken": 3.652969052
+    },
+    {
+      "timestamp": "2026-01-24 16:49:35",
+      "word": "pppdump",
+      "input": "pppdump",
+      "time_taken": 3.338820914
+    },
+    {
+      "timestamp": "2026-01-24 16:49:40",
+      "word": "baobab",
+      "input": "baobab",
+      "time_taken": 3.737191589
+    },
+    {
+      "timestamp": "2026-01-24 16:49:45",
+      "word": "realpath",
+      "input": "realpath",
+      "time_taken": 3.735741267
+    },
+    {
+      "timestamp": "2026-01-24 16:49:51",
+      "word": "swapoff",
+      "input": "swapoff",
+      "time_taken": 5.546527041
+    },
+    {
+      "timestamp": "2026-01-24 16:49:55",
+      "word": "fgconsole",
+      "input": "fgconsole",
+      "time_taken": 3.391393219
+    },
+    {
+      "timestamp": "2026-01-24 16:49:59",
+      "word": "nroff",
+      "input": "nroff",
+      "time_taken": 2.520876359
+    },
+    {
+      "timestamp": "2026-01-24 16:50:02",
+      "word": "whatis",
+      "input": "whatis",
+      "time_taken": 2.580235038
+    },
+    {
+      "timestamp": "2026-01-24 16:50:05",
+      "word": "mkfs",
+      "input": "mkfs",
+      "time_taken": 2.353682986
+    },
+    {
+      "timestamp": "2026-01-24 16:50:08",
+      "word": "plog",
+      "input": "plog",
+      "time_taken": 2.008153547
+    },
+    {
+      "timestamp": "2026-01-24 16:50:12",
+      "word": "gdbus",
+      "input": "gdbus",
+      "time_taken": 3.760612444
+    },
+    {
+      "timestamp": "2026-01-24 16:50:17",
+      "word": "debconf",
+      "input": "debconf",
+      "time_taken": 3.633535824
+    },
+    {
+      "timestamp": "2026-01-24 16:50:24",
+      "word": "NetworkManager",
+      "input": "NetwrkManager",
+      "time_taken": 6.584092333
+    },
+    {
+      "timestamp": "2026-01-24 16:50:28",
+      "word": "xlogo",
+      "input": "xlogo",
+      "time_taken": 2.970569322
+    },
+    {
+      "timestamp": "2026-01-24 16:50:33",
+      "word": "rendercheck",
+      "input": "rendercheck",
+      "time_taken": 4.379354900
+    },
+    {
+      "timestamp": "2026-01-24 16:50:38",
+      "word": "pkcon",
+      "input": "pkcon",
+      "time_taken": 3.627385106
     }
   ]
 }
