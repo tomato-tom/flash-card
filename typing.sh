@@ -3,6 +3,8 @@
 
 # JSONファイル
 JSON_FILE="typing_data.json"
+WORD="man"
+#WORD="command"
 
 if [ ! -f "$JSON_FILE" ] || [ ! -s "$JSON_FILE" ]; then
     echo '{"games":[]}' > "$JSON_FILE"
@@ -30,11 +32,18 @@ log_game() {
 tput sc
 tput civis
 
-MAX_CHAR=6  # 最大文字数、引数でオプションに?
-pattern="^.{1,$MAX_CHAR}$"
+# 単語セット読み込み
+if [ $WORD = "man" ]; then
+    word_list=($(
+        man bash | col -bx | tr -c '[:alnum:]' '\n' | grep -E '^[a-zA-Z]{4,}$' |
+        sort | uniq -i | shuf -n 300
+    ))
+elif [ $WORD = "command" ]; then
+    MAX_CHAR=15  # 最大文字数、引数でオプションに?
+    word_list=($(ls /usr/bin | grep -E "^.{1,$MAX_CHAR}$"))
+    word_list+=($(ls /usr/sbin | grep -E "^.{1,$MAX_CHAR}$"))
+fi
 
-word_list=($(ls /usr/bin | grep -E "$pattern"))
-word_list+=($(ls /usr/sbin | grep -E "$pattern"))
 echo "words: ${#word_list[@]}"
 echo -e "\n\033[1;35mPress ANY KEY to start...\033[0m"
 read -rsn1
