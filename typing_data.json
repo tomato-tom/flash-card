@@ -2849,6 +2849,1332 @@
       "word": "gdm3",
       "input": "q",
       "time_taken": 1.985824809
+    },
+    {
+      "timestamp": "2026-01-24 12:59:51",
+      "word": "nmtui",
+      "input": "nmtui",
+      "time_taken": 2.756111163
+    },
+    {
+      "timestamp": "2026-01-24 12:59:55",
+      "word": "lprm",
+      "input": "lprm",
+      "time_taken": 2.451713032
+    },
+    {
+      "timestamp": "2026-01-24 12:59:58",
+      "word": "eject",
+      "input": "eject",
+      "time_taken": 2.048343157
+    },
+    {
+      "timestamp": "2026-01-24 13:00:01",
+      "word": "rdma",
+      "input": "rdma",
+      "time_taken": 2.026494965
+    },
+    {
+      "timestamp": "2026-01-24 13:00:05",
+      "word": "amidi",
+      "input": "amidi",
+      "time_taken": 2.165626690
+    },
+    {
+      "timestamp": "2026-01-24 13:00:08",
+      "word": "lnstat",
+      "input": "lnstta",
+      "time_taken": 2.305544224
+    },
+    {
+      "timestamp": "2026-01-24 13:00:11",
+      "word": "fio",
+      "input": "fio",
+      "time_taken": 2.146723707
+    },
+    {
+      "timestamp": "2026-01-24 13:00:15",
+      "word": "fstrim",
+      "input": "fstrim",
+      "time_taken": 2.849340800
+    },
+    {
+      "timestamp": "2026-01-24 13:00:18",
+      "word": "lpc",
+      "input": "lpc",
+      "time_taken": 1.254612716
+    },
+    {
+      "timestamp": "2026-01-24 13:00:20",
+      "word": "nft",
+      "input": "nft",
+      "time_taken": 1.440437410
+    },
+    {
+      "timestamp": "2026-01-24 13:00:24",
+      "word": "zfgrep",
+      "input": "zfgrep",
+      "time_taken": 2.938135485
+    },
+    {
+      "timestamp": "2026-01-24 13:00:28",
+      "word": "sysctl",
+      "input": "sysctl",
+      "time_taken": 2.326659120
+    },
+    {
+      "timestamp": "2026-01-24 13:00:30",
+      "word": "as",
+      "input": "a",
+      "time_taken": 1.036617978
+    },
+    {
+      "timestamp": "2026-01-24 13:00:34",
+      "word": "psicc",
+      "input": "psicc",
+      "time_taken": 2.606235329
+    },
+    {
+      "timestamp": "2026-01-24 13:00:36",
+      "word": "dig",
+      "input": "dig",
+      "time_taken": 1.341653242
+    },
+    {
+      "timestamp": "2026-01-24 13:00:39",
+      "word": "flock",
+      "input": "flock",
+      "time_taken": 2.071497480
+    },
+    {
+      "timestamp": "2026-01-24 13:00:43",
+      "word": "dvipdf",
+      "input": "dvipdf",
+      "time_taken": 2.486262183
+    },
+    {
+      "timestamp": "2026-01-24 13:00:46",
+      "word": "gvim",
+      "input": "gvim",
+      "time_taken": 2.375547800
+    },
+    {
+      "timestamp": "2026-01-24 13:00:50",
+      "word": "lpstat",
+      "input": "lpstat",
+      "time_taken": 2.319092488
+    },
+    {
+      "timestamp": "2026-01-24 13:00:54",
+      "word": "isaset",
+      "input": "isaset",
+      "time_taken": 3.144296020
+    },
+    {
+      "timestamp": "2026-01-24 13:00:57",
+      "word": "mtr",
+      "input": "mtr",
+      "time_taken": 1.380051919
+    },
+    {
+      "timestamp": "2026-01-24 13:01:00",
+      "word": "rrsync",
+      "input": "rrsync",
+      "time_taken": 2.639457575
+    },
+    {
+      "timestamp": "2026-01-24 13:01:03",
+      "word": "vdpa",
+      "input": "vdpa",
+      "time_taken": 1.999086382
+    },
+    {
+      "timestamp": "2026-01-24 13:01:07",
+      "word": "vstp",
+      "input": "vstp",
+      "time_taken": 1.997234566
+    },
+    {
+      "timestamp": "2026-01-24 13:01:11",
+      "word": "xzcmp",
+      "input": "xzcmp",
+      "time_taken": 3.575945393
+    },
+    {
+      "timestamp": "2026-01-24 13:01:15",
+      "word": "newgrp",
+      "input": "newgrp",
+      "time_taken": 2.854750726
+    },
+    {
+      "timestamp": "2026-01-24 13:01:19",
+      "word": "arch",
+      "input": "arach",
+      "time_taken": 2.674320622
+    },
+    {
+      "timestamp": "2026-01-24 13:01:23",
+      "word": "stdbuf",
+      "input": "stdbuf",
+      "time_taken": 2.752146591
+    },
+    {
+      "timestamp": "2026-01-24 13:01:27",
+      "word": "ddcmon",
+      "input": "ddcmon",
+      "time_taken": 2.947960005
+    },
+    {
+      "timestamp": "2026-01-24 13:01:31",
+      "word": "pydoc3",
+      "input": "pydoc3",
+      "time_taken": 2.528522913
+    },
+    {
+      "timestamp": "2026-01-24 13:01:33",
+      "word": "ufw",
+      "input": "ufw",
+      "time_taken": 1.471770112
+    },
+    {
+      "timestamp": "2026-01-24 13:01:37",
+      "word": "funzip",
+      "input": "funxip",
+      "time_taken": 2.839452509
+    },
+    {
+      "timestamp": "2026-01-24 13:01:41",
+      "word": "xrdb",
+      "input": "xrdb",
+      "time_taken": 2.470899814
+    },
+    {
+      "timestamp": "2026-01-24 13:01:44",
+      "word": "lsusb",
+      "input": "lsusb",
+      "time_taken": 2.089841335
+    },
+    {
+      "timestamp": "2026-01-24 13:01:47",
+      "word": "ip",
+      "input": "ip",
+      "time_taken": 1.438988265
+    },
+    {
+      "timestamp": "2026-01-24 13:01:51",
+      "word": "fstrim",
+      "input": "fstrim",
+      "time_taken": 2.899052343
+    },
+    {
+      "timestamp": "2026-01-24 13:01:54",
+      "word": "stdbuf",
+      "input": "stdbuf",
+      "time_taken": 2.686673970
+    },
+    {
+      "timestamp": "2026-01-24 13:01:58",
+      "word": "sftp",
+      "input": "sftp",
+      "time_taken": 2.653957425
+    },
+    {
+      "timestamp": "2026-01-24 13:02:02",
+      "word": "soelim",
+      "input": "soelim",
+      "time_taken": 2.886046273
+    },
+    {
+      "timestamp": "2026-01-24 13:02:05",
+      "word": "sar",
+      "input": "sar",
+      "time_taken": 1.567332202
+    },
+    {
+      "timestamp": "2026-01-24 13:02:08",
+      "word": "fgrep",
+      "input": "fgrep",
+      "time_taken": 2.350888261
+    },
+    {
+      "timestamp": "2026-01-24 13:02:12",
+      "word": "eutp",
+      "input": "eutp",
+      "time_taken": 2.079632952
+    },
+    {
+      "timestamp": "2026-01-24 13:02:16",
+      "word": "gdbtui",
+      "input": "gdbtui",
+      "time_taken": 3.390840525
+    },
+    {
+      "timestamp": "2026-01-24 13:02:19",
+      "word": "dialog",
+      "input": "dialog",
+      "time_taken": 2.260506996
+    },
+    {
+      "timestamp": "2026-01-24 13:02:22",
+      "word": "cpio",
+      "input": "cpio",
+      "time_taken": 1.816935781
+    },
+    {
+      "timestamp": "2026-01-24 13:02:27",
+      "word": "brltty",
+      "input": "brltty",
+      "time_taken": 3.382938282
+    },
+    {
+      "timestamp": "2026-01-24 13:02:29",
+      "word": "tac",
+      "input": "tac",
+      "time_taken": 1.331273374
+    },
+    {
+      "timestamp": "2026-01-24 13:02:32",
+      "word": "dkms",
+      "input": "dkms",
+      "time_taken": 1.998683650
+    },
+    {
+      "timestamp": "2026-01-24 13:02:36",
+      "word": "genbrk",
+      "input": "genbrk",
+      "time_taken": 2.741332810
+    },
+    {
+      "timestamp": "2026-01-24 13:02:40",
+      "word": "lzcat",
+      "input": "lzcat",
+      "time_taken": 2.144917726
+    },
+    {
+      "timestamp": "2026-01-24 13:02:43",
+      "word": "axfer",
+      "input": "axfer",
+      "time_taken": 2.729305539
+    },
+    {
+      "timestamp": "2026-01-24 13:02:47",
+      "word": "lsipc",
+      "input": "lsipc",
+      "time_taken": 2.014996392
+    },
+    {
+      "timestamp": "2026-01-24 13:02:50",
+      "word": "ucalls",
+      "input": "ucalls",
+      "time_taken": 2.249646676
+    },
+    {
+      "timestamp": "2026-01-24 13:02:53",
+      "word": "c++",
+      "input": "c++",
+      "time_taken": 2.360793552
+    },
+    {
+      "timestamp": "2026-01-24 13:02:57",
+      "word": "splain",
+      "input": "splain",
+      "time_taken": 2.551301486
+    },
+    {
+      "timestamp": "2026-01-24 13:03:00",
+      "word": "sync",
+      "input": "sync",
+      "time_taken": 1.799164297
+    },
+    {
+      "timestamp": "2026-01-24 13:03:04",
+      "word": "aplay",
+      "input": "aplay",
+      "time_taken": 3.108245815
+    },
+    {
+      "timestamp": "2026-01-24 13:03:07",
+      "word": "nice",
+      "input": "nice",
+      "time_taken": 1.614470501
+    },
+    {
+      "timestamp": "2026-01-24 13:03:11",
+      "word": "lsgpu",
+      "input": "lsgpu",
+      "time_taken": 2.709652508
+    },
+    {
+      "timestamp": "2026-01-24 13:03:14",
+      "word": "lpmove",
+      "input": "lpmove",
+      "time_taken": 2.471046887
+    },
+    {
+      "timestamp": "2026-01-24 13:03:17",
+      "word": "top",
+      "input": "top",
+      "time_taken": 1.356691402
+    },
+    {
+      "timestamp": "2026-01-24 13:03:20",
+      "word": "lnstat",
+      "input": "lnstat",
+      "time_taken": 2.126323587
+    },
+    {
+      "timestamp": "2026-01-24 13:03:26",
+      "word": "Xephyr",
+      "input": "Xephyr",
+      "time_taken": 4.647316013
+    },
+    {
+      "timestamp": "2026-01-24 13:03:29",
+      "word": "f95",
+      "input": "f95",
+      "time_taken": 2.278583608
+    },
+    {
+      "timestamp": "2026-01-24 13:03:32",
+      "word": "X",
+      "input": "X",
+      "time_taken": 1.327532621
+    },
+    {
+      "timestamp": "2026-01-24 13:03:35",
+      "word": "pkill",
+      "input": "pkill",
+      "time_taken": 2.049455578
+    },
+    {
+      "timestamp": "2026-01-24 13:03:39",
+      "word": "ri3.2",
+      "input": "ri3.2",
+      "time_taken": 2.821913158
+    },
+    {
+      "timestamp": "2026-01-24 13:03:42",
+      "word": "pphs",
+      "input": "pphs",
+      "time_taken": 2.111376550
+    },
+    {
+      "timestamp": "2026-01-24 13:03:46",
+      "word": "HEAD",
+      "input": "HEAD",
+      "time_taken": 2.760864960
+    },
+    {
+      "timestamp": "2026-01-24 13:03:50",
+      "word": "gcov",
+      "input": "gcov",
+      "time_taken": 2.462315866
+    },
+    {
+      "timestamp": "2026-01-24 13:03:54",
+      "word": "l2test",
+      "input": "l2test",
+      "time_taken": 2.882126408
+    },
+    {
+      "timestamp": "2026-01-24 13:03:56",
+      "word": "halt",
+      "input": "halt",
+      "time_taken": 1.658487484
+    },
+    {
+      "timestamp": "2026-01-24 13:04:00",
+      "word": "strace",
+      "input": "strace",
+      "time_taken": 2.304660367
+    },
+    {
+      "timestamp": "2026-01-24 13:04:03",
+      "word": "dkms",
+      "input": "dkms",
+      "time_taken": 1.839083213
+    },
+    {
+      "timestamp": "2026-01-24 13:04:07",
+      "word": "oshrun",
+      "input": "oshrun",
+      "time_taken": 2.938407960
+    },
+    {
+      "timestamp": "2026-01-24 13:04:09",
+      "word": "last",
+      "input": "last",
+      "time_taken": 1.336473505
+    },
+    {
+      "timestamp": "2026-01-24 13:04:12",
+      "word": "pwck",
+      "input": "pwck",
+      "time_taken": 1.838024560
+    },
+    {
+      "timestamp": "2026-01-24 13:04:16",
+      "word": "fgrep",
+      "input": "fgrep",
+      "time_taken": 2.543912412
+    },
+    {
+      "timestamp": "2026-01-24 13:04:20",
+      "word": "pzstd",
+      "input": "pzstd",
+      "time_taken": 3.120596982
+    },
+    {
+      "timestamp": "2026-01-24 13:04:24",
+      "word": "sbsign",
+      "input": "sbsign",
+      "time_taken": 3.083292611
+    },
+    {
+      "timestamp": "2026-01-24 13:04:29",
+      "word": "bsmtp",
+      "input": "bsmtp",
+      "time_taken": 3.141161049
+    },
+    {
+      "timestamp": "2026-01-24 13:04:31",
+      "word": "vlc",
+      "input": "vlc",
+      "time_taken": 1.575110081
+    },
+    {
+      "timestamp": "2026-01-24 13:04:34",
+      "word": "ip",
+      "input": "ip",
+      "time_taken": 1.322309482
+    },
+    {
+      "timestamp": "2026-01-24 13:04:37",
+      "word": "ping",
+      "input": "ping",
+      "time_taken": 1.714015025
+    },
+    {
+      "timestamp": "2026-01-24 13:04:40",
+      "word": "which",
+      "input": "which",
+      "time_taken": 2.567126362
+    },
+    {
+      "timestamp": "2026-01-24 13:04:44",
+      "word": "h2xs",
+      "input": "h2xs",
+      "time_taken": 2.678725141
+    },
+    {
+      "timestamp": "2026-01-24 13:04:48",
+      "word": "ntfsls",
+      "input": "ntfsls",
+      "time_taken": 2.590201794
+    },
+    {
+      "timestamp": "2026-01-24 13:04:53",
+      "word": "gpgsm",
+      "input": "pggsm",
+      "time_taken": 4.259086583
+    },
+    {
+      "timestamp": "2026-01-24 13:04:57",
+      "word": "evim",
+      "input": "evim",
+      "time_taken": 2.511560409
+    },
+    {
+      "timestamp": "2026-01-24 13:05:00",
+      "word": "look",
+      "input": "look",
+      "time_taken": 1.965273773
+    },
+    {
+      "timestamp": "2026-01-24 13:05:03",
+      "word": "ptar",
+      "input": "ptar",
+      "time_taken": 1.965281773
+    },
+    {
+      "timestamp": "2026-01-24 13:05:07",
+      "word": "usbipd",
+      "input": "usbipd",
+      "time_taken": 2.399011363
+    },
+    {
+      "timestamp": "2026-01-24 13:05:10",
+      "word": "rview",
+      "input": "rview",
+      "time_taken": 2.271803810
+    },
+    {
+      "timestamp": "2026-01-24 13:05:13",
+      "word": "rev",
+      "input": "rev",
+      "time_taken": 1.671202538
+    },
+    {
+      "timestamp": "2026-01-24 13:05:16",
+      "word": "lscpu",
+      "input": "lscpu",
+      "time_taken": 2.529365786
+    },
+    {
+      "timestamp": "2026-01-24 13:05:20",
+      "word": "precat",
+      "input": "precat",
+      "time_taken": 2.411423094
+    },
+    {
+      "timestamp": "2026-01-24 13:05:25",
+      "word": "swtpm",
+      "input": "swtpm",
+      "time_taken": 3.520187974
+    },
+    {
+      "timestamp": "2026-01-24 13:05:27",
+      "word": "ico",
+      "input": "ico",
+      "time_taken": 1.493150654
+    },
+    {
+      "timestamp": "2026-01-24 13:05:31",
+      "word": "cpan",
+      "input": "cpan",
+      "time_taken": 2.437933486
+    },
+    {
+      "timestamp": "2026-01-24 13:05:35",
+      "word": "ddcmon",
+      "input": "ddcmon",
+      "time_taken": 2.760985192
+    },
+    {
+      "timestamp": "2026-01-24 13:05:38",
+      "word": "chacl",
+      "input": "chacl",
+      "time_taken": 2.149581741
+    },
+    {
+      "timestamp": "2026-01-24 13:05:41",
+      "word": "nping",
+      "input": "nping",
+      "time_taken": 2.441537602
+    },
+    {
+      "timestamp": "2026-01-24 13:05:45",
+      "word": "vgck",
+      "input": "vgck",
+      "time_taken": 2.151589952
+    },
+    {
+      "timestamp": "2026-01-24 13:05:49",
+      "word": "slogin",
+      "input": "slogin",
+      "time_taken": 2.799326402
+    },
+    {
+      "timestamp": "2026-01-24 13:05:52",
+      "word": "rgrep",
+      "input": "rgrep",
+      "time_taken": 2.407379170
+    },
+    {
+      "timestamp": "2026-01-24 13:05:55",
+      "word": "nice",
+      "input": "nice",
+      "time_taken": 1.577390157
+    },
+    {
+      "timestamp": "2026-01-24 13:05:58",
+      "word": "ping4",
+      "input": "q",
+      "time_taken": 2.190531425
+    },
+    {
+      "timestamp": "2026-01-24 13:45:43",
+      "word": "simply",
+      "input": "simply",
+      "time_taken": 3.132883684
+    },
+    {
+      "timestamp": "2026-01-24 13:45:46",
+      "word": "pubs",
+      "input": "pubs",
+      "time_taken": 2.175206151
+    },
+    {
+      "timestamp": "2026-01-24 13:45:51",
+      "word": "exists",
+      "input": "exists",
+      "time_taken": 2.975360427
+    },
+    {
+      "timestamp": "2026-01-24 13:45:54",
+      "word": "posi",
+      "input": "posi",
+      "time_taken": 1.838600205
+    },
+    {
+      "timestamp": "2026-01-24 13:45:56",
+      "word": "dard",
+      "input": "dard",
+      "time_taken": 1.563444696
+    },
+    {
+      "timestamp": "2026-01-24 13:45:59",
+      "word": "pens",
+      "input": "pens",
+      "time_taken": 1.671979695
+    },
+    {
+      "timestamp": "2026-01-24 13:46:03",
+      "word": "issuing",
+      "input": "issuing",
+      "time_taken": 3.008947803
+    },
+    {
+      "timestamp": "2026-01-24 13:46:09",
+      "word": "effectively",
+      "input": "effectively",
+      "time_taken": 4.620493874
+    },
+    {
+      "timestamp": "2026-01-24 13:46:13",
+      "word": "tution",
+      "input": "tution",
+      "time_taken": 3.441035707
+    },
+    {
+      "timestamp": "2026-01-24 13:46:18",
+      "word": "expected",
+      "input": "expected",
+      "time_taken": 3.415145594
+    },
+    {
+      "timestamp": "2026-01-24 13:46:21",
+      "word": "tory",
+      "input": "tory",
+      "time_taken": 1.904447569
+    },
+    {
+      "timestamp": "2026-01-24 13:46:24",
+      "word": "pens",
+      "input": "pens",
+      "time_taken": 1.600576833
+    },
+    {
+      "timestamp": "2026-01-24 13:46:28",
+      "word": "iters",
+      "input": "iters",
+      "time_taken": 3.032021838
+    },
+    {
+      "timestamp": "2026-01-24 13:46:32",
+      "word": "unquoted",
+      "input": "unquoted",
+      "time_taken": 3.127286881
+    },
+    {
+      "timestamp": "2026-01-24 13:46:37",
+      "word": "alphabetic",
+      "input": "alphabetic",
+      "time_taken": 3.794187342
+    },
+    {
+      "timestamp": "2026-01-24 13:52:53",
+      "word": "creasing",
+      "input": "creasing",
+      "time_taken": 4.772345800
+    },
+    {
+      "timestamp": "2026-01-24 13:52:57",
+      "word": "excep",
+      "input": "excep",
+      "time_taken": 3.296537511
+    },
+    {
+      "timestamp": "2026-01-24 13:53:03",
+      "word": "extglob",
+      "input": "extglob",
+      "time_taken": 4.773702128
+    },
+    {
+      "timestamp": "2026-01-24 13:53:08",
+      "word": "changing",
+      "input": "changing",
+      "time_taken": 3.940216820
+    },
+    {
+      "timestamp": "2026-01-24 13:53:12",
+      "word": "modes",
+      "input": "modes",
+      "time_taken": 2.541256802
+    },
+    {
+      "timestamp": "2026-01-24 13:59:23",
+      "word": "ciative",
+      "input": "ciative",
+      "time_taken": 5.082498435
+    },
+    {
+      "timestamp": "2026-01-24 13:59:35",
+      "word": "consumed",
+      "input": "consumed",
+      "time_taken": 10.033051658
+    },
+    {
+      "timestamp": "2026-01-24 13:59:57",
+      "word": "ringing",
+      "input": "ringing",
+      "time_taken": 20.804680666
+    },
+    {
+      "timestamp": "2026-01-24 14:00:45",
+      "word": "posite",
+      "input": "posite",
+      "time_taken": 2.847137433
+    },
+    {
+      "timestamp": "2026-01-24 14:00:53",
+      "word": "corre",
+      "input": "corre",
+      "time_taken": 3.283436049
+    },
+    {
+      "timestamp": "2026-01-24 14:01:01",
+      "word": "warn",
+      "input": "warn",
+      "time_taken": 3.638301326
+    },
+    {
+      "timestamp": "2026-01-24 14:05:25",
+      "word": "isatty",
+      "input": "isatty",
+      "time_taken": 3.720804449
+    },
+    {
+      "timestamp": "2026-01-24 14:05:36",
+      "word": "MAILCHECK",
+      "input": "MAILCHECK",
+      "time_taken": 6.006202790
+    },
+    {
+      "timestamp": "2026-01-24 14:05:47",
+      "word": "kills",
+      "input": "kills",
+      "time_taken": 4.476667456
+    },
+    {
+      "timestamp": "2026-01-24 14:06:32",
+      "word": "bindings",
+      "input": "bindings",
+      "time_taken": 3.164925257
+    },
+    {
+      "timestamp": "2026-01-24 14:06:42",
+      "word": "initialization",
+      "input": "initialization",
+      "time_taken": 9.194573048
+    },
+    {
+      "timestamp": "2026-01-24 14:06:48",
+      "word": "milliseconds",
+      "input": "milliseconds",
+      "time_taken": 5.102227060
+    },
+    {
+      "timestamp": "2026-01-24 14:06:52",
+      "word": "position",
+      "input": "position",
+      "time_taken": 3.188839896
+    },
+    {
+      "timestamp": "2026-01-24 14:06:57",
+      "word": "behaviour",
+      "input": "behaviour",
+      "time_taken": 3.570006455
+    },
+    {
+      "timestamp": "2026-01-24 14:07:01",
+      "word": "whatever",
+      "input": "whatever",
+      "time_taken": 2.880146771
+    },
+    {
+      "timestamp": "2026-01-24 14:07:05",
+      "word": "isearch",
+      "input": "isearch",
+      "time_taken": 3.103374989
+    },
+    {
+      "timestamp": "2026-01-24 14:07:11",
+      "word": "generated",
+      "input": "generaterd",
+      "time_taken": 4.439150297
+    },
+    {
+      "timestamp": "2026-01-24 14:07:15",
+      "word": "subject",
+      "input": "subject",
+      "time_taken": 2.653144849
+    },
+    {
+      "timestamp": "2026-01-24 14:07:18",
+      "word": "elif",
+      "input": "elif",
+      "time_taken": 1.823245552
+    },
+    {
+      "timestamp": "2026-01-24 14:07:22",
+      "word": "writable",
+      "input": "writable",
+      "time_taken": 3.095143191
+    },
+    {
+      "timestamp": "2026-01-24 14:07:25",
+      "word": "nolog",
+      "input": "nolog",
+      "time_taken": 2.157644565
+    },
+    {
+      "timestamp": "2026-01-24 14:07:30",
+      "word": "separately",
+      "input": "separately",
+      "time_taken": 3.695785076
+    },
+    {
+      "timestamp": "2026-01-24 14:07:34",
+      "word": "keyseq",
+      "input": "keyseq",
+      "time_taken": 2.766175628
+    },
+    {
+      "timestamp": "2026-01-24 14:07:37",
+      "word": "even",
+      "input": "even",
+      "time_taken": 2.374053502
+    },
+    {
+      "timestamp": "2026-01-24 14:07:42",
+      "word": "whatever",
+      "input": "whatever",
+      "time_taken": 3.230845345
+    },
+    {
+      "timestamp": "2026-01-24 14:07:45",
+      "word": "named",
+      "input": "named",
+      "time_taken": 1.847469988
+    },
+    {
+      "timestamp": "2026-01-24 14:07:49",
+      "word": "modifies",
+      "input": "modifies",
+      "time_taken": 2.907891382
+    },
+    {
+      "timestamp": "2026-01-24 14:07:56",
+      "word": "interactions",
+      "input": "interactions",
+      "time_taken": 6.550583790
+    },
+    {
+      "timestamp": "2026-01-24 14:08:01",
+      "word": "enclosing",
+      "input": "enclossing",
+      "time_taken": 3.473052588
+    },
+    {
+      "timestamp": "2026-01-24 14:08:06",
+      "word": "seeding",
+      "input": "seeding",
+      "time_taken": 3.479029556
+    },
+    {
+      "timestamp": "2026-01-24 14:08:10",
+      "word": "brackets",
+      "input": "brackets",
+      "time_taken": 2.927682539
+    },
+    {
+      "timestamp": "2026-01-24 14:08:15",
+      "word": "shadowed",
+      "input": "shadowed",
+      "time_taken": 4.629495618
+    },
+    {
+      "timestamp": "2026-01-24 14:08:19",
+      "word": "bottom",
+      "input": "bottom",
+      "time_taken": 2.870765905
+    },
+    {
+      "timestamp": "2026-01-24 14:08:24",
+      "word": "subdirec",
+      "input": "subdirec",
+      "time_taken": 3.117608551
+    },
+    {
+      "timestamp": "2026-01-24 14:08:27",
+      "word": "with",
+      "input": "with",
+      "time_taken": 1.829477544
+    },
+    {
+      "timestamp": "2026-01-24 14:08:31",
+      "word": "modifies",
+      "input": "modifies",
+      "time_taken": 3.262234340
+    },
+    {
+      "timestamp": "2026-01-24 14:08:35",
+      "word": "floating",
+      "input": "floating",
+      "time_taken": 3.252282738
+    },
+    {
+      "timestamp": "2026-01-24 14:08:39",
+      "word": "nothing",
+      "input": "nothing",
+      "time_taken": 2.350722520
+    },
+    {
+      "timestamp": "2026-01-24 14:08:43",
+      "word": "exiting",
+      "input": "exiting",
+      "time_taken": 2.702819605
+    },
+    {
+      "timestamp": "2026-01-24 14:08:46",
+      "word": "neces",
+      "input": "neces",
+      "time_taken": 2.372993468
+    },
+    {
+      "timestamp": "2026-01-24 14:08:50",
+      "word": "field",
+      "input": "field",
+      "time_taken": 2.412841948
+    },
+    {
+      "timestamp": "2026-01-24 14:08:54",
+      "word": "bottom",
+      "input": "bottom",
+      "time_taken": 3.134356763
+    },
+    {
+      "timestamp": "2026-01-24 14:08:56",
+      "word": "less",
+      "input": "less",
+      "time_taken": 1.436991319
+    },
+    {
+      "timestamp": "2026-01-24 14:08:59",
+      "word": "master",
+      "input": "master",
+      "time_taken": 1.835243624
+    },
+    {
+      "timestamp": "2026-01-24 14:09:02",
+      "word": "makes",
+      "input": "makess",
+      "time_taken": 1.735036276
+    },
+    {
+      "timestamp": "2026-01-24 14:09:08",
+      "word": "interactions",
+      "input": "interactions",
+      "time_taken": 4.478573977
+    },
+    {
+      "timestamp": "2026-01-24 14:09:12",
+      "word": "mandated",
+      "input": "mandated",
+      "time_taken": 2.662151438
+    },
+    {
+      "timestamp": "2026-01-24 14:09:15",
+      "word": "mandated",
+      "input": "mandated",
+      "time_taken": 2.574638487
+    },
+    {
+      "timestamp": "2026-01-24 14:09:19",
+      "word": "adding",
+      "input": "adding",
+      "time_taken": 2.498965118
+    },
+    {
+      "timestamp": "2026-01-24 14:09:24",
+      "word": "position",
+      "input": "positon",
+      "time_taken": 4.150285207
+    },
+    {
+      "timestamp": "2026-01-24 14:09:28",
+      "word": "time",
+      "input": "time",
+      "time_taken": 2.404211084
+    },
+    {
+      "timestamp": "2026-01-24 14:09:33",
+      "word": "quently",
+      "input": "quently",
+      "time_taken": 4.222707515
+    },
+    {
+      "timestamp": "2026-01-24 14:09:36",
+      "word": "minus",
+      "input": "minus",
+      "time_taken": 2.092379903
+    },
+    {
+      "timestamp": "2026-01-24 14:09:39",
+      "word": "onds",
+      "input": "onds",
+      "time_taken": 1.792195323
+    },
+    {
+      "timestamp": "2026-01-24 14:09:43",
+      "word": "cuting",
+      "input": "cuting",
+      "time_taken": 2.607185897
+    },
+    {
+      "timestamp": "2026-01-24 14:09:47",
+      "word": "seeding",
+      "input": "seeding",
+      "time_taken": 2.844536548
+    },
+    {
+      "timestamp": "2026-01-24 14:09:50",
+      "word": "both",
+      "input": "both",
+      "time_taken": 1.903307338
+    },
+    {
+      "timestamp": "2026-01-24 14:09:54",
+      "word": "encloses",
+      "input": "encloses",
+      "time_taken": 3.019839245
+    },
+    {
+      "timestamp": "2026-01-24 14:09:58",
+      "word": "verbose",
+      "input": "verbose",
+      "time_taken": 2.421025111
+    },
+    {
+      "timestamp": "2026-01-24 14:10:01",
+      "word": "finishes",
+      "input": "finishes",
+      "time_taken": 2.528437162
+    },
+    {
+      "timestamp": "2026-01-24 14:10:07",
+      "word": "incorporate",
+      "input": "incorporate",
+      "time_taken": 4.138101350
+    },
+    {
+      "timestamp": "2026-01-24 14:10:11",
+      "word": "block",
+      "input": "blbick",
+      "time_taken": 2.780896112
+    },
+    {
+      "timestamp": "2026-01-24 14:10:13",
+      "word": "less",
+      "input": "less",
+      "time_taken": 1.436849701
+    },
+    {
+      "timestamp": "2026-01-24 14:10:17",
+      "word": "internal",
+      "input": "internal",
+      "time_taken": 2.909696821
+    },
+    {
+      "timestamp": "2026-01-24 14:10:23",
+      "word": "substitutions",
+      "input": "substitutions",
+      "time_taken": 4.798676051
+    },
+    {
+      "timestamp": "2026-01-24 14:10:27",
+      "word": "delimit",
+      "input": "delimit",
+      "time_taken": 2.484881268
+    },
+    {
+      "timestamp": "2026-01-24 14:10:30",
+      "word": "named",
+      "input": "nemad",
+      "time_taken": 1.823083029
+    },
+    {
+      "timestamp": "2026-01-24 14:10:35",
+      "word": "milliseconds",
+      "input": "millisecends",
+      "time_taken": 4.079476507
+    },
+    {
+      "timestamp": "2026-01-24 14:10:41",
+      "word": "expressions",
+      "input": "experssions",
+      "time_taken": 5.229901451
+    },
+    {
+      "timestamp": "2026-01-24 14:10:44",
+      "word": "buffer",
+      "input": "buffer",
+      "time_taken": 2.206466671
+    },
+    {
+      "timestamp": "2026-01-24 14:10:48",
+      "word": "compiler",
+      "input": "compiler",
+      "time_taken": 2.573018590
+    },
+    {
+      "timestamp": "2026-01-24 14:10:52",
+      "word": "bottom",
+      "input": "bottom",
+      "time_taken": 2.622494380
+    },
+    {
+      "timestamp": "2026-01-24 14:10:56",
+      "word": "indicates",
+      "input": "inidicates",
+      "time_taken": 3.285638857
+    },
+    {
+      "timestamp": "2026-01-24 14:11:01",
+      "word": "subjected",
+      "input": "subjected",
+      "time_taken": 3.548885275
+    },
+    {
+      "timestamp": "2026-01-24 14:11:05",
+      "word": "revert",
+      "input": "revert",
+      "time_taken": 2.697428302
+    },
+    {
+      "timestamp": "2026-01-24 14:11:09",
+      "word": "suspended",
+      "input": "suspended",
+      "time_taken": 2.942391803
+    },
+    {
+      "timestamp": "2026-01-24 14:11:12",
+      "word": "denote",
+      "input": "denote",
+      "time_taken": 1.940810255
+    },
+    {
+      "timestamp": "2026-01-24 14:11:16",
+      "word": "stty",
+      "input": "stty",
+      "time_taken": 2.713332944
+    },
+    {
+      "timestamp": "2026-01-24 14:11:19",
+      "word": "typed",
+      "input": "typed",
+      "time_taken": 1.862634785
+    },
+    {
+      "timestamp": "2026-01-24 14:11:22",
+      "word": "norc",
+      "input": "norc",
+      "time_taken": 1.756922717
+    },
+    {
+      "timestamp": "2026-01-24 14:11:25",
+      "word": "wishes",
+      "input": "wishes",
+      "time_taken": 2.293514734
+    },
+    {
+      "timestamp": "2026-01-24 14:11:28",
+      "word": "hold",
+      "input": "hold",
+      "time_taken": 1.678593242
+    },
+    {
+      "timestamp": "2026-01-24 14:11:31",
+      "word": "chain",
+      "input": "chainj",
+      "time_taken": 2.501220869
+    },
+    {
+      "timestamp": "2026-01-24 14:11:37",
+      "word": "getopts",
+      "input": "getopts",
+      "time_taken": 4.350057994
+    },
+    {
+      "timestamp": "2026-01-24 14:11:42",
+      "word": "determined",
+      "input": "determined",
+      "time_taken": 3.613265883
+    },
+    {
+      "timestamp": "2026-01-24 14:11:45",
+      "word": "allows",
+      "input": "allows",
+      "time_taken": 2.286067094
+    },
+    {
+      "timestamp": "2026-01-24 14:11:50",
+      "word": "representing",
+      "input": "representing",
+      "time_taken": 4.278993797
+    },
+    {
+      "timestamp": "2026-01-24 14:11:54",
+      "word": "parisons",
+      "input": "parisons",
+      "time_taken": 2.827137845
+    },
+    {
+      "timestamp": "2026-01-24 14:11:58",
+      "word": "encloses",
+      "input": "encloses",
+      "time_taken": 2.853476536
+    },
+    {
+      "timestamp": "2026-01-24 14:12:04",
+      "word": "separators",
+      "input": "aeparators",
+      "time_taken": 4.301403648
+    },
+    {
+      "timestamp": "2026-01-24 14:12:09",
+      "word": "isearch",
+      "input": "isearch",
+      "time_taken": 3.867759039
+    },
+    {
+      "timestamp": "2026-01-24 14:12:14",
+      "word": "boolean",
+      "input": "boolean",
+      "time_taken": 3.950236161
+    },
+    {
+      "timestamp": "2026-01-24 14:12:20",
+      "word": "optionally",
+      "input": "optionally",
+      "time_taken": 4.638861336
+    },
+    {
+      "timestamp": "2026-01-24 14:12:24",
+      "word": "parisons",
+      "input": "parisons",
+      "time_taken": 3.331813666
     }
   ]
 }

@@ -5,6 +5,7 @@
 JSON_FILE="typing_data.json"
 WORD="man"
 #WORD="command"
+SPEECH=true
 
 if [ ! -f "$JSON_FILE" ] || [ ! -s "$JSON_FILE" ]; then
     echo '{"games":[]}' > "$JSON_FILE"
@@ -27,6 +28,17 @@ log_game() {
            input: $input,
            time_taken: $time_taken
        }]' "$JSON_FILE" > "${JSON_FILE}.tmp" && mv "${JSON_FILE}.tmp" "$JSON_FILE"
+}
+
+# 英語読み上げ
+speech() {
+    local text="$@"
+    local tmp="/tmp/say_${SESSION_ID}.mp3"
+    gtts-cli "$text" --output "$tmp"
+    ffplay -autoexit -nodisp -loglevel quiet "$tmp" > /dev/null 2>&1
+    [ -f "$tmp" ] && rm "$tmp"
+
+    sleep 3
 }
 
 tput sc
@@ -58,6 +70,7 @@ while :; do
 
     index=$((RANDOM % ${#word_list[@]}))
     text="${word_list[$index]}"
+    [ "$SPEECH" = true ] && speech "$text" &
     echo -n "Type it: "
     echo -e "\033[0;32m$text\033[0m"
     echo
