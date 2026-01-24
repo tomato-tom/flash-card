@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGBカラーピッカー</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: rgba(25, 25, 35, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #6ee7b7;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(110, 231, 183, 0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+        
+        .color-display {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .sliders-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .slider-group {
+            background-color: rgba(30, 41, 59, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        
+        .slider-label {
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .color-indicator {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .red .color-indicator {
+            background-color: #ff0000;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+        .green .color-indicator {
+            background-color: #00ff00;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        .blue .color-indicator {
+            background-color: #0000ff;
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+        }
+        
+        .value-display {
+            font-weight: bold;
+            font-size: 1.3rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 10px;
+            min-width: 60px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .slider {
+            width: 100%;
+            height: 25px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 12px;
+            border-radius: 10px;
+            border: none;
+        }
+        
+        .slider::-moz-range-track {
+            width: 100%;
+            height: 12px;
+            border-radius: 10px;
+            border: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .slider::-moz-range-thumb {
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            background: transparent;
+        }
+        
+        .red .slider::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, #000, #ff0000);
+        }
+        
+        .red .slider::-webkit-slider-thumb {
+            background-color: #ff0000;
+        }
+        
+        .green .slider::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, #000, #00ff00);
+        }
+        
+        .green .slider::-webkit-slider-thumb {
+            background-color: #00ff00;
+        }
+        
+        .blue .slider::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, #000, #0000ff);
+        }
+        
+        .blue .slider::-webkit-slider-thumb {
+            background-color: #0000ff;
+        }
+        
+        .red .slider::-moz-range-track {
+            background: linear-gradient(to right, #000, #ff0000);
+        }
+        
+        .red .slider::-moz-range-thumb {
+            background-color: #ff0000;
+        }
+        
+        .green .slider::-moz-range-track {
+            background: linear-gradient(to right, #000, #00ff00);
+        }
+        
+        .green .slider::-moz-range-thumb {
+            background-color: #00ff00;
+        }
+        
+        .blue .slider::-moz-range-track {
+            background: linear-gradient(to right, #000, #0000ff);
+        }
+        
+        .blue .slider::-moz-range-thumb {
+            background-color: #0000ff;
+        }
+        
+        .output-section {
+            background-color: rgba(30, 41, 59, 0.7);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .output-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #6ee7b7;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .output-title i {
+            font-size: 1.5rem;
+        }
+        
+        .output-codes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .code-block {
+            background-color: rgba(15, 23, 42, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #6ee7b7;
+        }
+        
+        .code-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        
+        .code-value {
+            font-size: 1.1rem;
+            word-break: break-all;
+            user-select: all;
+            cursor: pointer;
+            padding: 8px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        
+        .code-value:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .preset-colors {
+            margin-top: 10px;
+        }
+        
+        .preset-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 12px;
+        }
+        
+        .color-preset {
+            height: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .color-preset:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .output-codes {
+                grid-template-columns: 1fr;
+            }
+            
+            .color-grid {
+                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-palette"></i> RGBカラーピッカー</h1>
+        <p class="subtitle">スライダーでRGB値を調整し、リアルタイムで色を確認できます</p>
+        
+        <div class="color-display" id="colorDisplay"></div>
+        
+        <div class="sliders-container">
+            <div class="slider-group red">
+                <div class="slider-header">
+                    <div class="slider-label">
+                        <div class="color-indicator"></div>
+                        <span>赤 (Red)</span>
+                    </div>
+                    <div class="value-display" id="redValue">127</div>
+                </div>
+                <input type="range" min="0" max="255" value="127" class="slider" id="redSlider">
+            </div>
+            
+            <div class="slider-group green">
+                <div class="slider-header">
+                    <div class="slider-label">
+                        <div class="color-indicator"></div>
+                        <span>緑 (Green)</span>
+                    </div>
+                    <div class="value-display" id="greenValue">127</div>
+                </div>
+                <input type="range" min="0" max="255" value="127" class="slider" id="greenSlider">
+            </div>
+            
+            <div class="slider-group blue">
+                <div class="slider-header">
+                    <div class="slider-label">
+                        <div class="color-indicator"></div>
+                        <span>青 (Blue)</span>
+                    </div>
+                    <div class="value-display" id="blueValue">127</div>
+                </div>
+                <input type="range" min="0" max="255" value="127" class="slider" id="blueSlider">
+            </div>
+        </div>
+        
+        <div class="output-section">
+            <div class="output-title">
+                <i class="fas fa-code"></i>
+                <span>出力コード</span>
+            </div>
+            <div class="output-codes">
+                <div class="code-block">
+                    <div class="code-label">RGB値</div>
+                    <div class="code-value" id="rgbValue">rgb(127, 127, 127)</div>
+                </div>
+                <div class="code-block">
+                    <div class="code-label">16進数 (HEX)</div>
+                    <div class="code-value" id="hexValue">#7f7f7f</div>
+                </div>
+                <div class="code-block">
+                    <div class="code-label">ANSIエスケープシーケンス</div>
+                    <div class="code-value" id="ansiValue">\033[38;2;127;127;127m</div>
+                </div>
+            </div>
+            
+            <div class="preset-colors">
+                <div class="preset-title">プリセットカラー</div>
+                <div class="color-grid" id="colorGrid">
+                    <!-- プリセットカラーはJavaScriptで生成 -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>RGB値: 0〜255 | ANSIエスケープシーケンスはターミナルで色を表示するために使用されます</p>
+            <p>色をクリックするとコピーできます</p>
+        </div>
+    </div>
+
+    <script>
+        // DOM要素の取得
+        const redSlider = document.getElementById('redSlider');
+        const greenSlider = document.getElementById('greenSlider');
+        const blueSlider = document.getElementById('blueSlider');
+        const redValue = document.getElementById('redValue');
+        const greenValue = document.getElementById('greenValue');
+        const blueValue = document.getElementById('blueValue');
+        const colorDisplay = document.getElementById('colorDisplay');
+        const rgbValue = document.getElementById('rgbValue');
+        const hexValue = document.getElementById('hexValue');
+        const ansiValue = document.getElementById('ansiValue');
+        const colorGrid = document.getElementById('colorGrid');
+
+        // プリセットカラー
+        const presetColors = [
+            { name: "赤", r: 255, g: 0, b: 0 },
+            { name: "緑", r: 0, g: 255, b: 0 },
+            { name: "青", r: 0, g: 0, b: 255 },
+            { name: "黄", r: 255, g: 255, b: 0 },
+            { name: "マゼンタ", r: 255, g: 0, b: 255 },
+            { name: "シアン", r: 0, g: 255, b: 255 },
+            { name: "白", r: 255, g: 255, b: 255 },
+            { name: "黒", r: 0, g: 0, b: 0 },
+            { name: "灰色", r: 128, g: 128, b: 128 },
+            { name: "オレンジ", r: 255, g: 165, b: 0 },
+            { name: "ピンク", r: 255, g: 192, b: 203 },
+            { name: "紫", r: 128, g: 0, b: 128 },
+            { name: "茶色", r: 165, g: 42, b: 42 },
+            { name: "ライトブルー", r: 173, g: 216, b: 230 },
+            { name: "ライトグリーン", r: 144, g: 238, b: 144 },
+            { name: "ライトピンク", r: 255, g: 182, b: 193 },
+            { name: "濃い青", r: 0, g: 0, b: 139 },
+            { name: "濃い緑", r: 0, g: 100, b: 0 },
+            { name: "濃い赤", r: 139, g: 0, b: 0 }
+        ];
+
+        // プリセットカラーをグリッドに追加
+        function createPresetColors() {
+            colorGrid.innerHTML = '';
+            presetColors.forEach(color => {
+                const colorElement = document.createElement('div');
+                colorElement.className = 'color-preset';
+                colorElement.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+                colorElement.title = `${color.name} (${color.r}, ${color.g}, ${color.b})`;
+                
+                colorElement.addEventListener('click', () => {
+                    redSlider.value = color.r;
+                    greenSlider.value = color.g;
+                    blueSlider.value = color.b;
+                    updateColor();
+                });
+                
+                colorGrid.appendChild(colorElement);
+            });
+        }
+
+        // 10進数を16進数に変換（2桁でゼロ埋め）
+        function toHex(value) {
+            const hex = parseInt(value).toString(16);
+            return hex.length === 1 ? '0' + hex : hex;
+        }
+
+        // 色を更新する関数
+        function updateColor() {
+            const r = redSlider.value;
+            const g = greenSlider.value;
+            const b = blueSlider.value;
+            
+            // 値の表示を更新
+            redValue.textContent = r;
+            greenValue.textContent = g;
+            blueValue.textContent = b;
+            
+            // カラーディスプレイを更新
+            colorDisplay.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            
+            // RGB値の表示を更新
+            rgbValue.textContent = `rgb(${r}, ${g}, ${b})`;
+            
+            // 16進数値の表示を更新
+            hexValue.textContent = `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+            
+            // ANSIエスケープシーケンスの表示を更新
+            ansiValue.textContent = `\\033[38;2;${r};${g};${b}m`;
+        }
+
+        // コードをクリップボードにコピーする機能
+        function setupCopyToClipboard() {
+            const codeElements = document.querySelectorAll('.code-value');
+            codeElements.forEach(element => {
+                element.addEventListener('click', () => {
+                    const textToCopy = element.textContent;
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            const originalText = element.textContent;
+                            element.textContent = 'コピーしました！';
+                            element.style.color = '#6ee7b7';
+                            
+                            setTimeout(() => {
+                                element.textContent = originalText;
+                                element.style.color = '';
+                            }, 1500);
+                        })
+                        .catch(err => {
+                            console.error('クリップボードへのコピーに失敗しました:', err);
+                            alert('コピーに失敗しました');
+                        });
+                });
+            });
+        }
+
+        // 初期化
+        function init() {
+            // 初期色の設定
+            updateColor();
+            
+            // プリセットカラーを作成
+            createPresetColors();
+            
+            // クリップボードコピー機能を設定
+            setupCopyToClipboard();
+            
+            // スライダーのイベントリスナーを設定
+            redSlider.addEventListener('input', updateColor);
+            greenSlider.addEventListener('input', updateColor);
+            blueSlider.addEventListener('input', updateColor);
+            
+            // カラーディスプレイもクリックで色をコピーできるように
+            colorDisplay.addEventListener('click', () => {
+                const hexText = hexValue.textContent;
+                navigator.clipboard.writeText(hexText)
+                    .then(() => {
+                        const originalTitle = colorDisplay.title || '';
+                        colorDisplay.title = 'HEX値をコピーしました！';
+                        
+                        setTimeout(() => {
+                            colorDisplay.title = originalTitle;
+                        }, 1500);
+                    });
+            });
+        }
+
+        // ページ読み込み時に初期化
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
