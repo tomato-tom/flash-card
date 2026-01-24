@@ -42,9 +42,6 @@ speech() {
     sleep 3
 }
 
-tput sc
-tput civis
-
 # クリーンアップ
 trap 'rm -f /tmp/say_*.mp3; tput cnorm' EXIT INT TERM
 
@@ -58,15 +55,20 @@ elif [ $WORD = "command" ]; then
     MAX_CHAR=15  # 最大文字数、引数でオプションに?
     word_list=($(ls /usr/bin | grep -E "^.{1,$MAX_CHAR}$"))
     word_list+=($(ls /usr/sbin | grep -E "^.{1,$MAX_CHAR}$"))
+    echo "${word_list[@]}" | tr ' ' '\n' | shuf -n 300
 fi
 
 echo "words: ${#word_list[@]}"
-echo -e "\n\033[1;35mPress ANY KEY to start...\033[0m"
+echo -ne "\n\033[1;35mPress ANY KEY to start...\033[0m\r"
 read -rsn1
+tput ed
 
 echo "Start typing game..."
 echo "q to stop"
-sleep 0.8
+tput sc
+tput civis
+
+sleep 0.3
 
 while :; do
     tput rc
@@ -83,7 +85,7 @@ while :; do
 
     # 表示から認識までのタイムラグ
     # 要調整
-    sleep 0.4
+    #sleep 0.4
 
     start_time=$(date +%s.%N)
     read -t 8 -r input || { echo "Timeout..."; exit 1; }
