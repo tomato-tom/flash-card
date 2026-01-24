@@ -43,7 +43,7 @@ speech() {
 
 # TUI風に単語セットを選択
 select_word_set() {
-    local options=("man-bash" "man-ip-link" "command" "quit")
+    local options=("man-bash" "man-ip-link" "command" "man-sentence-bash" "quit")
     local selected=0
     local key
 
@@ -53,7 +53,7 @@ select_word_set() {
     while true; do
         tput rc
         tput ed
-        echo "単語セットを選択:"
+        echo "セットを選択:"
         echo
         
         for i in "${!options[@]}"; do
@@ -94,8 +94,14 @@ load_content() {
     local min_char=4
     local pattern="^[a-zA-Z]{$min_char,$max_char}$"
 
+    local options=("man-bash" "man-ip-link" "command" "man-sentence-bash" "quit")
     # 単語セット読み込み
-    if echo "$WORD" | grep -E '^man-*' >/dev/null; then
+    if [[ "$WORD" == man-sentence-* ]]; then
+        # 文モード: man2typing.sh を利用
+        mapfile -t word_list < <(
+            ./snippets/man2typing.sh "${WORD#man-sentence-}" 2>/dev/null | shuf -n 200
+        )
+    elif [[ "$WORD" == man-* ]]; then
         word_list=($(
             man "${WORD#man-}" 2>/dev/null |
             col -bx | tr -c '[:alnum:]' '\n' | grep -E "$pattern" |
@@ -133,6 +139,7 @@ while :; do
 
     index=$((RANDOM % ${#word_list[@]}))
     text="${word_list[$index]}"
+    text_length="$(echo -n $text | wc -c)"
     [ "$SPEECH" = true ] && speech "$text" &
 
     echo -n "Type it: "
@@ -142,7 +149,9 @@ while :; do
     tput cnorm
 
     start_time=$(date +%s.%N)
-    read -t 8 -r input || { echo "Timeout..."; exit 1; }
+    base_time=$((text_length * 6 / 10))
+    wait_time=$((base_time < 5 ? 5 : (base_time > 45 ? 45 : base_time)))
+    read -t $wait_time -r input || true
     end_time=$(date +%s.%N)
     echo
     tput civis

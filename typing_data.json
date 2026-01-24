@@ -5843,6 +5843,216 @@
       "word": "pkcon",
       "input": "pkcon",
       "time_taken": 3.627385106
+    },
+    {
+      "timestamp": "2026-01-24 21:23:36",
+      "word": "used",
+      "input": "used",
+      "time_taken": 3.287425745
+    },
+    {
+      "timestamp": "2026-01-24 21:23:43",
+      "word": "contents",
+      "input": "contents",
+      "time_taken": 5.722435463
+    },
+    {
+      "timestamp": "2026-01-24 21:23:46",
+      "word": "p",
+      "input": "p",
+      "time_taken": 2.534999389
+    },
+    {
+      "timestamp": "2026-01-24 21:23:49",
+      "word": "the",
+      "input": "the",
+      "time_taken": 2.158192751
+    },
+    {
+      "timestamp": "2026-01-24 21:41:04",
+      "word": "to",
+      "input": "to",
+      "time_taken": 4.743588535
+    },
+    {
+      "timestamp": "2026-01-24 21:41:10",
+      "word": "assignment",
+      "input": "",
+      "time_taken": 6.007177045
+    },
+    {
+      "timestamp": "2026-01-24 21:41:11",
+      "word": "shell",
+      "input": "assignment",
+      "time_taken": 0.001345560
+    },
+    {
+      "timestamp": "2026-01-24 21:41:17",
+      "word": "parameter",
+      "input": "",
+      "time_taken": 5.006571616
+    },
+    {
+      "timestamp": "2026-01-24 21:41:20",
+      "word": "stack.",
+      "input": "parq",
+      "time_taken": 2.312034633
+    },
+    {
+      "timestamp": "2026-01-24 21:50:25",
+      "word": "The replacement text may contain any valid shell input, including shell metacharacters.",
+      "input": "The replacement text my contain any valid shell input, including shell metachracters.",
+      "time_taken": 27.851453142
+    },
+    {
+      "timestamp": "2026-01-24 21:50:56",
+      "word": "The value is expanded like a key binding, so the standard set of metaand control prefixes and backslash escape sequences is available.",
+      "input": "",
+      "time_taken": 30.031371343
+    },
+    {
+      "timestamp": "2026-01-24 21:51:27",
+      "word": "In the second form, command is re-executed after each instance of pat is replaced by rep.",
+      "input": "",
+      "time_taken": 30.031721555
+    },
+    {
+      "timestamp": "2026-01-24 21:51:58",
+      "word": "Without expr, caller displays the line number and source filename of the current subroutine call.",
+      "input": "",
+      "time_taken": 30.016739598
+    },
+    {
+      "timestamp": "2026-01-24 21:52:06",
+      "word": "The -p option causes output to be displayed in a format that may be reused as input.",
+      "input": "The value is expanded like a key binding, so the standard set of metaand conIn the second form, command is re-executed after each instance of pat is replaced byWithout expr, caller displays the line number and source fiename of the current q",
+      "time_taken": 7.858152152
+    },
+    {
+      "timestamp": "2026-01-24 21:57:43",
+      "word": "bareudp",
+      "input": "bareudp",
+      "time_taken": 4.007176097
+    },
+    {
+      "timestamp": "2026-01-24 21:57:48",
+      "word": "limiting",
+      "input": "limiting",
+      "time_taken": 3.852714225
+    },
+    {
+      "timestamp": "2026-01-24 21:57:52",
+      "word": "virtio",
+      "input": "virtio",
+      "time_taken": 2.885641238
+    },
+    {
+      "timestamp": "2026-01-24 21:57:56",
+      "word": "symbolic",
+      "input": "symbloic",
+      "time_taken": 3.678452254
+    },
+    {
+      "timestamp": "2026-01-24 21:57:59",
+      "word": "plane",
+      "input": "plane",
+      "time_taken": 2.308037089
+    },
+    {
+      "timestamp": "2026-01-24 21:58:02",
+      "word": "used",
+      "input": "used",
+      "time_taken": 2.175222332
+    },
+    {
+      "timestamp": "2026-01-24 21:58:06",
+      "word": "limiting",
+      "input": "limiting",
+      "time_taken": 3.126756818
+    },
+    {
+      "timestamp": "2026-01-24 21:58:11",
+      "word": "innerpro",
+      "input": "innerpro",
+      "time_taken": 3.769111198
+    },
+    {
+      "timestamp": "2026-01-24 21:58:14",
+      "word": "list",
+      "input": "list",
+      "time_taken": 2.786662886
+    },
+    {
+      "timestamp": "2026-01-24 22:02:10",
+      "word": "If n is not given, it is assumed to be 1.",
+      "input": "If n is not given, it is assumed to be 1.",
+      "time_taken": 14.719345495
+    },
+    {
+      "timestamp": "2026-01-24 22:02:34",
+      "word": "The name of this file is taken from the value of the INPUTRC variable.",
+      "input": "The name of this file is taken from the value of the INPUTRC variable.",
+      "time_taken": 23.436476711
+    },
+    {
+      "timestamp": "2026-01-24 22:02:59",
+      "word": "If set to visible, readline uses a visible bell if one is available.",
+      "input": "If set to visible, readline users a visible bell if one is available.",
+      "time_taken": 23.676006343
+    },
+    {
+      "timestamp": "2026-01-24 22:03:22",
+      "word": "The variable will be unset initially, before any assignment.",
+      "input": "The variable will be unset initially, before any assignment.",
+      "time_taken": 21.934694370
+    },
+    {
+      "timestamp": "2026-01-24 22:03:34",
+      "word": "It is ignored in all other cases.",
+      "input": "It is ignored in all other cases.",
+      "time_taken": 11.469553490
+    },
+    {
+      "timestamp": "2026-01-24 22:04:01",
+      "word": "Otherwise, the exit status of the command builtin is the exit status of command.",
+      "input": "Otherwis, the exit status of the command builtin is the exit status of command.",
+      "time_taken": 26.601248848
+    },
+    {
+      "timestamp": "2026-01-24 22:04:36",
+      "word": "Ordinarily, variables and their values are shared between the function and its caller.",
+      "input": "Ordinarily, variables and their values are shared between the functon and its calier.",
+      "time_taken": 33.858238495
+    },
+    {
+      "timestamp": "2026-01-24 22:04:53",
+      "word": "The current version is also a valid value.",
+      "input": "The current version is also a valid value.",
+      "time_taken": 16.536866182
+    },
+    {
+      "timestamp": "2026-01-24 22:14:56",
+      "word": "Such sequences begin with a Control Sequence Indicator (CSI), usually ESC-[.",
+      "input": "such sequences begin with a Control Sequence Indicator (CSI), usually ESC-[.",
+      "time_taken": 35.702635111
+    },
+    {
+      "timestamp": "2026-01-24 22:15:34",
+      "word": "OPTERR is initialized to 1 each time the shell is invoked or a shell script is executed.",
+      "input": "OPTERR is initialized to 1 each time the shelll is invoked or ashell script is executed.",
+      "time_taken": 37.135735816
+    },
+    {
+      "timestamp": "2026-01-24 22:16:06",
+      "word": "If followed by a /, two adjacent *s will match only directories and subdirectories.",
+      "input": "If followed by a /, two adjacet *s will match only directories and subdirectories.",
+      "time_taken": 31.769706537
+    },
+    {
+      "timestamp": "2026-01-24 22:16:30",
+      "word": "If set to visible, readline uses a visible bell if one is available.",
+      "input": "If set to visible, readline uses a visible bell if one is available.",
+      "time_taken": 23.429843767
     }
   ]
 }
