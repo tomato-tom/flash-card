@@ -6,6 +6,7 @@ JSON_FILE="typing_data.json"
 WORD="man"
 #WORD="command"
 SPEECH=true
+SESSION_ID=${SESSION_ID:-$$}
 
 if [ ! -f "$JSON_FILE" ] || [ ! -s "$JSON_FILE" ]; then
     echo '{"games":[]}' > "$JSON_FILE"
@@ -44,6 +45,9 @@ speech() {
 tput sc
 tput civis
 
+# クリーンアップ
+trap 'rm -f /tmp/say_*.mp3; tput cnorm' EXIT INT TERM
+
 # 単語セット読み込み
 if [ $WORD = "man" ]; then
     word_list=($(
@@ -61,7 +65,7 @@ echo -e "\n\033[1;35mPress ANY KEY to start...\033[0m"
 read -rsn1
 
 echo "Start typing game..."
-echo "Ctrl-c to stop"
+echo "q to stop"
 sleep 0.8
 
 while :; do
@@ -79,13 +83,17 @@ while :; do
 
     # 表示から認識までのタイムラグ
     # 要調整
-    sleep 0.3
+    sleep 0.4
 
     start_time=$(date +%s.%N)
-    read input
+    read -t 8 -r input || { echo "Timeout..."; exit 1; }
     end_time=$(date +%s.%N)
     echo
     tput civis
+
+    if [ "$input" == "q" ]; then
+        break
+    fi
 
     if [ "$input" == "$text" ]; then
         echo "✓ Correct!"
@@ -100,6 +108,6 @@ while :; do
     printf "%.2f c/s\n" "${speed}"
 
     log_game "$text" "$input" "${time_taken}"
-    sleep 0.8 # 次のカードまでのインターバル
+    sleep 0.8
 done
 
