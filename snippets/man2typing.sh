@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Usage: ./man2typing.sh <command_name>
 if [[ $# -eq 0 ]]; then
     echo "Usage: $0 <command>" >&2
     exit 1
@@ -47,36 +46,64 @@ BEGIN {
         gsub(/^[ \t]+|[ \t]+$/, "", a[i])
         if (a[i] != "") allowed[a[i]] = 1
     }
+    buffer = ""
+    in_section = 0
 }
-/^[A-Z]/ {
+
+# セクションヘッダー判定
+/^[A-Z][A-Z ]*$/ {
     gsub(/^[ \t]+|[ \t]+$/, "")
     current = $0
-    capture = (current in allowed)
+    in_section = (current in allowed)
     next
 }
-capture && NF && /^[[:space:]]/ {
-    gsub(/^[ \t]+/, "")
-    printf "%s ", $0
+
+# 対象セクション外 or 空行
+!in_section || !NF {
+    if (buffer != "") {
+        # バッファ出力（行末ハイフン処理済み）
+        printf "%s ", buffer
+        buffer = ""
+    }
     next
 }
-capture && NF && !/^[[:space:]]/ {
-    printf "%s ", $0
-    next
+
+# 対象セクション内の本文行
+in_section && NF {
+    line = $0
+    gsub(/^[ \t]+/, "", line)  # 行頭インデント削除
+
+    if (buffer != "") {
+        # 前の行が行末ハイフンで終わっていたか？
+        if (buffer ~ /[a-z]-$/) {
+            # 行末の "-" を削除し、次の単語と直接結合
+            sub(/-$/, "", buffer)
+            buffer = buffer line
+        } else {
+            # 普通にスペースで連結
+            buffer = buffer " " line
+        }
+    } else {
+        buffer = line
+    }
+
+    # 行末が [a-z]- で終わっていなければ、即出力
+    if (buffer !~ /[a-z]-$/) {
+        printf "%s ", buffer
+        buffer = ""
+    }
 }
-END { printf "\n" }
-' | \
-# --- 行またぎハイフンの除去 ---
-# meta- も削除されてる FIX ME
-sed 's/\([a-z]\)- \([a-z]\)/\1\2/g' | \
-# --- 空白の正規化 ---
+
+END {
+    if (buffer != "") {
+        # 最終行が未出力なら出力（末尾ハイフンはそのまま残すが稀）
+        printf "%s ", buffer
+    }
+    printf "\n"
+}' | \
 tr -s ' ' | \
-# --- 文分割 ---
 sed 's/\([^.]\+\.\)/\1\n/g' | \
-# --- ピリオドで終わる行のみ ---
 grep '\.$' | \
-# --- 前後空白削除 ---
 sed 's/^[[:space:]]*//; s/[[:space:]]*$//' | \
-# --- 質量フィルタ ---
-awk 'NF >= 2 && /^[A-Z]/ && length($0) >= 30 && length($0) <= 90' | \
-# --- 重複除去（順序保持） ---
+awk 'NF >= 2 && /^[A-Z]/ && length($0) >= 15' | \
 awk '!seen[$0]++'
