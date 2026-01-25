@@ -2,7 +2,7 @@
 # Typing game
 
 # JSONファイル
-JSON_FILE="typing_data.json"
+JSON_FILE="data/typing_data.json"
 SPEECH=true
 SESSION_ID=${SESSION_ID:-$$}
 
@@ -131,8 +131,6 @@ echo "q to stop"
 tput sc
 tput civis
 
-sleep 0.3
-
 while :; do
     tput rc
     tput ed
@@ -149,7 +147,7 @@ while :; do
     tput cnorm
 
     start_time=$(date +%s.%N)
-    base_time=$((text_length * 6 / 10))
+    base_time=$((text_length * 5 / 10))
     wait_time=$((base_time < 5 ? 5 : (base_time > 45 ? 45 : base_time)))
     read -t $wait_time -r input || true
     end_time=$(date +%s.%N)
@@ -171,6 +169,6 @@ while :; do
     printf "%.2f c/s\n" "${speed}"
 
     log_game "$text" "$input" "${time_taken}"
-    sleep 0.8
+    read -s -t 0.8
 done
 

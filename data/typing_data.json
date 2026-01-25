@@ -6053,6 +6053,1038 @@
       "word": "If set to visible, readline uses a visible bell if one is available.",
       "input": "If set to visible, readline uses a visible bell if one is available.",
       "time_taken": 23.429843767
+    },
+    {
+      "timestamp": "2026-01-26 00:08:59",
+      "word": "chmod",
+      "input": "chmod",
+      "time_taken": 2.672787295
+    },
+    {
+      "timestamp": "2026-01-26 00:09:04",
+      "word": "vgreduce",
+      "input": "vgreduce",
+      "time_taken": 4.047856920
+    },
+    {
+      "timestamp": "2026-01-26 00:09:09",
+      "word": "python",
+      "input": "",
+      "time_taken": 5.005668509
+    },
+    {
+      "timestamp": "2026-01-26 00:09:13",
+      "word": "prove",
+      "input": "pythpove",
+      "time_taken": 2.868169555
+    },
+    {
+      "timestamp": "2026-01-26 00:09:19",
+      "word": "ippfind",
+      "input": "",
+      "time_taken": 5.006591014
+    },
+    {
+      "timestamp": "2026-01-26 00:09:23",
+      "word": "delpart",
+      "input": "ippfdelpart",
+      "time_taken": 3.628994182
+    },
+    {
+      "timestamp": "2026-01-26 00:09:28",
+      "word": "gencmn",
+      "input": "gencmn",
+      "time_taken": 3.366011226
+    },
+    {
+      "timestamp": "2026-01-26 00:09:32",
+      "word": "autoheader",
+      "input": "autoheader",
+      "time_taken": 3.902420276
+    },
+    {
+      "timestamp": "2026-01-26 00:09:36",
+      "word": "rgview",
+      "input": "rgview",
+      "time_taken": 3.381398262
+    },
+    {
+      "timestamp": "2026-01-26 00:09:39",
+      "word": "init",
+      "input": "init",
+      "time_taken": 1.958231688
+    },
+    {
+      "timestamp": "2026-01-26 00:09:44",
+      "word": "shutdown",
+      "input": "fhutdown",
+      "time_taken": 3.674692903
+    },
+    {
+      "timestamp": "2026-01-26 00:09:50",
+      "word": "deallocvt",
+      "input": "desllocvt",
+      "time_taken": 4.966751896
+    },
+    {
+      "timestamp": "2026-01-26 00:09:55",
+      "word": "mimeopen",
+      "input": "",
+      "time_taken": 5.006502700
+    },
+    {
+      "timestamp": "2026-01-26 00:09:56",
+      "word": "ipptool",
+      "input": "mineopen",
+      "time_taken": 0.001246712
+    },
+    {
+      "timestamp": "2026-01-26 00:10:02",
+      "word": "vgconvert",
+      "input": "",
+      "time_taken": 5.006682022
+    },
+    {
+      "timestamp": "2026-01-26 00:10:03",
+      "word": "udevadm",
+      "input": "vgconvert",
+      "time_taken": 0.001284114
+    },
+    {
+      "timestamp": "2026-01-26 00:10:08",
+      "word": "rvim",
+      "input": "rvim",
+      "time_taken": 4.164439148
+    },
+    {
+      "timestamp": "2026-01-26 00:10:14",
+      "word": "xzegrep",
+      "input": "xzegrep",
+      "time_taken": 4.929067340
+    },
+    {
+      "timestamp": "2026-01-26 00:10:18",
+      "word": "pathchk",
+      "input": "pathchk",
+      "time_taken": 3.317006569
+    },
+    {
+      "timestamp": "2026-01-26 00:10:22",
+      "word": "taskset",
+      "input": "taskset",
+      "time_taken": 3.431701329
+    },
+    {
+      "timestamp": "2026-01-26 00:10:26",
+      "word": "jpgicc",
+      "input": "jpgicc",
+      "time_taken": 3.617232454
+    },
+    {
+      "timestamp": "2026-01-26 00:10:30",
+      "word": "setpci",
+      "input": "setpci",
+      "time_taken": 3.029133137
+    },
+    {
+      "timestamp": "2026-01-26 00:10:34",
+      "word": "cpan",
+      "input": "cpan",
+      "time_taken": 2.405474466
+    },
+    {
+      "timestamp": "2026-01-26 00:10:37",
+      "word": "sprof",
+      "input": "sprof",
+      "time_taken": 2.175102772
+    },
+    {
+      "timestamp": "2026-01-26 00:10:42",
+      "word": "gipddecode",
+      "input": "gipddecode",
+      "time_taken": 4.414626351
+    },
+    {
+      "timestamp": "2026-01-26 00:10:46",
+      "word": "xzgrep",
+      "input": "xzgrep",
+      "time_taken": 3.319860639
+    },
+    {
+      "timestamp": "2026-01-26 00:11:35",
+      "word": "If -n is used, each name is disabled; otherwise, names are enabled.",
+      "input": "If -n is used, each name is disabled; otherwise, names are enabled.",
+      "time_taken": 24.077076783
+    },
+    {
+      "timestamp": "2026-01-26 00:11:54",
+      "word": "This is an exception to the usual printf behavior.",
+      "input": "This is an exception to the usual printf behavior",
+      "time_taken": 18.056980100
+    },
+    {
+      "timestamp": "2026-01-26 00:12:27",
+      "word": "OPTIND is set to the index of the first non-option argument, and name is set to ?.",
+      "input": "OPTIND is set to the index of the first non-option argument, and name is set to ?.",
+      "time_taken": 31.826239847
+    },
+    {
+      "timestamp": "2026-01-26 00:12:53",
+      "word": "If a hashed command no longer exists, a normal path search is performed.",
+      "input": "If a hashed command no longer exists, a normal path search is performed",
+      "time_taken": 25.344285933
+    },
+    {
+      "timestamp": "2026-01-26 00:13:11",
+      "word": "If the string is not translated, this has no effect.",
+      "input": "If the string is not traslated, this has no effect.",
+      "time_taken": 17.792246619
+    },
+    {
+      "timestamp": "2026-01-26 00:13:36",
+      "word": "Unsetting the last element of an array variable does not unset the variable.",
+      "input": "Unsetttin the last element of an array variable does not unset the variable.",
+      "time_taken": 23.466251068
+    },
+    {
+      "timestamp": "2026-01-26 00:13:57",
+      "word": "If so, that word is replaced by the text of the alias.",
+      "input": "If so, that word is replaced by the text of the alias.",
+      "time_taken": 20.177033324
+    },
+    {
+      "timestamp": "2026-01-26 00:14:38",
+      "word": "There are only a few basic constructs allowed in the readline initialization file.",
+      "input": "There are only a few basic constructs allowed in the readline initialization file.",
+      "time_taken": 40.658194112
+    },
+    {
+      "timestamp": "2026-01-26 00:15:11",
+      "word": "Note that the exec builtin command can make redirections take effect in the current shell.",
+      "input": "Note that the exec builtin command can make redirections take effect in the current shell.",
+      "time_taken": 32.156208174
+    },
+    {
+      "timestamp": "2026-01-26 00:17:37",
+      "word": "checksum",
+      "input": "checksum",
+      "time_taken": 4.080851649
+    },
+    {
+      "timestamp": "2026-01-26 00:17:44",
+      "word": "compatibility",
+      "input": "compatibility",
+      "time_taken": 5.911525650
+    },
+    {
+      "timestamp": "2026-01-26 00:17:47",
+      "word": "passed",
+      "input": "passed",
+      "time_taken": 2.622315556
+    },
+    {
+      "timestamp": "2026-01-26 00:17:52",
+      "word": "necessary",
+      "input": "necessary",
+      "time_taken": 4.347668739
+    },
+    {
+      "timestamp": "2026-01-26 00:17:55",
+      "word": "class",
+      "input": "class",
+      "time_taken": 2.155037297
+    },
+    {
+      "timestamp": "2026-01-26 00:17:59",
+      "word": "attached",
+      "input": "attached",
+      "time_taken": 3.394038904
+    },
+    {
+      "timestamp": "2026-01-26 00:18:04",
+      "word": "retrieve",
+      "input": "retrieve",
+      "time_taken": 3.637665553
+    },
+    {
+      "timestamp": "2026-01-26 00:18:10",
+      "word": "Registration",
+      "input": "Tegistration",
+      "time_taken": 5.562027207
+    },
+    {
+      "timestamp": "2026-01-26 00:18:14",
+      "word": "well",
+      "input": "well",
+      "time_taken": 2.472814280
+    },
+    {
+      "timestamp": "2026-01-26 00:18:18",
+      "word": "lifetime",
+      "input": "lifetime",
+      "time_taken": 3.389938365
+    },
+    {
+      "timestamp": "2026-01-26 00:18:21",
+      "word": "down",
+      "input": "down",
+      "time_taken": 2.102663507
+    },
+    {
+      "timestamp": "2026-01-26 00:18:24",
+      "word": "veth",
+      "input": "veth",
+      "time_taken": 2.190510318
+    },
+    {
+      "timestamp": "2026-01-26 00:18:28",
+      "word": "sending",
+      "input": "sending",
+      "time_taken": 3.180788688
+    },
+    {
+      "timestamp": "2026-01-26 00:18:34",
+      "word": "setting",
+      "input": "",
+      "time_taken": 5.006216744
+    },
+    {
+      "timestamp": "2026-01-26 00:18:34",
+      "word": "macvtap",
+      "input": "setting",
+      "time_taken": 0.001541646
+    },
+    {
+      "timestamp": "2026-01-26 00:18:39",
+      "word": "component",
+      "input": "component",
+      "time_taken": 4.151173750
+    },
+    {
+      "timestamp": "2026-01-26 00:18:45",
+      "word": "members",
+      "input": "members",
+      "time_taken": 4.351824763
+    },
+    {
+      "timestamp": "2026-01-26 00:18:48",
+      "word": "unless",
+      "input": "unless",
+      "time_taken": 2.805261309
+    },
+    {
+      "timestamp": "2026-01-26 00:18:53",
+      "word": "attached",
+      "input": "attached",
+      "time_taken": 3.769812475
+    },
+    {
+      "timestamp": "2026-01-26 00:18:57",
+      "word": "second",
+      "input": "second",
+      "time_taken": 2.959512477
+    },
+    {
+      "timestamp": "2026-01-26 00:19:00",
+      "word": "against",
+      "input": "against",
+      "time_taken": 3.102370602
+    },
+    {
+      "timestamp": "2026-01-26 00:19:04",
+      "word": "require",
+      "input": "require",
+      "time_taken": 2.888165533
+    },
+    {
+      "timestamp": "2026-01-26 00:19:08",
+      "word": "manually",
+      "input": "manually",
+      "time_taken": 3.493404445
+    },
+    {
+      "timestamp": "2026-01-26 00:19:12",
+      "word": "have",
+      "input": "have",
+      "time_taken": 2.254618038
+    },
+    {
+      "timestamp": "2026-01-26 00:19:15",
+      "word": "tool",
+      "input": "tool",
+      "time_taken": 2.757311571
+    },
+    {
+      "timestamp": "2026-01-26 00:19:20",
+      "word": "csum",
+      "input": "csum",
+      "time_taken": 3.870784320
+    },
+    {
+      "timestamp": "2026-01-26 00:19:23",
+      "word": "both",
+      "input": "both",
+      "time_taken": 2.199083427
+    },
+    {
+      "timestamp": "2026-01-26 00:19:29",
+      "word": "backup",
+      "input": "",
+      "time_taken": 5.002714344
+    },
+    {
+      "timestamp": "2026-01-26 00:19:35",
+      "word": "concatenate",
+      "input": "",
+      "time_taken": 5.005809753
+    },
+    {
+      "timestamp": "2026-01-26 00:19:38",
+      "word": "mpls",
+      "input": "backupconcatampls",
+      "time_taken": 2.348343319
+    },
+    {
+      "timestamp": "2026-01-26 00:19:43",
+      "word": "discovery",
+      "input": "discovery",
+      "time_taken": 4.138779081
+    },
+    {
+      "timestamp": "2026-01-26 00:19:47",
+      "word": "against",
+      "input": "against",
+      "time_taken": 3.397151843
+    },
+    {
+      "timestamp": "2026-01-26 00:19:52",
+      "word": "separated",
+      "input": "separated",
+      "time_taken": 4.420029167
+    },
+    {
+      "timestamp": "2026-01-26 00:19:56",
+      "word": "apply",
+      "input": "apply",
+      "time_taken": 2.897093787
+    },
+    {
+      "timestamp": "2026-01-26 00:20:00",
+      "word": "unique",
+      "input": "uniaue",
+      "time_taken": 2.887456997
+    },
+    {
+      "timestamp": "2026-01-26 00:20:03",
+      "word": "located",
+      "input": "located",
+      "time_taken": 2.833074617
+    },
+    {
+      "timestamp": "2026-01-26 00:20:07",
+      "word": "vcan",
+      "input": "vcan",
+      "time_taken": 2.823238867
+    },
+    {
+      "timestamp": "2026-01-26 00:20:12",
+      "word": "xdpgeneric",
+      "input": "xdpgeneric",
+      "time_taken": 4.294926463
+    },
+    {
+      "timestamp": "2026-01-26 00:20:17",
+      "word": "specify",
+      "input": "specify",
+      "time_taken": 3.944620120
+    },
+    {
+      "timestamp": "2026-01-26 00:24:46",
+      "word": "save",
+      "input": "",
+      "time_taken": 5.006154791
+    },
+    {
+      "timestamp": "2026-01-26 00:24:50",
+      "word": "print",
+      "input": "savprint",
+      "time_taken": 2.701740578
+    },
+    {
+      "timestamp": "2026-01-26 00:24:55",
+      "word": "signifying",
+      "input": "signifying",
+      "time_taken": 4.524999670
+    },
+    {
+      "timestamp": "2026-01-26 00:25:00",
+      "word": "Composite",
+      "input": "Composite",
+      "time_taken": 3.911309873
+    },
+    {
+      "timestamp": "2026-01-26 00:25:04",
+      "word": "within",
+      "input": "within",
+      "time_taken": 3.037214563
+    },
+    {
+      "timestamp": "2026-01-26 00:25:07",
+      "word": "reading",
+      "input": "reading",
+      "time_taken": 2.791430479
+    },
+    {
+      "timestamp": "2026-01-26 00:25:11",
+      "word": "extra",
+      "input": "extra",
+      "time_taken": 3.230111551
+    },
+    {
+      "timestamp": "2026-01-26 00:25:16",
+      "word": "duration",
+      "input": "duration",
+      "time_taken": 4.197854045
+    },
+    {
+      "timestamp": "2026-01-26 00:25:21",
+      "word": "redirected",
+      "input": "redirected",
+      "time_taken": 3.725763574
+    },
+    {
+      "timestamp": "2026-01-26 00:25:24",
+      "word": "consid",
+      "input": "cosid",
+      "time_taken": 2.621637566
+    },
+    {
+      "timestamp": "2026-01-26 00:25:30",
+      "word": "HHHHHHHH",
+      "input": "HHHHHHHH",
+      "time_taken": 4.653338767
+    },
+    {
+      "timestamp": "2026-01-26 00:25:35",
+      "word": "designator",
+      "input": "designator",
+      "time_taken": 4.035515785
+    },
+    {
+      "timestamp": "2026-01-26 00:28:01",
+      "word": "restartable",
+      "input": "restartable",
+      "time_taken": 4.587035617
+    },
+    {
+      "timestamp": "2026-01-26 00:28:05",
+      "word": "point",
+      "input": "point",
+      "time_taken": 2.871832633
+    },
+    {
+      "timestamp": "2026-01-26 00:28:10",
+      "word": "MAILPATH",
+      "input": "",
+      "time_taken": 5.007205957
+    },
+    {
+      "timestamp": "2026-01-26 00:28:16",
+      "word": "helptopic",
+      "input": "MAILPATHhelptopic",
+      "time_taken": 4.453341971
+    },
+    {
+      "timestamp": "2026-01-26 00:28:20",
+      "word": "maximum",
+      "input": "maximum",
+      "time_taken": 3.146855159
+    },
+    {
+      "timestamp": "2026-01-26 00:28:24",
+      "word": "SHLVL",
+      "input": "SHLVL",
+      "time_taken": 3.691402690
+    },
+    {
+      "timestamp": "2026-01-26 00:28:28",
+      "word": "explicit",
+      "input": "explicit",
+      "time_taken": 3.553287681
+    },
+    {
+      "timestamp": "2026-01-26 00:28:33",
+      "word": "returned",
+      "input": "returned",
+      "time_taken": 3.613677940
+    },
+    {
+      "timestamp": "2026-01-26 00:28:38",
+      "word": "relationship",
+      "input": "relationship",
+      "time_taken": 4.652408667
+    },
+    {
+      "timestamp": "2026-01-26 00:28:44",
+      "word": "preprocessor",
+      "input": "preprocessor",
+      "time_taken": 4.450652176
+    },
+    {
+      "timestamp": "2026-01-26 00:28:48",
+      "word": "segment",
+      "input": "segment",
+      "time_taken": 3.165813615
+    },
+    {
+      "timestamp": "2026-01-26 00:28:53",
+      "word": "Substrings",
+      "input": "Substrings",
+      "time_taken": 4.543740379
+    },
+    {
+      "timestamp": "2026-01-26 00:28:58",
+      "word": "embedded",
+      "input": "embeddeed",
+      "time_taken": 3.810458683
+    },
+    {
+      "timestamp": "2026-01-26 00:29:02",
+      "word": "resulting",
+      "input": "resulting",
+      "time_taken": 3.405723247
+    },
+    {
+      "timestamp": "2026-01-26 00:29:06",
+      "word": "entered",
+      "input": "entered",
+      "time_taken": 3.161483836
+    },
+    {
+      "timestamp": "2026-01-26 00:29:10",
+      "word": "negates",
+      "input": "negates",
+      "time_taken": 2.983256066
+    },
+    {
+      "timestamp": "2026-01-26 00:29:14",
+      "word": "indicates",
+      "input": "indicatess",
+      "time_taken": 3.751760959
+    },
+    {
+      "timestamp": "2026-01-26 00:29:19",
+      "word": "colored",
+      "input": "colored",
+      "time_taken": 3.435353670
+    },
+    {
+      "timestamp": "2026-01-26 00:29:22",
+      "word": "arrow",
+      "input": "arrow",
+      "time_taken": 2.978954434
+    },
+    {
+      "timestamp": "2026-01-26 00:29:26",
+      "word": "minal",
+      "input": "minal",
+      "time_taken": 2.766193428
+    },
+    {
+      "timestamp": "2026-01-26 00:29:30",
+      "word": "literal",
+      "input": "literal",
+      "time_taken": 3.294735401
+    },
+    {
+      "timestamp": "2026-01-26 00:29:34",
+      "word": "declaring",
+      "input": "declaring",
+      "time_taken": 3.391375421
+    },
+    {
+      "timestamp": "2026-01-26 00:29:39",
+      "word": "direction",
+      "input": "direction",
+      "time_taken": 3.482180830
+    },
+    {
+      "timestamp": "2026-01-26 00:29:41",
+      "word": "ring",
+      "input": "ring",
+      "time_taken": 1.940389489
+    },
+    {
+      "timestamp": "2026-01-26 00:29:46",
+      "word": "traversing",
+      "input": "traversing",
+      "time_taken": 3.661807969
+    },
+    {
+      "timestamp": "2026-01-26 00:29:49",
+      "word": "stamp",
+      "input": "stamp",
+      "time_taken": 2.534893773
+    },
+    {
+      "timestamp": "2026-01-26 00:29:55",
+      "word": "standout",
+      "input": "",
+      "time_taken": 5.006519146
+    },
+    {
+      "timestamp": "2026-01-26 00:30:00",
+      "word": "written",
+      "input": "standoutwirtten",
+      "time_taken": 4.323883209
+    },
+    {
+      "timestamp": "2026-01-26 00:30:05",
+      "word": "restartable",
+      "input": "restartable",
+      "time_taken": 4.085089027
+    },
+    {
+      "timestamp": "2026-01-26 00:30:10",
+      "word": "pushing",
+      "input": "pushing",
+      "time_taken": 4.273734913
+    },
+    {
+      "timestamp": "2026-01-26 00:30:15",
+      "word": "writing",
+      "input": "writing",
+      "time_taken": 3.901696811
+    },
+    {
+      "timestamp": "2026-01-26 00:30:20",
+      "word": "referencing",
+      "input": "referencing",
+      "time_taken": 4.376742730
+    },
+    {
+      "timestamp": "2026-01-26 00:30:25",
+      "word": "nocaseglob",
+      "input": "nocaseglob",
+      "time_taken": 4.116881410
+    },
+    {
+      "timestamp": "2026-01-26 00:30:30",
+      "word": "underscores",
+      "input": "underscores",
+      "time_taken": 4.506512859
+    },
+    {
+      "timestamp": "2026-01-26 00:30:34",
+      "word": "noglob",
+      "input": "noglob",
+      "time_taken": 2.734780057
+    },
+    {
+      "timestamp": "2026-01-26 00:30:38",
+      "word": "digit",
+      "input": "digit",
+      "time_taken": 2.749437852
+    },
+    {
+      "timestamp": "2026-01-26 00:30:41",
+      "word": "logical",
+      "input": "logical",
+      "time_taken": 2.590305645
+    },
+    {
+      "timestamp": "2026-01-26 00:30:44",
+      "word": "name",
+      "input": "name",
+      "time_taken": 2.294569649
+    },
+    {
+      "timestamp": "2026-01-26 00:30:50",
+      "word": "checkwinsize",
+      "input": "checkwinsize",
+      "time_taken": 5.578022643
+    },
+    {
+      "timestamp": "2026-01-26 00:30:54",
+      "word": "chunks",
+      "input": "chunks",
+      "time_taken": 2.945595211
+    },
+    {
+      "timestamp": "2026-01-26 00:31:00",
+      "word": "MAILPATH",
+      "input": "MAILPATH",
+      "time_taken": 4.726253916
+    },
+    {
+      "timestamp": "2026-01-26 00:31:04",
+      "word": "opened",
+      "input": "opened",
+      "time_taken": 3.056650079
+    },
+    {
+      "timestamp": "2026-01-26 00:31:06",
+      "word": "read",
+      "input": "read",
+      "time_taken": 1.862171755
+    },
+    {
+      "timestamp": "2026-01-26 00:31:12",
+      "word": "greatest",
+      "input": "greatest",
+      "time_taken": 4.789494734
+    },
+    {
+      "timestamp": "2026-01-26 00:31:17",
+      "word": "whitespace",
+      "input": "whitespace",
+      "time_taken": 3.977612986
+    },
+    {
+      "timestamp": "2026-01-26 00:31:19",
+      "word": "file",
+      "input": "file",
+      "time_taken": 1.903443845
+    },
+    {
+      "timestamp": "2026-01-26 00:31:25",
+      "word": "designators",
+      "input": "",
+      "time_taken": 5.004083135
+    },
+    {
+      "timestamp": "2026-01-26 00:31:30",
+      "word": "ceived",
+      "input": "ceived",
+      "time_taken": 4.186282234
+    },
+    {
+      "timestamp": "2026-01-26 00:32:28",
+      "word": "scopes",
+      "input": "scopess",
+      "time_taken": 3.115935459
+    },
+    {
+      "timestamp": "2026-01-26 00:32:34",
+      "word": "necessarily",
+      "input": "necessarily",
+      "time_taken": 4.674324437
+    },
+    {
+      "timestamp": "2026-01-26 00:32:38",
+      "word": "jobspec",
+      "input": "jobspec",
+      "time_taken": 3.199374988
+    },
+    {
+      "timestamp": "2026-01-26 00:32:42",
+      "word": "Omitting",
+      "input": "Omitting",
+      "time_taken": 3.575477171
+    },
+    {
+      "timestamp": "2026-01-26 00:32:48",
+      "word": "ignoreboth",
+      "input": "",
+      "time_taken": 5.006338577
+    },
+    {
+      "timestamp": "2026-01-26 00:32:51",
+      "word": "locations",
+      "input": "locations",
+      "time_taken": 3.324903925
+    },
+    {
+      "timestamp": "2026-01-26 00:32:54",
+      "word": "lines",
+      "input": "lines",
+      "time_taken": 1.863832892
+    },
+    {
+      "timestamp": "2026-01-26 00:32:57",
+      "word": "process",
+      "input": "process",
+      "time_taken": 2.820119937
+    },
+    {
+      "timestamp": "2026-01-26 00:33:01",
+      "word": "format",
+      "input": "format",
+      "time_taken": 2.270989538
+    },
+    {
+      "timestamp": "2026-01-26 00:33:04",
+      "word": "consider",
+      "input": "consider",
+      "time_taken": 2.671218412
+    },
+    {
+      "timestamp": "2026-01-26 00:33:08",
+      "word": "around",
+      "input": "around",
+      "time_taken": 2.700238433
+    },
+    {
+      "timestamp": "2026-01-26 00:33:12",
+      "word": "metafied",
+      "input": "metafied",
+      "time_taken": 3.332854815
+    },
+    {
+      "timestamp": "2026-01-26 00:33:17",
+      "word": "especially",
+      "input": "especially",
+      "time_taken": 4.367430349
+    },
+    {
+      "timestamp": "2026-01-26 00:33:20",
+      "word": "sign",
+      "input": "sign",
+      "time_taken": 2.535891697
+    },
+    {
+      "timestamp": "2026-01-26 00:33:23",
+      "word": "ally",
+      "input": "ally",
+      "time_taken": 2.411152812
+    },
+    {
+      "timestamp": "2026-01-26 00:33:27",
+      "word": "parse",
+      "input": "parse",
+      "time_taken": 3.374097094
+    },
+    {
+      "timestamp": "2026-01-26 00:33:33",
+      "word": "component",
+      "input": "",
+      "time_taken": 5.008150363
+    },
+    {
+      "timestamp": "2026-01-26 00:33:37",
+      "word": "nreal",
+      "input": "componnreal",
+      "time_taken": 3.077372006
+    },
+    {
+      "timestamp": "2026-01-26 00:33:40",
+      "word": "parts",
+      "input": "parts",
+      "time_taken": 2.697001016
+    },
+    {
+      "timestamp": "2026-01-26 00:33:45",
+      "word": "vironment",
+      "input": "vironment",
+      "time_taken": 3.749846865
+    },
+    {
+      "timestamp": "2026-01-26 00:33:48",
+      "word": "sign",
+      "input": "sign",
+      "time_taken": 2.381515097
+    },
+    {
+      "timestamp": "2026-01-26 00:33:53",
+      "word": "themselves",
+      "input": "thmselves",
+      "time_taken": 4.366932095
+    },
+    {
+      "timestamp": "2026-01-26 00:33:58",
+      "word": "undefined",
+      "input": "undefined",
+      "time_taken": 4.532781037
+    },
+    {
+      "timestamp": "2026-01-26 00:34:03",
+      "word": "instances",
+      "input": "instances",
+      "time_taken": 3.440681089
+    },
+    {
+      "timestamp": "2026-01-26 00:34:06",
+      "word": "quick",
+      "input": "quick",
+      "time_taken": 2.383104870
+    },
+    {
+      "timestamp": "2026-01-26 00:34:10",
+      "word": "declared",
+      "input": "declared",
+      "time_taken": 3.573023989
+    },
+    {
+      "timestamp": "2026-01-26 00:34:13",
+      "word": "single",
+      "input": "single",
+      "time_taken": 2.177997310
+    },
+    {
+      "timestamp": "2026-01-26 00:34:17",
+      "word": "however",
+      "input": "however",
+      "time_taken": 2.885720366
+    },
+    {
+      "timestamp": "2026-01-26 00:34:23",
+      "word": "comparisons",
+      "input": "",
+      "time_taken": 5.006889325
+    },
+    {
+      "timestamp": "2026-01-26 00:34:29",
+      "word": "interpretation",
+      "input": "comparisonsinterpretation",
+      "time_taken": 5.283605064
+    },
+    {
+      "timestamp": "2026-01-26 00:34:33",
+      "word": "require",
+      "input": "require",
+      "time_taken": 3.124193861
+    },
+    {
+      "timestamp": "2026-01-26 00:34:38",
+      "word": "effective",
+      "input": "effective",
+      "time_taken": 4.070044672
+    },
+    {
+      "timestamp": "2026-01-26 00:34:43",
+      "word": "concludes",
+      "input": "concludes",
+      "time_taken": 4.020638947
+    },
+    {
+      "timestamp": "2026-01-26 00:34:49",
+      "word": "associativity",
+      "input": "",
+      "time_taken": 6.008883770
+    },
+    {
+      "timestamp": "2026-01-26 00:34:54",
+      "word": "spawned",
+      "input": "spawned",
+      "time_taken": 3.966649138
+    },
+    {
+      "timestamp": "2026-01-26 00:34:57",
+      "word": "begins",
+      "input": "begins",
+      "time_taken": 2.927623640
+    },
+    {
+      "timestamp": "2026-01-26 00:35:00",
+      "word": "base",
+      "input": "base",
+      "time_taken": 1.879765020
+    },
+    {
+      "timestamp": "2026-01-26 00:35:04",
+      "word": "replaces",
+      "input": "replaces",
+      "time_taken": 3.438323057
     }
   ]
 }

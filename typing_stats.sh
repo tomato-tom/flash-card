@@ -1,5 +1,5 @@
 #!/bin/bash
-JSON_FILE="typing_data.json"
+JSON_FILE="data/typing_data.json"
 #JSON_FILE="test_data.json"
 
 # オプション解析

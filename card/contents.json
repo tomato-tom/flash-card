@@ -7,14 +7,14 @@
       "card-id": "w-010",
       "english": "efficient",
       "japanese": "効率的な",
-      "priority": 2.59,
+      "priority": 3.11,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 7
+      "last_reviewed": "2026-01-24",
+      "review_count": 8
     },
     {
       "card-id": "w-011",
@@ -98,14 +98,14 @@
       "card-id": "w-015",
       "english": "seamless",
       "japanese": "途切れのない、円滑な",
-      "priority": 3.91,
+      "priority": 4.69,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 11
+      "last_reviewed": "2026-01-24",
+      "review_count": 13
     },
     {
       "card-id": "p-012",
@@ -163,14 +163,14 @@
       "card-id": "w-018",
       "english": "integrity",
       "japanese": "完全性、誠実さ",
-      "priority": 3.92,
+      "priority": 5.88,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 16
+      "last_reviewed": "2026-01-24",
+      "review_count": 17
     },
     {
       "card-id": "w-019",
@@ -189,14 +189,14 @@
       "card-id": "p-014",
       "english": "Better safe than sorry.",
       "japanese": "備えあれば憂いなし（後悔するより安全策）",
-      "priority": 7.00,
+      "priority": 8.40,
       "type": "phrase",
       "tags": [
         "idiom"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 12
+      "last_reviewed": "2026-01-24",
+      "review_count": 14
     },
     {
       "card-id": "w-020",
@@ -247,8 +247,8 @@
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 31
+      "last_reviewed": "2026-01-24",
+      "review_count": 34
     },
     {
       "card-id": "w-023",
@@ -267,27 +267,27 @@
       "card-id": "p-016",
       "english": "Just in case.",
       "japanese": "念のため",
-      "priority": 6.22,
+      "priority": 7.46,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 16
+      "last_reviewed": "2026-01-24",
+      "review_count": 17
     },
     {
       "card-id": "w-024",
       "english": "comprehensive",
       "japanese": "包括的な、網羅的な",
-      "priority": 0.85,
+      "priority": 1.02,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 10
+      "last_reviewed": "2026-01-24",
+      "review_count": 11
     },
     {
       "card-id": "w-025",
@@ -364,8 +364,8 @@
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 10
+      "last_reviewed": "2026-01-24",
+      "review_count": 13
     },
     {
       "card-id": "w-029",
@@ -397,40 +397,40 @@
       "card-id": "w-030",
       "english": "optimization",
       "japanese": "最適化",
-      "priority": 1.0,
+      "priority": 1.20,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-24",
+      "review_count": 1
     },
     {
       "card-id": "p-020",
       "english": "I'll look into it.",
       "japanese": "調べておきます（調査します）。",
-      "priority": 1.50,
+      "priority": 2.25,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 1
+      "last_reviewed": "2026-01-24",
+      "review_count": 2
     },
     {
       "card-id": "w-031",
       "english": "availability",
       "japanese": "可用性、利用可能であること",
-      "priority": 1.0,
+      "priority": 1.20,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-24",
+      "review_count": 1
     },
     {
       "card-id": "p-021",
@@ -449,15 +449,15 @@
       "card-id": "w-032",
       "english": "persistent",
       "japanese": "永続的な、しつこい",
-      "priority": 1.0,
+      "priority": 1.20,
       "type": "word",
       "tags": [
         "tech",
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-24",
+      "review_count": 1
     },
     {
       "card-id": "p-022",
@@ -489,14 +489,14 @@
       "card-id": "p-023",
       "english": "I'm tied up at the moment.",
       "japanese": "今は手が離せません（忙しいです）。",
-      "priority": 1.73,
+      "priority": 2.08,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 3
+      "last_reviewed": "2026-01-24",
+      "review_count": 4
     },
     {
       "card-id": "w-034",
@@ -515,27 +515,27 @@
       "card-id": "p-024",
       "english": "Let's touch base later.",
       "japanese": "あとで連絡を取り合いましょう。",
-      "priority": 1.44,
+      "priority": 1.73,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 2
+      "last_reviewed": "2026-01-24",
+      "review_count": 3
     },
     {
       "card-id": "w-035",
       "english": "consistent",
       "japanese": "一貫性のある",
-      "priority": 1.0,
+      "priority": 1.50,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-24",
+      "review_count": 1
     },
     {
       "card-id": "w-036",
@@ -567,14 +567,14 @@
       "card-id": "w-037",
       "english": "granular",
       "japanese": "きめ細かな、粒度の小さい",
-      "priority": 1.73,
+      "priority": 2.60,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 3
+      "last_reviewed": "2026-01-24",
+      "review_count": 4
     },
     {
       "card-id": "p-026",
@@ -698,14 +698,14 @@
       "card-id": "w-042",
       "english": "transparency",
       "japanese": "透明性",
-      "priority": 1.44,
+      "priority": 1.73,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 3
+      "last_reviewed": "2026-01-24",
+      "review_count": 4
     },
     {
       "card-id": "p-031",
@@ -789,14 +789,14 @@
       "card-id": "w-046",
       "english": "redundancy",
       "japanese": "冗長性、余剰",
-      "priority": 1.44,
+      "priority": 1.73,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "last_reviewed": "2026-01-24",
+      "review_count": 3
     },
     {
       "card-id": "p-034",
@@ -815,27 +815,27 @@
       "card-id": "w-047",
       "english": "discrepancy",
       "japanese": "不一致、食い違い",
-      "priority": 1.50,
+      "priority": 2.25,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 1
+      "last_reviewed": "2026-01-24",
+      "review_count": 2
     },
     {
       "card-id": "p-035",
       "english": "I'm not following.",
       "japanese": "（話に）ついていけてません。",
-      "priority": 1.20,
+      "priority": 1.44,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 1
+      "last_reviewed": "2026-01-24",
+      "review_count": 2
     },
     {
       "card-id": "w-048",
@@ -854,14 +854,14 @@
       "card-id": "p-036",
       "english": "Sounds like a plan.",
       "japanese": "いいですね、そうしましょう。",
-      "priority": 2.16,
+      "priority": 2.59,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 4
+      "last_reviewed": "2026-01-24",
+      "review_count": 5
     },
     {
       "card-id": "w-049",
@@ -880,14 +880,14 @@
       "card-id": "p-037",
       "english": "Can you fill me in?",
       "japanese": "詳細を教えて（状況を補足して）くれる？",
-      "priority": 1.0,
+      "priority": 1.20,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
-      "last_reviewed": null,
-      "review_count": 0
+      "last_reviewed": "2026-01-24",
+      "review_count": 1
     },
     {
       "card-id": "w-050",
@@ -1050,14 +1050,14 @@
       "card-id": "w-056",
       "english": "seamlessly",
       "japanese": "シームレスに、スムーズに",
-      "priority": 1.44,
+      "priority": 1.73,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 2
+      "last_reviewed": "2026-01-24",
+      "review_count": 3
     },
     {
       "card-id": "p-044",
@@ -1089,27 +1089,27 @@
       "card-id": "p-045",
       "english": "Could you do me a favor?",
       "japanese": "お願いがあるのですが（手伝ってくれますか）？",
-      "priority": 2.25,
+      "priority": 2.70,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-23",
-      "review_count": 2
+      "last_reviewed": "2026-01-24",
+      "review_count": 4
     },
     {
       "card-id": "w-058",
       "english": "explicit",
       "japanese": "明示的な",
-      "priority": 1.44,
+      "priority": 2.16,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 3
+      "last_reviewed": "2026-01-24",
+      "review_count": 4
     },
     {
       "card-id": "p-046",
@@ -1154,15 +1154,15 @@
       "card-id": "w-060",
       "english": "leverage",
       "japanese": "活用する、てこの原理を利用する",
-      "priority": 1.44,
+      "priority": 1.73,
       "type": "word",
       "tags": [
         "work",
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "last_reviewed": "2026-01-24",
+      "review_count": 3
     },
     {
       "card-id": "p-048",
