@@ -1,0 +1,199 @@
+{
+  "session_id": "sess_20260126_011212",
+  "start_time": "2026-01-26 01:12:12",
+  "end_time": "2026-01-26 01:14:01",
+  "duration_seconds": 109,
+  "cards_reviewed": 23,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "w-056",
+      "time": "2026-01-26 01:12:20",
+      "text": "seamlessly",
+      "self_evaluation": "medium",
+      "current_priority": 1.73,
+      "new_priority": 2.08
+    },
+    {
+      "card_id": "p-038",
+      "time": "2026-01-26 01:12:25",
+      "text": "It's better than nothing.",
+      "self_evaluation": "medium",
+      "current_priority": 1.73,
+      "new_priority": 2.08
+    },
+    {
+      "card_id": "p-011",
+      "time": "2026-01-26 01:12:29",
+      "text": "I'll get right on it.",
+      "self_evaluation": "medium",
+      "current_priority": 5.83,
+      "new_priority": 7.00
+    },
+    {
+      "card_id": "p-044",
+      "time": "2026-01-26 01:12:36",
+      "text": "It's worth mentioning that...",
+      "self_evaluation": "medium",
+      "current_priority": 1.0,
+      "new_priority": 1.20
+    },
+    {
+      "card_id": "w-032",
+      "time": "2026-01-26 01:12:39",
+      "text": "persistent",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    },
+    {
+      "card_id": "p-010",
+      "time": "2026-01-26 01:12:44",
+      "text": "Does that make sense?",
+      "self_evaluation": "medium",
+      "current_priority": 3.11,
+      "new_priority": 3.73
+    },
+    {
+      "card_id": "p-012",
+      "time": "2026-01-26 01:12:48",
+      "text": "Let's call it a day.",
+      "self_evaluation": "medium",
+      "current_priority": 6.22,
+      "new_priority": 7.46
+    },
+    {
+      "card_id": "p-012",
+      "time": "2026-01-26 01:12:53",
+      "text": "Let's call it a day.",
+      "self_evaluation": "medium",
+      "current_priority": 6.22,
+      "new_priority": 7.46
+    },
+    {
+      "card_id": "w-018",
+      "time": "2026-01-26 01:12:59",
+      "text": "integrity",
+      "self_evaluation": "hard",
+      "current_priority": 5.88,
+      "new_priority": 8.82
+    },
+    {
+      "card_id": "p-047",
+      "time": "2026-01-26 01:13:03",
+      "text": "I'll be right back.",
+      "self_evaluation": "hard",
+      "current_priority": 1.73,
+      "new_priority": 2.60
+    },
+    {
+      "card_id": "w-053",
+      "time": "2026-01-26 01:13:08",
+      "text": "incident",
+      "self_evaluation": "medium",
+      "current_priority": 1.44,
+      "new_priority": 1.73
+    },
+    {
+      "card_id": "w-028",
+      "time": "2026-01-26 01:13:14",
+      "text": "preliminary",
+      "self_evaluation": "medium",
+      "current_priority": 10.00,
+      "new_priority": 10.00
+    },
+    {
+      "card_id": "p-018",
+      "time": "2026-01-26 01:13:21",
+      "text": "Keep me posted.",
+      "self_evaluation": "hard",
+      "current_priority": 5.83,
+      "new_priority": 8.74
+    },
+    {
+      "card_id": "w-028",
+      "time": "2026-01-26 01:13:26",
+      "text": "preliminary",
+      "self_evaluation": "hard",
+      "current_priority": 10.00,
+      "new_priority": 10.00
+    },
+    {
+      "card_id": "p-010",
+      "time": "2026-01-26 01:13:30",
+      "text": "Does that make sense?",
+      "self_evaluation": "medium",
+      "current_priority": 3.11,
+      "new_priority": 3.73
+    },
+    {
+      "card_id": "p-023",
+      "time": "2026-01-26 01:13:32",
+      "text": "I'm tied up at the moment.",
+      "self_evaluation": "medium",
+      "current_priority": 2.08,
+      "new_priority": 2.50
+    },
+    {
+      "card_id": "p-029",
+      "time": "2026-01-26 01:13:34",
+      "text": "In a nutshell.",
+      "self_evaluation": "hard",
+      "current_priority": 1.44,
+      "new_priority": 2.16
+    },
+    {
+      "card_id": "w-014",
+      "time": "2026-01-26 01:13:37",
+      "text": "mandatory",
+      "self_evaluation": "easy",
+      "current_priority": 0.59,
+      "new_priority": 0.41
+    },
+    {
+      "card_id": "p-048",
+      "time": "2026-01-26 01:13:42",
+      "text": "That should be fine.",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    },
+    {
+      "card_id": "w-015",
+      "time": "2026-01-26 01:13:48",
+      "text": "seamless",
+      "self_evaluation": "easy",
+      "current_priority": 4.69,
+      "new_priority": 3.28
+    },
+    {
+      "card_id": "p-047",
+      "time": "2026-01-26 01:13:52",
+      "text": "I'll be right back.",
+      "self_evaluation": "medium",
+      "current_priority": 1.73,
+      "new_priority": 2.08
+    },
+    {
+      "card_id": "w-056",
+      "time": "2026-01-26 01:13:55",
+      "text": "seamlessly",
+      "self_evaluation": "medium",
+      "current_priority": 1.73,
+      "new_priority": 2.08
+    },
+    {
+      "card_id": "w-023",
+      "time": "2026-01-26 01:13:59",
+      "text": "scalable",
+      "self_evaluation": "easy",
+      "current_priority": 0.85,
+      "new_priority": 0.60
+    }
+  ],
+  "summary": {
+    "easy": 3,
+    "medium": 15,
+    "hard": 5
+  }
+}
