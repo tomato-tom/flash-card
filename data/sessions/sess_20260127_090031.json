@@ -1,0 +1,23 @@
+{
+  "session_id": "sess_20260127_090031",
+  "start_time": "2026-01-27 09:00:31",
+  "end_time": "2026-01-27 09:00:37",
+  "duration_seconds": 6,
+  "cards_reviewed": 1,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "p-016",
+      "time": "2026-01-27 09:00:34",
+      "text": "Just in case.",
+      "self_evaluation": "medium",
+      "current_priority": 8.95,
+      "new_priority": 10.00
+    }
+  ],
+  "summary": {
+    "easy": 0,
+    "medium": 1,
+    "hard": 0
+  }
+}

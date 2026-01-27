@@ -1,0 +1,159 @@
+{
+  "session_id": "sess_20260127_090106",
+  "start_time": "2026-01-27 09:01:06",
+  "end_time": "2026-01-27 09:01:49",
+  "duration_seconds": 43,
+  "cards_reviewed": 18,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "p-038",
+      "time": "2026-01-27 09:01:10",
+      "text": "It's better than nothing.",
+      "self_evaluation": "medium",
+      "current_priority": 2.08,
+      "new_priority": 2.50
+    },
+    {
+      "card_id": "w-012",
+      "time": "2026-01-27 09:01:12",
+      "text": "vulnerability",
+      "self_evaluation": "medium",
+      "current_priority": 0.59,
+      "new_priority": 0.71
+    },
+    {
+      "card_id": "p-040",
+      "time": "2026-01-27 09:01:14",
+      "text": "How's it going?",
+      "self_evaluation": "medium",
+      "current_priority": 0.84,
+      "new_priority": 1.01
+    },
+    {
+      "card_id": "p-042",
+      "time": "2026-01-27 09:01:17",
+      "text": "The point is...",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    },
+    {
+      "card_id": "p-019",
+      "time": "2026-01-27 09:01:19",
+      "text": "As far as I know.",
+      "self_evaluation": "medium",
+      "current_priority": 5.22,
+      "new_priority": 6.26
+    },
+    {
+      "card_id": "w-022",
+      "time": "2026-01-27 09:01:21",
+      "text": "reliable",
+      "self_evaluation": "medium",
+      "current_priority": 10.00,
+      "new_priority": 10.00
+    },
+    {
+      "card_id": "p-045",
+      "time": "2026-01-27 09:01:23",
+      "text": "Could you do me a favor?",
+      "self_evaluation": "medium",
+      "current_priority": 2.70,
+      "new_priority": 3.24
+    },
+    {
+      "card_id": "p-018",
+      "time": "2026-01-27 09:01:25",
+      "text": "Keep me posted.",
+      "self_evaluation": "medium",
+      "current_priority": 8.74,
+      "new_priority": 10.00
+    },
+    {
+      "card_id": "w-010",
+      "time": "2026-01-27 09:01:27",
+      "text": "efficient",
+      "self_evaluation": "medium",
+      "current_priority": 3.11,
+      "new_priority": 3.73
+    },
+    {
+      "card_id": "w-029",
+      "time": "2026-01-27 09:01:29",
+      "text": "specification",
+      "self_evaluation": "easy",
+      "current_priority": 0.84,
+      "new_priority": 0.59
+    },
+    {
+      "card_id": "p-014",
+      "time": "2026-01-27 09:01:32",
+      "text": "Better safe than sorry.",
+      "self_evaluation": "medium",
+      "current_priority": 8.40,
+      "new_priority": 10.00
+    },
+    {
+      "card_id": "w-022",
+      "time": "2026-01-27 09:01:34",
+      "text": "reliable",
+      "self_evaluation": "easy",
+      "current_priority": 10.00,
+      "new_priority": 7.00
+    },
+    {
+      "card_id": "p-027",
+      "time": "2026-01-27 09:01:35",
+      "text": "Can we wrap this up?",
+      "self_evaluation": "medium",
+      "current_priority": 1.44,
+      "new_priority": 1.73
+    },
+    {
+      "card_id": "p-031",
+      "time": "2026-01-27 09:01:38",
+      "text": "I'll double check.",
+      "self_evaluation": "easy",
+      "current_priority": 1.0,
+      "new_priority": 0.70
+    },
+    {
+      "card_id": "p-039",
+      "time": "2026-01-27 09:01:40",
+      "text": "To be honest,",
+      "self_evaluation": "hard",
+      "current_priority": 1.0,
+      "new_priority": 1.50
+    },
+    {
+      "card_id": "p-011",
+      "time": "2026-01-27 09:01:42",
+      "text": "I'll get right on it.",
+      "self_evaluation": "medium",
+      "current_priority": 7.00,
+      "new_priority": 8.40
+    },
+    {
+      "card_id": "p-010",
+      "time": "2026-01-27 09:01:43",
+      "text": "Does that make sense?",
+      "self_evaluation": "easy",
+      "current_priority": 5.59,
+      "new_priority": 3.91
+    },
+    {
+      "card_id": "p-022",
+      "time": "2026-01-27 09:01:46",
+      "text": "Could you elaborate on that?",
+      "self_evaluation": "medium",
+      "current_priority": 1.20,
+      "new_priority": 1.44
+    }
+  ],
+  "summary": {
+    "easy": 4,
+    "medium": 13,
+    "hard": 1
+  }
+}
