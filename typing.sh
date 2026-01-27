@@ -1,10 +1,13 @@
 #!/bin/bash
 # Typing game
 
-# JSONファイル
-JSON_FILE="data/typing_data.json"
+# 設定
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)"
+JSON_FILE="$PROJECT_ROOT/data/typing_data.json"
 SPEECH=true
 SESSION_ID=${SESSION_ID:-$$}
+SPEECH_FILE="/dev/shm/say_${SESSION_ID}.mp3"
+: add feature セッションごとのログと設定ファイル
 
 # データ用のjsonファイルを初期化
 if [ ! -f "$JSON_FILE" ] || [ ! -s "$JSON_FILE" ]; then
@@ -33,12 +36,9 @@ log_game() {
 # 読み上げ
 speech() {
     local text="$@"
-    local tmp="/tmp/say_${SESSION_ID}.mp3"
-    gtts-cli "$text" --output "$tmp"
-    ffplay -autoexit -nodisp -loglevel quiet "$tmp" > /dev/null 2>&1
-    [ -f "$tmp" ] && rm "$tmp"
-
-    sleep 3
+    gtts-cli "$text" --output "$SPEECH_FILE"
+    ffplay -autoexit -nodisp -loglevel quiet "$SPEECH_FILE" > /dev/null 2>&1
+    [ -f "$SPEECH_FILE" ] && rm "$SPEECH_FILE"
 }
 
 # TUI風に単語セットを選択
@@ -88,6 +88,7 @@ select_word_set() {
     tput ed
 }
 
+# FIXME - WORDもsentenceから取得すれば単語がとぎれないか
 # PC内からコンテンツ読み込み
 load_content() {
     local max_char=15
@@ -117,7 +118,12 @@ load_content() {
 }
 
 # クリーンアップ
-trap 'rm -f /tmp/say_*.mp3; tput cnorm' EXIT INT TERM
+cleanup() {
+    rm -f "$SPEECH_FILE"
+    tput cnorm
+}
+
+trap cleanup EXIT INT TERM
 
 select_word_set
 load_content

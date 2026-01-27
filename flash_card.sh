@@ -1,15 +1,12 @@
 #!/bin/bash
 # 英単語フラッシュカード (Session Log & Priority Update 版)
 
-SPEECH=false
-VOCAB_JSON="${1:-card/contents.json}"
-SESSION_DIR="data/sessions"
+: 設定ファイルに？
+# 設定
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)"
+VOCAB_JSON="${1:-$PROJECT_ROOT/card/contents.json}"
+SESSION_DIR="$PROJECT_ROOT/data/sessions"
 mkdir -p "$SESSION_DIR"
-
-# 依存チェック
-for cmd in jq bc gtts-cli ffplay; do
-    if ! command -v $cmd &> /dev/null; then echo "Error: $cmd is not installed."; exit 1; fi
-done
 
 # ログ用変数
 CONTENTS_ID=$(jq -r '."content-id"' "$VOCAB_JSON")
@@ -19,6 +16,17 @@ START_SEC=$(date +%s)
 TMP_LOG=$(mktemp)
 STATE_FILE="/dev/shm/flashcard_state_$$"
 
+SPEECH=true   # true/false
+SPEECH_FILE="/dev/shm/say_${SESSION_ID}.mp3"
+
+# 依存チェック
+for cmd in jq bc gtts-cli ffplay; do
+    if ! command -v $cmd &> /dev/null; then
+        echo "Error: $cmd is not installed."; exit 1;
+    fi
+done
+
+# auto play用の状態記入
 update_state() {
     echo "$1" > "$STATE_FILE"
 }
@@ -26,11 +34,18 @@ update_state() {
 # 英語読み上げ
 speech() {
     local text="$@"
-    local tmp="/tmp/say_${SESSION_ID}.mp3"
-    gtts-cli "$text" --output "$tmp"
-    ffplay -autoexit -nodisp -loglevel quiet "$tmp"
-    [ -f "$tmp" ] && rm "$tmp"
+    gtts-cli "$text" --output "$SPEECH_FILE"
+    ffplay -autoexit -nodisp -loglevel quiet "$SPEECH_FILE" > /dev/null 2>&1
+    [ -f "$SPEECH_FILE" ] && rm "$SPEECH_FILE"
 }
+
+# クリーンアップ
+cleanup() {
+    rm -f "$SPEECH_FILE"
+    tput cnorm
+}
+
+trap cleanup EXIT INT TERM
 
 update_state "STARTING"
 
@@ -73,7 +88,7 @@ while true; do
 
     write_at 6 center "$japanese" "\033[0;32m"
     tput rc; tput ed
-    echo "e:Easy(x0.7) / m:Med(x1.2) / h:Hard(x1.5) / q:Quit"
+    echo -e "e:Easy\nm:Med\nh:Hard\nq:Quit"
     update_state "EVALUATION"
     
     read -n 1 -s input
@@ -84,6 +99,7 @@ while true; do
         *) rate=1.2; eval="medium"; ((medium_c++)) ;;
     esac
 
+    : easy/medium/hardのモードにより優先度振り分け？
     # 新しいPriority計算 (0.1〜10.0の範囲に制限)
     new_p=$(echo "$curr_p * $rate" | bc -l | xargs printf "%.2f")
     if (( $(echo "$new_p < 0.1" | bc -l) )); then new_p="0.10"; fi
@@ -100,6 +116,7 @@ update_state "LOGGING"
 END_TIME=$(date "+%Y-%m-%d %H:%M:%S")
 DURATION=$(( $(date +%s) - START_SEC ))
 
+: FIXME jqクエリ見にくいからインデント整形
 if [ -s "$TMP_LOG" ]; then
     echo "Saving session..."
     
@@ -123,9 +140,10 @@ if [ -s "$TMP_LOG" ]; then
 fi
 
 update_state "END"
+# スクリプト終了後も３秒間終了状態キープ
+( sleep 3 && rm -f "$STATE_FILE" ) &
 
 rm -f "$TMP_LOG"
-( sleep 3 && rm -f "$STATE_FILE" ) &
 tput cnorm
 echo "Done! Session logged to $SESSION_DIR"
 
