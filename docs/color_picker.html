@@ -3,545 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RGBカラーピッカー</title>
+    <title>カラーピッカー</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #f5f5f5;
         }
-        
         .container {
             max-width: 900px;
-            width: 100%;
-            background-color: rgba(25, 25, 35, 0.9);
-            border-radius: 20px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
         h1 {
-            text-align: center;
-            margin-bottom: 10px;
-            color: #6ee7b7;
-            font-size: 2.5rem;
-            text-shadow: 0 0 10px rgba(110, 231, 183, 0.3);
-        }
-        
-        .subtitle {
-            text-align: center;
             margin-bottom: 30px;
-            color: #cbd5e1;
-            font-size: 1.1rem;
+            color: #333;
         }
-        
-        .color-display {
-            width: 100%;
+        .preview {
             height: 200px;
-            border-radius: 15px;
+            border-radius: 8px;
             margin-bottom: 30px;
-            transition: all 0.3s ease;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .sliders-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .slider-group {
-            background-color: rgba(30, 41, 59, 0.7);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .slider-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            align-items: center;
-        }
-        
-        .slider-label {
-            font-weight: 600;
-            font-size: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-        
-        .color-indicator {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .red .color-indicator {
-            background-color: #ff0000;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
-        
-        .green .color-indicator {
-            background-color: #00ff00;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
-        
-        .blue .color-indicator {
-            background-color: #0000ff;
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
-        }
-        
-        .value-display {
+            justify-content: center;
+            font-size: 24px;
             font-weight: bold;
-            font-size: 1.3rem;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 8px 15px;
-            border-radius: 10px;
-            min-width: 60px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid #ddd;
         }
-        
-        .slider {
-            width: 100%;
-            height: 25px;
-            -webkit-appearance: none;
-            appearance: none;
-            background: transparent;
-            outline: none;
-        }
-        
-        .slider::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 12px;
-            border-radius: 10px;
-            border: none;
-        }
-        
-        .slider::-moz-range-track {
-            width: 100%;
-            height: 12px;
-            border-radius: 10px;
-            border: none;
-        }
-        
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            height: 28px;
-            width: 28px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        
-        .slider::-moz-range-thumb {
-            height: 28px;
-            width: 28px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            background: transparent;
-        }
-        
-        .red .slider::-webkit-slider-runnable-track {
-            background: linear-gradient(to right, #000, #ff0000);
-        }
-        
-        .red .slider::-webkit-slider-thumb {
-            background-color: #ff0000;
-        }
-        
-        .green .slider::-webkit-slider-runnable-track {
-            background: linear-gradient(to right, #000, #00ff00);
-        }
-        
-        .green .slider::-webkit-slider-thumb {
-            background-color: #00ff00;
-        }
-        
-        .blue .slider::-webkit-slider-runnable-track {
-            background: linear-gradient(to right, #000, #0000ff);
-        }
-        
-        .blue .slider::-webkit-slider-thumb {
-            background-color: #0000ff;
-        }
-        
-        .red .slider::-moz-range-track {
-            background: linear-gradient(to right, #000, #ff0000);
-        }
-        
-        .red .slider::-moz-range-thumb {
-            background-color: #ff0000;
-        }
-        
-        .green .slider::-moz-range-track {
-            background: linear-gradient(to right, #000, #00ff00);
-        }
-        
-        .green .slider::-moz-range-thumb {
-            background-color: #00ff00;
-        }
-        
-        .blue .slider::-moz-range-track {
-            background: linear-gradient(to right, #000, #0000ff);
-        }
-        
-        .blue .slider::-moz-range-thumb {
-            background-color: #0000ff;
-        }
-        
-        .output-section {
-            background-color: rgba(30, 41, 59, 0.7);
-            padding: 25px;
-            border-radius: 15px;
+        .editor {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
             margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
-        .output-title {
-            font-size: 1.3rem;
+        .color-section {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .color-section h2 {
+            font-size: 18px;
             margin-bottom: 15px;
-            color: #6ee7b7;
+            color: #555;
+        }
+        .preset-colors {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .preset-color {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 6px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .preset-color:hover {
+            transform: scale(1.1);
+            border-color: #333;
+        }
+        .slider-group {
+            margin-bottom: 15px;
+        }
+        .slider-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        .slider-container {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
-        .output-title i {
-            font-size: 1.5rem;
+        input[type="range"] {
+            flex: 1;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
         }
-        
-        .output-codes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        
-        .code-block {
-            background-color: rgba(15, 23, 42, 0.9);
-            padding: 15px;
-            border-radius: 10px;
-            font-family: 'Courier New', monospace;
-            border-left: 4px solid #6ee7b7;
-        }
-        
-        .code-label {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            margin-bottom: 8px;
-        }
-        
-        .code-value {
-            font-size: 1.1rem;
-            word-break: break-all;
-            user-select: all;
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #333;
             cursor: pointer;
-            padding: 8px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 5px;
-            transition: background-color 0.2s;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
-        .code-value:hover {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        
-        .preset-colors {
-            margin-top: 10px;
-        }
-        
-        .preset-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #cbd5e1;
-        }
-        
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 12px;
-        }
-        
-        .color-preset {
-            height: 50px;
-            border-radius: 10px;
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #333;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
-        .color-preset:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        .slider-value {
+            min-width: 40px;
+            text-align: right;
+            font-size: 14px;
+            color: #666;
         }
-        
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #94a3b8;
-            font-size: 0.9rem;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .color-values {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
         }
-        
+        .value-box {
+            flex: 1;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .value-box:hover {
+            background: #f0f0f0;
+            border-color: #999;
+        }
+        .value-box .label {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 3px;
+        }
+        .value-box .value {
+            font-family: monospace;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+        .copied {
+            animation: flash 0.3s;
+        }
+        @keyframes flash {
+            0%, 100% { background: white; }
+            50% { background: #4CAF50; color: white; }
+        }
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            .output-codes {
+            .editor {
                 grid-template-columns: 1fr;
-            }
-            
-            .color-grid {
-                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <h1><i class="fas fa-palette"></i> RGBカラーピッカー</h1>
-        <p class="subtitle">スライダーでRGB値を調整し、リアルタイムで色を確認できます</p>
+        <h1>カラーピッカー</h1>
         
-        <div class="color-display" id="colorDisplay"></div>
-        
-        <div class="sliders-container">
-            <div class="slider-group red">
-                <div class="slider-header">
-                    <div class="slider-label">
-                        <div class="color-indicator"></div>
-                        <span>赤 (Red)</span>
-                    </div>
-                    <div class="value-display" id="redValue">127</div>
-                </div>
-                <input type="range" min="0" max="255" value="127" class="slider" id="redSlider">
-            </div>
-            
-            <div class="slider-group green">
-                <div class="slider-header">
-                    <div class="slider-label">
-                        <div class="color-indicator"></div>
-                        <span>緑 (Green)</span>
-                    </div>
-                    <div class="value-display" id="greenValue">127</div>
-                </div>
-                <input type="range" min="0" max="255" value="127" class="slider" id="greenSlider">
-            </div>
-            
-            <div class="slider-group blue">
-                <div class="slider-header">
-                    <div class="slider-label">
-                        <div class="color-indicator"></div>
-                        <span>青 (Blue)</span>
-                    </div>
-                    <div class="value-display" id="blueValue">127</div>
-                </div>
-                <input type="range" min="0" max="255" value="127" class="slider" id="blueSlider">
-            </div>
+        <div class="preview" id="preview">
+            サンプルテキスト
         </div>
-        
-        <div class="output-section">
-            <div class="output-title">
-                <i class="fas fa-code"></i>
-                <span>出力コード</span>
+
+        <div class="editor">
+            <!-- 背景色 -->
+            <div class="color-section">
+                <h2>背景色</h2>
+                <div class="preset-colors" id="bgPresets"></div>
+                
+                <div class="slider-group">
+                    <label>色相 (H)</label>
+                    <div class="slider-container">
+                        <input type="range" id="bgH" min="0" max="360" value="0">
+                        <span class="slider-value" id="bgHValue">0</span>
+                    </div>
+                </div>
+                
+                <div class="slider-group">
+                    <label>彩度 (S)</label>
+                    <div class="slider-container">
+                        <input type="range" id="bgS" min="0" max="100" value="0">
+                        <span class="slider-value" id="bgSValue">0%</span>
+                    </div>
+                </div>
+                
+                <div class="slider-group">
+                    <label>明度 (V)</label>
+                    <div class="slider-container">
+                        <input type="range" id="bgV" min="0" max="100" value="100">
+                        <span class="slider-value" id="bgVValue">100%</span>
+                    </div>
+                </div>
+
+                <div class="color-values">
+                    <div class="value-box" id="bgRgb">
+                        <div class="label">RGB</div>
+                        <div class="value">255, 255, 255</div>
+                    </div>
+                    <div class="value-box" id="bgHex">
+                        <div class="label">HEX</div>
+                        <div class="value">#FFFFFF</div>
+                    </div>
+                </div>
             </div>
-            <div class="output-codes">
-                <div class="code-block">
-                    <div class="code-label">RGB値</div>
-                    <div class="code-value" id="rgbValue">rgb(127, 127, 127)</div>
+
+            <!-- 文字色 -->
+            <div class="color-section">
+                <h2>文字色</h2>
+                <div class="preset-colors" id="textPresets"></div>
+                
+                <div class="slider-group">
+                    <label>色相 (H)</label>
+                    <div class="slider-container">
+                        <input type="range" id="textH" min="0" max="360" value="0">
+                        <span class="slider-value" id="textHValue">0</span>
+                    </div>
                 </div>
-                <div class="code-block">
-                    <div class="code-label">16進数 (HEX)</div>
-                    <div class="code-value" id="hexValue">#7f7f7f</div>
+                
+                <div class="slider-group">
+                    <label>彩度 (S)</label>
+                    <div class="slider-container">
+                        <input type="range" id="textS" min="0" max="100" value="0">
+                        <span class="slider-value" id="textSValue">0%</span>
+                    </div>
                 </div>
-                <div class="code-block">
-                    <div class="code-label">ANSIエスケープシーケンス</div>
-                    <div class="code-value" id="ansiValue">\033[38;2;127;127;127m</div>
+                
+                <div class="slider-group">
+                    <label>明度 (V)</label>
+                    <div class="slider-container">
+                        <input type="range" id="textV" min="0" max="100" value="0">
+                        <span class="slider-value" id="textVValue">0%</span>
+                    </div>
+                </div>
+
+                <div class="color-values">
+                    <div class="value-box" id="textRgb">
+                        <div class="label">RGB</div>
+                        <div class="value">0, 0, 0</div>
+                    </div>
+                    <div class="value-box" id="textHex">
+                        <div class="label">HEX</div>
+                        <div class="value">#000000</div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="preset-colors">
-                <div class="preset-title">プリセットカラー</div>
-                <div class="color-grid" id="colorGrid">
-                    <!-- プリセットカラーはJavaScriptで生成 -->
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <p>RGB値: 0〜255 | ANSIエスケープシーケンスはターミナルで色を表示するために使用されます</p>
-            <p>色をクリックするとコピーできます</p>
         </div>
     </div>
 
     <script>
-        // DOM要素の取得
-        const redSlider = document.getElementById('redSlider');
-        const greenSlider = document.getElementById('greenSlider');
-        const blueSlider = document.getElementById('blueSlider');
-        const redValue = document.getElementById('redValue');
-        const greenValue = document.getElementById('greenValue');
-        const blueValue = document.getElementById('blueValue');
-        const colorDisplay = document.getElementById('colorDisplay');
-        const rgbValue = document.getElementById('rgbValue');
-        const hexValue = document.getElementById('hexValue');
-        const ansiValue = document.getElementById('ansiValue');
-        const colorGrid = document.getElementById('colorGrid');
-
         // プリセットカラー
         const presetColors = [
-            { name: "赤", r: 255, g: 0, b: 0 },
-            { name: "緑", r: 0, g: 255, b: 0 },
-            { name: "青", r: 0, g: 0, b: 255 },
-            { name: "黄", r: 255, g: 255, b: 0 },
-            { name: "マゼンタ", r: 255, g: 0, b: 255 },
-            { name: "シアン", r: 0, g: 255, b: 255 },
-            { name: "白", r: 255, g: 255, b: 255 },
-            { name: "黒", r: 0, g: 0, b: 0 },
-            { name: "灰色", r: 128, g: 128, b: 128 },
-            { name: "オレンジ", r: 255, g: 165, b: 0 },
-            { name: "ピンク", r: 255, g: 192, b: 203 },
-            { name: "紫", r: 128, g: 0, b: 128 },
-            { name: "茶色", r: 165, g: 42, b: 42 },
-            { name: "ライトブルー", r: 173, g: 216, b: 230 },
-            { name: "ライトグリーン", r: 144, g: 238, b: 144 },
-            { name: "ライトピンク", r: 255, g: 182, b: 193 },
-            { name: "濃い青", r: 0, g: 0, b: 139 },
-            { name: "濃い緑", r: 0, g: 100, b: 0 },
-            { name: "濃い赤", r: 139, g: 0, b: 0 }
+            '#FFFFFF', '#000000', '#FF0000', '#00FF00', '#0000FF', '#FFFF00',
+            '#FF00FF', '#00FFFF', '#FFA500', '#800080', '#008000', '#800000',
+            '#FFB6C1', '#87CEEB', '#90EE90', '#DDA0DD', '#F0E68C', '#E0E0E0'
         ];
 
-        // プリセットカラーをグリッドに追加
-        function createPresetColors() {
-            colorGrid.innerHTML = '';
+        // HSVからRGBへ変換
+        function hsvToRgb(h, s, v) {
+            s /= 100;
+            v /= 100;
+            const c = v * s;
+            const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+            const m = v - c;
+            let r, g, b;
+
+            if (h < 60) { r = c; g = x; b = 0; }
+            else if (h < 120) { r = x; g = c; b = 0; }
+            else if (h < 180) { r = 0; g = c; b = x; }
+            else if (h < 240) { r = 0; g = x; b = c; }
+            else if (h < 300) { r = x; g = 0; b = c; }
+            else { r = c; g = 0; b = x; }
+
+            return {
+                r: Math.round((r + m) * 255),
+                g: Math.round((g + m) * 255),
+                b: Math.round((b + m) * 255)
+            };
+        }
+
+        // RGBからHSVへ変換
+        function rgbToHsv(r, g, b) {
+            r /= 255;
+            g /= 255;
+            b /= 255;
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            const diff = max - min;
+            let h = 0;
+            const s = max === 0 ? 0 : (diff / max) * 100;
+            const v = max * 100;
+
+            if (diff !== 0) {
+                if (max === r) h = 60 * (((g - b) / diff) % 6);
+                else if (max === g) h = 60 * ((b - r) / diff + 2);
+                else h = 60 * ((r - g) / diff + 4);
+            }
+            if (h < 0) h += 360;
+
+            return { h: Math.round(h), s: Math.round(s), v: Math.round(v) };
+        }
+
+        // HEXからRGB
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        }
+
+        // RGBからHEX
+        function rgbToHex(r, g, b) {
+            return '#' + [r, g, b].map(x => {
+                const hex = x.toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+            }).join('').toUpperCase();
+        }
+
+        // 状態
+        let bgColor = { h: 0, s: 0, v: 100 };
+        let textColor = { h: 0, s: 0, v: 0 };
+
+        // プリセット生成
+        function createPresets() {
+            const bgContainer = document.getElementById('bgPresets');
+            const textContainer = document.getElementById('textPresets');
+            
             presetColors.forEach(color => {
-                const colorElement = document.createElement('div');
-                colorElement.className = 'color-preset';
-                colorElement.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
-                colorElement.title = `${color.name} (${color.r}, ${color.g}, ${color.b})`;
-                
-                colorElement.addEventListener('click', () => {
-                    redSlider.value = color.r;
-                    greenSlider.value = color.g;
-                    blueSlider.value = color.b;
-                    updateColor();
-                });
-                
-                colorGrid.appendChild(colorElement);
+                const bgBtn = document.createElement('div');
+                bgBtn.className = 'preset-color';
+                bgBtn.style.backgroundColor = color;
+                bgBtn.onclick = () => setColorFromHex('bg', color);
+                bgContainer.appendChild(bgBtn);
+
+                const textBtn = document.createElement('div');
+                textBtn.className = 'preset-color';
+                textBtn.style.backgroundColor = color;
+                textBtn.onclick = () => setColorFromHex('text', color);
+                textContainer.appendChild(textBtn);
             });
         }
 
-        // 10進数を16進数に変換（2桁でゼロ埋め）
-        function toHex(value) {
-            const hex = parseInt(value).toString(16);
-            return hex.length === 1 ? '0' + hex : hex;
+        // HEXから色設定
+        function setColorFromHex(type, hex) {
+            const rgb = hexToRgb(hex);
+            const hsv = rgbToHsv(rgb.r, rgb.g, rgb.b);
+            
+            if (type === 'bg') {
+                bgColor = hsv;
+                document.getElementById('bgH').value = hsv.h;
+                document.getElementById('bgS').value = hsv.s;
+                document.getElementById('bgV').value = hsv.v;
+            } else {
+                textColor = hsv;
+                document.getElementById('textH').value = hsv.h;
+                document.getElementById('textS').value = hsv.s;
+                document.getElementById('textV').value = hsv.v;
+            }
+            updatePreview();
         }
 
-        // 色を更新する関数
-        function updateColor() {
-            const r = redSlider.value;
-            const g = greenSlider.value;
-            const b = blueSlider.value;
+        // プレビュー更新
+        function updatePreview() {
+            const bgRgb = hsvToRgb(bgColor.h, bgColor.s, bgColor.v);
+            const textRgb = hsvToRgb(textColor.h, textColor.s, textColor.v);
             
-            // 値の表示を更新
-            redValue.textContent = r;
-            greenValue.textContent = g;
-            blueValue.textContent = b;
+            const bgHex = rgbToHex(bgRgb.r, bgRgb.g, bgRgb.b);
+            const textHex = rgbToHex(textRgb.r, textRgb.g, textRgb.b);
             
-            // カラーディスプレイを更新
-            colorDisplay.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            const preview = document.getElementById('preview');
+            preview.style.backgroundColor = bgHex;
+            preview.style.color = textHex;
             
-            // RGB値の表示を更新
-            rgbValue.textContent = `rgb(${r}, ${g}, ${b})`;
+            // 値表示
+            document.getElementById('bgHValue').textContent = bgColor.h;
+            document.getElementById('bgSValue').textContent = bgColor.s + '%';
+            document.getElementById('bgVValue').textContent = bgColor.v + '%';
+            document.getElementById('bgRgb').querySelector('.value').textContent = 
+                `${bgRgb.r}, ${bgRgb.g}, ${bgRgb.b}`;
+            document.getElementById('bgHex').querySelector('.value').textContent = bgHex;
             
-            // 16進数値の表示を更新
-            hexValue.textContent = `#${toHex(r)}${toHex(g)}${toHex(b)}`;
-            
-            // ANSIエスケープシーケンスの表示を更新
-            ansiValue.textContent = `\\033[38;2;${r};${g};${b}m`;
+            document.getElementById('textHValue').textContent = textColor.h;
+            document.getElementById('textSValue').textContent = textColor.s + '%';
+            document.getElementById('textVValue').textContent = textColor.v + '%';
+            document.getElementById('textRgb').querySelector('.value').textContent = 
+                `${textRgb.r}, ${textRgb.g}, ${textRgb.b}`;
+            document.getElementById('textHex').querySelector('.value').textContent = textHex;
         }
 
-        // コードをクリップボードにコピーする機能
-        function setupCopyToClipboard() {
-            const codeElements = document.querySelectorAll('.code-value');
-            codeElements.forEach(element => {
-                element.addEventListener('click', () => {
-                    const textToCopy = element.textContent;
-                    navigator.clipboard.writeText(textToCopy)
-                        .then(() => {
-                            const originalText = element.textContent;
-                            element.textContent = 'コピーしました！';
-                            element.style.color = '#6ee7b7';
-                            
-                            setTimeout(() => {
-                                element.textContent = originalText;
-                                element.style.color = '';
-                            }, 1500);
-                        })
-                        .catch(err => {
-                            console.error('クリップボードへのコピーに失敗しました:', err);
-                            alert('コピーに失敗しました');
-                        });
-                });
+        // クリップボードコピー
+        function copyToClipboard(text, element) {
+            navigator.clipboard.writeText(text).then(() => {
+                element.classList.add('copied');
+                setTimeout(() => element.classList.remove('copied'), 300);
             });
         }
+
+        // イベントリスナー
+        document.getElementById('bgH').oninput = (e) => { bgColor.h = +e.target.value; updatePreview(); };
+        document.getElementById('bgS').oninput = (e) => { bgColor.s = +e.target.value; updatePreview(); };
+        document.getElementById('bgV').oninput = (e) => { bgColor.v = +e.target.value; updatePreview(); };
+        document.getElementById('textH').oninput = (e) => { textColor.h = +e.target.value; updatePreview(); };
+        document.getElementById('textS').oninput = (e) => { textColor.s = +e.target.value; updatePreview(); };
+        document.getElementById('textV').oninput = (e) => { textColor.v = +e.target.value; updatePreview(); };
+
+        document.getElementById('bgRgb').onclick = function() {
+            copyToClipboard(this.querySelector('.value').textContent, this);
+        };
+        document.getElementById('bgHex').onclick = function() {
+            copyToClipboard(this.querySelector('.value').textContent, this);
+        };
+        document.getElementById('textRgb').onclick = function() {
+            copyToClipboard(this.querySelector('.value').textContent, this);
+        };
+        document.getElementById('textHex').onclick = function() {
+            copyToClipboard(this.querySelector('.value').textContent, this);
+        };
 
         // 初期化
-        function init() {
-            // 初期色の設定
-            updateColor();
-            
-            // プリセットカラーを作成
-            createPresetColors();
-            
-            // クリップボードコピー機能を設定
-            setupCopyToClipboard();
-            
-            // スライダーのイベントリスナーを設定
-            redSlider.addEventListener('input', updateColor);
-            greenSlider.addEventListener('input', updateColor);
-            blueSlider.addEventListener('input', updateColor);
-            
-            // カラーディスプレイもクリックで色をコピーできるように
-            colorDisplay.addEventListener('click', () => {
-                const hexText = hexValue.textContent;
-                navigator.clipboard.writeText(hexText)
-                    .then(() => {
-                        const originalTitle = colorDisplay.title || '';
-                        colorDisplay.title = 'HEX値をコピーしました！';
-                        
-                        setTimeout(() => {
-                            colorDisplay.title = originalTitle;
-                        }, 1500);
-                    });
-            });
-        }
-
-        // ページ読み込み時に初期化
-        document.addEventListener('DOMContentLoaded', init);
+        createPresets();
+        updatePreview();
     </script>
 </body>
 </html>
