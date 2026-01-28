@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mermaid Viewer</title>
-    <!-- ES ModuleとしてMermaidをインポート -->
-    <script type="module">
-        // グローバル変数としてmermaidをエクスポート
-        window.mermaid = await import('https://cdn.jsdelivr.net/npm/mermaid@11.12.2/+esm');
-        
-        // 初期化
-        mermaid.default.initialize({
+    <!-- UMD 版をローカルから読み込む -->
+    <script src="./mermaid.min.js"></script>
+    <script>
+        // Mermaid 初期化（グローバル変数 mermaid が自動で定義される）
+        mermaid.initialize({
             startOnLoad: false,
             theme: 'default',
             flowchart: {
@@ -18,16 +16,15 @@
                 htmlLabels: true
             }
         });
-        
-        // 描画関数をグローバルに設定
-        window.renderMermaid = async function() {
+
+        // 描画関数
+        async function renderMermaid() {
             const code = document.getElementById('mermaid-code').value;
             const mermaidOutput = document.getElementById('mermaid-output');
             mermaidOutput.innerHTML = '<div>描画中...</div>';
-            
+
             try {
-                // Mermaid 11ではdefaultを使用
-                const { svg } = await mermaid.default.render('mermaid-diagram', code);
+                const { svg } = await mermaid.render('mermaid-diagram', code);
                 mermaidOutput.innerHTML = svg;
             } catch (error) {
                 console.error('Mermaid rendering error:', error);
@@ -39,15 +36,11 @@
                     </div>
                 `;
             }
-        };
-        
-        // DOM読み込み完了後、初期描画を実行
+        }
+
+        // 初期描画
         document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                if (window.renderMermaid) {
-                    window.renderMermaid();
-                }
-            }, 100);
+            setTimeout(renderMermaid, 100);
         });
     </script>
     <style>
