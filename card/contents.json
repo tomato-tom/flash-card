@@ -72,14 +72,14 @@
       "card-id": "p-011",
       "english": "I'll get right on it.",
       "japanese": "すぐにとりかかります",
-      "priority": 8.40,
+      "priority": 10.00,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-27",
-      "review_count": 13
+      "last_reviewed": "2026-01-28",
+      "review_count": 14
     },
     {
       "card-id": "w-014",
@@ -111,14 +111,14 @@
       "card-id": "p-012",
       "english": "Let's call it a day.",
       "japanese": "今日はこの辺にしよう",
-      "priority": 6.26,
+      "priority": 4.38,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-27",
-      "review_count": 16
+      "last_reviewed": "2026-01-28",
+      "review_count": 17
     },
     {
       "card-id": "w-016",
@@ -228,14 +228,14 @@
       "card-id": "p-015",
       "english": "I'm on the same page.",
       "japanese": "私も同意見です（同じ理解です）",
-      "priority": 0.84,
+      "priority": 1.01,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 3
+      "last_reviewed": "2026-01-28",
+      "review_count": 4
     },
     {
       "card-id": "w-022",
@@ -306,14 +306,14 @@
       "card-id": "p-017",
       "english": "That's a good point.",
       "japanese": "それは良い指摘ですね",
-      "priority": 4.32,
+      "priority": 3.02,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-27",
-      "review_count": 13
+      "last_reviewed": "2026-01-28",
+      "review_count": 14
     },
     {
       "card-id": "w-026",
@@ -384,14 +384,14 @@
       "card-id": "p-019",
       "english": "As far as I know.",
       "japanese": "私の知る限りでは",
-      "priority": 6.26,
+      "priority": 4.38,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-27",
-      "review_count": 25
+      "last_reviewed": "2026-01-28",
+      "review_count": 26
     },
     {
       "card-id": "w-030",
@@ -476,14 +476,14 @@
       "card-id": "w-033",
       "english": "latency",
       "japanese": "遅延（レイテンシ）",
-      "priority": 1.20,
+      "priority": 0.84,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 2
+      "last_reviewed": "2026-01-28",
+      "review_count": 3
     },
     {
       "card-id": "p-023",
@@ -698,14 +698,14 @@
       "card-id": "w-042",
       "english": "transparency",
       "japanese": "透明性",
-      "priority": 1.73,
+      "priority": 1.21,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-24",
-      "review_count": 4
+      "last_reviewed": "2026-01-28",
+      "review_count": 5
     },
     {
       "card-id": "p-031",
@@ -724,14 +724,14 @@
       "card-id": "w-043",
       "english": "vague",
       "japanese": "あいまいな、ぼんやりした",
-      "priority": 2.16,
+      "priority": 3.24,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 3
+      "last_reviewed": "2026-01-28",
+      "review_count": 4
     },
     {
       "card-id": "p-032",
@@ -854,14 +854,14 @@
       "card-id": "p-036",
       "english": "Sounds like a plan.",
       "japanese": "いいですね、そうしましょう。",
-      "priority": 4.66,
+      "priority": 6.99,
       "type": "phrase",
       "tags": [
         "daily"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-27",
-      "review_count": 7
+      "last_reviewed": "2026-01-28",
+      "review_count": 8
     },
     {
       "card-id": "w-049",
@@ -880,27 +880,27 @@
       "card-id": "p-037",
       "english": "Can you fill me in?",
       "japanese": "詳細を教えて（状況を補足して）くれる？",
-      "priority": 1.20,
+      "priority": 1.44,
       "type": "phrase",
       "tags": [
         "work"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-24",
-      "review_count": 1
+      "last_reviewed": "2026-01-28",
+      "review_count": 2
     },
     {
       "card-id": "w-050",
       "english": "consecutive",
       "japanese": "連続した",
-      "priority": 1.20,
+      "priority": 1.44,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-22",
-      "review_count": 1
+      "last_reviewed": "2026-01-28",
+      "review_count": 2
     },
     {
       "card-id": "p-038",
