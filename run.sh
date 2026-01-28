@@ -1,7 +1,11 @@
 #!/bin/bash
+# usage
+# source run.sh
+# run f/t
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)"
 
+# アプリ実行と統計
 run() {
   local command="$1"
   if [ "$command" = t ]; then
@@ -15,7 +19,7 @@ run() {
 
 git_diff() {
     case "$1" in
-        # gd          → ステージされていない変更（作業ツリー vs index）
+        # gd → ステージされていない変更
         "")
             git diff
             ;;
@@ -23,11 +27,11 @@ git_diff() {
         s)
             git diff --cached
             ;;
-        # gd 1   → 最後のコミットとの差分（HEAD vs HEAD~1）
+        # gd 1 → 最後のコミットとの差分（HEAD vs HEAD~1）
         [0-9]*)
             git diff "HEAD~$1"
             ;;
-        # gd main     → 現在のブランチと指定ブランチの差分
+        # gd main → 現在のブランチと指定ブランチの差分
         *)
             if git rev-parse --verify "$1" >/dev/null 2>&1; then
                 git diff "$1"
