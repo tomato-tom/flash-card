@@ -5,11 +5,11 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-topl
 run() {
   local command="$1"
   if [ "$command" = t ]; then
-    ./$PROJECT_ROOT/typing.sh
-    ./$PROJECT_ROOT/typing_stats.sh
+    $PROJECT_ROOT/typing.sh
+    $PROJECT_ROOT/typing_stats.sh
   elif [ "$command" = f ]; then
-    ./$PROJECT_ROOT/flash_card.sh
-    ./$PROJECT_ROOT/flash_card_stats.sh
+    $PROJECT_ROOT/flash_card.sh
+    $PROJECT_ROOT/flash_card_stats.sh
   fi
 }
 

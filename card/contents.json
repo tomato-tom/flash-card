@@ -163,14 +163,14 @@
       "card-id": "w-018",
       "english": "integrity",
       "japanese": "完全性、誠実さ",
-      "priority": 10.00,
+      "priority": 7.00,
       "type": "word",
       "tags": [
         "general"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-27",
-      "review_count": 22
+      "last_reviewed": "2026-01-28",
+      "review_count": 23
     },
     {
       "card-id": "w-019",
@@ -195,8 +195,8 @@
         "idiom"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-27",
-      "review_count": 15
+      "last_reviewed": "2026-01-28",
+      "review_count": 16
     },
     {
       "card-id": "w-020",
@@ -789,14 +789,14 @@
       "card-id": "w-046",
       "english": "redundancy",
       "japanese": "冗長性、余剰",
-      "priority": 1.73,
+      "priority": 2.60,
       "type": "word",
       "tags": [
         "tech"
       ],
       "created": "2026-01-22",
-      "last_reviewed": "2026-01-24",
-      "review_count": 3
+      "last_reviewed": "2026-01-28",
+      "review_count": 4
     },
     {
       "card-id": "p-034",

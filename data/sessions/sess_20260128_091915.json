@@ -1,0 +1,39 @@
+{
+  "session_id": "sess_20260128_091915",
+  "start_time": "2026-01-28 09:19:15",
+  "end_time": "2026-01-28 09:19:26",
+  "duration_seconds": 11,
+  "cards_reviewed": 3,
+  "contents-id": "c01",
+  "cards": [
+    {
+      "card_id": "p-014",
+      "time": "2026-01-28 09:19:18",
+      "text": "Better safe than sorry.",
+      "self_evaluation": "medium",
+      "current_priority": 10.00,
+      "new_priority": 10.00
+    },
+    {
+      "card_id": "w-018",
+      "time": "2026-01-28 09:19:21",
+      "text": "integrity",
+      "self_evaluation": "easy",
+      "current_priority": 10.00,
+      "new_priority": 7.00
+    },
+    {
+      "card_id": "w-046",
+      "time": "2026-01-28 09:19:23",
+      "text": "redundancy",
+      "self_evaluation": "hard",
+      "current_priority": 1.73,
+      "new_priority": 2.60
+    }
+  ],
+  "summary": {
+    "easy": 1,
+    "medium": 1,
+    "hard": 1
+  }
+}
