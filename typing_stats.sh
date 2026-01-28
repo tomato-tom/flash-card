@@ -1,73 +1,63 @@
 #!/bin/bash
-JSON_FILE="data/typing_data.json"
-#JSON_FILE="test_data.json"
 
-# オプション解析
-period="all"  # デフォルト: 全期間
-if [ $# -gt 0 ]; then
-    case "$1" in
-        today|t) period="today" ;;
-        weekly|week|w) period="weekly" ;;
-        monthly|month|m) period="monthly" ;;
-        all|a) period="all" ;;
-        *) 
-            echo "使い方: $0 [today|weekly|monthly|all]"
-            echo "  today    - 今日の統計"
-            echo "  weekly   - 今週の統計"
-            echo "  monthly  - 今月の統計"
-            echo "  all      - 全期間の統計（デフォルト）"
-            exit 1
-            ;;
-    esac
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)"
+SESSION_DIR="$PROJECT_ROOT/data/typing"
+
+# Get all JSON files
+JSON_FILES=("$SESSION_DIR"/*.json)
+session_count=${#JSON_FILES[@]}
+
+# Check if files exist
+if [ $session_count -eq 0 ] || [ ! -f "${JSON_FILES[0]}" ]; then
+    exit 1
 fi
 
-jq -r --arg period "$period" '
-  # 現在日時
-  (now | strflocaltime("%Y-%m-%d")) as $today |
-  (now | strflocaltime("%Y-%m")) as $this_month |
-  (now | strflocaltime("%Y-%W")) as $this_week |
+# Calculate statistics
+jq -s '
+  # Flatten all games from all sessions
+  [.[] | .games[]] as $games |
   
-  .games as $all_games |
-  
-  # 期間でフィルタリング
-  $all_games |
-  if $period == "today" then
-    map(select(.timestamp | startswith($today)))
-  elif $period == "weekly" then
-    map(select(
-      .timestamp | 
-      split(" ")[0] | 
-      strptime("%Y-%m-%d") | 
-      strftime("%Y-%W") == $this_week
-    ))
-  elif $period == "monthly" then
-    map(select(.timestamp | startswith($this_month)))
-  else
-    .
-  end |
-  
-  # 統計計算
-  . as $games |
+  # Get only correct games
   ($games | map(select(.input == .word))) as $correct_games |
   
-  ($games | length) as $total_games |
-  ($correct_games | length) as $correct_count |
-  ($correct_games | map(.input | length) | add // 0) as $total_chars |
-  ($correct_games | map(.time_taken) | add // 0) as $total_time |
-  (if $total_time > 0 then $total_chars / $total_time else 0 end) as $chars_per_sec |
+  # Basic statistics
+  ($games | length) as $total |
+  ($correct_games | length) as $correct |
   
-  # 出力
-  "=== タイピング・ゲーム統計 (\(
-    if $period == "today" then "今日"
-    elif $period == "weekly" then "今週"
-    elif $period == "monthly" then "今月"
-    else "全期間"
-  end)) ===",
+  # Time-related statistics
+  ($correct_games | map(.time_taken) | add // 0) as $total_time |
+  ($correct_games | map(.input | length) | add // 0) as $total_chars |
+  
+  # Calculations
+  (if $total > 0 then ($correct * 100 / $total) else 0 end) as $accuracy |
+  (if $total_time > 0 then $total_chars / $total_time else 0 end) as $avg_speed |
+  
+  # Output object
+  {
+    total_games: $total,
+    correct_games: $correct,
+    accuracy_percent: $accuracy,
+    total_time_seconds: $total_time,
+    avg_speed_cps: $avg_speed,
+    # Keep raw data for potential period-based statistics
+    raw_games: $games,
+    raw_correct_games: $correct_games
+  }
+' "${JSON_FILES[@]}" 2>/dev/null | jq -r --arg sc "$session_count" '
+  def round2: (.*100 | floor)/100;
+  
+  "=== Typing Game Statistics ===",
   "",
-  "ゲーム数: \($total_games)",
-  "正解数: \($correct_count)",
-  "正解率: \(if $total_games > 0 then (($correct_count * 100) / $total_games | floor) else 0 end)%",
-  "総プレイ時間: \($total_time | round)秒",
-  "平均速度: \($chars_per_sec * 100 | round / 100) c/s"
-' "$JSON_FILE" 2>/dev/null
+  "  Sessions: \($sc)",
+  "  Total Games: \(.total_games)",
+  "  Correct Answers: \(.correct_games)",
+  "  Accuracy: \(.accuracy_percent | floor)%",
+  "  Total Time: \(.total_time_seconds | floor) seconds",
+  "  CPS (Chars Per Second): \(.avg_speed_cps | round2)"
+'
 
+# Error checking
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to process data"
+    exit 1
+fi

@@ -3,16 +3,38 @@
 
 # 設定
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)"
-JSON_FILE="$PROJECT_ROOT/data/typing_data.json"
-SPEECH=true
-SESSION_ID=${SESSION_ID:-$$}
-SPEECH_FILE="/dev/shm/say_${SESSION_ID}.mp3"
-: add feature セッションごとのログと設定ファイル
 
-# データ用のjsonファイルを初期化
-if [ ! -f "$JSON_FILE" ] || [ ! -s "$JSON_FILE" ]; then
-    echo '{"games":[]}' > "$JSON_FILE"
-fi
+# ログ用変数
+SESSION_ID="session_$(date +%Y%m%d_%H%M%S)"
+START_TIME=$(date "+%Y-%m-%d %H:%M:%S")
+START_SEC=$(date +%s)
+
+SPEECH_FILE="/dev/shm/say_${SESSION_ID}.mp3"
+SPEECH=true
+
+# 依存チェック
+check_dependencies() {
+    local deps=("jq" "bc" "tput")
+    local recs=("gtts-cli" "ffplay")
+    local missing=()
+    
+    for dep in "${deps[@]}"; do
+        if ! command -v "$dep" &> /dev/null; then
+            missing+=("$dep")
+        fi
+    done
+    
+    if [ ${#missing[@]} -gt 0 ]; then
+        echo "Missing dependencies: ${missing[*]}"
+        exit 1
+    fi
+
+    for rec in "${recs[@]}"; do
+        if ! command -v "$rec" &> /dev/null; then
+            SPEECH=false
+        fi
+    done
+}
 
 # ゲーム結果を追加
 log_game() {
@@ -82,7 +104,7 @@ select_word_set() {
                 ;;
         esac
     done
-    
+
     tput cnorm
     tput rc
     tput ed
@@ -95,7 +117,6 @@ load_content() {
     local min_char=4
     local pattern="^[a-zA-Z]{$min_char,$max_char}$"
 
-    local options=("man-bash" "man-ip-link" "command" "man-sentence-bash" "quit")
     # 単語セット読み込み
     if [[ "$WORD" == man-sentence-* ]]; then
         # 文モード: man2typing.sh を利用
@@ -119,13 +140,28 @@ load_content() {
 
 # クリーンアップ
 cleanup() {
-    rm -f "$SPEECH_FILE"
+    [ -f "$SPEECH_FILE" ] && rm -f "$SPEECH_FILE"
+    [ -f "${JSON_FILE}.tmp" ] && rm -f "${JSON_FILE}.tmp"
     tput cnorm
 }
 
 trap cleanup EXIT INT TERM
 
 select_word_set
+
+# データ用のjsonファイル作成
+SESSION_DIR="$PROJECT_ROOT/data/typing"
+mkdir -p "$SESSION_DIR"
+JSON_FILE="$SESSION_DIR/$SESSION_ID.json"
+jq -n --arg sid "$SESSION_ID" \
+    --arg st "$START_TIME" \
+    --arg ct "$WORD" '{
+       session_id: $sid,
+       start_time: $st,
+       content: $ct,
+       games: [] 
+   }' > "$JSON_FILE"
+    
 load_content
 echo "words: ${#word_list[@]}"
 echo -ne "\n\033[1;35mPress ANY KEY to start...\033[0m\r"
@@ -177,4 +213,20 @@ while :; do
     log_game "$text" "$input" "${time_taken}"
     read -s -t 0.8
 done
+
+# 終了処理: ログ更新
+END_TIME=$(date "+%Y-%m-%d %H:%M:%S")
+DURATION=$(( $(date +%s) - START_SEC ))
+
+echo "Saving session..."
+# セッション終了データ書き込み
+jq --arg et "$END_TIME" \
+    --arg dur "$DURATION" \
+    '. + {
+       end_time: $et,
+       duration_seconds: ($dur|tonumber)
+    }' "$JSON_FILE" > "${JSON_FILE}.tmp" && mv "${JSON_FILE}.tmp" "$JSON_FILE"
+
+[ -f "${JSON_FILE}.tmp" ] && rm -f "${JSON_FILE}.tmp"
+echo "Session saved: $JSON_FILE"
 
