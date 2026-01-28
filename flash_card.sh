@@ -1,5 +1,5 @@
 #!/bin/bash
-# 英単語フラッシュカード (Session Log & Priority Update 版)
+# Flash Card
 
 : 設定ファイルに？
 # 設定
@@ -116,26 +116,43 @@ update_state "LOGGING"
 END_TIME=$(date "+%Y-%m-%d %H:%M:%S")
 DURATION=$(( $(date +%s) - START_SEC ))
 
-: FIXME jqクエリ見にくいからインデント整形
 if [ -s "$TMP_LOG" ]; then
     echo "Saving session..."
     
     # 1. セッションJSON生成
     jq -n --arg sid "$SESSION_ID" --arg st "$START_TIME" --arg et "$END_TIME" \
        --arg dur "$DURATION" --arg cid "$CONTENTS_ID" \
-       --arg ec "$easy_c" --arg mc "$medium_c" --arg hc "$hard_c" \
-       '{session_id: $sid, start_time: $st, end_time: $et, duration_seconds: ($dur|tonumber), cards_reviewed: (($ec|tonumber)+($mc|tonumber)+($hc|tonumber)), "contents-id": $cid, cards: [], summary: {easy: ($ec|tonumber), medium: ($mc|tonumber), hard: ($hc|tonumber)}}' > "$SESSION_DIR/$SESSION_ID.json"
+       --arg ec "$easy_c" --arg mc "$medium_c" --arg hc "$hard_c" '{
+           session_id: $sid,
+           start_time: $st,
+           end_time: $et,
+           duration_seconds: ($dur|tonumber),
+           cards_reviewed: (($ec|tonumber)+($mc|tonumber)+($hc|tonumber)),
+           "contents-id": $cid, cards: [],
+           summary: {easy: ($ec|tonumber),
+           medium: ($mc|tonumber),
+           hard: ($hc|tonumber)}
+       }' > "$SESSION_DIR/$SESSION_ID.json"
 
     # カード詳細をJSONに追加
     while IFS='|' read -r id eng ev cp np tm; do
-        jq --arg id "$id" --arg tm "$tm" --arg eng "$eng" --arg ev "$ev" --arg cp "$cp" --arg np "$np" \
-           '.cards += [{card_id: $id, time: $tm, text: $eng, self_evaluation: $ev, current_priority: ($cp|tonumber), new_priority: ($np|tonumber)}]' \
-           "$SESSION_DIR/$SESSION_ID.json" > "$SESSION_DIR/tmp.json" && mv "$SESSION_DIR/tmp.json" "$SESSION_DIR/$SESSION_ID.json"
+        jq --arg id "$id" --arg tm "$tm" --arg eng "$eng" --arg ev "$ev" --arg cp "$cp" --arg np "$np" '
+            .cards += [{card_id: $id,
+            time: $tm,
+            text: $eng,
+            self_evaluation: $ev,
+            current_priority: ($cp|tonumber),
+            new_priority: ($np|tonumber)}]
+        ' "$SESSION_DIR/$SESSION_ID.json" > "$SESSION_DIR/tmp.json" &&
+            mv "$SESSION_DIR/tmp.json" "$SESSION_DIR/$SESSION_ID.json"
 
         # 2. Master JSON (contents.json) の更新
-        jq --arg id "$id" --arg np "$np" --arg today "$(date +%Y-%m-%d)" \
-           '(.content[] | select(."card-id" == $id)) |= (.priority = ($np|tonumber) | .last_reviewed = $today | .review_count += 1)' \
-           "$VOCAB_JSON" > "${VOCAB_JSON}.tmp" && mv "${VOCAB_JSON}.tmp" "$VOCAB_JSON"
+        jq --arg id "$id" --arg np "$np" --arg today "$(date +%Y-%m-%d)" '(
+            .content[] |
+            select(."card-id" == $id)) |= (.priority = ($np|tonumber) |
+            .last_reviewed = $today |
+            .review_count += 1
+        )' "$VOCAB_JSON" > "${VOCAB_JSON}.tmp" && mv "${VOCAB_JSON}.tmp" "$VOCAB_JSON"
     done < "$TMP_LOG"
 fi
 
