@@ -17,6 +17,10 @@ run() {
   fi
 }
 
+# ローカルでHTMLファイル閲覧用
+alias http-start='cd $PROJECT_ROOT/docs && python3 -m http.server 8080 >/dev/null &'
+alias http-stop='pkill -f "python3 -m http.server 8080"'
+
 git_diff() {
     case "$1" in
         # gd → ステージされていない変更
