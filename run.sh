@@ -40,7 +40,7 @@ git_diff() {
     esac
 }
 
-# git_update [branch] [message]
+# git_update [target_branch] [message]
 # eg. git_update main "Add files"
 git_update() {
     local target_branch=""
@@ -64,10 +64,20 @@ git_update() {
         return 0
     fi
 
+    # - push -
+    # main -> local + github
+    # dev -> local
+    # feature* -> local
+    #
+    # - merge -
+    # feature* -> dev -> main
+    #
     if [ "$current_branch" = dev ]; then
+        # on dev
         git add .
         git commit -m "$message"
         git push local dev
+
         if [ "$target_branch" = main ]; then
             # merge: dev -> main
             git switch main &&
@@ -77,11 +87,24 @@ git_update() {
             git switch dev
         fi
     elif [ "$current_branch" = main ]; then
-        git add .
-        git commit -m "$message"
+        # on main
+        git merge dev &&
         git push local main &&
         git push github main &&
         git switch dev
+    else
+        # feature*など
+        git add .
+        git commit -m "$message"
+        git push local "$current_branch"
+
+        if [ "$target_branch" = dev ]; then
+            # merge: feature* -> dev
+            git switch dev &&
+            git merge "$current_branch" &&
+            git push local dev &&
+            git switch "$current_branch"
+        fi
     fi
 }
 
