@@ -72,14 +72,14 @@ git_update() {
         return 0
     fi
 
-    # - push -
+    # -- push --
     # main -> local + github
     # dev -> local
     # feature* -> local
     #
-    # - merge -
+    # -- merge --
     # feature* -> dev -> main
-    #
+    cd "$PROJECT_ROOT"
     if [ "$current_branch" = dev ]; then
         # on dev
         git add .
@@ -114,6 +114,7 @@ git_update() {
             git switch "$current_branch"
         fi
     fi
+    cd -
 }
 
 alias gu="git_update"
