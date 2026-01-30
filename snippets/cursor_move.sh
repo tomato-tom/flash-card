@@ -12,7 +12,11 @@ move() {
     local steps=${2:-1}
     
     read current_row current_col < <(get_pos)
-    
+
+    # これでなぜか想定動作になる
+    ((current_row--))
+    ((current_col--))
+
     case $direction in
         up)
             new_row=$((current_row - steps))
@@ -73,7 +77,7 @@ for i in {1..5}; do
     printf "%s" "Move left $steps"
     tput rc
 
-    wait_time=$((RANDOM % 5 + 5))
+    wait_time=$((RANDOM % 5 + 8))
     sleep 0.$wait_time
 done
 
