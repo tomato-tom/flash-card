@@ -3,7 +3,7 @@
 # 現在位置取得
 get_pos() {
     IFS=';' read -sdR -p $'\E[6n' row col
-    echo "${row#*[} ${col}"
+    printf "%s %s" "${row#*[}" "$col"
 }
 
 # 相対移動
@@ -53,13 +53,28 @@ text_size=$(echo "$text" | wc -c)
 [ $((steps + text_size)) -gt $term_cols ] && steps=$((term_cols - text_size))
 move right $steps
 tput sc
-echo -n "$text"
-sleep 1
+printf "%s" "$text"
+sleep 0.5
 tput rc
 
 # 下に移動
 steps=14
 move down $steps
-echo -n "Move down $steps"
-read
+tput sc
+printf "%s" "Move down $steps"
+tput rc
+sleep 0.5
 
+for i in {1..5}; do
+    steps=$((RANDOM % 5 + 1))
+    move left $steps
+    tput sc
+    tput ed
+    printf "%s" "Move left $steps"
+    tput rc
+
+    wait_time=$((RANDOM % 5 + 5))
+    sleep 0.$wait_time
+done
+
+echo
