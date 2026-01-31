@@ -190,7 +190,7 @@ while :; do
 
     start_time=$(date +%s.%N)
     base_time=$((text_length * 5 / 10))
-    wait_time=$((base_time < 5 ? 5 : (base_time > 45 ? 45 : base_time)))
+    wait_time=$((base_time < 5 ? 5 : (base_time > 60 ? 60 : base_time)))
     read -t $wait_time -r input || true
     end_time=$(date +%s.%N)
     echo
