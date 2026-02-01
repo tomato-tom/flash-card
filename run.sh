@@ -49,7 +49,7 @@ git_diff() {
 }
 
 # git_update [target_branch] [message]
-# eg. git_update main "Add files"
+# e.g. git_update main "Add files"
 git_update() {
     local target_branch=""
     local message=""
@@ -64,6 +64,13 @@ git_update() {
     if [ -z "$current_branch" ]; then
         echo "❌ Not in a Git repository." >&2
         return 1
+    fi
+
+    # 新規ファイルあったら追加
+    if git status | grep "Untracked files"; then
+        cd $PROJECT_ROOT && change_dir=true
+        git add .
+        $change_dir && cd -
     fi
 
     # 変更があるか確認（ステージ前＋ステージ後）
@@ -82,7 +89,6 @@ git_update() {
     cd "$PROJECT_ROOT"
     if [ "$current_branch" = dev ]; then
         # on dev
-        git add .
         git commit -m "$message"
         git push local dev
 
@@ -102,7 +108,6 @@ git_update() {
         git switch dev
     else
         # feature*など
-        git add .
         git commit -m "$message"
         git push local "$current_branch"
 

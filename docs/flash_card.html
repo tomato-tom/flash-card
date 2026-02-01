@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Card</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .card-counter {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .flashcard-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+            height: 300px;
+        }
+        
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .card-front {
+            background-color: #ffffff;
+            color: #2c3e50;
+            border: 2px solid #3498db;
+        }
+        
+        .card-back {
+            background-color: #3498db;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        .english-text {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .japanese-text {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .hint {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .difficulty-rating {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .difficulty-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .difficulty-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .easy {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .medium {
+            background-color: #f39c12;
+            color: white;
+        }
+        
+        .hard {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .difficulty-btn.active {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8);
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            background-color: #34495e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        .nav-btn:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            height: 12px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #2ecc71, #f39c12, #e74c3c);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .word-list {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+        }
+        
+        .word-list h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .word-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .word-list th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .word-list td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .word-list tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .difficulty-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .difficulty-easy {
+            background-color: #2ecc71;
+        }
+        
+        .difficulty-medium {
+            background-color: #f39c12;
+        }
+        
+        .difficulty-hard {
+            background-color: #e74c3c;
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            padding: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .flashcard-container {
+                height: 250px;
+            }
+            
+            .english-text {
+                font-size: 2.2rem;
+            }
+            
+            .japanese-text {
+                font-size: 1.8rem;
+            }
+            
+            .difficulty-rating {
+                flex-wrap: wrap;
+            }
+            
+            .navigation {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .nav-btn {
+                flex: 1;
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Flash Card</h1>
+            <p class="subtitle">カードをクリックして日本語を表示し、学習した単語の難易度を評価しましょう</p>
+            <div class="card-counter">カード <span id="current-card">1</span>/<span id="total-cards">10</span></div>
+        </header>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        
+        <div class="flashcard-container">
+            <div class="flashcard" id="flashcard">
+                <div class="card-front">
+                    <div class="english-text" id="english-text">Loading...</div>
+                    <p>クリックして日本語を表示</p>
+                </div>
+                <div class="card-back">
+                    <div class="japanese-text" id="japanese-text">読み込み中...</div>
+                    <p class="hint">もう一度クリックして英語に戻る</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="difficulty-rating">
+            <button class="difficulty-btn easy" id="easy-btn" data-difficulty="easy">Easy</button>
+            <button class="difficulty-btn medium" id="medium-btn" data-difficulty="medium">Medium</button>
+            <button class="difficulty-btn hard" id="hard-btn" data-difficulty="hard">Hard</button>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn" id="prev-btn">前のカード</button>
+            <button class="nav-btn" id="shuffle-btn">シャッフル</button>
+            <button class="nav-btn" id="reset-btn">リセット</button>
+            <button class="nav-btn" id="next-btn">次のカード</button>
+        </div>
+        
+        <div class="word-list">
+            <h3>単語リストと評価</h3>
+            <table id="word-table">
+                <thead>
+                    <tr>
+                        <th>英語</th>
+                        <th>日本語</th>
+                        <th>評価</th>
+                    </tr>
+                </thead>
+                <tbody id="word-table-body">
+                    <!-- 単語リストがここに追加されます -->
+                </tbody>
+            </table>
+        </div>
+        
+        <footer>
+            <p>英単語フラッシュカードアプリ &copy; 2023 - カードをクリックして裏面を表示、難易度を評価して学習を進めましょう</p>
+        </footer>
+    </div>
+
+    <script>
+        // 単語データベース
+        const wordDatabase = [
+            { english: "Sustainability", japanese: "持続可能性", difficulty: "" },
+            { english: "Biodiversity", japanese: "生物多様性", difficulty: "" },
+            { english: "Climate Change", japanese: "気候変動", difficulty: "" },
+            { english: "Ecosystem", japanese: "生態系", difficulty: "" },
+            { english: "Carbon Footprint", japanese: "炭素足跡", difficulty: "" },
+            { english: "Renewable Energy", japanese: "再生可能エネルギー", difficulty: "" },
+            { english: "Deforestation", japanese: "森林破壊", difficulty: "" },
+            { english: "Greenhouse Effect", japanese: "温室効果", difficulty: "" },
+            { english: "Conservation", japanese: "保護", difficulty: "" },
+            { english: "Pollution", japanese: "汚染", difficulty: "" }
+        ];
+
+        // アプリケーション状態
+        let currentWords = [...wordDatabase];
+        let currentIndex = 0;
+        let selectedDifficulty = "";
+
+        // DOM要素
+        const flashcard = document.getElementById('flashcard');
+        const englishText = document.getElementById('english-text');
+        const japaneseText = document.getElementById('japanese-text');
+        const currentCardSpan = document.getElementById('current-card');
+        const totalCardsSpan = document.getElementById('total-cards');
+        const progressBar = document.getElementById('progress-bar');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const shuffleBtn = document.getElementById('shuffle-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const easyBtn = document.getElementById('easy-btn');
+        const mediumBtn = document.getElementById('medium-btn');
+        const hardBtn = document.getElementById('hard-btn');
+        const wordTableBody = document.getElementById('word-table-body');
+
+        // 初期化
+        function init() {
+            totalCardsSpan.textContent = currentWords.length;
+            updateCard();
+            updateProgressBar();
+            updateWordTable();
+            updateNavigationButtons();
+            
+            // イベントリスナーの設定
+            flashcard.addEventListener('click', flipCard);
+            prevBtn.addEventListener('click', showPrevCard);
+            nextBtn.addEventListener('click', showNextCard);
+            shuffleBtn.addEventListener('click', shuffleCards);
+            resetBtn.addEventListener('click', resetCards);
+            easyBtn.addEventListener('click', () => setDifficulty('easy'));
+            mediumBtn.addEventListener('click', () => setDifficulty('medium'));
+            hardBtn.addEventListener('click', () => setDifficulty('hard'));
+        }
+
+        // カードを更新する
+        function updateCard() {
+            const currentWord = currentWords[currentIndex];
+            englishText.textContent = currentWord.english;
+            japaneseText.textContent = currentWord.japanese;
+            currentCardSpan.textContent = currentIndex + 1;
+            
+            // カードを表に戻す
+            flashcard.classList.remove('flipped');
+            
+            // 現在の難易度ボタンをハイライト
+            updateDifficultyButtons();
+            
+            // 難易度をリセット（表示用）
+            selectedDifficulty = "";
+        }
+
+        // カードをめくる
+        function flipCard() {
+            flashcard.classList.toggle('flipped');
+        }
+
+        // 前のカードを表示
+        function showPrevCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCard();
+                updateProgressBar();
+                updateNavigationButtons();
+            }
+        }
+
+        // 次のカードを表示
+        function showNextCard() {
+            if (currentIndex < currentWords.length - 1) {
+                currentIndex++;
+                updateCard();
+                updateProgressBar();
+                updateNavigationButtons();
+            }
+        }
+
+        // カードをシャッフル
+        function shuffleCards() {
+            // フィッシャー・イェーツのシャッフルアルゴリズム
+            for (let i = currentWords.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [currentWords[i], currentWords[j]] = [currentWords[j], currentWords[i]];
+            }
+            
+            // 現在のインデックスをリセット
+            currentIndex = 0;
+            updateCard();
+            updateProgressBar();
+            updateWordTable();
+            updateNavigationButtons();
+            
+            // 一時的なフィードバック
+            shuffleBtn.textContent = "シャッフル完了!";
+            setTimeout(() => {
+                shuffleBtn.textContent = "シャッフル";
+            }, 1000);
+        }
+
+        // カードをリセット
+        function resetCards() {
+            currentWords = [...wordDatabase];
+            currentIndex = 0;
+            
+            // すべての難易度をリセット
+            currentWords.forEach(word => {
+                word.difficulty = "";
+            });
+            
+            updateCard();
+            updateProgressBar();
+            updateWordTable();
+            updateNavigationButtons();
+            updateDifficultyButtons();
+            
+            // 一時的なフィードバック
+            resetBtn.textContent = "リセット完了!";
+            setTimeout(() => {
+                resetBtn.textContent = "リセット";
+            }, 1000);
+        }
+
+        // 難易度を設定
+        function setDifficulty(difficulty) {
+            selectedDifficulty = difficulty;
+            currentWords[currentIndex].difficulty = difficulty;
+            
+            // 難易度ボタンの更新
+            updateDifficultyButtons();
+            
+            // 単語テーブルの更新
+            updateWordTable();
+            
+            // 次のカードへ自動的に進む（オプション）
+            setTimeout(() => {
+                if (currentIndex < currentWords.length - 1) {
+                    currentIndex++;
+                    updateCard();
+                    updateProgressBar();
+                    updateNavigationButtons();
+                }
+            }, 500);
+        }
+
+        // 難易度ボタンを更新
+        function updateDifficultyButtons() {
+            const currentDifficulty = currentWords[currentIndex].difficulty;
+            
+            // すべてのボタンからactiveクラスを削除
+            easyBtn.classList.remove('active');
+            mediumBtn.classList.remove('active');
+            hardBtn.classList.remove('active');
+            
+            // 現在の単語の難易度に応じてボタンをハイライト
+            if (currentDifficulty === 'easy') {
+                easyBtn.classList.add('active');
+            } else if (currentDifficulty === 'medium') {
+                mediumBtn.classList.add('active');
+            } else if (currentDifficulty === 'hard') {
+                hardBtn.classList.add('active');
+            }
+        }
+
+        // 進捗バーを更新
+        function updateProgressBar() {
+            const progress = ((currentIndex + 1) / currentWords.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // ナビゲーションボタンを更新
+        function updateNavigationButtons() {
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === currentWords.length - 1;
+        }
+
+        // 単語テーブルを更新
+        function updateWordTable() {
+            wordTableBody.innerHTML = '';
+            
+            currentWords.forEach((word, index) => {
+                const row = document.createElement('tr');
+                
+                // 現在の単語をハイライト
+                if (index === currentIndex) {
+                    row.style.backgroundColor = '#e8f4fc';
+                }
+                
+                // 難易度インジケーターを取得
+                let difficultyClass = '';
+                let difficultyText = '未評価';
+                
+                if (word.difficulty === 'easy') {
+                    difficultyClass = 'difficulty-easy';
+                    difficultyText = 'easy';
+                } else if (word.difficulty === 'medium') {
+                    difficultyClass = 'difficulty-medium';
+                    difficultyText = 'medium';
+                } else if (word.difficulty === 'hard') {
+                    difficultyClass = 'difficulty-hard';
+                    difficultyText = 'hard';
+                }
+                
+                row.innerHTML = `
+                    <td>${word.english}</td>
+                    <td>${word.japanese}</td>
+                    <td>
+                        ${word.difficulty ? `<span class="difficulty-indicator ${difficultyClass}"></span>${difficultyText}` : '未評価'}
+                    </td>
+                `;
+                
+                wordTableBody.appendChild(row);
+            });
+        }
+
+        // 初期化を実行
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
