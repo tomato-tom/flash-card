@@ -67,8 +67,12 @@ git_update() {
     fi
 
     # 新規ファイルあったら追加
-    if git status | grep "Untracked files"; then
-        cd $PROJECT_ROOT && change_dir=true
+    if [ -n "$(git status --porcelain)" ]; then
+        change_dir=false
+        if ! [[ $(pwd) = $PROJECT_ROOT ]]; then
+            cd $PROJECT_ROOT
+            change_dir=true
+        fi
         git add .
         $change_dir && cd -
     fi
