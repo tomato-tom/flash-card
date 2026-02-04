@@ -113,15 +113,18 @@ select_word_set() {
 # FIXME - WORDもsentenceから取得すれば単語がとぎれないか
 # PC内からコンテンツ読み込み
 load_content() {
-    local max_char=15
-    local min_char=4
-    local pattern="^[a-zA-Z]{$min_char,$max_char}$"
+    local max_char_sentence=$(tput cols)
+    local max_char_word=15
+    local min_char_word=4
+    local pattern="^[a-zA-Z]{$min_char_word,$max_char_word}$"
 
     # 単語セット読み込み
     if [[ "$WORD" == man-sentence-* ]]; then
         # 文モード: man2typing.sh を利用
         mapfile -t word_list < <(
-            ./snippets/man2typing.sh "${WORD#man-sentence-}" 2>/dev/null | shuf -n 200
+            ./snippets/man2typing.sh "${WORD#man-sentence-}" 2>/dev/null |
+                grep -E "^.{15,$max_char_sentence}$" |
+                shuf -n 200
         )
     elif [[ "$WORD" == man-* ]]; then
         word_list=($(
@@ -182,8 +185,10 @@ while :; do
     text_length="$(echo -n $text | wc -c)"
     [ "$SPEECH" = true ] && speech "$text" &
 
-    echo -n "Type it: "
+    echo "Type it: "
+    echo
     echo "$text"
+    echo
     echo
     echo -en "\033[38;5;87m> \033[0m"
     tput cnorm

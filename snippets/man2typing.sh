@@ -81,7 +81,7 @@ tr -s ' ' |
 
 # Split on periods followed by space or end-of-line.
 # Each sentence should end with a period.
-sed 's/\([^.]\+\.\)/\1\n/g' |
+sed 's/\([^ ]\)\. /\1\.\n/g' |
 
 # Keep only lines that end with a period
 grep '\.$' |
