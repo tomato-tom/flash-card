@@ -194,9 +194,9 @@ while :; do
     tput cnorm
 
     start_time=$(date +%s.%N)
-    base_time=$((text_length * 5 / 10))
-    wait_time=$((base_time < 5 ? 5 : (base_time > 60 ? 60 : base_time)))
-    read -t $wait_time -r input || true
+    wait_time=$((text_length * 6 / 10))
+    read -t $wait_time -r input
+
     end_time=$(date +%s.%N)
     echo
     tput civis
@@ -216,7 +216,8 @@ while :; do
     printf "%.2f c/s\n" "${speed}"
 
     log_game "$text" "$input" "${time_taken}"
-    read -s -t 0.8
+    read -s -p "Enter to next game"
+    # とりあえずこれでバッファクリア
 done
 
 # 終了処理: ログ更新
