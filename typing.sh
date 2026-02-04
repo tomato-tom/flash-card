@@ -183,7 +183,7 @@ while :; do
     [ "$SPEECH" = true ] && speech "$text" &
 
     echo -n "Type it: "
-    echo -e "\033[0;32m$text\033[0m"
+    echo "$text"
     echo
     echo -en "\033[38;5;87m> \033[0m"
     tput cnorm
