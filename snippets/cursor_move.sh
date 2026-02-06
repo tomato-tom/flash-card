@@ -3,7 +3,11 @@
 # 現在位置取得
 get_pos() {
     IFS=';' read -sdR -p $'\E[6n' row col
-    printf "%s %s" "${row#*[}" "$col"
+    row="${row#*[}"
+    # 位置調整
+    ((row--))
+    ((col--))
+    printf "%s %s" "$row" "$col"
 }
 
 # 相対移動
@@ -13,9 +17,6 @@ move() {
     
     read current_row current_col < <(get_pos)
 
-    # これでなぜか想定動作になる
-    ((current_row--))
-    ((current_col--))
 
     case $direction in
         up)
@@ -41,44 +42,63 @@ move() {
     esac
 }
 
+text_move() {
+    local current_text_size=$1
+    local direction=$2
+    local text="$3"
+    local step=${4:-1}
+
+    read row col < <(get_pos)
+
+    if [ $direction = left ]; then
+        [ $row -eq 1 ] && return
+    elif [ $direction = right ]; then
+        [ $((col + text_size)) -gt $term_cols ] && return
+    fi
+
+    tput sc
+    printf "%${current_text_size}s" " " # 元の文字を消去
+    tput rc
+
+    move $direction $step
+    tput sc
+    printf "%s" "$text"
+    tput rc
+}
+
 # 端末サイズ取得
 term_rows=$(tput lines)
 term_cols=$(tput cols)
+clear
 
 # 使用例
 echo "Term size: Rows ${term_rows}, Cols ${term_cols}"
 echo "Current Pos: $(get_pos)"
-
-# 右に移動
-steps=300
-text="Move right $steps"
-text_size=$(echo "$text" | wc -c)
-# はみ出る場合は調整
-[ $((steps + text_size)) -gt $term_cols ] && steps=$((term_cols - text_size))
-move right $steps
 tput sc
-printf "%s" "$text"
-sleep 0.5
-tput rc
+text_size=
 
-# 下に移動
-steps=14
-move down $steps
-tput sc
-printf "%s" "Move down $steps"
-tput rc
-sleep 0.5
+while true; do
+    read -rsn1 key
+    case "$key" in
+        h) # ←
+            direction="left"
+            ;;
+        j) # ↓
+            direction="down"
+            ;;
+        k) # ↑
+            direction="up"
+            ;;
+        l) # →
+            direction="right"
+            ;;
+        '') # Enter
+            break
+            ;;
+    esac
 
-for i in {1..5}; do
-    steps=$((RANDOM % 5 + 1))
-    move left $steps
-    tput sc
-    tput ed
-    printf "%s" "Move left $steps"
-    tput rc
-
-    wait_time=$((RANDOM % 5 + 8))
-    sleep 0.$wait_time
+    text="Move $direction"
+    text_move "$text_size" "$direction" "$text"
+    text_size="$(echo $text | wc -c)"
 done
 
-echo
