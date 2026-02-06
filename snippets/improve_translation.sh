@@ -2,14 +2,14 @@
 # improve_translation.sh
 # Improve translations using Gemini API with JSON Schema
 
-# settings (DO NOT MODIFY)
+# settings
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)"
 INPUT_CSV="$PROJECT_ROOT/card/oxford_phrase_en_ja.csv"
 OUTPUT_JSON="$PROJECT_ROOT/card/improved_translations.json"
 LOG_FILE="$PROJECT_ROOT/data/improvement_translations.log"
 BATCH_SIZE=8  # バッチサイズを設定
 
-# for testing (DO NOT MODIFY)
+# for testing
 cat "$INPUT_CSV" | shuf -n 2 > "/tmp/test.csv"
 INPUT_CSV="$PROJECT_ROOT/test/oxford_phrase_en_ja.csv"
 OUTPUT_JSON="$PROJECT_ROOT/test/improved_translations.json"
