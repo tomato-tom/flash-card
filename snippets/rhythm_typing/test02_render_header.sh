@@ -19,10 +19,10 @@ render_header() {
         remaining_time=0
     fi
     
-    echo "┌────────────────────────────────────────────────────────────┐"
-    echo "│ リズムタイピングゲーム（シンプル版）                           │"
-    printf "│ スコア: %-4d  ミス: %-4d  残り時間: %3d秒                 │\n" $SCORE $MISSED $remaining_time
-    echo "└────────────────────────────────────────────────────────────┘"
+    echo "┌────────────────────────────────────────────────────┐"
+    echo "│ rhythm typing game                                 │"
+    printf "│ score: %-4d  missed: %-4d  time: %3d秒             │\n" $SCORE $MISSED $remaining_time
+    echo "└────────────────────────────────────────────────────┘"
     echo ""
     echo "  文字 'a' が右から流れてきます。"
     echo "  文字が中央の線にきたら 'a' キーを押してください。"
@@ -34,6 +34,8 @@ render_header() {
     done
     echo "│目標│"
     echo ""
+
+    read -p "enter"
 }
 
 # クリーンアップ
@@ -58,4 +60,3 @@ for ((i=0; i<10; i++)); do
     sleep 1
 done
 
-cleanup

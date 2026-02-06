@@ -4,7 +4,7 @@
 
 TERMINAL_WIDTH=$(tput cols)
 TARGET_POSITION=40
-SPEED=0.1
+SPEED=1
 
 declare -a letters_x
 declare -a letters_active

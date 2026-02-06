@@ -59,4 +59,3 @@ while true; do
     fi
 done
 
-cleanup
