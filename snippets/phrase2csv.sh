@@ -31,6 +31,7 @@ while read -r phrase; do
     japanese="$(echo "$phrase" |
         sed -E 's/\bsb/somebody/g; s/\bsth/something/g' |
         trans -br :ja 2>/dev/null)"
+        # transコマンドは直訳過ぎる場合がある、汎用AIがいい
 
     # CSVに書き込み
     echo "\"$phrase\",\"$japanese\",\"$level\"" >> "$target_file"
