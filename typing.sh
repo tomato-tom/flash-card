@@ -216,8 +216,10 @@ while :; do
     printf "%.2f c/s\n" "${speed}"
 
     log_game "$text" "$input" "${time_taken}"
-    read -s -p "Enter to next game"
+    echo "Enter to next game"
+    read -s input
     # とりあえずこれでバッファクリア
+    [ "$input" == "q" ] && break
 done
 
 # 終了処理: ログ更新
