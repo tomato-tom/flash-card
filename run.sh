@@ -5,6 +5,21 @@
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)"
 
+usage() {
+    echo "
+        run t       - typing
+        run f       - flash card
+
+        gd          - git diff
+        gu          - git update 
+            gu [target_branch] [message]
+        gl          - git log
+
+        http-start  - start HTTP server
+        http-stop   - stop HTTP server
+    "
+}
+
 # アプリ実行と統計
 run() {
   local command="$1"
