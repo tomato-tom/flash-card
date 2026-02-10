@@ -1,6 +1,6 @@
 ---
 title:  Flash Card
-update: 2026-01-22
+update: 2026-02-11
 status: wip
 tags:
 - english-learning
@@ -15,7 +15,7 @@ bash と `jq` で動作するシンプルな英単語フラッシュカード
 
 ## 構成
 
-* `flash_card.sh`: メインアプリ
+* `flash_card.sh`
 * `flash_card_stats.sh`: 学習統計表示
 * `card/contents.json`: カードデータ（JSON）
 * `data/sessions/`: セッションログ
@@ -52,4 +52,5 @@ bash と `jq` で動作するシンプルな英単語フラッシュカード
 
 タイピングゲーム
 typing.sh
+typing_stats.sh
 
