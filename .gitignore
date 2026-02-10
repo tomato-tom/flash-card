@@ -3,4 +3,6 @@ notes.md
 test/test_data.json
 docs/mermaid.min.js
 tmp
-test/
+test/improved_translations.json
+test/improvement_translations.log
+test/oxford_phrase_en_ja.csv

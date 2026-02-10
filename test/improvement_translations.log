@@ -1,3 +1,5 @@
 Starting batch processing with batch size: 8
-Processing completed: 0 items processed in 0 batches
+Processing batch 1 with 2 items...
+Batch 1 completed: processed 2 items (total: 2)
+Processing completed: 2 items processed in 1 batches
 Saved to: /home/noble/git/flash-card/test/improved_translations.json
