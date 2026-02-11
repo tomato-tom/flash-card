@@ -263,4 +263,5 @@ while true; do
     sleep $RENDER_INTERVAL
 done
 
+# 重複実行？
 cleanup
