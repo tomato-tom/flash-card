@@ -44,6 +44,9 @@ Examples:
   $0 --today
   $0 --start 2026-01-24 --end 2026-02-23
   $0          # Same as --all
+
+  use jq(default DuckDB)
+  TYPING_STATS_BACKEND=jq $0 --today
 EOF
     exit 0
 }
@@ -63,6 +66,7 @@ parse_arguments() {
         esac
     done
 }
+
 
 # ============================================================================
 # 日付・ファイル処理
@@ -141,43 +145,30 @@ get_target_files() {
 }
 
 # ============================================================================
-# jq 統計計算（統一処理）
+# 統計計算 (jq バージョン)
 # ============================================================================
-# 外部ファイル stats_filter.jq を使う場合:
-#   jq -s --arg start "$START_BOUNDARY" --arg end "$END_BOUNDARY" \
-#      -f "$SCRIPT_DIR/stats_filter.jq" "${TARGET_FILES[@]}"
-#
-# 以下は inline 版（def で構造化）
-
-calculate_stats() {
-    local -n files_ref=$1
+calculate_stats_jq() {
     local jq_filter
     jq_filter=$(cat <<'JQ_FILTER'
-# 全ゲームをフラット化 + session メタ付与
-[.[] as $session | $session.games[] as $game | $game + {session_id: $session.session_id, source: $session.source, level: $session.level}] as $all |
+[.[] as $session | $session.games[] as $game | 
+ $game + {session_id: $session.session_id, source: $session.source, level: $session.level}] as $all |
 
-# 期間フィルタ（start/end が "null" 文字列の場合はスキップ）
 (if ($start == "null") then $all 
  else $all | map(select(.timestamp >= $start and .timestamp <= $end)) 
  end) as $games |
 
-# 正解ゲームの抽出
 ($games | map(select(.input == .word))) as $correct_games |
-
-# 基本集計
 ($games | length) as $total |
 ($correct_games | length) as $correct |
 ($correct_games | map(.time_taken) | add // 0) as $total_time |
 ($correct_games | map(.input | length) | add // 0) as $total_chars |
 
-# 派生指標
 (if $total > 0 then ($correct * 100 / $total) else 0 end) as $accuracy |
 (if $total_time > 0 then ($total_chars / $total_time) else 0 end) as $avg_speed |
 ($games | map(.session_id) | unique | length) as $session_count |
 ($games | map(.source) | unique | join(", ")) as $sources |
 ($games | map(.level) | unique | join(", ")) as $levels |
 
-# 出力オブジェクト
 {
   session_count: $session_count,
   total_games: $total,
@@ -190,8 +181,66 @@ calculate_stats() {
 }
 JQ_FILTER
 )
-    # jq 実行（エラーを隠さない）
-    jq -s --arg start "$START_BOUNDARY" --arg end "$END_BOUNDARY" "$jq_filter" "${files_ref[@]}"
+
+    # 引数を直接展開 (nameref 不使用)
+    jq -s --arg start "$START_BOUNDARY" --arg end "$END_BOUNDARY" "$jq_filter" "$@"
+}
+
+# ============================================================================
+# 統計計算 (DuckDB バージョン)
+# ============================================================================
+calculate_stats_duckdb() {
+    local file_list
+    file_list=$(printf "'%s'," "$@" | sed 's/,$//')
+    
+    duckdb -json -noheader -c "
+    WITH raw AS (SELECT * FROM read_json_auto([${file_list}])),
+    flattened AS (
+        SELECT session_id, source, level, timestamp,
+               game.word as word, game.input as input, game.time_taken as time_taken
+        FROM raw, unnest(games) as game
+    ),
+    filtered AS (
+        SELECT * FROM flattened
+        WHERE ('${START_BOUNDARY}' == 'null' OR timestamp >= '${START_BOUNDARY}')
+          AND ('${START_BOUNDARY}' == 'null' OR timestamp <= '${END_BOUNDARY}')
+    )
+    SELECT 
+        COUNT(DISTINCT session_id) as session_count,
+        COUNT(*) as total_games,
+        SUM(CASE WHEN input == word THEN 1 ELSE 0 END) as correct_games,
+        (SUM(CASE WHEN input == word THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as accuracy_percent,
+        SUM(CASE WHEN input == word THEN time_taken ELSE 0 END) as total_time_seconds,
+        (SUM(CASE WHEN input == word THEN LENGTH(input) ELSE 0 END) / 
+         NULLIF(SUM(CASE WHEN input == word THEN time_taken ELSE 0 END), 0)) as avg_speed_cps,
+        STRING_AGG(DISTINCT source, ', ') as sources,
+        STRING_AGG(DISTINCT level, ', ') as levels
+    FROM filtered;
+    " | jq '.[0]' 2>&1
+}
+
+# ============================================================================
+# バックエンド検出・ディスパッチ
+# ============================================================================
+detect_backend() {
+    if [[ -n "${TYPING_STATS_BACKEND:-}" ]]; then
+        echo "$TYPING_STATS_BACKEND"
+    elif command -v duckdb >/dev/null 2>&1; then
+        echo "duckdb"
+    else
+        echo "jq"
+    fi
+}
+
+calculate_stats() {
+    local backend
+    backend=$(detect_backend)
+    
+    case "$backend" in
+        duckdb) calculate_stats_duckdb "$@" ;;
+        jq)     calculate_stats_jq "$@" ;;
+        *)      log_fatal "Unknown backend: $backend" ;;
+    esac
 }
 
 # ============================================================================
@@ -215,7 +264,7 @@ format_output() {
 }
 
 # ============================================================================
-# メイン処理
+# メイン処理 (修正)
 # ============================================================================
 main() {
     parse_arguments "$@"
@@ -230,10 +279,10 @@ main() {
     compute_boundaries
     get_target_files
     
-    # 統計計算 → 出力
+    # 統計計算 → 出力 (配列を直接展開)
     local stats
-    if ! stats=$(calculate_stats TARGET_FILES); then
-        log_fatal "jq processing failed: $stats"
+    if ! stats=$(calculate_stats "${TARGET_FILES[@]}"); then
+        log_fatal "processing failed: $stats"
     fi
     
     echo "$stats" | format_output "$PERIOD_NAME"

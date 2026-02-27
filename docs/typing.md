@@ -53,28 +53,36 @@ flowchart TD
 ```mermaid
 flowchart TD
     Start([Start]) --> ParseArgs[parse_arguments]
-    ParseArgs --> CheckCustom{Custom range?}
+    ParseArgs --> Prep[compute_boundaries + get_files]
     
-    CheckCustom -->|Yes| ValidateRange[validate_custom_range]
-    CheckCustom -->|No| ComputeBound[compute_boundaries]
+    Prep --> DetectBackend[detect_backend]
     
-    ValidateRange --> SetCustom[PERIOD = custom]
-    SetCustom --> ComputeBound
+    DetectBackend --> CheckEnv{Env Var Set?}
+    CheckEnv -->|Yes| UseEnv[Use TYPING_STATS_BACKEND]
+    CheckEnv -->|No| CheckCmd{duckdb exists?}
     
-    ComputeBound --> GetFiles[get_target_files]
+    CheckCmd -->|Yes| UseDuckDB[Backend: duckdb]
+    CheckCmd -->|No| UseJQ[Backend: jq]
     
-    GetFiles --> CalcStats[calculate_stats]
+    UseEnv --> ValidateBackend{Valid?}
+    ValidateBackend -->|Yes| Route
+    ValidateBackend -->|No| Fatal[log_fatal]
     
-    CalcStats --> JqProc[jq: flatten games + filter + aggregate]
-    JqProc --> StatsReady{Stats computed?}
+    UseDuckDB --> Route[calculate_stats]
+    UseJQ --> Route
     
-    StatsReady -->|Success| FormatOut[format_output]
-    StatsReady -->|Error| LogFatal[log_fatal + exit]
+    Route --> Impl{Which Impl?}
+    Impl -->|DuckDB| SQLExec[duckdb -json + SQL]
+    Impl -->|jq| JQExec[jq -s + filter]
     
-    FormatOut --> Display[Print formatted stats]
+    SQLExec --> Normalize[jq '.[0]' normalization]
+    JQExec --> Normalize
+    
+    Normalize --> FormatOut[format_output]
+    FormatOut --> Display[Print Stats]
     Display --> End([End])
     
-    LogFatal --> End
+    Fatal --> End
 ```
 
 ---
@@ -85,65 +93,38 @@ flowchart TD
 flowchart LR
     subgraph Main_Layer
         main[main]
+        detect_backend
     end
     
-    subgraph Control_Layer
-        parse_arguments
-        validate_custom_range
-        compute_boundaries
-        get_target_files
+    subgraph Dispatcher
+        calculate_stats[calculate_stats]
     end
     
-    subgraph Core_Layer
-        calculate_stats
-        jq_engine[jq filter engine]
+    subgraph Backends
+        calc_duckdb[calculate_stats_duckdb]
+        calc_jq[calculate_stats_jq]
     end
     
-    subgraph Presentation_Layer
+    subgraph Shared
         format_output
+        utils[log_error/fatal]
     end
     
-    subgraph Utilities
-        log_error
-        log_fatal
-        show_help
-    end
-    
-    %% Dependencies
-    main --> parse_arguments
-    main --> validate_custom_range
-    main --> compute_boundaries
-    main --> get_target_files
+    main --> detect_backend
     main --> calculate_stats
-    main --> format_output
     
-    parse_arguments --> show_help
-    parse_arguments --> log_fatal
+    calculate_stats --> calc_duckdb
+    calculate_stats --> calc_jq
     
-    validate_custom_range --> log_fatal
-    validate_custom_range --> log_error
+    calc_duckdb --> format_output
+    calc_jq --> format_output
     
-    compute_boundaries --> log_error
+    calc_duckdb --> utils
+    calc_jq --> utils
+    detect_backend --> utils
     
-    get_target_files --> log_fatal
-    
-    calculate_stats --> jq_engine
-    calculate_stats --> log_fatal
-    
-    format_output --> log_error
-    
-    %% Styling
-    classDef mainLayer fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef controlLayer fill:#fff9c4,stroke:#fbc02d
-    classDef coreLayer fill:#e8f5e9,stroke:#2e7d32
-    classDef presentLayer fill:#f3e5f5,stroke:#7b1fa2
-    classDef utilLayer fill:#ffebee,stroke:#c62828,stroke-dasharray:5 5
-    
-    class main mainLayer
-    class parse_arguments,validate_custom_range,compute_boundaries,get_target_files controlLayer
-    class calculate_stats,jq_engine coreLayer
-    class format_output presentLayer
-    class log_error,log_fatal,show_help utilLayer
+    classDef backend fill:#e8f5e9,stroke:#2e7d32,stroke-dasharray:5 5
+    class calc_duckdb,calc_jq backend
 ```
 
 ---
@@ -210,7 +191,10 @@ classDiagram
     }
     
     class StatsEngine {
+        +void detect_backend()
         +object calculate_stats(files)
+        +object calculate_stats_duckdb(files)
+        +object calculate_stats-jq(files)
         >> jq filter: flatten/filter/aggregate
     }
     
