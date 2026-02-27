@@ -63,9 +63,9 @@ speech() {
     [ -f "$SPEECH_FILE" ] && rm "$SPEECH_FILE"
 }
 
-# TUI風に単語セットを選択
-select_word_set() {
-    local options=("man-bash" "man-ip-link" "command" "man-sentence-bash" "quit")
+# TUI風に難易度選択
+select_menu() {
+    local options=("easy" "medium" "hard" "quit")
     local selected=0
     local key
 
@@ -75,7 +75,7 @@ select_word_set() {
     while true; do
         tput rc
         tput ed
-        echo "セットを選択:"
+        echo "menu:"
         echo
         
         for i in "${!options[@]}"; do
@@ -98,8 +98,8 @@ select_word_set() {
                 esac
                 ;;
             '') # Enter
-                WORD="${options[$selected]}"
-                [ "$WORD" = "quit" ] && exit 0
+                [ "${options[$selected]}" = "quit" ] && exit 0 ||
+                    LEVEL="${options[$selected]}"
                 break
                 ;;
         esac
@@ -110,34 +110,34 @@ select_word_set() {
     tput ed
 }
 
-# FIXME - WORDもsentenceから取得すれば単語がとぎれないか
 # PC内からコンテンツ読み込み
 load_content() {
-    local max_char_sentence=$(tput cols)
-    local max_char_word=15
-    local min_char_word=4
-    local pattern="^[a-zA-Z]{$min_char_word,$max_char_word}$"
+    local max_char
+    local min_char
 
-    # 単語セット読み込み
-    if [[ "$WORD" == man-sentence-* ]]; then
-        # 文モード: man2typing.sh を利用
+    # 各レベルのフレーズ長さ
+    case $LEVEL in
+        easy) max_char=90; min_char=15 ;;
+        medium) max_char=60; min_char=15 ;;
+        hard) max_char=90; min_char=30 ;;
+    esac
+
+    # フレーズのリスト取得: man2typing.sh を利用
+    mapfile -t word_list < <(
+        ./snippets/man2typing.sh bash 2>/dev/null |
+            grep -E "^.{$min_char,$max_char}$" |
+            sort -u | shuf -n 300
+    )
+
+    # レベルeasyは単語のみ
+    max_char=15; min_char=5 ;
+    if [[ "$LEVEL" == "easy" ]]; then
+        local list=$(echo "${word_list[@]}" | tr ' ' '\n')
+
         mapfile -t word_list < <(
-            ./snippets/man2typing.sh "${WORD#man-sentence-}" 2>/dev/null |
-                grep -E "^.{15,$max_char_sentence}$" |
-                shuf -n 200
+            echo "${list[@]}" | grep -E "^[[:alpha:]]{$min_char,$max_char}$" |
+                sort -u | shuf -n 300
         )
-    elif [[ "$WORD" == man-* ]]; then
-        word_list=($(
-            man "${WORD#man-}" 2>/dev/null |
-            col -bx | tr -c '[:alnum:]' '\n' | grep -E "$pattern" |
-            sort | uniq -i | shuf -n 300
-        ))
-    elif [ $WORD = "command" ]; then
-        word_list=($(ls /usr/bin | grep -E "$pattern"))
-        word_list+=($(ls /usr/sbin | grep -E "$pattern"))
-        word_list=($(
-            printf '%s\n' "${word_list[@]}" | shuf -n 300
-        ))
     fi
 }
 
@@ -150,18 +150,19 @@ cleanup() {
 
 trap cleanup EXIT INT TERM
 
-select_word_set
+select_menu
 
 # データ用のjsonファイル作成
 SESSION_DIR="$PROJECT_ROOT/data/typing"
-mkdir -p "$SESSION_DIR"
 JSON_FILE="$SESSION_DIR/$SESSION_ID.json"
+
+mkdir -p "$SESSION_DIR"
 jq -n --arg sid "$SESSION_ID" \
     --arg st "$START_TIME" \
-    --arg ct "$WORD" '{
+    --arg lv "$LEVEL" '{
        session_id: $sid,
        start_time: $st,
-       content: $ct,
+       level: $lv,
        games: [] 
    }' > "$JSON_FILE"
     
@@ -193,8 +194,15 @@ while :; do
     echo -en "\033[38;5;87m> \033[0m"
     tput cnorm
 
+    # 各レベルの制限時間
+    case $LEVEL in
+        easy) time=8 ;;
+        medium) time=6 ;;
+        hard) time=4 ;;
+    esac
+
     start_time=$(date +%s.%N)
-    wait_time=$((text_length * 6 / 10))
+    wait_time=$((text_length * time / 10))
     read -t $wait_time -r input
 
     end_time=$(date +%s.%N)
