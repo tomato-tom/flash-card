@@ -194,25 +194,33 @@ calculate_stats_duckdb() {
     file_list=$(printf "'%s'," "$@" | sed 's/,$//')
     
     duckdb -json -noheader -c "
-    WITH raw AS (SELECT * FROM read_json_auto([${file_list}])),
+    WITH raw AS (
+        SELECT * FROM read_json_auto([${file_list}])
+    ),
     flattened AS (
-        SELECT session_id, source, level, timestamp,
-               game.word as word, game.input as input, game.time_taken as time_taken
-        FROM raw, unnest(games) as game
+        SELECT 
+            r.session_id,
+            r.source,
+            r.level,
+            (unnest(games)).timestamp as timestamp,
+            (unnest(games)).word as word,
+            (unnest(games)).input as input,
+            (unnest(games)).time_taken as time_taken
+        FROM raw r
     ),
     filtered AS (
         SELECT * FROM flattened
-        WHERE ('${START_BOUNDARY}' == 'null' OR timestamp >= '${START_BOUNDARY}')
-          AND ('${START_BOUNDARY}' == 'null' OR timestamp <= '${END_BOUNDARY}')
+        WHERE ('${START_BOUNDARY}' = 'null' OR timestamp >= '${START_BOUNDARY}')
+          AND ('${START_BOUNDARY}' = 'null' OR timestamp <= '${END_BOUNDARY}')
     )
     SELECT 
         COUNT(DISTINCT session_id) as session_count,
         COUNT(*) as total_games,
-        SUM(CASE WHEN input == word THEN 1 ELSE 0 END) as correct_games,
-        (SUM(CASE WHEN input == word THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as accuracy_percent,
-        SUM(CASE WHEN input == word THEN time_taken ELSE 0 END) as total_time_seconds,
-        (SUM(CASE WHEN input == word THEN LENGTH(input) ELSE 0 END) / 
-         NULLIF(SUM(CASE WHEN input == word THEN time_taken ELSE 0 END), 0)) as avg_speed_cps,
+        SUM(CASE WHEN input = word THEN 1 ELSE 0 END) as correct_games,
+        (SUM(CASE WHEN input = word THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) as accuracy_percent,
+        SUM(CASE WHEN input = word THEN time_taken ELSE 0 END) as total_time_seconds,
+        (SUM(CASE WHEN input = word THEN LENGTH(input) ELSE 0 END) / 
+         NULLIF(SUM(CASE WHEN input = word THEN time_taken ELSE 0 END), 0)) as avg_speed_cps,
         STRING_AGG(DISTINCT source, ', ') as sources,
         STRING_AGG(DISTINCT level, ', ') as levels
     FROM filtered;
