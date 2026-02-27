@@ -91,43 +91,34 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    subgraph Main_Layer
-        main[main]
-        detect_backend
+    subgraph Input
+        Args[CLI Args]
+        Files[JSON Files]
     end
     
-    subgraph Dispatcher
-        calculate_stats[calculate_stats]
+    subgraph Processing
+        Parse[parse_arguments]
+        Boundaries[compute_boundaries]
+        Backend{detect_backend}
+        DuckDB[calculate_stats_duckdb]
+        JQ[calculate_stats_jq]
     end
     
-    subgraph Backends
-        calc_duckdb[calculate_stats_duckdb]
-        calc_jq[calculate_stats_jq]
+    subgraph Output
+        Format[format_output]
+        Display[Terminal]
     end
     
-    subgraph Shared
-        format_output
-        utils[log_error/fatal]
-    end
-    
-    main --> detect_backend
-    main --> calculate_stats
-    
-    calculate_stats --> calc_duckdb
-    calculate_stats --> calc_jq
-    
-    calc_duckdb --> format_output
-    calc_jq --> format_output
-    
-    calc_duckdb --> utils
-    calc_jq --> utils
-    detect_backend --> utils
-    
-    classDef backend fill:#e8f5e9,stroke:#2e7d32,stroke-dasharray:5 5
-    class calc_duckdb,calc_jq backend
+    Args --> Parse
+    Files --> Backend
+    Parse --> Boundaries
+    Boundaries --> Backend
+    Backend --> DuckDB
+    Backend --> JQ
+    DuckDB --> Format
+    JQ --> Format
+    Format --> Display
 ```
-
----
 
 ### Data Flow in `calculate_stats`
 
@@ -138,7 +129,7 @@ graph LR
         Args[--start / --end]
     end
     
-    subgraph jq_Processing
+    subgraph Processing
         Flatten[Flatten: session + games]
         AttachMeta[Attach: source/level/session_id]
         FilterPeriod[Filter by timestamp]
@@ -166,10 +157,9 @@ graph LR
     classDef io fill:#f5f5f5,stroke:#666,stroke-width:1px
     classDef proc fill:#e3f2fd,stroke:#1976d2
     class Input,Output io
-    class jq_Processing proc
+    class Processing proc
 ```
 
----
 
 ### Function Call Hierarchy (Tree View)
 
@@ -194,7 +184,7 @@ classDiagram
         +void detect_backend()
         +object calculate_stats(files)
         +object calculate_stats_duckdb(files)
-        +object calculate_stats-jq(files)
+        +object calculate_stats_jq(files)
         >> jq filter: flatten/filter/aggregate
     }
     
