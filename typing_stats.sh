@@ -1,9 +1,28 @@
 #!/bin/bash
+set -euo pipefail
 
-PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel 2>/dev/null || pwd)"
-SESSION_DIR="$PROJECT_ROOT/data/typing"
+readonly PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel 2>/dev/null || pwd)"
+readonly SESSION_DIR="$PROJECT_ROOT/data/typing"
+readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Help message
+# ============================================================================
+# 定数・グローバル変数
+# ============================================================================
+declare PERIOD="all"
+declare START_ARG="" END_ARG=""
+declare -a TARGET_FILES=()
+declare START_BOUNDARY="null" END_BOUNDARY="null"
+declare PERIOD_NAME=""
+
+# ============================================================================
+# ユーティリティ関数
+# ============================================================================
+log_error() { echo "Error: $*" >&2; }
+log_fatal() { log_error "$*"; exit 1; }
+
+# ============================================================================
+# 引数解析
+# ============================================================================
 show_help() {
     cat <<EOF
 Usage: $0 [OPTIONS]
@@ -29,192 +48,195 @@ EOF
     exit 0
 }
 
-# Parse options
-period="all"
-start_arg=""
-end_arg=""
+parse_arguments() {
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            -l|--latest) PERIOD="latest"; shift ;;
+            -t|--today) PERIOD="today"; shift ;;
+            -w|--week) PERIOD="week"; shift ;;
+            -m|--month) PERIOD="month"; shift ;;
+            -a|--all) PERIOD="all"; shift ;;
+            --start) START_ARG="$2"; shift 2 ;;
+            --end) END_ARG="$2"; shift 2 ;;
+            -h|--help) show_help ;;
+            *) log_fatal "Unknown option: $1" ;;
+        esac
+    done
+}
 
-while [[ $# -gt 0 ]]; do
-    case $1 in
-        -l|--latest) period="latest"; shift ;;
-        -t|--today) period="today"; shift ;;
-        -w|--week) period="week"; shift ;;
-        -m|--month) period="month"; shift ;;
-        -a|--all) period="all"; shift ;;
-        --start) start_arg="$2"; shift 2 ;;
-        --end) end_arg="$2"; shift 2 ;;
-        -h|--help) show_help ;;
-        *) echo "Unknown option: $1" >&2; show_help ;;
-    esac
-done
+# ============================================================================
+# 日付・ファイル処理
+# ============================================================================
+validate_custom_range() {
+    [[ -z "$START_ARG" || -z "$END_ARG" ]] && \
+        log_fatal "--start and --end must be specified together"
+    
+    for label in "start" "end"; do
+        local val="${label == start ? $START_ARG : $END_ARG}"
+        date -d "$val" >/dev/null 2>&1 || \
+            log_fatal "Invalid $label date format: '$val' (expected YYYY-MM-DD)"
+    done
+    
+    local start_epoch end_epoch
+    start_epoch=$(date -d "$START_ARG" +%s)
+    end_epoch=$(date -d "$END_ARG" +%s)
+    [[ $start_epoch -gt $end_epoch ]] && \
+        log_fatal "Start date must be before or equal to end date"
+}
 
-# Custom range validation and mutual exclusion
-if [[ -n "$start_arg" || -n "$end_arg" ]]; then
-    # Cannot combine with period options
-    if [[ "$period" != "all" ]]; then
-        echo "Error: Cannot combine period options (--today, --week, etc.) with --start/--end" >&2
-        exit 1
-    fi
-    # Both required
-    if [[ -z "$start_arg" || -z "$end_arg" ]]; then
-        echo "Error: --start and --end must be specified together" >&2
-        exit 1
-    fi
-    # Validate date format (YYYY-MM-DD)
-    if ! date -d "$start_arg" >/dev/null 2>&1; then
-        echo "Error: Invalid start date format: '$start_arg' (expected YYYY-MM-DD)" >&2
-        exit 1
-    fi
-    if ! date -d "$end_arg" >/dev/null 2>&1; then
-        echo "Error: Invalid end date format: '$end_arg' (expected YYYY-MM-DD)" >&2
-        exit 1
-    fi
-    # Check start <= end
-    start_epoch=$(date -d "$start_arg" +%s)
-    end_epoch=$(date -d "$end_arg" +%s)
-    if [[ $start_epoch -gt $end_epoch ]]; then
-        echo "Error: Start date must be before or equal to end date" >&2
-        exit 1
-    fi
-    period="custom"
-fi
-
-# Handle latest session separately (no date filtering)
-if [[ "$period" == "latest" ]]; then
-    session_file=$(ls -t "$SESSION_DIR"/*.json 2>/dev/null | head -n 1)
-    if [[ -z "$session_file" || ! -f "$session_file" ]]; then
-        echo "Error: No session files found in $SESSION_DIR" >&2
-        exit 1
-    fi
-    session_files=("$session_file")
-    start_boundary="null"
-    end_boundary="null"
-    period_name="Latest Session"
-else
-    # Get all session files safely
-    shopt -s nullglob 2>/dev/null || true
-    session_files=("$SESSION_DIR"/*.json)
-    shopt -u nullglob 2>/dev/null || true
-
-    if [[ ${#session_files[@]} -eq 0 || ! -f "${session_files[0]}" ]]; then
-        echo "Error: No session files found in $SESSION_DIR" >&2
-        exit 1
-    fi
-
-    # Compute time boundaries
-    case $period in
+compute_boundaries() {
+    case $PERIOD in
+        latest) 
+            PERIOD_NAME="Latest Session"
+            return 0  # latest はファイル取得時に処理
+            ;;
         today)
-            start_boundary=$(date -d '00:00:00' '+%Y-%m-%d %H:%M:%S')
-            end_boundary=$(date -d '23:59:59' '+%Y-%m-%d %H:%M:%S')
-            period_name="Today"
+            START_BOUNDARY="$(date -d '00:00:00' '+%Y-%m-%d %H:%M:%S')"
+            END_BOUNDARY="$(date -d '23:59:59' '+%Y-%m-%d %H:%M:%S')"
+            PERIOD_NAME="Today"
             ;;
         week)
-            start_boundary=$(date -d '7 days ago 00:00:00' '+%Y-%m-%d %H:%M:%S')
-            end_boundary=$(date -d '23:59:59' '+%Y-%m-%d %H:%M:%S')
-            period_name="This Week"
+            START_BOUNDARY="$(date -d '7 days ago 00:00:00' '+%Y-%m-%d %H:%M:%S')"
+            END_BOUNDARY="$(date -d '23:59:59' '+%Y-%m-%d %H:%M:%S')"
+            PERIOD_NAME="This Week"
             ;;
         month)
-            start_boundary=$(date -d "$(date +%Y-%m-01) 00:00:00" '+%Y-%m-%d %H:%M:%S')
-            end_boundary=$(date -d "$(date +%Y-%m-01) +1 month -1 second" '+%Y-%m-%d %H:%M:%S')
-            period_name="This Month"
+            local first_day; first_day="$(date +%Y-%m-01)"
+            START_BOUNDARY="$(date -d "$first_day 00:00:00" '+%Y-%m-%d %H:%M:%S')"
+            END_BOUNDARY="$(date -d "$first_day +1 month -1 second" '+%Y-%m-%d %H:%M:%S')"
+            PERIOD_NAME="This Month"
             ;;
         custom)
-            start_boundary="${start_arg} 00:00:00"
-            end_boundary="${end_arg} 23:59:59"
-            period_name="Custom Range: $start_arg to $end_arg"
+            START_BOUNDARY="${START_ARG} 00:00:00"
+            END_BOUNDARY="${END_ARG} 23:59:59"
+            PERIOD_NAME="Custom Range: $START_ARG to $END_ARG"
             ;;
         all)
-            start_boundary="null"
-            end_boundary="null"
-            period_name="All Time"
+            START_BOUNDARY="null"
+            END_BOUNDARY="null"
+            PERIOD_NAME="All Time"
             ;;
     esac
+}
 
-    # Final boundary validation (should not fail on Linux with GNU date)
-    if [[ "$period" != "all" && ( -z "$start_boundary" || -z "$end_boundary" ) ]]; then
-        echo "Error: Failed to compute date boundaries (requires GNU date)" >&2
-        exit 1
+get_target_files() {
+    shopt -s nullglob
+    local -a all_files=("$SESSION_DIR"/*.json)
+    shopt -u nullglob
+    
+    [[ ${#all_files[@]} -eq 0 ]] && log_fatal "No session files found in $SESSION_DIR"
+
+    if [[ "$PERIOD" == "latest" ]]; then
+        # 最新ファイル1件のみ取得（境界値は null で全件対象）
+        TARGET_FILES=("$(ls -t "${all_files[@]}" | head -n1)")
+    elif [[ "$PERIOD" == "custom" || "$PERIOD" == "all" ]]; then
+        TARGET_FILES=("${all_files[@]}")
+    else
+        # 日付範囲でファイル名から簡易フィルタ（※session_id に日付が含まれる前提）
+        # より厳密には jq で start_time をフィルタする方が安全
+        for f in "${all_files[@]}"; do
+            TARGET_FILES+=("$f")
+        done
     fi
-fi
+}
 
-# Common jq filter prefix
-jq_filter_prefix='
-  [ 
-    .[] as $session | 
-    $session.games[] as $game | 
-    $game + {session_id: $session.session_id}
-  ] as $all_games |
+# ============================================================================
+# jq 統計計算（統一処理）
+# ============================================================================
+# 外部ファイル stats_filter.jq を使う場合:
+#   jq -s --arg start "$START_BOUNDARY" --arg end "$END_BOUNDARY" \
+#      -f "$SCRIPT_DIR/stats_filter.jq" "${TARGET_FILES[@]}"
+#
+# 以下は inline 版（def で構造化）
 
-  (if ($start == "null") then 
-     $all_games 
-   else 
-     $all_games | map(select(.timestamp >= $start and .timestamp <= $end)) 
-   end) as $games |
+calculate_stats() {
+    local -n files_ref=$1
+    local jq_filter
+    jq_filter=$(cat <<'JQ_FILTER'
+# 全ゲームをフラット化 + session メタ付与
+[.[] as $session | $session.games[] as $game | $game + {session_id: $session.session_id, source: $session.source, level: $session.level}] as $all |
 
-  ($games | map(select(.input == .word))) as $correct_games |
+# 期間フィルタ（start/end が "null" 文字列の場合はスキップ）
+(if ($start == "null") then $all 
+ else $all | map(select(.timestamp >= $start and .timestamp <= $end)) 
+ end) as $games |
 
-  ($games | length) as $total |
-  ($correct_games | length) as $correct |
+# 正解ゲームの抽出
+($games | map(select(.input == .word))) as $correct_games |
 
-  ($correct_games | map(.time_taken) | add // 0) as $total_time |
-  ($correct_games | map(.input | length) | add // 0) as $total_chars |
+# 基本集計
+($games | length) as $total |
+($correct_games | length) as $correct |
+($correct_games | map(.time_taken) | add // 0) as $total_time |
+($correct_games | map(.input | length) | add // 0) as $total_chars |
 
-  (if $total > 0 then ($correct * 100 / $total) else 0 end) as $accuracy |
-  (if $total_time > 0 then $total_chars / $total_time else 0 end) as $avg_speed |
+# 派生指標
+(if $total > 0 then ($correct * 100 / $total) else 0 end) as $accuracy |
+(if $total_time > 0 then ($total_chars / $total_time) else 0 end) as $avg_speed |
+($games | map(.session_id) | unique | length) as $session_count |
+($games | map(.source) | unique | join(", ")) as $sources |
+($games | map(.level) | unique | join(", ")) as $levels |
 
-  ($games | map(.session_id) | unique | length) as $session_count |
-'
+# 出力オブジェクト
+{
+  session_count: $session_count,
+  total_games: $total,
+  correct_games: $correct,
+  accuracy_percent: $accuracy,
+  total_time_seconds: $total_time,
+  avg_speed_cps: $avg_speed,
+  sources: $sources,
+  levels: $levels
+}
+JQ_FILTER
+)
+    # jq 実行（エラーを隠さない）
+    jq -s --arg start "$START_BOUNDARY" --arg end "$END_BOUNDARY" "$jq_filter" "${files_ref[@]}"
+}
 
-if [[ "$period" == "latest" ]]; then
-    # 単一ファイルを直接処理
-    jq --arg start "$start_boundary" --arg end "$end_boundary" '
-      {
-        session_count: 1,
-        total_games: (.games | length),
-        correct_games: (.games | map(select(.input == .word)) | length),
-        accuracy_percent: ((.games | map(select(.input == .word)) | length) * 100 / (.games | length)),
-        total_time_seconds: (.games | map(select(.input == .word)) | map(.time_taken) | add // 0),
-        avg_speed_cps: (
-          (.games | map(select(.input == .word)) | map(.input | length) | add // 0) /
-          (.games | map(select(.input == .word)) | map(.time_taken) | add // 0)
-        ),
-        source: (.source // "unknown"),
-        level: (.level // "unknown")
-      }
-    ' "$session_file" 2>/dev/null | jq -r --arg period "$period_name" "
+# ============================================================================
+# 出力整形
+# ============================================================================
+format_output() {
+    local period_name=$1
+    jq -r --arg period "$period_name" '
       def round2: (.*100 | floor)/100;
-      \"=== Typing Game Statistics $period ===\",
-      \"\",
-      \"  Source: \(.source)\",
-      \"  Level: \(.level)\",
-      \"  Total Games: \(.total_games)\",
-      \"  Correct Answers: \(.correct_games)\",
-      \"  Accuracy: \(.accuracy_percent | floor)%\",
-      \"  Total Time: \(.total_time_seconds | floor) seconds\",
-      \"  CPS (Chars Per Second): \(.avg_speed_cps | round2)\",
-      \"\"
-    " || { echo "Error: Failed to process session data" >&2; exit 1; }
-else
-    jq -s --arg start "$start_boundary" --arg end "$end_boundary" '
-      '"$jq_filter_prefix"'
-      {
-        session_count: $session_count,
-        total_games: $total,
-        correct_games: $correct,
-        accuracy_percent: $accuracy,
-        total_time_seconds: $total_time,
-        avg_speed_cps: $avg_speed
-      }
-    ' "${session_files[@]}" 2>/dev/null | jq -r --arg period "$period_name" "
-      def round2: (.*100 | floor)/100;
-      \"=== Typing Game Statistics $period ===\",
-      \"\",
-      \"  Sessions: \(.session_count)\",
-      \"  Total Games: \(.total_games)\",
-      \"  Correct Answers: \(.correct_games)\",
-      \"  Accuracy: \(.accuracy_percent | floor)%\",
-      \"  Total Time: \(.total_time_seconds | floor) seconds\",
-      \"  CPS (Chars Per Second): \(.avg_speed_cps | round2)\",
-      \"\"
-    " || { echo "Error: Failed to process session data" >&2; exit 1; }
-fi
+      "=== Typing Game Statistics \($period) ===", "",
+      "  Sessions: \(.session_count)",
+      "  Sources: \(.sources)",
+      "  Levels: \(.levels)",
+      "  Total Games: \(.total_games)",
+      "  Correct Answers: \(.correct_games)",
+      "  Accuracy: \(.accuracy_percent | floor)%",
+      "  Total Time: \(.total_time_seconds | floor) seconds",
+      "  CPS (Chars Per Second): \(.avg_speed_cps | round2)",
+      ""
+    '
+}
+
+# ============================================================================
+# メイン処理
+# ============================================================================
+main() {
+    parse_arguments "$@"
+    
+    # カスタム範囲の検証
+    if [[ -n "$START_ARG" || -n "$END_ARG" ]]; then
+        [[ "$PERIOD" != "all" ]] && log_fatal "Cannot combine period options with --start/--end"
+        validate_custom_range
+        PERIOD="custom"
+    fi
+    
+    compute_boundaries
+    get_target_files
+    
+    # 統計計算 → 出力
+    local stats
+    if ! stats=$(calculate_stats TARGET_FILES); then
+        log_fatal "jq processing failed: $stats"
+    fi
+    
+    echo "$stats" | format_output "$PERIOD_NAME"
+}
+
+main "$@"
