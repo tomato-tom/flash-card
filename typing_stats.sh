@@ -137,57 +137,84 @@ else
     fi
 fi
 
-# Process sessions with jq
-jq -s --arg start "$start_boundary" --arg end "$end_boundary" '
-  # Add session_id to each game and flatten
+# Common jq filter prefix
+jq_filter_prefix='
   [ 
     .[] as $session | 
     $session.games[] as $game | 
     $game + {session_id: $session.session_id}
   ] as $all_games |
 
-  # Filter games by timestamp period (skip if boundaries are "null")
   (if ($start == "null") then 
      $all_games 
    else 
      $all_games | map(select(.timestamp >= $start and .timestamp <= $end)) 
    end) as $games |
 
-  # Correct games (exact matches)
   ($games | map(select(.input == .word))) as $correct_games |
 
-  # Basic counts
   ($games | length) as $total |
   ($correct_games | length) as $correct |
 
-  # Time/chars from correct games only
   ($correct_games | map(.time_taken) | add // 0) as $total_time |
   ($correct_games | map(.input | length) | add // 0) as $total_chars |
 
-  # Derived statistics
   (if $total > 0 then ($correct * 100 / $total) else 0 end) as $accuracy |
   (if $total_time > 0 then $total_chars / $total_time else 0 end) as $avg_speed |
 
-  # Distinct sessions contributing to this period
   ($games | map(.session_id) | unique | length) as $session_count |
+'
 
-  {
-    session_count: $session_count,
-    total_games: $total,
-    correct_games: $correct,
-    accuracy_percent: $accuracy,
-    total_time_seconds: $total_time,
-    avg_speed_cps: $avg_speed
-  }
-' "${session_files[@]}" 2>/dev/null | jq -r --arg period "$period_name" '
-  def round2: (.*100 | floor)/100;
-  "=== Typing Game Statistics (\($period)) ===",
-  "",
-  "  Sessions: \(.session_count)",
-  "  Total Games: \(.total_games)",
-  "  Correct Answers: \(.correct_games)",
-  "  Accuracy: \(.accuracy_percent | floor)%",
-  "  Total Time: \(.total_time_seconds | floor) seconds",
-  "  CPS (Chars Per Second): \(.avg_speed_cps | round2)",
-  ""
-' || { echo "Error: Failed to process session data" >&2; exit 1; }
+if [[ "$period" == "latest" ]]; then
+    # 単一ファイルを直接処理
+    jq --arg start "$start_boundary" --arg end "$end_boundary" '
+      {
+        session_count: 1,
+        total_games: (.games | length),
+        correct_games: (.games | map(select(.input == .word)) | length),
+        accuracy_percent: ((.games | map(select(.input == .word)) | length) * 100 / (.games | length)),
+        total_time_seconds: (.games | map(select(.input == .word)) | map(.time_taken) | add // 0),
+        avg_speed_cps: (
+          (.games | map(select(.input == .word)) | map(.input | length) | add // 0) /
+          (.games | map(select(.input == .word)) | map(.time_taken) | add // 0)
+        ),
+        source: (.source // "unknown"),
+        level: (.level // "unknown")
+      }
+    ' "$session_file" 2>/dev/null | jq -r --arg period "$period_name" "
+      def round2: (.*100 | floor)/100;
+      \"=== Typing Game Statistics $period ===\",
+      \"\",
+      \"  Source: \(.source)\",
+      \"  Level: \(.level)\",
+      \"  Total Games: \(.total_games)\",
+      \"  Correct Answers: \(.correct_games)\",
+      \"  Accuracy: \(.accuracy_percent | floor)%\",
+      \"  Total Time: \(.total_time_seconds | floor) seconds\",
+      \"  CPS (Chars Per Second): \(.avg_speed_cps | round2)\",
+      \"\"
+    " || { echo "Error: Failed to process session data" >&2; exit 1; }
+else
+    jq -s --arg start "$start_boundary" --arg end "$end_boundary" '
+      '"$jq_filter_prefix"'
+      {
+        session_count: $session_count,
+        total_games: $total,
+        correct_games: $correct,
+        accuracy_percent: $accuracy,
+        total_time_seconds: $total_time,
+        avg_speed_cps: $avg_speed
+      }
+    ' "${session_files[@]}" 2>/dev/null | jq -r --arg period "$period_name" "
+      def round2: (.*100 | floor)/100;
+      \"=== Typing Game Statistics $period ===\",
+      \"\",
+      \"  Sessions: \(.session_count)\",
+      \"  Total Games: \(.total_games)\",
+      \"  Correct Answers: \(.correct_games)\",
+      \"  Accuracy: \(.accuracy_percent | floor)%\",
+      \"  Total Time: \(.total_time_seconds | floor) seconds\",
+      \"  CPS (Chars Per Second): \(.avg_speed_cps | round2)\",
+      \"\"
+    " || { echo "Error: Failed to process session data" >&2; exit 1; }
+fi
