@@ -132,10 +132,13 @@ load_content() {
     # レベルeasyは単語のみ
     max_char=15; min_char=5 ;
     if [[ "$LEVEL" == "easy" ]]; then
-        local list=$(echo "${word_list[@]}" | tr ' ' '\n')
-
+        local word_min=5
+        local word_max=15
+        
         mapfile -t word_list < <(
-            echo "${list[@]}" | grep -E "^[[:alpha:]]{$min_char,$max_char}$" |
+            printf '%s\n' "${word_list[@]}" |
+                tr ' ' '\n' |
+                grep -E "^[[:alpha:]]{$word_min,$word_max}$" |
                 sort -u | shuf -n 300
         )
     fi
