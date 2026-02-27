@@ -1,8 +1,12 @@
 #!/bin/bash
 # Typing game
+# 使い方
+# ./typing.sh            - デフォルトの "man bash" よりコンテンツ抽出
+# SOURCE=ls ./typing.sh  - "man ls" より
 
 # 設定
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-toplevel)"
+: ${SOURCE:="bash"}
 
 # ログ用変数
 SESSION_ID="session_$(date +%Y%m%d_%H%M%S)"
@@ -125,7 +129,7 @@ load_content() {
     local max_char
     local min_char
 
-    # 各レベルのフレーズ長さ
+    # 各レベルの文字長さ
     case $LEVEL in
         easy) max_char=90; min_char=15 ;;
         medium) max_char=60; min_char=15 ;;
@@ -134,12 +138,12 @@ load_content() {
 
     # フレーズのリスト取得: man2typing.sh を利用
     mapfile -t word_list < <(
-        "$PROJECT_ROOT/snippets/man2typing.sh" bash 2>/dev/null |
+        "$PROJECT_ROOT/snippets/man2typing.sh" "$SOURCE" 2>/dev/null |
             grep -E "^.{$min_char,$max_char}$" |
             sort -u | shuf -n 300
     )
 
-    # レベルeasyは単語のみ
+    # レベルeasyは単語のみ、フレーズから抽出
     max_char=15; min_char=5 ;
     if [[ "$LEVEL" == "easy" ]]; then
         local word_min=5
@@ -167,13 +171,15 @@ trap cleanup EXIT INT TERM
 mkdir -p "$SESSION_DIR"
 jq -n --arg sid "$SESSION_ID" \
     --arg st "$START_TIME" \
+    --arg src "$SOURCE" \
     --arg lv "$LEVEL" '{
        session_id: $sid,
        start_time: $st,
+       source: $src,
        level: $lv,
        games: [] 
    }' > "$JSON_FILE"
-    
+
 select_menu
 load_content
 echo "words: ${#word_list[@]}"
