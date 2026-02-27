@@ -1,248 +1,238 @@
 # Typing game
 
-CLI(今の所) タイピングゲーム
-英語学習用
+CLI タイピングゲーム
 
-## フロー
-
-```mermaid
-flowchart TD
-    Start([Start]) --> CheckDeps[check_dependencies]
-    CheckDeps --> SelectSet[select_word_set<br/>TUI selection]
-    SelectSet --> QuitCheck{quit?}
-    QuitCheck -->|Yes| End([Exit])
-    QuitCheck -->|No| CreateSession[Create JSON session file]
-    
-    CreateSession --> LoadContent[load_content<br/>man/command words]
-    LoadContent --> ShowReady[Show word count<br/>Press ANY KEY]
-    ShowReady --> WaitStart[Wait for key press]
-    WaitStart --> GameLoop{Game Loop}
-    
-    GameLoop --> SelectWord[Random word selection]
-    SelectWord --> Speech[speech - TTS word]
-    Speech --> DisplayWord[Display word]
-    DisplayWord --> WaitInput[Read input with timeout]
-    
-    WaitInput --> CheckQuit{input == 'q'?}
-    CheckQuit -->|Yes| SaveSession[Save session end data]
-    CheckQuit -->|No| CheckCorrect{input == word?}
-    
-    CheckCorrect -->|Yes| ShowCorrect[Show ✓ Correct]
-    CheckCorrect -->|No| ShowFailed[Show ✗ Failed]
-    
-    ShowCorrect --> CalcSpeed[Calculate speed c/s]
-    ShowFailed --> CalcSpeed
-    CalcSpeed --> LogGame[log_game to JSON]
-    LogGame --> WaitNext[Wait for Enter]
-    WaitNext --> GameLoop
-    
-    SaveSession --> Cleanup[cleanup<br/>Remove temp files]
-    Cleanup --> End
-    
-    style Start fill:#90EE90
-    style End fill:#FFB6C1
-    style GameLoop fill:#87CEEB
-    style CheckQuit fill:#FFE4B5
-    style CheckCorrect fill:#FFE4B5
+## Directory Structure
 ```
-
-## Typing Game Enhancement Design
-
-### 1. Difficulty Modes
-
-Mode Parameters
-```bash
-# Easy Mode
-CHAR_RANGE="4-8"
-TIME_MULTIPLIER="1.0"  # 文字数 * 1.0秒
-WORD_POOL_SIZE=100
-
-# Normal Mode (current default)
-CHAR_RANGE="4-15"
-TIME_MULTIPLIER="0.6"  # 文字数 * 0.6秒
-WORD_POOL_SIZE=200
-
-# Hard Mode
-CHAR_RANGE="10-20"
-TIME_MULTIPLIER="0.4"  # 文字数 * 0.4秒
-WORD_POOL_SIZE=300
-```
-
-### Implementation
-```bash
-select_difficulty() {
-    local options=("easy" "normal" "hard")
-    local selected=0
-    
-    # TUI selection logic (similar to select_word_set)
-    # Set global variables based on selection
-    case "$DIFFICULTY" in
-        easy)   CHAR_MIN=4;  CHAR_MAX=8;  TIME_MULT=1.0 ;;
-        normal) CHAR_MIN=4;  CHAR_MAX=15; TIME_MULT=0.6 ;;
-        hard)   CHAR_MIN=10; CHAR_MAX=20; TIME_MULT=0.4 ;;
-    esac
-}
-```
-
-### 2. Content Organization
-
-Directory Structure
-```
+typing.sh
+typing_stats.sh
 data/
-├── typing/
-│   └── sessions/
-│       └── session_YYYYMMDD_HHMMSS.json
-└── content/
-    ├── easy/
-    │   ├── basic-commands.txt
-    │   └── common-words.txt
-    ├── normal/
-    │   ├── man-bash.txt
-    │   └── programming-terms.txt
-    └── hard/
-        ├── man-sentences.txt
-        └── technical-jargon.txt
+└── typing/
+        └── session_YYYYMMDD_HHMMSS.json
+docs/
+└── typing.md
 ```
 
-Content Loader
-```bash
-load_content_by_difficulty() {
-    local content_dir="$PROJECT_ROOT/data/content/$DIFFICULTY"
-    local content_file="$content_dir/${WORD}.txt"
-    
-    if [ -f "$content_file" ]; then
-        mapfile -t word_list < "$content_file"
-    else
-        # Fallback to dynamic generation
-        generate_content_from_man
-    fi
-}
-```
-
-### 3. Keylogger Integration
-
-Data Structure
-```json
-{
-  "session_id": "session_20260204_143022",
-  "difficulty": "normal",
-  "games": [
-    {
-      "timestamp": "2026-02-04 14:30:25",
-      "word": "command",
-      "input": "command",
-      "time_taken": 1.23,
-      "keystrokes": [
-        {"key": "c", "time": 0.15, "interval": 0.15},
-        {"key": "o", "time": 0.28, "interval": 0.13},
-        {"key": "m", "time": 0.42, "interval": 0.14},
-        {"key": "m", "time": 0.55, "interval": 0.13},
-        {"key": "a", "time": 0.69, "interval": 0.14},
-        {"key": "n", "time": 0.82, "interval": 0.13},
-        {"key": "d", "time": 0.95, "interval": 0.13}
-      ],
-      "metrics": {
-        "avg_interval": 0.135,
-        "max_interval": 0.15,
-        "accuracy": 1.0,
-        "wpm": 58.5
-      }
-    }
-  ]
-}
-```
-
-Keylogger Implementation
-```bash
-# Requires: script command or custom input handler
-capture_keystrokes() {
-    local word="$1"
-    local keystrokes=()
-    local start_time=$(date +%s.%N)
-    local last_time=$start_time
-    
-    while IFS= read -rsn1 char; do
-        current_time=$(date +%s.%N)
-        interval=$(echo "$current_time - $last_time" | bc)
-        timestamp=$(echo "$current_time - $start_time" | bc)
-        
-        keystrokes+=("{\"key\":\"$char\",\"time\":$timestamp,\"interval\":$interval}")
-        last_time=$current_time
-        
-        echo -n "$char"
-        [[ "$char" == $'\n' ]] && break
-    done
-    
-    # Return as JSON array
-    printf '[%s]' "$(IFS=,; echo "${keystrokes[*]}")"
-}
-```
-
-Metrics Calculation
-```bash
-calculate_metrics() {
-    local keystrokes_json="$1"
-    local word_length="$2"
-    local total_time="$3"
-    
-    # Calculate average interval
-    local avg_interval=$(jq '[.[].interval] | add / length' <<< "$keystrokes_json")
-    
-    # Calculate WPM (words per minute)
-    local wpm=$(echo "scale=2; ($word_length / 5) / ($total_time / 60)" | bc)
-    
-    # Calculate accuracy (if mistyped keys tracked)
-    local accuracy=1.0
-    
-    jq -n \
-        --argjson avg "$avg_interval" \
-        --argjson wpm "$wpm" \
-        --argjson acc "$accuracy" \
-        '{avg_interval: $avg, wpm: $wpm, accuracy: $acc}'
-}
-```
-
-### 4. Flow Update
+## typing.sh
 
 ```mermaid
 flowchart TD
-    Start([Start]) --> CheckDeps[check_dependencies]
-    CheckDeps --> SelectDiff[select_difficulty<br/>easy/normal/hard]
-    SelectDiff --> SelectSet[select_word_set]
-    SelectSet --> CreateSession[Create JSON + difficulty]
-    CreateSession --> LoadContent[load_content_by_difficulty]
-    LoadContent --> GameLoop{Game Loop}
+    Start[Start Script] --> Deps[Check Dependencies]
+    Deps -->|Missing| Exit[Exit]
+    Deps -->|OK| Menu[Select Difficulty]
+    Menu -->|Quit| Exit
+    Menu -->|Select| Init[Create JSON Log]
+    Init --> Load[Load Content]
+    Load --> Loop{Game Loop}
     
-    GameLoop --> SelectWord[Random word]
-    SelectWord --> StartCapture[Start keystroke capture]
-    StartCapture --> WaitInput[Capture each keystroke]
-    WaitInput --> CalcMetrics[Calculate metrics<br/>WPM, intervals]
-    CalcMetrics --> LogGame[log_game + keystrokes]
-    LogGame --> GameLoop
+    subgraph Gameplay ["Gameplay Loop"]
+        Loop --> Pick[Pick Random Word]
+        Pick --> Speech[TTS Speech]
+        Speech --> Input[User Input]
+        Input -->|q| EndLoop[End Loop]
+        Input -->|Type| Check{Correct?}
+        Check -->|Yes| Result[Log Success]
+        Check -->|No| Result[Log Failure]
+        Result --> Speed[Calc Speed]
+        Speed --> Next{Next?}
+        Next -->|Enter| Loop
+        Next -->|q| EndLoop
+    end
+
+    EndLoop --> Save[Update JSON End Time]
+    Save --> Clean[Cleanup Temp Files]
+    Clean --> Done[End Session]
+
+    style Gameplay fill:#f9f9f9,stroke:#333,stroke-dasharray: 5 5
 ```
 
-### 5. Analysis Features
+## typing_stats.sh
 
-Session Statistics
-```bash
-analyze_session() {
-    local json_file="$1"
+### Execution Flowchart
+
+```mermaid
+flowchart TD
+    Start([Start]) --> ParseArgs[parse_arguments]
+    ParseArgs --> CheckCustom{Custom range?}
     
-    jq '
-    {
-        total_games: (.games | length),
-        avg_wpm: ([.games[].metrics.wpm] | add / length),
-        avg_accuracy: ([.games[].metrics.accuracy] | add / length),
-        avg_keystroke_interval: ([.games[].metrics.avg_interval] | add / length),
-        difficulty: .difficulty
+    CheckCustom -->|Yes| ValidateRange[validate_custom_range]
+    CheckCustom -->|No| ComputeBound[compute_boundaries]
+    
+    ValidateRange --> SetCustom[PERIOD = custom]
+    SetCustom --> ComputeBound
+    
+    ComputeBound --> GetFiles[get_target_files]
+    
+    GetFiles --> CalcStats[calculate_stats]
+    
+    CalcStats --> JqProc[jq: flatten games + filter + aggregate]
+    JqProc --> StatsReady{Stats computed?}
+    
+    StatsReady -->|Success| FormatOut[format_output]
+    StatsReady -->|Error| LogFatal[log_fatal + exit]
+    
+    FormatOut --> Display[Print formatted stats]
+    Display --> End([End])
+    
+    LogFatal --> End
+```
+
+---
+
+### Function Dependency Chart
+
+```mermaid
+flowchart LR
+    subgraph Main_Layer
+        main[main]
+    end
+    
+    subgraph Control_Layer
+        parse_arguments
+        validate_custom_range
+        compute_boundaries
+        get_target_files
+    end
+    
+    subgraph Core_Layer
+        calculate_stats
+        jq_engine[jq filter engine]
+    end
+    
+    subgraph Presentation_Layer
+        format_output
+    end
+    
+    subgraph Utilities
+        log_error
+        log_fatal
+        show_help
+    end
+    
+    %% Dependencies
+    main --> parse_arguments
+    main --> validate_custom_range
+    main --> compute_boundaries
+    main --> get_target_files
+    main --> calculate_stats
+    main --> format_output
+    
+    parse_arguments --> show_help
+    parse_arguments --> log_fatal
+    
+    validate_custom_range --> log_fatal
+    validate_custom_range --> log_error
+    
+    compute_boundaries --> log_error
+    
+    get_target_files --> log_fatal
+    
+    calculate_stats --> jq_engine
+    calculate_stats --> log_fatal
+    
+    format_output --> log_error
+    
+    %% Styling
+    classDef mainLayer fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef controlLayer fill:#fff9c4,stroke:#fbc02d
+    classDef coreLayer fill:#e8f5e9,stroke:#2e7d32
+    classDef presentLayer fill:#f3e5f5,stroke:#7b1fa2
+    classDef utilLayer fill:#ffebee,stroke:#c62828,stroke-dasharray:5 5
+    
+    class main mainLayer
+    class parse_arguments,validate_custom_range,compute_boundaries,get_target_files controlLayer
+    class calculate_stats,jq_engine coreLayer
+    class format_output presentLayer
+    class log_error,log_fatal,show_help utilLayer
+```
+
+---
+
+### Data Flow in `calculate_stats`
+
+```mermaid
+graph LR
+    subgraph Input
+        Files[JSON files]
+        Args[--start / --end]
+    end
+    
+    subgraph jq_Processing
+        Flatten[Flatten: session + games]
+        AttachMeta[Attach: source/level/session_id]
+        FilterPeriod[Filter by timestamp]
+        FilterCorrect[Filter: input == word]
+        Aggregate[Aggregate metrics]
+        ComputeDerived[Compute: accuracy/CPS]
+        BuildOutput[Build result object]
+    end
+    
+    subgraph Output
+        StatsJSON[JSON stats object]
+    end
+    
+    Files --> Flatten
+    Args --> FilterPeriod
+    
+    Flatten --> AttachMeta
+    AttachMeta --> FilterPeriod
+    FilterPeriod --> FilterCorrect
+    FilterCorrect --> Aggregate
+    Aggregate --> ComputeDerived
+    ComputeDerived --> BuildOutput
+    BuildOutput --> StatsJSON
+    
+    classDef io fill:#f5f5f5,stroke:#666,stroke-width:1px
+    classDef proc fill:#e3f2fd,stroke:#1976d2
+    class Input,Output io
+    class jq_Processing proc
+```
+
+---
+
+### Function Call Hierarchy (Tree View)
+
+```mermaid
+classDiagram
+    class main {
+        +void main(args)
     }
-    ' "$json_file"
-}
+    
+    class ArgumentHandling {
+        +void parse_arguments()
+        +void show_help()
+        +void validate_custom_range()
+    }
+    
+    class DateFileHandling {
+        +void compute_boundaries()
+        +string[] get_target_files()
+    }
+    
+    class StatsEngine {
+        +object calculate_stats(files)
+        >> jq filter: flatten/filter/aggregate
+    }
+    
+    class OutputFormatter {
+        +void format_output(stats, period_name)
+        >> jq filter: format strings
+    }
+    
+    class Utils {
+        +void log_error(msg)
+        +void log_fatal(msg)
+    }
+    
+    main --> ArgumentHandling : calls
+    main --> DateFileHandling : calls
+    main --> StatsEngine : calls
+    main --> OutputFormatter : calls
+    main --> Utils : error handling
+    
+    ArgumentHandling --> Utils : on error
+    DateFileHandling --> Utils : on error
+    StatsEngine --> Utils : on jq failure
+    
+    note for StatsEngine "Single entry point\nHandles both 'latest' and\nperiod-based aggregation"
 ```
-
-Visualization Ideas
-- WPM progression over time
-- Keystroke heatmap (which keys are slower)
-- Accuracy by word length
-- Learning curve (improvement over sessions)
-
