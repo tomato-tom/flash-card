@@ -8,7 +8,11 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && git rev-parse --show-topl
 SESSION_ID="session_$(date +%Y%m%d_%H%M%S)"
 START_TIME=$(date "+%Y-%m-%d %H:%M:%S")
 START_SEC=$(date +%s)
+SESSION_DIR="$PROJECT_ROOT/data/typing"
+JSON_FILE="$SESSION_DIR/$SESSION_ID.json"
+LEVEL=""
 
+# TTS
 SPEECH_FILE="/dev/shm/say_${SESSION_ID}.mp3"
 SPEECH=true
 
@@ -26,6 +30,12 @@ check_dependencies() {
     
     if [ ${#missing[@]} -gt 0 ]; then
         echo "Missing dependencies: ${missing[*]}"
+        exit 1
+    fi
+
+    # man2typing.sh
+    if [[ ! -x "$PROJECT_ROOT/snippets/man2typing.sh" ]]; then
+        echo "Error: ./snippets/man2typing.sh not found or not executable"
         exit 1
     fi
 
@@ -124,7 +134,7 @@ load_content() {
 
     # フレーズのリスト取得: man2typing.sh を利用
     mapfile -t word_list < <(
-        ./snippets/man2typing.sh bash 2>/dev/null |
+        "$PROJECT_ROOT/snippets/man2typing.sh" bash 2>/dev/null |
             grep -E "^.{$min_char,$max_char}$" |
             sort -u | shuf -n 300
     )
@@ -153,12 +163,7 @@ cleanup() {
 
 trap cleanup EXIT INT TERM
 
-select_menu
-
 # データ用のjsonファイル作成
-SESSION_DIR="$PROJECT_ROOT/data/typing"
-JSON_FILE="$SESSION_DIR/$SESSION_ID.json"
-
 mkdir -p "$SESSION_DIR"
 jq -n --arg sid "$SESSION_ID" \
     --arg st "$START_TIME" \
@@ -169,6 +174,7 @@ jq -n --arg sid "$SESSION_ID" \
        games: [] 
    }' > "$JSON_FILE"
     
+select_menu
 load_content
 echo "words: ${#word_list[@]}"
 echo -ne "\n\033[1;35mPress ANY KEY to start...\033[0m\r"
@@ -216,20 +222,18 @@ while :; do
 
     if [ "$input" == "$text" ]; then
         echo "✓ Correct!"
-        correct=0
     else
         echo "✗ Failed"
-        correct=1
     fi
 
-    time_taken=$(echo "$end_time - $start_time" 2>/dev/null | bc)
+    # CPS計算
+    time_taken=$(echo "$end_time - $start_time" | bc 2>/dev/null)
     speed=$(echo "scale=2; ${#input} / $time_taken" | bc 2>/dev/null)
     printf "%.2f c/s\n" "${speed}"
-
     log_game "$text" "$input" "${time_taken}"
+
     echo "Enter to next game"
     read -s input
-    # とりあえずこれでバッファクリア
     [ "$input" == "q" ] && break
 done
 
