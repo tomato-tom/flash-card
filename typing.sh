@@ -50,6 +50,23 @@ check_dependencies() {
     done
 }
 
+
+# データ用のjsonファイル作成
+create_json() {
+    mkdir -p "$SESSION_DIR"
+    jq -n --arg sid "$SESSION_ID" \
+        --arg st "$START_TIME" \
+        --arg src "$SOURCE" \
+        --arg lv "$LEVEL" '{
+           session_id: $sid,
+           start_time: $st,
+           source: $src,
+           level: $lv,
+           games: [] 
+       }' > "$JSON_FILE"
+}
+
+
 # ゲーム結果を追加
 log_game() {
     local word="$1"
@@ -167,21 +184,11 @@ cleanup() {
 
 trap cleanup EXIT INT TERM
 
-# データ用のjsonファイル作成
-mkdir -p "$SESSION_DIR"
-jq -n --arg sid "$SESSION_ID" \
-    --arg st "$START_TIME" \
-    --arg src "$SOURCE" \
-    --arg lv "$LEVEL" '{
-       session_id: $sid,
-       start_time: $st,
-       source: $src,
-       level: $lv,
-       games: [] 
-   }' > "$JSON_FILE"
-
+# main
 select_menu
+create_json
 load_content
+
 echo "words: ${#word_list[@]}"
 echo -ne "\n\033[1;35mPress ANY KEY to start...\033[0m\r"
 read -rsn1
