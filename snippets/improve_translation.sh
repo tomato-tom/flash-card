@@ -140,7 +140,7 @@ while IFS= read -r line; do
         current_batch=()  # バッチをクリア
     fi
 
-    sleep 0.5
+    sleep 1
 done < "$INPUT_CSV"
 
 # 残りのアイテムを処理
