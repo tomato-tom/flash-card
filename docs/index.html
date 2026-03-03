@@ -10,7 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -19,20 +19,20 @@
             margin: 0 auto;
             background: #f5f5f5;
         }
-        
+
         h1 {
             color: #333;
             margin-bottom: 2rem;
             padding-bottom: 1rem;
             border-bottom: 3px solid #4CAF50;
         }
-        
+
         .file-grid {
             display: grid;
             gap: 1rem;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         }
-        
+
         .file-card {
             background: white;
             padding: 1.5rem;
@@ -43,12 +43,12 @@
             color: inherit;
             display: block;
         }
-        
+
         .file-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
-        
+
         .file-name {
             font-size: 1.1rem;
             font-weight: 600;
@@ -56,7 +56,7 @@
             margin-bottom: 0.5rem;
             word-break: break-word;
         }
-        
+
         .file-type {
             display: inline-block;
             padding: 0.25rem 0.5rem;
@@ -66,22 +66,22 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .type-html {
             background: #E3F2FD;
             color: #1976D2;
         }
-        
+
         .type-md {
             background: #F3E5F5;
             color: #7B1FA2;
         }
-        
+
         .type-js {
             background: #FFF3E0;
             color: #F57C00;
         }
-        
+
         footer {
             margin-top: 3rem;
             text-align: center;
@@ -92,41 +92,118 @@
 </head>
 <body>
     <h1>📚 Flash Card Documentation</h1>
-    
+
     <div class="file-grid">
         <a href="color_picker.html" class="file-card">
             <div class="file-name">color_picker.html</div>
             <span class="file-type type-html">HTML</span>
         </a>
-        
+
         <a href="flash_card.md" class="file-card">
             <div class="file-name">flash_card.md</div>
             <span class="file-type type-md">Markdown</span>
         </a>
-        
+
+        <a href="typing.md" class="file-card">
+            <div class="file-name">typing.md</div>
+            <span class="file-type type-md">Markdown</span>
+        </a>
+
         <a href="prompts_for_card_creation.md" class="file-card">
             <div class="file-name">prompts_for_card_creation.md</div>
             <span class="file-type type-md">Markdown</span>
         </a>
-        
+
         <a href="tput_usage.md" class="file-card">
             <div class="file-name">tput_usage.md</div>
             <span class="file-type type-md">Markdown</span>
         </a>
-        
+
         <a href="view_mermaid.html" class="file-card">
             <div class="file-name">view_mermaid.html</div>
             <span class="file-type type-html">HTML</span>
         </a>
-        
+
         <a href="weghited_random.md" class="file-card">
             <div class="file-name">weghited_random.md</div>
             <span class="file-type type-md">Markdown</span>
         </a>
+        <a href="flash_card.html" class="file-card">
+            <div class="file-name">flash_card.html</div>
+            <span class="file-type type-html">HTML</span>
+        </a>
     </div>
-    
+
     <footer>
         <p>Flash Card Project Documentation</p>
     </footer>
+
+    <!-- ローカルのmarked.jsライブラリ -->
+    <script src="marked.min.js"></script>
+    
+    <script>
+        // マークダウンファイルのリンクのみを処理
+        document.querySelectorAll('.file-card[href$=".md"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // markedの読み込み確認
+                if (typeof marked === 'undefined') {
+                    alert('marked.js が読み込まれていません');
+                    return;
+                }
+
+                const mdFile = this.getAttribute('href');
+                const fileName = this.querySelector('.file-name').textContent;
+                
+                // マークダウンファイルを取得
+                fetch(mdFile)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('ファイルの読み込みに失敗しました');
+                        }
+                        return response.text();
+                    })
+                    .then(markdown => {
+                        // マークダウンをHTMLに変換
+                        const htmlContent = marked.parse(markdown);
+                        
+                        // 新しいタブで表示
+                        const newWindow = window.open('', '_blank');
+                        newWindow.document.write(`
+                            <!DOCTYPE html>
+                            <html>
+                            <head>
+                                <meta charset="UTF-8">
+                                <title>${fileName}</title>
+                                <style>
+                                    body {
+                                        font-family: -apple-system, sans-serif;
+                                        line-height: 1.6;
+                                        padding: 2rem;
+                                        max-width: 900px;
+                                        margin: 0 auto;
+                                    }
+                                    h1 { border-bottom: 2px solid #4CAF50; padding-bottom: 0.5rem; }
+                                    pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; }
+                                    code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 3px; }
+                                    table { border-collapse: collapse; width: 100%; }
+                                    th, td { border: 1px solid #ddd; padding: 0.5rem; }
+                                    th { background: #f4f4f4; }
+                                </style>
+                            </head>
+                            <body>
+                                ${htmlContent}
+                            </body>
+                            </html>
+                        `);
+                        newWindow.document.close();
+                    })
+                    .catch(error => {
+                        alert('エラー: ' + error.message);
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
