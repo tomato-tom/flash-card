@@ -219,8 +219,8 @@ while :; do
     # 各レベルの制限時間
     case $LEVEL in
         easy) time=8 ;;
-        medium) time=6 ;;
-        hard) time=4 ;;
+        medium) time=5 ;;
+        hard) time=3 ;;
     esac
 
     start_time=$(date +%s.%N)
