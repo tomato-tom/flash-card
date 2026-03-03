@@ -3,6 +3,7 @@
 # 色の定義
 GREEN='\033[0;32m'
 RED='\033[0;31m'
+YELLOW='\033[1;33m'
 BOLD='\033[1m'
 NC='\033[0m' # No Color
 
@@ -17,19 +18,22 @@ original_settings=$(stty -g)
 
 cleanup() {
     stty "$original_settings"
+    tput cnorm
     echo -e "${NC}"
 }
 
 trap cleanup EXIT INT TERM
 
+tput civis  # カーソル非表示
+
 clear
 echo -e "${BOLD}Typing Game${NC}"
+echo -e "${YELLOW}CPS: ${NC}"
 echo -e "----------------"
 echo -e "Type this：$word\n\n"
 echo -n "> "
 
-# rawモード設定
-stty raw -echo
+stty raw -echo # rawモード設定
 
 # メインループ
 while :; do
@@ -79,7 +83,7 @@ while :; do
     
 done
 
-stty "$original_settings"
+cleanup
 
 # 正解数を計算
 correct=0
