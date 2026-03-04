@@ -140,7 +140,12 @@
 
     <!-- ローカルのmarked.jsライブラリ -->
     <script src="marked.min.js"></script>
-    
+    <script>
+        // markedが利用可能かチェック、なければCDNから読み込み
+        if (typeof marked === 'undefined') {
+            document.write('<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"><\/script>');
+        }
+    </script>
     <script>
         // マークダウンファイルのリンクのみを処理
         document.querySelectorAll('.file-card[href$=".md"]').forEach(link => {
