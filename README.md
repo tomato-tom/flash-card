@@ -7,7 +7,7 @@ tags:
 - anki
 genai:
 - deepseek web
-- gemini web/API/CLI
+- gemini web/api/cli
 ---
 # CLI Flash Card
 
