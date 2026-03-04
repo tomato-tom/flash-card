@@ -92,43 +92,42 @@
 </head>
 <body>
     <h1>📚 Flash Card Documentation</h1>
-
     <div class="file-grid">
-        <a href="color_picker.html" class="file-card">
+        <a href="color_picker.html" class="file-card" target="_blank">
             <div class="file-name">color_picker.html</div>
             <span class="file-type type-html">HTML</span>
         </a>
 
-        <a href="flash_card.md" class="file-card">
+        <a href="flash_card.md" class="file-card" target="_blank">
             <div class="file-name">flash_card.md</div>
             <span class="file-type type-md">Markdown</span>
         </a>
 
-        <a href="typing.md" class="file-card">
+        <a href="typing.md" class="file-card" target="_blank">
             <div class="file-name">typing.md</div>
             <span class="file-type type-md">Markdown</span>
         </a>
 
-        <a href="prompts_for_card_creation.md" class="file-card">
+        <a href="prompts_for_card_creation.md" class="file-card" target="_blank">
             <div class="file-name">prompts_for_card_creation.md</div>
             <span class="file-type type-md">Markdown</span>
         </a>
 
-        <a href="tput_usage.md" class="file-card">
+        <a href="tput_usage.md" class="file-card" target="_blank">
             <div class="file-name">tput_usage.md</div>
             <span class="file-type type-md">Markdown</span>
         </a>
 
-        <a href="view_mermaid.html" class="file-card">
+        <a href="view_mermaid.html" class="file-card" target="_blank">
             <div class="file-name">view_mermaid.html</div>
             <span class="file-type type-html">HTML</span>
         </a>
 
-        <a href="weghited_random.md" class="file-card">
+        <a href="weghited_random.md" class="file-card" target="_blank">
             <div class="file-name">weghited_random.md</div>
             <span class="file-type type-md">Markdown</span>
         </a>
-        <a href="flash_card.html" class="file-card">
+        <a href="flash_card.html" class="file-card" target="_blank">
             <div class="file-name">flash_card.html</div>
             <span class="file-type type-html">HTML</span>
         </a>
@@ -140,6 +139,24 @@
 
     <!-- ローカルのmarked.jsライブラリ -->
     <script src="marked.min.js"></script>
+    <!-- 
+      ダウンロード: wget https://cdn.jsdelivr.net/npm/marked/marked.min.js
+      現在のバージョン確認: 
+      console.log(marked.version) で表示
+      
+      最新バージョンチェック:
+      curl -s https://registry.npmjs.org/marked/latest | grep -o '"version":"[^"]*"'
+      
+      更新が必要か比較:
+      wget -q -O- https://registry.npmjs.org/marked/latest | node -pe "JSON.parse(require('fs').readFileSync(0)).version"
+    -->
+    <script>
+        // バージョン情報をコンソールに表示
+        if (typeof marked !== 'undefined' && marked.version) {
+            console.log('marked.js version:', marked.version);
+            console.log('check latest version: curl -s https://registry.npmjs.org/marked/latest | grep -o "version":"[^"]*"');
+        }
+    </script>
     <script>
         // markedが利用可能かチェック、なければCDNから読み込み
         if (typeof marked === 'undefined') {
@@ -190,22 +207,102 @@
                                         margin: 0 auto;
                                     }
                                     h1 { border-bottom: 2px solid #4CAF50; padding-bottom: 0.5rem; }
-                                    pre { background: #f4f4f4; padding: 1rem; border-radius: 4px; }
-                                    code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 3px; }
-                                    table { border-collapse: collapse; width: 100%; }
-                                    th, td { border: 1px solid #ddd; padding: 0.5rem; }
-                                    th { background: #f4f4f4; }
+                                    
+                                    /* コードブロックのスタイル */
+                                    pre {
+                                        background: #f4f4f4;
+                                        padding: 1rem;
+                                        border-radius: 4px;
+                                        position: relative;
+                                    }
+                                    
+                                    pre code {
+                                        background: #f4f4f4;
+                                        padding: 0.2rem 0.4rem;
+                                        border-radius: 3px;
+                                        display: block;
+                                        overflow-x: auto;
+                                    }
+                                    
+                                    /* コピーボタンのスタイル */
+                                    .copy-button {
+                                        position: absolute;
+                                        top: 5px;
+                                        right: 5px;
+                                        padding: 5px 10px;
+                                        background: #4CAF50;
+                                        color: white;
+                                        border: none;
+                                        border-radius: 4px;
+                                        cursor: pointer;
+                                        font-size: 12px;
+                                        opacity: 0.7;
+                                        transition: opacity 0.2s;
+                                    }
+                                    
+                                    .copy-button:hover {
+                                        opacity: 1;
+                                    }
+                                    
+                                    .copy-button.copied {
+                                        background: #45a049;
+                                    }
+                                    
+                                    table {
+                                        border-collapse: collapse;
+                                        width: 100%;
+                                    }
+                                    
+                                    th, td {
+                                        border: 1px solid #ddd;
+                                        padding: 0.5rem;
+                                    }
+                                    
+                                    th {
+                                        background: #f4f4f4;
+                                    }
                                 </style>
                             </head>
                             <body>
                                 ${htmlContent}
+
+                                <script>
+                                    // すべてのコードブロックにコピーボタンを追加
+                                    document.querySelectorAll('pre').forEach(pre => {
+                                        const button = document.createElement('button');
+                                        button.className = 'copy-button';
+                                        button.textContent = 'copy';
+                                        
+                                        button.addEventListener('click', async () => {
+                                            const code = pre.querySelector('code');
+                                            const text = code ? code.innerText : pre.innerText;
+                                            
+                                            try {
+                                                await navigator.clipboard.writeText(text);
+                                                button.textContent = 'copied！';
+                                                button.classList.add('copied');
+                                                
+                                                setTimeout(() => {
+                                                    button.textContent = 'copy';
+                                                    button.classList.remove('copied');
+                                                }, 2000);
+                                            } catch (err) {
+                                                button.textContent = 'error';
+                                                console.error('copy failed:', err);
+                                            }
+                                        });
+                                        
+                                        pre.style.position = 'relative';
+                                        pre.appendChild(button);
+                                    });
+                                <\/script>
                             </body>
                             </html>
                         `);
                         newWindow.document.close();
                     })
                     .catch(error => {
-                        alert('エラー: ' + error.message);
+                        alert('error: ' + error.message);
                     });
             });
         });
